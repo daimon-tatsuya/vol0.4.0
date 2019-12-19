@@ -64,7 +64,7 @@ void Player::update()
         //}
 
         //左右操作\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        /何も押してないとき
+        //何も押してないとき
         //ベルトコンベアーの強制移動
         speed = { 0,0 };
         speed.x = belt;
@@ -139,7 +139,7 @@ void Player::update()
       
         break;
 
-    }yu
+    }
     //アニメアップデート
     if (animeData)
     { animeUpdate(animeData); }

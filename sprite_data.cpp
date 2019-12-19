@@ -56,7 +56,7 @@ SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE, 320 * 2, 320 , 64,
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER,        L"./Data/Images/player.png",        1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/garbage.png",       256U },//ゴミ
-    { TEXNO::OBJ,           L"./Data/Images/garbage.png", }
+  //  { TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
     //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画
