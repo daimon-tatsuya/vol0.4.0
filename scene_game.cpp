@@ -87,7 +87,10 @@ void game_draw()
     GameLib::clear(1, 1, 1);
 
     player.draw();
-    garbage.draw();
+    
+    //‘¶İ‚µ‚Ä‚é‚¾‚¯
+    if (garbage.exist) { garbage.draw(); }
+
     press_machine.draw();
 }
 

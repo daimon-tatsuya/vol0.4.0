@@ -12,3 +12,4 @@ public:
     void draw();
 };
 
+extern Garbage garbage;
