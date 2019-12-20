@@ -24,9 +24,7 @@ void Player::init()
 void Player::update()
 {
     using namespace input;
-    constexpr float SpeedMax = 8.0f;
-    constexpr float jump = -10.f;
-    constexpr float GROUND_POS_Y = 570.0f;
+   
     animeData = nullptr;
 
     switch (state)
@@ -75,11 +73,13 @@ void Player::update()
             {
                 animeData = animePlayer_Left;
                 speed.x = -3;
+                xFlip = -1.0f;
             }
             if (STATE(0) & PAD_RIGHT)//âEà⁄ìÆ
             {
                 animeData = animePlayer_Right;
                 speed.x = 3;
+                xFlip = 1.0f;
             }
             if (STATE(0) & PAD_UP) //è„à⁄ìÆ
             {

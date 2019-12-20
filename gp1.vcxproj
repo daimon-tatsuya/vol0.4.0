@@ -162,6 +162,7 @@
     <ClCompile Include="GameLib\texture.cpp" />
     <ClCompile Include="GameLib\vector.cpp" />
     <ClCompile Include="garbage.cpp" />
+    <ClCompile Include="judge.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="obj2d.cpp" />
     <ClCompile Include="player.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="GameLib\texture.h" />
     <ClInclude Include="GameLib\util.h" />
     <ClInclude Include="GameLib\vector.h" />
+    <ClInclude Include="judge.h" />
     <ClInclude Include="obj2d.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="scene_game.h" />

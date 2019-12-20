@@ -14,7 +14,7 @@ int game_state;     // 状態
 int game_timer;     // タイマー
 
 Player player;
-
+Garbage garbage;
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
@@ -39,6 +39,7 @@ void game_common()
     }
 
     player.update();
+    garbage.update();
 }
 
 //--------------------------------
@@ -79,7 +80,7 @@ void game_draw()
     GameLib::clear(1, 1, 1);
 
     player.draw();
-    
+    garbage.draw();
 }
 
 //--------------------------------

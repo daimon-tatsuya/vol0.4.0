@@ -13,18 +13,29 @@ void Garbage::update()
     {
     case GARBAGE_INIT://初期設定
         animeData = animeGarbage_Large;
-       
+        position = { 0,0 };
+        size = VECTOR2(24 / 2, 64 - 2);
+        color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+        position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+        caughtFlg = false;
             state++;
         break;
     case GARBAGE_MOVE:
         switch ( (STATE(0) & PAD_TRG1) | (STATE(0) & PAD_TRG2))
         {
         case PAD_TRG1://持ち上げる
-            speed = { player.position.x,player.position.y - player.size.y/*- */};
+
+            position = { player.position.x,player.position.y - player.size.y/*- */};
+            caughtFlg = true;
             break;
         case PAD_TRG2://投げる
-             initVelocity = { -12,2*player.xFlip };
-
+            if (caughtFlg)
+            {
+                initVelocity = { 12* player.xFlip,2  };
+                speed = initVelocity;
+                caughtFlg = false;
+            }
+            
             break;
         default://何も押してないとき
                 //ベルトコンベアーの強制移動
@@ -33,9 +44,14 @@ void Garbage::update()
         }
         break;
     }
-
-    position += speed;
-
+    if (caughtFlg)
+    {
+        position = { player.position.x,player.position.y - player.size.y/*- */ };
+    }
+    else
+    {
+        position += speed;
+    }
     //アニメアップデート
     if (animeData)
     {
@@ -45,6 +61,7 @@ void Garbage::update()
 
 void Garbage::draw()
 {
+
     if (data)
     { data->draw(position, scale, angle, color); }
 }

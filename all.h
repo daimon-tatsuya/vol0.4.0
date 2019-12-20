@@ -29,5 +29,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "work.h"
 #include "player.h"
 #include "garbage.h"
+#include "judge.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL
