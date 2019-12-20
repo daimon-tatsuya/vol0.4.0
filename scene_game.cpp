@@ -40,6 +40,7 @@ void game_common()
 
     player.update();
     garbage.update();
+    press_machine.update();
 }
 
 //--------------------------------
@@ -58,6 +59,12 @@ void game_update()
         GameLib::setBlendMode(Blender::BS_ALPHA);
 
         texture::load(loadTexture);
+
+        player.init();
+
+        garbage.init();
+
+        press_machine.init();
 
         game_state++;
         break;
@@ -81,6 +88,7 @@ void game_draw()
 
     player.draw();
     garbage.draw();
+    press_machine.draw();
 }
 
 //--------------------------------

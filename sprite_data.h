@@ -30,6 +30,7 @@ enum TEXNO
     // ゲーム
     PLAYER,
     GARBAGE,
+    PRESS,
     OBJ,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -95,4 +96,7 @@ extern GameLib::SpriteData sprGarbage_Medium2;
 extern GameLib::SpriteData sprGarbage_Small0;
 extern GameLib::SpriteData sprGarbage_Small1;
 extern GameLib::SpriteData sprGarbage_Small2;
+
+//プレス機
+extern GameLib::SpriteData sprPressMachine;
 #endif // !INCLUDED_SPRITE_DATA
