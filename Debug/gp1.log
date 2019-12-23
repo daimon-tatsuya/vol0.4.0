@@ -1,4 +1,2 @@
-﻿scene_game.obj : error LNK2019: 未解決の外部シンボル "public: void __thiscall PressMachine::init(void)" (?init@PressMachine@@QAEXXZ) が関数 "void __cdecl game_update(void)" (?game_update@@YAXXZ) で参照されました。
-scene_game.obj : error LNK2019: 未解決の外部シンボル "public: void __thiscall PressMachine::update(void)" (?update@PressMachine@@QAEXXZ) が関数 "void __cdecl game_common(void)" (?game_common@@YAXXZ) で参照されました。
-scene_game.obj : error LNK2019: 未解決の外部シンボル "public: void __thiscall PressMachine::draw(void)" (?draw@PressMachine@@QAEXXZ) が関数 "void __cdecl game_draw(void)" (?game_draw@@YAXXZ) で参照されました。
-D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe : fatal error LNK1120: 3 件の未解決の外部参照
+﻿  pressMachine.cpp
+  gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe
