@@ -123,4 +123,8 @@ public:
 };
 OBJ2D* searchSet(OBJ2D[], int, int, VECTOR2);
 BOOL areaCheck(OBJ2D*, float);
+
+//template<class getData>
+void readData(std::string fileName, float& data);
+
 #endif // !INCLUDED_OBJ2D

@@ -7,6 +7,9 @@
 //******************************************************************************
 
 //------< インクルード >---------------------------------------------------------
+#include <string>
+#include <iostream>
+
 #include "all.h"
 
 //------< 変数 >----------------------------------------------------------------
@@ -132,6 +135,18 @@ bool OBJ2D::animeUpdate(AnimeData* animeData)
 //        VECTOR2(0, 0), 0,
 //        col);
 //}
+
+
+void readData(std::string fileName, float& data)
+{
+    //getData data;
+
+    std::ifstream ifs(fileName);
+
+    assert(ifs);
+
+    ifs >> data;
+}
 
 
 
