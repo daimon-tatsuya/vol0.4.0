@@ -28,8 +28,8 @@ namespace GameLib
 
     namespace system
     {
-        static const float SCREEN_WIDTH = 1280.f;  // スクリーンの幅
-        static const float SCREEN_HEIGHT = 720.f; // スクリーンの高さ
+        static const float SCREEN_WIDTH = 1188.f;  // スクリーンの幅
+        static const float SCREEN_HEIGHT = 648.f; // スクリーンの高さ
 
         static const int TEXTURE_NUM = 256U;                   // テクスチャの最大枚数
         static const int DEBUG_INSTANCE_NUM = 8192U;           // デバッグ文字の最大表示数

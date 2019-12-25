@@ -149,6 +149,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="audio.cpp" />
+    <ClCompile Include="ber.cpp" />
+    <ClCompile Include="BG.cpp" />
+    <ClCompile Include="conveyor.cpp" />
     <ClCompile Include="GameLib\debug.cpp" />
     <ClCompile Include="GameLib\dxtk_audio.cpp" />
     <ClCompile Include="GameLib\font.cpp" />
@@ -181,7 +184,10 @@
   <ItemGroup>
     <ClInclude Include="all.h" />
     <ClInclude Include="audio.h" />
+    <ClInclude Include="ber.h" />
+    <ClInclude Include="BG.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="conveyor.h" />
     <ClInclude Include="GameLib\blender.h" />
     <ClInclude Include="GameLib\debug.h" />
     <ClInclude Include="GameLib\dxtk_audio.h" />

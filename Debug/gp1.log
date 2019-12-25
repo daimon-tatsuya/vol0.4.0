@@ -1,18 +1,4 @@
-﻿  work.cpp
-  sprite_data.cpp
-  scene_title.cpp
-  scene_game.cpp
-  pressMachine.cpp
-  player.cpp
-  obj2d.cpp
-c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\obj2d.cpp(97): warning C4458: 'animeData' を宣言すると、クラス メンバーが隠蔽されます
-  c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\obj2d.h(105): note: 'OBJ2D::animeData' の宣言を確認してください
-  main.cpp
-c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\main.cpp(35): warning C4459: 'hWindow' を宣言すると、グローバル宣言が隠蔽されます
-  c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\main.h(22): note: 'MyImGui::hWindow' の宣言を確認してください
-  judge.cpp
-  garbage.cpp
-  audio.cpp
-  コードを生成中...
+﻿  sprite_data.cpp
+cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.pdb (Full PDB)

@@ -31,5 +31,8 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "garbage.h"
 #include "judge.h"
 #include "pressMachine.h"
+#include "BG.h"
+#include "conveyor.h"
+#include "ber.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL
