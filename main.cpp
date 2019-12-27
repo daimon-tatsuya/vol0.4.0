@@ -262,7 +262,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
             ImGui::SliderFloat("player.x", &player.position.x, 0.0f, system::SCREEN_WIDTH); //プレイヤーのx軸のパラメーター
-
+            
             if (ImGui::Button("Save"))
             {
                 //std::ofstream ofs("player.pos.txt");

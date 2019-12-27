@@ -40,8 +40,8 @@ float vector2Length(VECTOR2 v)
 //--------------------------------
 //  あたり判定（円と円）
 //--------------------------------
-BOOL circleHitCheck(VECTOR2 v1, float r1, VECTOR2 v2, float r2)
-{
+BOOL circleHitCheck(VECTOR2 v1, float r1, VECTOR2 v2, float r2)//v1,v2は当たり判定取取りたいポジション
+{                                                              //r1,r2はそれぞれの半径
     VECTOR2 v = v2 - v1;
     float lenSq = vector2LengthSq(v);
     if (lenSq <= (r1 + r2) * (r1 + r2))
@@ -54,8 +54,10 @@ BOOL circleHitCheck(VECTOR2 v1, float r1, VECTOR2 v2, float r2)
 BOOL rectHitCheck(VECTOR2 v1, float width1, float height1, VECTOR2 v2, float width2, float height2)
 {
 
-    if ((v1.x + width1 * 2) >= v2.x && v1.x <= (v2.x + width2 * 2) &&
-        (v1.y + height1 * 2) >= v2.y && v1.y <= (v2.y + height2 * 2))
+    if ((v1.x + width1 * 2) >= v2.x  && 
+        v1.x <= (v2.x + width2 * 2)  &&
+        (v1.y + height1 * 2) >= v2.y &&
+        v1.y <= (v2.y + height2 * 2))
     {
         return true;
     }

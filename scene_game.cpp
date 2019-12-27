@@ -41,6 +41,7 @@ void game_common()
     player.update();
     garbage.update();
     press_machine.update();
+   
 }
 
 //--------------------------------
@@ -66,6 +67,7 @@ void game_update()
 
         press_machine.init();
 
+        
         game_state++;
         break;
 
@@ -92,6 +94,8 @@ void game_draw()
     if (garbage.exist) { garbage.draw(); }
 
     press_machine.draw();
+
+   
 }
 
 //--------------------------------
