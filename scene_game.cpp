@@ -38,6 +38,8 @@ void game_common()
         nextScene = SCENE_TITLE;
     }
 
+    bg.update();
+    conveyor.update();
     player.update();
     garbage.update();
     press_machine.update();
@@ -60,6 +62,12 @@ void game_update()
         GameLib::setBlendMode(Blender::BS_ALPHA);
 
         texture::load(loadTexture);
+
+        bg.init();
+
+        conveyor.init();
+
+        ber.init();
 
         player.init();
 
@@ -87,6 +95,12 @@ void game_draw()
 {
     // ‰æ–Ê‚ð”’‚Å“h‚è‚Â‚Ô‚·
     GameLib::clear(1, 1, 1);
+
+    bg.draw();
+
+    conveyor.draw();
+
+    ber.draw();
 
     player.draw();
     

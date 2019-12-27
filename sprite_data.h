@@ -31,6 +31,9 @@ enum TEXNO
     PLAYER,
     GARBAGE,
     PRESS,
+    BG,
+    CONVEYOR,
+    BER,
     OBJ,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -99,4 +102,13 @@ extern GameLib::SpriteData sprGarbage_Small2;
 
 //プレス機
 extern GameLib::SpriteData sprPressMachine;
+
+//背景
+extern GameLib::SpriteData sprBG;
+
+//コンベアー
+extern GameLib::SpriteData sprConveyor;
+
+//柵
+extern GameLib::SpriteData sprBer;
 #endif // !INCLUDED_SPRITE_DATA

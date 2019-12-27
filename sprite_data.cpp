@@ -9,6 +9,7 @@
 //------< インクルード >----------------------------------------------------------
 #include "all.h"
 //------< マクロ >--------------------------------------------------------------
+#define SPRITE_LEFT(texno,left,top,width,height)	{ (texno),(left),(top),(width),(height),0,0 }      // 画像の左上が中心
 #define SPRITE_CENTER(texno,left,top,width,height)	{ (texno),(left),(top),(width),(height),(width)/2,(height)/2 }  // 画像の真ん中が中心
 #define SPRITE_BOTTOM(texno,left,top,width,height)	{ (texno),(left),(top),(width),(height),(width)/2,(height)   }  // 画像の足元が中心
 //------< using >---------------------------------------------------------------
@@ -67,13 +68,25 @@ SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 2 ,128, 192,
 //プレス機
 SpriteData sprPressMachine = SPRITE_BOTTOM(TEXNO::PRESS, 0, 0, 275, 610);
 
+//背景
+SpriteData sprBG = SPRITE_LEFT(TEXNO::BG, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
+//コンベアー
+SpriteData sprConveyor = SPRITE_LEFT(TEXNO::CONVEYOR, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
+//柵
+SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
-    { TEXNO::PLAYER,        L"./Data/Images/player.png",        1U },// プレイヤー
+    { TEXNO::PLAYER,        L"./Data/Images/player.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/garbage.png",       256U },//ゴミ
-    { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",    1U }, //プレス機
-  //  { TEXNO::OBJ,           L"./Data/Images/garbage.png", },
+    { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
+    { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
+    { TEXNO::CONVEYOR,      L"./Data/Images/obj_konbea.png",      1U },//コンベアー
+    { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
+    //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
     //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画

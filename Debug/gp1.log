@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 ﻿  garbage.cpp
   gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe
+=======
+﻿  sprite_data.cpp
+cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
+  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.exe
+  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.pdb (Full PDB)
+>>>>>>> 91302c13731910a1d764ea8d933cfda60ec94e5d
