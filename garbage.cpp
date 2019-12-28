@@ -7,7 +7,7 @@ void Garbage::init()
 {
     position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
     exist = true;
-    throwFlg = false;
+   
 }
 
 void Garbage::update()
@@ -36,22 +36,17 @@ void Garbage::update()
         {
         case PAD_TRG1://持ち上げ
 
-            state_throw = 0;
-
             lifted();   
 
             break;
         case PAD_TRG2://投げる
-                    
+
             thrown();
             
             break;
         default://何も押してないとき
-            if (!throwFlg)
-            {
                 //ベルトコンベアーの強制移動
-                speed.x = belt;
-            }
+            speed.x = belt;
             break;
         }
         break;
@@ -92,18 +87,16 @@ void Garbage::lifted()//持ち上げるた時のゴミの動き
 }; 
 void Garbage::thrown() //投げた時のゴミの動き
 {
-    //int state_throw = 0;
+    int state_throw = 0;
     if (caughtFlg)//プレイヤーの頭上にいるとき
     {
+
         switch (state_throw)
         {
         case 0:
-            initVelocity = { 8 * player.xFlip,2 };
+            initVelocity = { 12 * player.xFlip,2 };
             speed = initVelocity;
             caughtFlg = false;
-            throwFlg = true;
-            speed.y -= 1.0f;
-            state_throw++;
             break;
         case 1:
             speed.y -= 1.0f;
