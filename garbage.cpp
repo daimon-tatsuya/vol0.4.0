@@ -7,7 +7,7 @@ void Garbage::init()
 {
     position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
     exist = true;
-   
+    throwFlg = false;
 }
 
 void Garbage::update()
@@ -45,8 +45,11 @@ void Garbage::update()
             
             break;
         default://何も押してないとき
+            if (!throwFlg)
+            {
                 //ベルトコンベアーの強制移動
-            speed.x = belt;
+                speed.x = belt;
+            }
             break;
         }
         break;
@@ -96,11 +99,13 @@ void Garbage::thrown() //投げた時のゴミの動き
         case 0:
             initVelocity = { 12 * player.xFlip,2 };
             speed = initVelocity;
+            throwFlg = true;
+            speed.y -= 1.0f;
             caughtFlg = false;
             break;
-        case 1:
-            speed.y -= 1.0f;
-            position += speed;
+        //case 1:
+        //    speed.y -= 1.0f;
+        //    position += speed;
 
         }
     }
