@@ -1,4 +1,41 @@
-﻿  sprite_data.cpp
-cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
+﻿  work.cpp
+  sprite_data.cpp
+  scene_title.cpp
+  scene_game.cpp
+  pressMachine.cpp
+  player.cpp
+  obj2d.cpp
+c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\obj2d.cpp(97): warning C4458: 'animeData' を宣言すると、クラス メンバーが隠蔽されます
+  c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\obj2d.h(105): note: 'OBJ2D::animeData' の宣言を確認してください
+  main.cpp
+c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\main.cpp(35): warning C4459: 'hWindow' を宣言すると、グローバル宣言が隠蔽されます
+  c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\main.h(22): note: 'MyImGui::hWindow' の宣言を確認してください
+  judge.cpp
+  imgui_widgets.cpp
+  imgui_impl_win32.cpp
+  imgui_impl_dx11.cpp
+  imgui_draw.cpp
+  imgui_demo.cpp
+  imgui.cpp
+  garbage.cpp
+  vector.cpp
+  texture.cpp
+  sprite.cpp
+  resource_manager.cpp
+  コードを生成中...
+  コンパイル中...
+  primitive.cpp
+  obj2d_data.cpp
+  input_manager.cpp
+  game_lib.cpp
+  frame_rate.cpp
+  font.cpp
+  dxtk_audio.cpp
+  debug.cpp
+  conveyor.cpp
+  BG.cpp
+  ber.cpp
+  audio.cpp
+  コードを生成中...
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.pdb (Full PDB)
