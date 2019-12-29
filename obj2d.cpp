@@ -14,6 +14,8 @@
 
 //------< 変数 >----------------------------------------------------------------
 
+float OBJ2D::no = 0;
+
 //------< 構造体 >---------------------------------------------------------------
 
 //------< プロトタイプ宣言 >-----------------------------------------------------
@@ -126,15 +128,14 @@ bool OBJ2D::animeUpdate(AnimeData* animeData)
 //--------------------------------------------------------------
 //  あたり判定の可視化
 //--------------------------------------------------------------
-//void OBJ2DC::drawHitRect(const VECTOR4& col)
-//{
-//    primitive::rect(
-//        VECTOR2(hitRect.left - Game::instance()->bgManager()->getScrollX(),
-//            hitRect.top - Game::instance()->bgManager()->getScrollY()),
-//        VECTOR2(hitRect.right - hitRect.left, hitRect.bottom - hitRect.top),
-//        VECTOR2(0, 0), 0,
-//        col);
-//}
+void OBJ2D::drawHitRect(const VECTOR4& col)
+{
+    primitive::rect(
+        VECTOR2(hitRect.left, hitRect.top),
+        VECTOR2(hitRect.right - hitRect.left, hitRect.bottom - hitRect.top),
+        VECTOR2(0, 0), 0,
+        col);
+}
 
 
 void readData(std::string fileName, float& data)

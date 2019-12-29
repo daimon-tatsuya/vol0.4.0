@@ -44,6 +44,10 @@ void game_common()
     garbage.update();
     press_machine.update();
    
+    for ( auto& it : dustBox)
+    {     
+        it.update();
+    }
 }
 
 //--------------------------------
@@ -75,6 +79,14 @@ void game_update()
 
         press_machine.init();
 
+        for (auto& it : dustBox)
+        {            
+            it.init();
+
+            it.no += 263;
+        }
+
+        dustBox[0].no = 0;
         
         game_state++;
         break;
@@ -109,7 +121,10 @@ void game_draw()
 
     press_machine.draw();
 
-   
+    for (auto& it : dustBox)
+    {
+        it.draw();
+    }
 }
 
 //--------------------------------

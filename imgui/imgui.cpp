@@ -2019,7 +2019,7 @@ void ImGuiTextBuffer::appendf(const char* fmt, ...)
 
 //-----------------------------------------------------------------------------
 // [SECTION] ImGuiListClipper
-// This is currently not as flexible/powerful as it should be, needs some rework (see TODO)
+// This is currently not as flexible/powerful as it should be, needs some rework (see #)
 //-----------------------------------------------------------------------------
 
 static void SetCursorPosYAndSetupDummyPrevLine(float pos_y, float line_height)

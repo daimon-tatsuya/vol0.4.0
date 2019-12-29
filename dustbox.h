@@ -8,3 +8,5 @@ public:
     void update();
     void draw();
 };
+
+EXTERN DustBox dustBox[3];

@@ -81,9 +81,10 @@ public:
     int                     state = 0;              // ステート
     int                     timer = 0;              // タイマー
     int                     param = 0;              //汎用パラメータ
-    int                     type;                   // タイプ
+    int                     type = 0;               // タイプ
     int                     inversion;              //反転
    
+    static float            no;
 
     int                     iWork[16] ;             // 汎用（使い方は自由）
     float                   fWork[16] ;             // 汎用（使い方は自由）

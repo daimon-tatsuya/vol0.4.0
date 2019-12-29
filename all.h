@@ -34,5 +34,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "BG.h"
 #include "conveyor.h"
 #include "ber.h"
+#include "dustbox.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL

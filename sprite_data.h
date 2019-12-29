@@ -34,6 +34,7 @@ enum TEXNO
     BG,
     CONVEYOR,
     BER,
+    DUSTBOX,
     OBJ,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -111,4 +112,7 @@ extern GameLib::SpriteData sprConveyor;
 
 //柵
 extern GameLib::SpriteData sprBer;
+
+//ダストボックス
+extern SpriteData sprDustBox;
 #endif // !INCLUDED_SPRITE_DATA

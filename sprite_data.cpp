@@ -77,7 +77,8 @@ SpriteData sprConveyor = SPRITE_LEFT(TEXNO::CONVEYOR, 0, 0, system::SCREEN_WIDTH
 //柵
 SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
-
+//ダストボックス
+SpriteData sprDustBox = SPRITE_CENTER(TEXNO::DUSTBOX, 387, 0, 173, 171);
 
 //******************************************************************************
 // 2D画像ロードデータ
@@ -88,6 +89,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
     { TEXNO::CONVEYOR,      L"./Data/Images/obj_konbea.png",      1U },//コンベアー
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
+    { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
