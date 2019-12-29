@@ -14,7 +14,7 @@ int game_state;     // 状態
 int game_timer;     // タイマー
 
 Player player;
-Garbage garbage;
+//Garbage garbage;
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
