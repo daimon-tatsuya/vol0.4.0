@@ -17,4 +17,4 @@ public:
   
 };
 
-extern Garbage garbage;
+EXTERN Garbage garbage;

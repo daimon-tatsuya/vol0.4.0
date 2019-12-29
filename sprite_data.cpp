@@ -77,6 +77,8 @@ SpriteData sprConveyor = SPRITE_LEFT(TEXNO::CONVEYOR, 0, 0, system::SCREEN_WIDTH
 //柵
 SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
+
+
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
