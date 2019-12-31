@@ -15,7 +15,7 @@ void DustBox::init()
 
 void DustBox::update()
 {
-
+   
 }
 
 void DustBox::draw()

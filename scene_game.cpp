@@ -7,6 +7,7 @@
 //******************************************************************************
 
 //------< インクルード >---------------------------------------------------------
+#include <list>
 #include "all.h"
 
 //------< 変数 >----------------------------------------------------------------
@@ -14,7 +15,11 @@ int game_state;     // 状態
 int game_timer;     // タイマー
 
 Player player;
-//Garbage garbage;
+
+//std::list<Garbage> garbageList;
+
+//GarbageManager GarbageManager_;
+
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
@@ -41,12 +46,18 @@ void game_common()
     bg.update();
     conveyor.update();
     player.update();
-    garbage.update();
+    //garbage.update();
+    GarbageManager_.update();
     press_machine.update();
    
     for ( auto& it : dustBox)
     {     
         it.update();
+    }
+
+    if (TRG(0) & PAD_R1) //ゴミ生成
+    {
+        GarbageManager_.add(&garbage, VECTOR2(0, 0));
     }
 }
 
@@ -75,7 +86,11 @@ void game_update()
 
         player.init();
 
-        garbage.init();
+        //garbage.init();
+
+        GarbageManager_.init();
+
+        GarbageManager_.add(&garbage, VECTOR2(0, 0));
 
         press_machine.init();
 
@@ -117,7 +132,8 @@ void game_draw()
     player.draw();
     
     //存在してる時だけ
-    if (garbage.exist) { garbage.draw(); }
+    //if (garbage.exist) { garbage.draw(); }
+    GarbageManager_.draw();
 
     press_machine.draw();
 

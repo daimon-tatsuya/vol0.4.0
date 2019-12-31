@@ -95,6 +95,31 @@ BOOL areaCheck(OBJ2D* obj, float limit)
 //    return false;
 //}
 
+//--------------------------------------------------------------
+//  移動
+//--------------------------------------------------------------
+void OBJ2D::move()
+{
+    if (mvAlg) mvAlg->move(this);                   // 移動アルゴリズムが存在すれば、moveメソッドを呼ぶ
+    if (eraseAlg) eraseAlg->erase(this);            // 消去アルゴリズムが存在すれば、eraseメソッドを呼ぶ
+}
+
+//--------------------------------------------------------------
+//  描画
+//--------------------------------------------------------------
+void OBJ2D::draw()
+{
+    if (isDrawHitRect)
+    {
+        // あたり判定の領域を指定した色で塗りつぶす
+        drawHitRect(VECTOR4(1.0f, 0.0f, 0.0f, 0.4f));
+    }
+    if (data)
+    {
+        data->draw(position, scale, angle, color);  // dataのdrawメソッドでスプライトを描画する
+    }
+}
+
 
 bool OBJ2D::animeUpdate(AnimeData* animeData)
 {
@@ -135,6 +160,74 @@ void OBJ2D::drawHitRect(const VECTOR4& col)
         VECTOR2(hitRect.right - hitRect.left, hitRect.bottom - hitRect.top),
         VECTOR2(0, 0), 0,
         col);
+}
+
+void OBJ2DManager::init()
+{
+    //リストのOBJ2Dを全てクリアする
+    objList.clear();
+}
+
+//--------------------------------------------------------------
+//  リストへ追加
+//--------------------------------------------------------------
+OBJ2D* OBJ2DManager::add(MoveAlg* mvAlg, const VECTOR2& pos)
+{
+    OBJ2D obj;                          // OBJ2Dを宣言する
+    obj.mvAlg = mvAlg;                  // mvAlgに引数のmvalgを代入
+    obj.position = pos;                 // positionに引数のposを代入
+
+    objList.push_back(obj);             // リストにobjを追加する
+    return &(*objList.rbegin());        // 今追加したobjのアドレスを返す（何かで使えるように）
+}
+
+//--------------------------------------------------------------
+//  更新
+//--------------------------------------------------------------
+void OBJ2DManager::update()
+{
+    // 移動
+    for (auto& it : objList)            // objListの全ての要素をループし、itという名前で各要素にアクセス
+    {
+        it.move();                      // itのmoveメソッドを呼ぶ
+    }
+
+    // 空ノードの削除（今は気にしなくて良い）
+    auto it = objList.begin();
+    while (it != objList.end())
+    {
+        if (it->mvAlg)
+        {
+            it++;
+        }
+        else
+        {
+            it = objList.erase(it);
+        }
+    }
+}
+
+//--------------------------------------------------------------
+//  描画
+//--------------------------------------------------------------
+void OBJ2DManager::draw()
+{
+    for (auto& it : objList)            // objListの全ての要素をループし、itという名前で各要素にアクセス 
+    {
+        if (it.mvAlg)
+        {
+            it.draw();                      // itのdrawメソッドを呼ぶ
+        }
+    }
+}
+
+//--------------------------------------------------------------
+//  デストラクタ
+//--------------------------------------------------------------
+OBJ2DManager::~OBJ2DManager()
+{
+    //リストのOBJ2Dを全てクリアする
+    objList.clear();
 }
 
 

@@ -1,5 +1,4 @@
 #pragma once
-#include "all.h"
 
 class DustBox : public OBJ2D
 {

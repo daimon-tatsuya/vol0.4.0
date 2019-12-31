@@ -20,13 +20,13 @@ using namespace GameLib;    // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæj
 
 //------< ƒCƒ“ƒNƒ‹[ƒh >---------------------------------------------------------
+#include "work.h"
 #include "common.h"
 #include "audio.h"
 #include "scene_title.h"
 #include "obj2d.h"
 #include "scene_game.h"
 #include "sprite_data.h"
-#include "work.h"
 #include "player.h"
 #include "garbage.h"
 #include "judge.h"
