@@ -80,6 +80,31 @@ SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::
 //ダストボックス
 SpriteData sprDustBox = SPRITE_CENTER(TEXNO::DUSTBOX, 387, 0, 173, 171);
 
+//数字
+SpriteData sprNumber0 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 0, 64, 64, 64);
+SpriteData sprNumber1 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 1, 64, 64, 64);
+SpriteData sprNumber2 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 2, 64, 64, 64);
+SpriteData sprNumber3 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 3, 64, 64, 64);
+SpriteData sprNumber4 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 4, 64, 64, 64);
+SpriteData sprNumber5 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 5, 64, 64, 64);
+SpriteData sprNumber6 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 6, 64, 64, 64);
+SpriteData sprNumber7 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 7, 64, 64, 64);
+SpriteData sprNumber8 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 8, 64, 64, 64);
+SpriteData sprNumber9 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 9, 64, 64, 64);
+
+SpriteData sprComb[] = {
+    sprNumber0,
+    sprNumber1,
+    sprNumber2,
+    sprNumber3,
+    sprNumber4,
+    sprNumber5,
+    sprNumber6,
+    sprNumber7,
+    sprNumber8,
+    sprNumber9,
+};
+
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
@@ -90,6 +115,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::CONVEYOR,      L"./Data/Images/obj_konbea.png",      1U },//コンベアー
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
+    { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
@@ -165,5 +191,45 @@ AnimeData animeGarbage_Small[] =
     { &sprGarbage_Small0,10 },
     { &sprGarbage_Small1,10 },
     { &sprGarbage_Small2,10 },
+    { nullptr, -1 },// 終了フラグ
+};
+
+
+//数字
+//数字を時間で順番に出す場合秒数は0から表示する。
+
+AnimeData animeTimer1[] =
+{
+    { &sprNumber0,60 },
+    { &sprNumber9,60 },
+    { &sprNumber8,60 },
+    { &sprNumber7,60 },
+    { &sprNumber6,60 },
+    { &sprNumber5,60 },
+    { &sprNumber4,60 },
+    { &sprNumber3,60 },
+    { &sprNumber2,60 },
+    { &sprNumber1,60 },
+    { nullptr, -1 },// 終了フラグ
+};
+
+AnimeData animeTimer10[] =
+{
+    { &sprNumber0,60 },
+    { &sprNumber5,600 },
+    { &sprNumber4,600 },
+    { &sprNumber3,600 },
+    { &sprNumber2,600 },
+    { &sprNumber1,600 },
+    { &sprNumber0,540 }, //最後10の単位が0になった時は1秒分だけ短くする。
+    { nullptr, -1 },// 終了フラグ
+};
+
+AnimeData animeTimer100[] =
+{    
+    { &sprNumber3,60 }, //最初だけ1秒間
+    { &sprNumber2,3600 },
+    { &sprNumber1,3600 },
+    { &sprNumber0,3600 },
     { nullptr, -1 },// 終了フラグ
 };

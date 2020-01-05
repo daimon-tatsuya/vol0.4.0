@@ -35,6 +35,7 @@ enum TEXNO
     CONVEYOR,
     BER,
     DUSTBOX,
+    NUMBER,
     OBJ,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -57,6 +58,9 @@ extern GameLib::AnimeData animePlayer_Up[];
 extern GameLib::AnimeData animePlayer_Right[];
 extern GameLib::AnimeData animePlayer_Down[];
 extern GameLib::AnimeData animePlayer_Left[];
+extern GameLib::AnimeData animeTimer1[];
+extern GameLib::AnimeData animeTimer10[];
+extern GameLib::AnimeData animeTimer100[];
 
 //上歩き
 extern GameLib::SpriteData sprPlayer_Up0;
@@ -115,4 +119,18 @@ extern GameLib::SpriteData sprBer;
 
 //ダストボックス
 extern SpriteData sprDustBox;
+
+//数字
+extern GameLib::SpriteData sprNumber0;
+extern GameLib::SpriteData sprNumber1;
+extern GameLib::SpriteData sprNumber2;
+extern GameLib::SpriteData sprNumber3;
+extern GameLib::SpriteData sprNumber4;
+extern GameLib::SpriteData sprNumber5;
+extern GameLib::SpriteData sprNumber6;
+extern GameLib::SpriteData sprNumber7;
+extern GameLib::SpriteData sprNumber8;
+extern GameLib::SpriteData sprNumber9;
+
+extern GameLib::SpriteData sprComb[];
 #endif // !INCLUDED_SPRITE_DATA

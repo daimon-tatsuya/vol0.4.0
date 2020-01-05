@@ -40,6 +40,10 @@ void game_common()
 {
     if (TRG(0) & PAD_START)
     {
+        combNum = 0;
+        combKeta = 0;
+        timerNum = 10800;
+        timerKeta = 0;
         nextScene = SCENE_TITLE;
     }
 
@@ -49,15 +53,26 @@ void game_common()
     //garbage.update();
     GarbageManager_.update();
     press_machine.update();
-   
-    for ( auto& it : dustBox)
-    {     
-        it.update();
-    }
+    DustBoxManager_.update();
+    TimerManager_.update();
+    CombManager_.update();
+
+    timerNum--;
 
     if (TRG(0) & PAD_R1) //ゴミ生成
     {
         GarbageManager_.add(&garbage, VECTOR2(0, 0));
+    }
+
+    //コンボ桁生成
+    if (combNum >= 10 && combKeta == 1)
+    {
+        CombManager_.add(&comb, VECTOR2(1100, 250));
+    }
+
+    if (combNum >= 100 && combKeta == 2)
+    {
+        CombManager_.add(&comb, VECTOR2(1100, 250));
     }
 }
 
@@ -94,15 +109,23 @@ void game_update()
 
         press_machine.init();
 
-        for (auto& it : dustBox)
-        {            
-            it.init();
+        DustBoxManager_.init();
 
-            it.no += 263;
-        }
+        DustBoxManager_.add(&dustBox, VECTOR2(400, 84));
 
-        dustBox[0].no = 0;
-        
+        DustBoxManager_.add(&dustBox, VECTOR2(663, 84));
+
+        DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
+
+        TimerManager_.init();
+
+        TimerManager_.add(&timer, VECTOR2(640, 350));
+        TimerManager_.add(&timer, VECTOR2(640, 350));
+        TimerManager_.add(&timer, VECTOR2(600, 350));
+
+        CombManager_.init();
+        CombManager_.add(&comb, VECTOR2(1050, 350));
+
         game_state++;
         break;
 
@@ -130,17 +153,27 @@ void game_draw()
     ber.draw();
 
     player.draw();
-    
-    //存在してる時だけ
-    //if (garbage.exist) { garbage.draw(); }
+      
     GarbageManager_.draw();
 
     press_machine.draw();
 
-    for (auto& it : dustBox)
+    DustBoxManager_.draw();
+
+    TimerManager_.draw();
+
+    if (timerNum > 0) //タイマーのコンマ
     {
-        it.draw();
+        texture::begin(TEXNO::NUMBER);
+        texture::draw(TEXNO::NUMBER,
+            550, 350, 1.0f, 1.0f,
+            64 * 12, 64, 64, 64,
+            32, 32, 0,
+            1.0f, 1.0f, 1.0f, 1.0f);
+        texture::end(TEXNO::NUMBER);
     }
+
+    CombManager_.draw();
 }
 
 //--------------------------------
@@ -148,6 +181,8 @@ void game_draw()
 //--------------------------------
 void game_end()
 {
+    
+
     int i;
     for (i = 0; i < MUSIC_FILE_MAX; i++)
     {

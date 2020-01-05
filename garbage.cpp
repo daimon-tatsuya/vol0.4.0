@@ -31,7 +31,7 @@ void Garbage::move(OBJ2D* obj)
         obj->state++;
         break;   
 
-    case GARBAGE_MOVE:       
+    case GARBAGE_MOVE:   
         switch ( (TRG(0) & PAD_TRG1) | (TRG(0) & PAD_TRG2))
         {
         case PAD_TRG1://éùÇøè„Ç∞

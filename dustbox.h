@@ -1,11 +1,24 @@
 #pragma once
 
-class DustBox : public OBJ2D
+class DustBox : public MoveAlg
 {
 public:
-    void init();
-    void update();
-    void draw();
+    void move(OBJ2D*);
 };
 
-EXTERN DustBox dustBox[3];
+EXTERN DustBox dustBox;
+
+class DustBoxErase : public EraseAlg
+{
+public:
+    void erase(OBJ2D*);
+};
+
+EXTERN DustBoxErase dustBoxErase;
+
+class DustBoxManager : public OBJ2DManager
+{
+
+};
+
+EXTERN DustBoxManager DustBoxManager_;

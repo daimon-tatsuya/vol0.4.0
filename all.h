@@ -35,5 +35,8 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "conveyor.h"
 #include "ber.h"
 #include "dustbox.h"
+#include "ui.h"
+#include "timer.h"
+#include "comb.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL

@@ -1,27 +1,19 @@
 #include "all.h"
 
-void DustBox::init()
+
+void DustBox::move(OBJ2D* obj)
 {
-    data = &sprDustBox;
-    position = VECTOR2(400, 84);
-
-    if (no >= 263)
+    switch (obj->state)
     {
-        position.x += no;
-    }
+    case 0:
 
-    
+        obj->data = &sprDustBox;
+        obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+        break;
+    }
 }
 
-void DustBox::update()
+void DustBoxErase::erase(OBJ2D* obj)
 {
-   
-}
-
-void DustBox::draw()
-{
-    if (data)
-    {
-        data->draw(position);
-    }
+    obj->mvAlg = nullptr;
 }

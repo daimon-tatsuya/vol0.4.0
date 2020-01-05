@@ -151,6 +151,7 @@
     <ClCompile Include="audio.cpp" />
     <ClCompile Include="ber.cpp" />
     <ClCompile Include="BG.cpp" />
+    <ClCompile Include="comb.cpp" />
     <ClCompile Include="conveyor.cpp" />
     <ClCompile Include="dustbox.cpp" />
     <ClCompile Include="GameLib\debug.cpp" />
@@ -180,6 +181,8 @@
     <ClCompile Include="scene_game.cpp" />
     <ClCompile Include="scene_title.cpp" />
     <ClCompile Include="sprite_data.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="ui.cpp" />
     <ClCompile Include="work.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +190,7 @@
     <ClInclude Include="audio.h" />
     <ClInclude Include="ber.h" />
     <ClInclude Include="BG.h" />
+    <ClInclude Include="comb.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="conveyor.h" />
     <ClInclude Include="dustbox.h" />
@@ -224,6 +228,8 @@
     <ClInclude Include="scene_title.h" />
     <ClInclude Include="sprite_data.h" />
     <ClInclude Include="garbage.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="ui.h" />
     <ClInclude Include="work.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
