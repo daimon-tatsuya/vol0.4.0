@@ -28,7 +28,8 @@ void PressMachine::update()
         {
             it->eraseAlg = &garbageErase;
 
-            combNum++;
+            //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
+            combNum[0]++;
 
             shakeFlag = true;
         }

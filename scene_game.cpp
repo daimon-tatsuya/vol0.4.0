@@ -40,8 +40,10 @@ void game_common()
 {
     if (TRG(0) & PAD_START)
     {
-        combNum = 0;
-        combKeta = 0;
+        combNum[0] = 0;
+        combNum[1] = 0;
+        combKeta[0] = 0;
+        combKeta[1] = 0;
         timerNum = 10800;
         timerKeta = 0;
         nextScene = SCENE_TITLE;
@@ -49,8 +51,7 @@ void game_common()
 
     bg.update();
     conveyor.update();
-    player.update();
-    //garbage.update();
+    player.update();    
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -65,14 +66,17 @@ void game_common()
     }
 
     //ƒRƒ“ƒ{Œ…¶¬
-    if (combNum >= 10 && combKeta == 1)
+    for (auto it : combKeta)
     {
-        CombManager_.add(&comb, VECTOR2(1100, 250));
-    }
+        if (combNum[it] >= 10 && combKeta[it] == 1)
+        {
+            CombManager_.add(&comb, VECTOR2(1060, 350));
+        }
 
-    if (combNum >= 100 && combKeta == 2)
-    {
-        CombManager_.add(&comb, VECTOR2(1100, 250));
+        if (combNum[it] >= 100 && combKeta[it] == 2)
+        {
+            CombManager_.add(&comb, VECTOR2(1060, 350));
+        }
     }
 }
 
@@ -124,7 +128,7 @@ void game_update()
         TimerManager_.add(&timer, VECTOR2(600, 350));
 
         CombManager_.init();
-        CombManager_.add(&comb, VECTOR2(1050, 350));
+        CombManager_.add(&comb, VECTOR2(1060, 350));
 
         game_state++;
         break;

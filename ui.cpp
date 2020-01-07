@@ -1,7 +1,7 @@
 #include "all.h"
 
-int combNum = 0;
-int combKeta = 0;
+int combNum[2] = { 0, 0 };
+int combKeta[2] = { 0, 0 };
 int timerNum = 10800;
 int timerKeta = 0;
 
@@ -13,11 +13,13 @@ void UI::combMove(OBJ2D* obj)
         //obj->data = &spr
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
-        if (combKeta == 1) { obj->position.x -= obj->size.x; }    //2Œ…–Ú
-        if (combKeta == 2) { obj->position.x -= obj->size.x * 2; }//3Œ…–Ú
-        if (combKeta == 3) { obj->position.x -= obj->size.x * 3; }//4Œ…–Ú
-        obj->type = combKeta;
-        combKeta++;
+        if (combKeta[0] == 1) { 
+            obj->position.x -= obj->size.x;
+        }    //2Œ…–Ú
+        if (combKeta[0] == 2) { obj->position.x -= obj->size.x * 2; }//3Œ…–Ú
+        if (combKeta[0] == 3) { obj->position.x -= obj->size.x * 3; }//4Œ…–Ú
+        obj->type = combKeta[0];
+        combKeta[0]++;
         obj->data = &sprComb[0];
         obj->state++;
         break;
@@ -26,20 +28,57 @@ void UI::combMove(OBJ2D* obj)
 
         if (obj->type == 0)
         {
-            obj->data = &sprComb[combNum % 10];
+            obj->data = &sprComb[combNum[0] % 10];
         }
         else if (obj->type == 1)
         {
-            int num = combNum / 10;
+            int num = combNum[0] / 10;
             obj->data = &sprComb[num % 10];
         }
         else if (obj->type == 2)
         {
-            int num = combNum / 100;
+            int num = combNum[0] / 100;
+            num = num % 10;
+            obj->data = &sprComb[num % 10];
+        }        
+        break;
+    }
+}
+
+void UI::comb2Move(OBJ2D* obj)
+{
+    switch (obj->state)
+    {
+    case 0:
+        //obj->data = &spr
+        obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
+        obj->size = VECTOR2(32, 32);
+        if (combKeta[1] == 1) { obj->position.x -= obj->size.x; }    //2Œ…–Ú
+        if (combKeta[1] == 2) { obj->position.x -= obj->size.x * 2; }//3Œ…–Ú
+        if (combKeta[1] == 3) { obj->position.x -= obj->size.x * 3; }//4Œ…–Ú
+        obj->type = combKeta[1];
+        combKeta[1]++;
+        obj->data = &sprComb[0];
+        obj->state++;
+        break;
+
+    case 1:
+
+        if (obj->type == 0)
+        {
+            obj->data = &sprComb[combNum[1] % 10];
+        }
+        else if (obj->type == 1)
+        {
+            int num = combNum[1] / 10;
+            obj->data = &sprComb[num % 10];
+        }
+        else if (obj->type == 2)
+        {
+            int num = combNum[1] / 100;
             num = num % 10;
             obj->data = &sprComb[num % 10];
         }
-        //obj->animeData = 
         break;
     }
 }

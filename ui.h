@@ -1,8 +1,8 @@
 #pragma once
 #include "all.h"
 
-extern int combNum;
-extern int combKeta;
+extern int combNum[2];
+extern int combKeta[2];
 extern int timerNum;
 extern int timerKeta;
 
@@ -14,4 +14,6 @@ public:
     void timerMove(OBJ2D*);
 
     void combMove(OBJ2D*);
+
+    void comb2Move(OBJ2D*);//プレイヤー2用
 };
