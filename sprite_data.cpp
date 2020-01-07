@@ -92,6 +92,7 @@ SpriteData sprNumber7 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 7, 64, 64, 64);
 SpriteData sprNumber8 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 8, 64, 64, 64);
 SpriteData sprNumber9 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 9, 64, 64, 64);
 
+//コンボ
 SpriteData sprComb[] = {
     sprNumber0,
     sprNumber1,
@@ -103,6 +104,16 @@ SpriteData sprComb[] = {
     sprNumber7,
     sprNumber8,
     sprNumber9,
+};
+
+//ランダムマーク
+SpriteData sprRandoMark[] = {
+    sprGarbage_Large0,
+    sprGarbage_Medium0,
+    sprGarbage_Small0,
+    //sprGarbage_Large0,
+    //sprGarbage_Medium0,
+    //sprGarbage_Small0,
 };
 
 //******************************************************************************
@@ -231,5 +242,17 @@ AnimeData animeTimer100[] =
     { &sprNumber2,3600 },
     { &sprNumber1,3600 },
     { &sprNumber0,3600 },
+    { nullptr, -1 },// 終了フラグ
+};
+
+//ランダムマーク
+AnimeData animeRandoMark[] =
+{
+    { &sprGarbage_Large0, 20 },
+    { &sprGarbage_Medium0, 20 },
+    { &sprGarbage_Small0, 20 },
+    { &sprGarbage_Large0, 20 },
+    { &sprGarbage_Medium0, 20 },
+    { &sprGarbage_Small0, 20 },
     { nullptr, -1 },// 終了フラグ
 };

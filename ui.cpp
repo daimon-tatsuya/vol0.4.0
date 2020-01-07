@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "all.h"
 
 int combNum[2] = { 0, 0 };
@@ -160,3 +161,51 @@ void UI::timerMove(OBJ2D* obj)
         break;
     }
 }
+
+void UI::randoMark(OBJ2D* obj)
+{
+    switch (obj->state)
+    {
+    case 0:
+
+        obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+        obj->size = VECTOR2(32, 32);
+
+        obj->state++;
+        break;
+
+    case  1:
+
+        //絵が次々に代わるアニメーションをしてaddするタイミングになったらアニメーションを止める。
+        if (obj->timer < 360)
+        {
+            obj->animeData = animeRandoMark;
+            obj->timer++;
+        }
+        else if(obj->timer < 540)
+        {
+            obj->timer++;
+            obj->animeData = nullptr;
+            if (obj->count == 0)
+            {                
+                obj->data = &sprRandoMark[rand() % 3];
+                obj->count++;
+            }
+            
+            //GarbageManager_.add(&garbage, obj->position);            
+        }
+        else
+        {
+            obj->count = 0;
+            obj->timer = 0;
+        }
+        
+        if (obj->animeData)
+        {
+            obj->animeUpdate(obj->animeData);
+        }
+        
+        break;
+    }
+}
+

@@ -17,7 +17,7 @@ int game_timer;     // タイマー
 Player player;
 
 //std::list<Garbage> garbageList;
-
+//
 //GarbageManager GarbageManager_;
 
 // 別のファイルの変数を使用する宣言
@@ -57,6 +57,7 @@ void game_common()
     DustBoxManager_.update();
     TimerManager_.update();
     CombManager_.update();
+    RandoManager_.update();
 
     timerNum--;
 
@@ -130,6 +131,11 @@ void game_update()
         CombManager_.init();
         CombManager_.add(&comb, VECTOR2(1060, 350));
 
+        RandoManager_.init();
+        RandoManager_.add(&randomMark, VECTOR2(390, 105));
+        RandoManager_.add(&randomMark, VECTOR2(653, 105));
+        RandoManager_.add(&randomMark, VECTOR2(916, 105));
+
         game_state++;
         break;
 
@@ -178,6 +184,8 @@ void game_draw()
     }
 
     CombManager_.draw();
+
+    RandoManager_.draw();
 }
 
 //--------------------------------

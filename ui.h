@@ -8,12 +8,13 @@ extern int timerKeta;
 
 class UI : public MoveAlg //move関数を宣言していないので抽象クラス
 {
-public:    
-    int timerKetaID = 0;
+public:        
 
     void timerMove(OBJ2D*);
 
     void combMove(OBJ2D*);
 
     void comb2Move(OBJ2D*);//プレイヤー2用
+
+    void randoMark(OBJ2D*);
 };

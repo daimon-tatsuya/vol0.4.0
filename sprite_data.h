@@ -61,6 +61,7 @@ extern GameLib::AnimeData animePlayer_Left[];
 extern GameLib::AnimeData animeTimer1[];
 extern GameLib::AnimeData animeTimer10[];
 extern GameLib::AnimeData animeTimer100[];
+extern GameLib::AnimeData animeRandoMark[];
 
 //上歩き
 extern GameLib::SpriteData sprPlayer_Up0;
@@ -132,5 +133,9 @@ extern GameLib::SpriteData sprNumber7;
 extern GameLib::SpriteData sprNumber8;
 extern GameLib::SpriteData sprNumber9;
 
+//コンボ
 extern GameLib::SpriteData sprComb[];
+
+//ランダムマーク
+extern GameLib::SpriteData sprRandoMark[];
 #endif // !INCLUDED_SPRITE_DATA

@@ -132,6 +132,8 @@ public:
 
     bool throwFlg = false;
 
+    int                     count = 0;
+
     VECTOR2 initVelocity = VECTOR2(0 ,0);//‰‘¬“x
 public:
     // ƒƒ“ƒoŠÖ”
