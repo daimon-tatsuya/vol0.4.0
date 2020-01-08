@@ -36,6 +36,7 @@ enum TEXNO
     BER,
     DUSTBOX,
     NUMBER,
+    ITEM,
     OBJ,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -138,4 +139,10 @@ extern GameLib::SpriteData sprComb[];
 
 //ランダムマーク
 extern GameLib::SpriteData sprRandoMark[];
+
+//アイテム
+extern GameLib::SpriteData sprItem0;
+extern GameLib::SpriteData sprItem1;
+extern GameLib::SpriteData sprItem2;
+extern GameLib::SpriteData sprItem3;
 #endif // !INCLUDED_SPRITE_DATA

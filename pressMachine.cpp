@@ -22,11 +22,11 @@ void PressMachine::update()
 
     position.y += speed.y;
 
-    for  ( auto it = GarbageManager_.getList()->begin(); it != GarbageManager_.getList()->end(); it++) //ここでのイテレータの中身はポインタなのでアローを使う
-    {        
-        if (rectHitCheck(VECTOR2(position.x - size.x, position.y - (size.y * 2)), size.x, size.y / 2, VECTOR2(it->position.x - it->size.x, it->position.y - (it->size.y * 2)), it->size.x, it->size.y) && it->exist)
+    for (auto& it : *GarbageManager_.getList()) //ここでのイテレータの中身はポインタなのでアローを使う
+    {
+        if (rectHitCheck(VECTOR2(position.x - size.x, position.y - (size.y * 2)), size.x, size.y / 2, VECTOR2(it.position.x - it.size.x, it.position.y - (it.size.y * 2)), it.size.x, it.size.y) && it.exist)
         {
-            it->eraseAlg = &garbageErase;
+            it.eraseAlg = &garbageErase;
 
             //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
             combNum[0]++;
@@ -34,6 +34,19 @@ void PressMachine::update()
             shakeFlag = true;
         }
     }
+
+    //for  ( auto it = GarbageManager_.getList()->begin(); it != GarbageManager_.getList()->end(); it++) //ここでのイテレータの中身はポインタなのでアローを使う
+    //{        
+    //    if (rectHitCheck(VECTOR2(position.x - size.x, position.y - (size.y * 2)), size.x, size.y / 2, VECTOR2(it->position.x - it->size.x, it->position.y - (it->size.y * 2)), it->size.x, it->size.y) && it->exist)
+    //    {
+    //        it->eraseAlg = &garbageErase;
+    //
+    //        //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
+    //        combNum[0]++;
+    //
+    //        shakeFlag = true;
+    //    }
+    //}
 
     //if (rectHitCheck(VECTOR2(position.x - size.x, position.y - (size.y * 2)), size.x, size.y / 2, VECTOR2(GarbageManager_.getList()-> - garbage.size.x, garbage.position.y - (garbage.size.y * 2)), garbage.size.x, garbage.size.y) && garbage.exist)
     //{

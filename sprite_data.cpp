@@ -116,6 +116,12 @@ SpriteData sprRandoMark[] = {
     //sprGarbage_Small0,
 };
 
+//アイテム
+SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
+SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
+SpriteData sprItem2 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
+SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
+
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
@@ -127,6 +133,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
+    { TEXNO::ITEM,          L"./Data/Images/garbage.png",         1U },//アイテム
     //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形

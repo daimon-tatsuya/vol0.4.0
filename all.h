@@ -39,5 +39,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "timer.h"
 #include "comb.h"
 #include "randomMark.h"
+#include "item.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL

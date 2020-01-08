@@ -58,12 +58,18 @@ void game_common()
     TimerManager_.update();
     CombManager_.update();
     RandoManager_.update();
+    ItemManager_.update();
 
     timerNum--;
 
     if (TRG(0) & PAD_R1) //ゴミ生成
     {
         GarbageManager_.add(&garbage, VECTOR2(0, 0));
+    }
+
+    if (TRG(0) & PAD_L1)//アイテム生成
+    {
+        ItemManager_.add(&item, VECTOR2(0, 0));
     }
 
     //コンボ桁生成
@@ -136,6 +142,8 @@ void game_update()
         RandoManager_.add(&randomMark, VECTOR2(653, 105));
         RandoManager_.add(&randomMark, VECTOR2(916, 105));
 
+        ItemManager_.init();
+
         game_state++;
         break;
 
@@ -186,6 +194,8 @@ void game_draw()
     CombManager_.draw();
 
     RandoManager_.draw();
+
+    ItemManager_.draw();
 }
 
 //--------------------------------

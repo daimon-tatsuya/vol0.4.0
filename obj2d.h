@@ -101,7 +101,7 @@ public:
     int                     type = 0;               // タイプ
     int                     inversion;              //反転
    
-    static float            no;                     //positionずらしよう
+    int              no;                     //番号振り分け
 
     int                     iWork[16] ;             // 汎用（使い方は自由）
     float                   fWork[16] ;             // 汎用（使い方は自由）
