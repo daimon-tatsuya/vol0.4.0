@@ -40,5 +40,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "comb.h"
 #include "randomMark.h"
 #include "item.h"
+#include "ranking.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL

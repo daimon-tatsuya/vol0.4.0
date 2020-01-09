@@ -17,4 +17,6 @@ public:
     void comb2Move(OBJ2D*);//プレイヤー2用
 
     void randoMark(OBJ2D*);
+
+    void rankingMove(OBJ2D*);
 };

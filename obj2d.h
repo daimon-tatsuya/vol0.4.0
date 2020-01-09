@@ -101,10 +101,11 @@ public:
     int                     type = 0;               // タイプ
     int                     inversion;              //反転
    
-    int              no;                     //番号振り分け
+    int                     no;                     //番号振り分け
 
     int                     iWork[16] ;             // 汎用（使い方は自由）
     float                   fWork[16] ;             // 汎用（使い方は自由）
+    bool                    bWork[16] ;             // 汎用（使い方は自由）    
                       
     int                     jumpTimer = 0;          // 長押しジャンプタイマー
     int                     mutekiTimer = 0;        // 無敵タイマー

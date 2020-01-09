@@ -180,6 +180,7 @@
     <ClCompile Include="player.cpp" />
     <ClCompile Include="pressMachine.cpp" />
     <ClCompile Include="randomMark.cpp" />
+    <ClCompile Include="ranking.cpp" />
     <ClCompile Include="scene_game.cpp" />
     <ClCompile Include="scene_title.cpp" />
     <ClCompile Include="sprite_data.cpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="pressMachine.h" />
     <ClInclude Include="randomMark.h" />
+    <ClInclude Include="ranking.h" />
     <ClInclude Include="scene_game.h" />
     <ClInclude Include="scene_title.h" />
     <ClInclude Include="sprite_data.h" />

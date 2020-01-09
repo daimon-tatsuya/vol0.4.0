@@ -8,7 +8,8 @@ void Item::move(OBJ2D* obj)
 {
     if (obj->state == 0) 
     { 
-        obj->no = rand() % 4 + 1;
+        obj->no = 1;
+        //obj->no = rand() % 4 + 1;
     }
 
     switch (obj->no)
@@ -66,9 +67,11 @@ void itemMove1(OBJ2D* obj)
 
         if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
 
-        if (rectHitCheck(obj->position, obj->size.x, obj->size.y, player.position, player.size.x, player.size.y))
+        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
-            //ここにアイテム効果の処理を描く。
+            //ここにアイテム効果の処理のフラグを立てる。
+            player.bWork[PLAYER_STATUS::SPEEDUP] = true;
+            belt = 3.5f;
             obj->eraseAlg = &itemErase;
         }
 
@@ -106,9 +109,9 @@ void itemMove2(OBJ2D* obj)
 
         if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
 
-        if (rectHitCheck(obj->position, obj->size.x, obj->size.y, player.position, player.size.x, player.size.y))
+        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
-            //ここにアイテム効果の処理を描く。
+            //ここにアイテム効果の処理のフラグを立てる。
             obj->eraseAlg = &itemErase;
         }
 
@@ -146,9 +149,9 @@ void itemMove3(OBJ2D* obj)
 
         if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
 
-        if (rectHitCheck(obj->position, obj->size.x, obj->size.y, player.position, player.size.x, player.size.y))
+        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
-            //ここにアイテム効果の処理を描く。
+            //ここにアイテム効果の処理のフラグを立てる。
             obj->eraseAlg = &itemErase;
         }
 
@@ -186,9 +189,9 @@ void itemMove4(OBJ2D* obj)
 
         if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
 
-        if (rectHitCheck(obj->position, obj->size.x, obj->size.y, player.position, player.size.x, player.size.y))
+        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
-            //ここにアイテム効果の処理を描く。
+            //ここにアイテム効果の処理のフラグを立てる。
             obj->eraseAlg = &itemErase;
         }
 

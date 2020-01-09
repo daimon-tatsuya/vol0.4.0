@@ -1,3 +1,4 @@
-﻿  item.cpp
+﻿  ui.cpp
+c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\githubdata\ui.cpp(212): warning C4100: 'obj': 引数は関数の本体部で 1 度も参照されません。
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\githubData\Debug\gp1.pdb (Full PDB)

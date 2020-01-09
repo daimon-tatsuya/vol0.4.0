@@ -50,7 +50,7 @@ BOOL circleHitCheck(VECTOR2 v1, float r1, VECTOR2 v2, float r2)//v1,v2は当たり判
     return FALSE;
 }
 
-
+//オブジェクトのポジションは左上に戻して引数に入れる。
 BOOL rectHitCheck(VECTOR2 v1, float width1, float height1, VECTOR2 v2, float width2, float height2)
 {
 

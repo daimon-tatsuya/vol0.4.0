@@ -63,6 +63,19 @@ void Player::update()
 
         //左右操作\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //何も押してないとき
+
+        //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
+        if (player.bWork[PLAYER_STATUS::SPEEDUP] && player.timer < 360)
+        {
+            player.timer++;          
+        }
+        else
+        {
+            player.bWork[PLAYER_STATUS::SPEEDUP] = false;
+            player.timer = 0;
+            belt = 2.0f;
+        }
+
         //ベルトコンベアーの強制移動
         speed = { 0,0 };
         speed.x = belt;
@@ -72,13 +85,13 @@ void Player::update()
             if (STATE(0) & PAD_LEFT)//左移動
             {
                 animeData = animePlayer_Left;
-                speed.x = -3;
+                speed.x += -4;
                 xFlip = -1.0f;
             }
             if (STATE(0) & PAD_RIGHT)//右移動
             {
                 animeData = animePlayer_Right;
-                speed.x = 3;
+                speed.x += 3;
                 xFlip = 1.0f;
             }
             if (STATE(0) & PAD_UP) //上移動

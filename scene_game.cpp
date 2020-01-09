@@ -151,6 +151,16 @@ void game_update()
         //////// ’Êí ////////
         game_common();
 
+        if (timerNum < 0)
+        {
+            //game_state++;
+        }
+
+        break;
+
+    case 2:
+        //ƒ‰ƒ“ƒLƒ“ƒO•\¦
+
         break;
     }
     game_timer++;

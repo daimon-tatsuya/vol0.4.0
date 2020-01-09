@@ -15,10 +15,10 @@ void UI::combMove(OBJ2D* obj)
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
         if (combKeta[0] == 1) { 
-            obj->position.x -= obj->size.x;
+            obj->position.x -= obj->size.x + 8;
         }    //2Œ…–Ú
-        if (combKeta[0] == 2) { obj->position.x -= obj->size.x * 2; }//3Œ…–Ú
-        if (combKeta[0] == 3) { obj->position.x -= obj->size.x * 3; }//4Œ…–Ú
+        if (combKeta[0] == 2) { obj->position.x -= obj->size.x * 2 + 8; }//3Œ…–Ú
+        if (combKeta[0] == 3) { obj->position.x -= obj->size.x * 3 + 8; }//4Œ…–Ú
         obj->type = combKeta[0];
         combKeta[0]++;
         obj->data = &sprComb[0];
@@ -209,3 +209,7 @@ void UI::randoMark(OBJ2D* obj)
     }
 }
 
+void UI::rankingMove(OBJ2D* obj)
+{
+
+}
