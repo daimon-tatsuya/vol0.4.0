@@ -23,7 +23,8 @@ EXTERN ItemErase itemErase;
 
 class ItemManager : public OBJ2DManager
 {
-
+public:
+    OBJ2D* add(MoveAlg* mvAlg, const VECTOR2& pos, int type); // objList‚ÉV‚½‚ÈOBJ2D‚ğ’Ç‰Á‚·‚é
 };
 
 EXTERN ItemManager ItemManager_;

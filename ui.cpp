@@ -6,6 +6,8 @@ int combKeta[2] = { 0, 0 };
 int timerNum = 10800;
 int timerKeta = 0;
 
+
+
 void UI::combMove(OBJ2D* obj)
 {
     switch (obj->state)
@@ -24,7 +26,7 @@ void UI::combMove(OBJ2D* obj)
         obj->data = &sprComb[0];
         obj->state++;
         break;
-
+        
     case 1:
 
         if (obj->type == 0)
@@ -179,20 +181,25 @@ void UI::randoMark(OBJ2D* obj)
         //絵が次々に代わるアニメーションをしてaddするタイミングになったらアニメーションを止める。
         if (obj->timer < 360)
         {
-            obj->animeData = animeRandoMark;
+            obj->animeData = animeRandoMark;            
             obj->timer++;
         }
         else if(obj->timer < 540)
         {
             obj->timer++;
-            obj->animeData = nullptr;
+            
             if (obj->count == 0)
             {                
-                obj->data = &sprRandoMark[rand() % 3];
+                int no = rand() % 6;
+                obj->data = &sprRandoMark[no];
+
+                if (no <= 3) { GarbageManager_.add(&garbage, obj->position, no); }
+                else if (no <= 6) { ItemManager_.add(&item, obj->position, no); }
+                
                 obj->count++;
             }
+            obj->animeData = nullptr;
             
-            //GarbageManager_.add(&garbage, obj->position);            
         }
         else
         {

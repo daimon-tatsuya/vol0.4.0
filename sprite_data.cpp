@@ -57,13 +57,13 @@ SpriteData sprGarbage_Large0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 0, 0, 64, 64)
 SpriteData sprGarbage_Large1  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 0, 64, 64);
 SpriteData sprGarbage_Large2  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 0, 64, 64);
 //中型
-SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 0, 64, 128, 128);
-SpriteData sprGarbage_Medium1 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 64, 128, 128);
-SpriteData sprGarbage_Medium2 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 64 , 128, 128);
+SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 0, 192, 64, 64);
+SpriteData sprGarbage_Medium1 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 192, 64, 64);
+SpriteData sprGarbage_Medium2 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 192 ,64, 64);
 //小型
-SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 0, 128, 192, 192);
-SpriteData sprGarbage_Small1  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 1, 128, 192, 192);
-SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 2 ,128, 192, 192);
+SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 0, 128, 64, 64);
+SpriteData sprGarbage_Small1  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 1, 128, 64, 64);
+SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 2 ,128, 64, 64);
 
 //プレス機
 SpriteData sprPressMachine = SPRITE_BOTTOM(TEXNO::PRESS, 0, 0, 275, 610);
@@ -72,7 +72,10 @@ SpriteData sprPressMachine = SPRITE_BOTTOM(TEXNO::PRESS, 0, 0, 275, 610);
 SpriteData sprBG = SPRITE_LEFT(TEXNO::BG, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
 //コンベアー
-SpriteData sprConveyor = SPRITE_LEFT(TEXNO::CONVEYOR, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor0 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor1 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 1, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor2 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 2, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
 
 //柵
 SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
@@ -111,9 +114,16 @@ SpriteData sprRandoMark[] = {
     sprGarbage_Large0,
     sprGarbage_Medium0,
     sprGarbage_Small0,
-    //sprGarbage_Large0,
-    //sprGarbage_Medium0,
-    //sprGarbage_Small0,
+    sprGarbage_Large0,
+    sprGarbage_Medium0,
+    sprGarbage_Small0,
+};
+
+//ゴミ
+SpriteData sprGarbage[] = {
+    sprGarbage_Large0,
+    sprGarbage_Medium0,
+    sprGarbage_Small0,
 };
 
 //アイテム
@@ -129,7 +139,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::GARBAGE,       L"./Data/Images/garbage.png",       256U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
-    { TEXNO::CONVEYOR,      L"./Data/Images/obj_konbea.png",      1U },//コンベアー
+    { TEXNO::CONVEYOR,      L"./Data/Images/berutokonbea.png",    1U },//コンベアー
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
@@ -261,5 +271,12 @@ AnimeData animeRandoMark[] =
     { &sprGarbage_Large0, 20 },
     { &sprGarbage_Medium0, 20 },
     { &sprGarbage_Small0, 20 },
+    { nullptr, -1 },// 終了フラグ
+};
+
+AnimeData animeConveyor[] = {
+    { &sprConveyor0, 10},
+    { &sprConveyor1, 10 },
+    { &sprConveyor2, 10 },
     { nullptr, -1 },// 終了フラグ
 };

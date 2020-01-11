@@ -6,6 +6,7 @@
 enum PLAYER_STATUS
 {
     SPEEDUP,
+    SPEEDDOWN,
 };
 
 constexpr float SpeedMax = 8.0f;

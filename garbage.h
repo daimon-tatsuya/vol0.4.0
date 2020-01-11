@@ -1,7 +1,8 @@
 #pragma once
 #include <list>
 #define GARBAGE_INIT     (0)   
-#define GARBAGE_MOVE     (1)
+#define GARBAGE_DROP     (1)
+#define GARBAGE_MOVE     (2)
 class Garbage : public MoveAlg
 {
 public:   
@@ -27,9 +28,8 @@ EXTERN GarbageErase garbageErase;
 
 class GarbageManager : public OBJ2DManager
 {
-
-
-
+public:
+    OBJ2D* add(MoveAlg* mvAlg, const VECTOR2& pos, int type); // objListÇ…êVÇΩÇ»OBJ2DÇí«â¡Ç∑ÇÈ
 };
 
 EXTERN GarbageManager GarbageManager_;

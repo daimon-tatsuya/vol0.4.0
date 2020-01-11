@@ -6,6 +6,8 @@ extern int combKeta[2];
 extern int timerNum;
 extern int timerKeta;
 
+extern int No;
+
 class UI : public MoveAlg //moveŠÖ”‚ğéŒ¾‚µ‚Ä‚¢‚È‚¢‚Ì‚Å’ŠÛƒNƒ‰ƒX
 {
 public:        

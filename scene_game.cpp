@@ -64,12 +64,12 @@ void game_common()
 
     if (TRG(0) & PAD_R1) //ゴミ生成
     {
-        GarbageManager_.add(&garbage, VECTOR2(0, 0));
+        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
     }
 
     if (TRG(0) & PAD_L1)//アイテム生成
     {
-        ItemManager_.add(&item, VECTOR2(0, 0));
+        ItemManager_.add(&item, VECTOR2(0, 0), 0);
     }
 
     //コンボ桁生成
@@ -116,7 +116,7 @@ void game_update()
 
         GarbageManager_.init();
 
-        GarbageManager_.add(&garbage, VECTOR2(0, 0));
+        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
         press_machine.init();
 

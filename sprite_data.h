@@ -63,6 +63,7 @@ extern GameLib::AnimeData animeTimer1[];
 extern GameLib::AnimeData animeTimer10[];
 extern GameLib::AnimeData animeTimer100[];
 extern GameLib::AnimeData animeRandoMark[];
+extern GameLib::AnimeData animeConveyor[];
 
 //上歩き
 extern GameLib::SpriteData sprPlayer_Up0;
@@ -114,7 +115,9 @@ extern GameLib::SpriteData sprPressMachine;
 extern GameLib::SpriteData sprBG;
 
 //コンベアー
-extern GameLib::SpriteData sprConveyor;
+extern GameLib::SpriteData sprConveyor0;
+extern GameLib::SpriteData sprConveyor1;
+extern GameLib::SpriteData sprConveyor2;
 
 //柵
 extern GameLib::SpriteData sprBer;

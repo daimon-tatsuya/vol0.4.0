@@ -34,7 +34,7 @@ void Player::update()
         animeData = animePlayer_Down;
 
         // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
-        size = VECTOR2(24 / 2, 64 - 2);
+        size = VECTOR2(24 / 2, 32 - 2);
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
 
@@ -65,16 +65,24 @@ void Player::update()
         //何も押してないとき
 
         //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
-        if (player.bWork[PLAYER_STATUS::SPEEDUP] && player.timer < 360)
-        {
-            player.timer++;          
-        }
-        else
+        if (player.bWork[PLAYER_STATUS::SPEEDUP] && player.timer < 360) { player.timer++; }
+        else if(player.bWork[PLAYER_STATUS::SPEEDUP])
         {
             player.bWork[PLAYER_STATUS::SPEEDUP] = false;
             player.timer = 0;
             belt = 2.0f;
         }
+
+        //スピードダウンアイテムをとった時一定時間コンベアーのスピードダウン。
+        if (player.bWork[PLAYER_STATUS::SPEEDDOWN] && player.timer < 360) {
+            player.timer++; }
+        else if (player.bWork[PLAYER_STATUS::SPEEDDOWN])
+        {
+            player.bWork[PLAYER_STATUS::SPEEDDOWN] = false;
+            player.timer = 0;
+            belt = 2.0f;
+        }
+
 
         //ベルトコンベアーの強制移動
         speed = { 0,0 };

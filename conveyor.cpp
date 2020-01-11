@@ -5,14 +5,17 @@ using namespace system;
 
 void Conveyor::init()
 {
-    data = &sprConveyor;
+    animeData = animeConveyor;
 
     position = VECTOR2(0, 0);
 }
 
 void Conveyor::update()
 {
-
+    if (animeData)
+    {
+        animeUpdate(animeData);
+    }
 }
 
 void Conveyor::draw()
