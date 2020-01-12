@@ -114,9 +114,10 @@ SpriteData sprRandoMark[] = {
     sprGarbage_Large0,
     sprGarbage_Medium0,
     sprGarbage_Small0,
-    sprGarbage_Large0,
-    sprGarbage_Medium0,
-    sprGarbage_Small0,
+    sprItem0,
+    sprItem1,
+    sprItem2,
+    sprItem3,
 };
 
 //ÉSÉ~

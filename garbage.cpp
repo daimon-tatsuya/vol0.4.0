@@ -24,10 +24,10 @@ void Garbage::move(OBJ2D* obj)
         if (obj->type == 2) { obj->animeData = animeGarbage_Small; }
 
         //obj->animeData = animeGarbage_Large;
-        obj->size = VECTOR2(27, 64-2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->size = VECTOR2(27,32-2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);        
         obj->caughtFlg = false;
-        obj->speed.y = 3;
+        obj->speed.y = 4;
 
         obj->exist = true;
         obj->throwFlg = false;
@@ -50,7 +50,10 @@ void Garbage::move(OBJ2D* obj)
         switch ( (TRG(0) & PAD_TRG1) | (TRG(0) & PAD_TRG2))
         {
         case PAD_TRG1://持ち上げ
+            //if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position - player.size.x)))
+            //{
 
+            //}
             lifted(obj);   
 
             break;
@@ -82,18 +85,17 @@ void Garbage::move(OBJ2D* obj)
                 }
             }
             break;
+        }       
+        if (obj->caughtFlg)//持ち上げられているときプレイヤーの頭上にいる
+        {
+            obj->position = { player.position.x,player.position.y - player.size.y/*- */ };
         }
+        else
+        {
+            obj->position += obj->speed;
+        }       
         break;
     }
-    if (obj->caughtFlg)//持ち上げられているときプレイヤーの頭上にいる
-    {
-        obj->position = { player.position.x,player.position.y - player.size.y/*- */ };
-    }
-    else 
-    {
-        obj->position += obj->speed;
-    }
-
     //アニメアップデート
     if (obj->animeData)
     {

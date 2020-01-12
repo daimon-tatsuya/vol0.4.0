@@ -9,7 +9,7 @@ void Item::move(OBJ2D* obj)
     if (obj->state == 0) 
     { 
         obj->type = 1;
-        //obj->no = rand() % 4 + 1;
+        //obj->type -= 3;
     }
 
     switch (obj->type)
@@ -42,10 +42,10 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     {
     case 0://初期設定
         obj->data = &sprItem0;
-        obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
        // obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-        obj->speed.y = 3;
+        obj->speed.y = 4;
 
         obj->state++;
         break;
@@ -97,10 +97,10 @@ void itemMove2(OBJ2D* obj)//スピードアップ
     {
     case 0://初期設定
         obj->data = &sprItem1;
-        obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         //obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-        obj->speed.y = 3;
+        obj->speed.y = 4;
 
         obj->state++;
         break;
@@ -151,10 +151,10 @@ void itemMove3(OBJ2D* obj)
     {
     case 0://初期設定
         obj->data = &sprItem2;
-        obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         //obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-        obj->speed.y = 3;
+        obj->speed.y = 4;
 
         obj->state++;
         break;
@@ -204,10 +204,10 @@ void itemMove4(OBJ2D* obj)
     {
     case 0://初期設定
         obj->data = &sprItem3;
-        obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         //obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-        obj->speed.y = 3;
+        obj->speed.y = 4;
 
         obj->state++;
         break;

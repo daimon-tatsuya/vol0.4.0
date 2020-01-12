@@ -29,10 +29,17 @@ void PressMachine::update()
             it.eraseAlg = &garbageErase;
 
             //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
-            //if (large) { combNum[0] += 3; }
-            //if (midlle) { combNum[0] += 2; }
-            //if (small) { combNum[0]++; }
-            combNum[0]++;
+            if (it.type == 0) { combNum[0] += 3; }
+            if (it.type == 1) { combNum[0] += 2; }
+            if (it.type == 2) { combNum[0]++; }          
+           
+            for ( auto& it : *CombManager_.getList())
+            {
+                if (it.type == 0)
+                {
+                    it.bWork[COMB::COMB_ANIME] = true;
+                }
+            }
 
             shakeFlag = true;
         }

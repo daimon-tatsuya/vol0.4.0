@@ -16,34 +16,56 @@ void UI::combMove(OBJ2D* obj)
         //obj->data = &spr
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
-        if (combKeta[0] == 1) { 
+        if (combKeta[obj->type] == 1) {
             obj->position.x -= obj->size.x + 8;
         }    //2Œ…–Ú
-        if (combKeta[0] == 2) { obj->position.x -= obj->size.x * 2 + 8; }//3Œ…–Ú
-        if (combKeta[0] == 3) { obj->position.x -= obj->size.x * 3 + 8; }//4Œ…–Ú
-        obj->type = combKeta[0];
-        combKeta[0]++;
+        if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2 + 8; }//3Œ…–Ú
+        if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3 + 8; }//4Œ…–Ú
+        obj->no = combKeta[obj->type];
+        combKeta[obj->type]++;
         obj->data = &sprComb[0];
         obj->state++;
         break;
         
     case 1:
 
-        if (obj->type == 0)
+        if (obj->no == 0)
         {
-            obj->data = &sprComb[combNum[0] % 10];
+            obj->data = &sprComb[combNum[obj->type] % 10];
+            
         }
-        else if (obj->type == 1)
+        else if (obj->no == 1)
         {
-            int num = combNum[0] / 10;
+            int num = combNum[obj->type] / 10;
             obj->data = &sprComb[num % 10];
         }
-        else if (obj->type == 2)
+        else if (obj->no == 2)
         {
-            int num = combNum[0] / 100;
+            int num = combNum[obj->type] / 100;
             num = num % 10;
             obj->data = &sprComb[num % 10];
-        }        
+        }     
+
+        if (obj->bWork[COMB::COMB_ANIME])
+        {
+            obj->timer++;
+            if (obj->timer < 5)
+            {
+                obj->speed.x = 4;
+            }
+            else if(obj->timer < 10)
+            {
+                obj->speed.x = -4;
+            }
+            else
+            {
+                obj->speed.x = 0;
+                obj->timer = 0;
+                obj->bWork[COMB::COMB_ANIME] = false;
+            }
+        }
+
+        obj->position.x += obj->speed.x;
         break;
     }
 }
@@ -70,6 +92,7 @@ void UI::comb2Move(OBJ2D* obj)
         if (obj->type == 0)
         {
             obj->data = &sprComb[combNum[1] % 10];
+            obj->bWork[COMB::COMB_ANIME] = true;
         }
         else if (obj->type == 1)
         {
@@ -82,6 +105,27 @@ void UI::comb2Move(OBJ2D* obj)
             num = num % 10;
             obj->data = &sprComb[num % 10];
         }
+
+        if (obj->bWork[COMB::COMB_ANIME])
+        {
+            obj->timer++;
+            if (obj->timer < 20)
+            {
+                obj->speed.x += 2;
+            }
+            else if (obj->timer < 40)
+            {
+                obj->speed.x -= 2;
+            }
+            else
+            {
+                obj->speed.x = 0;
+                obj->timer = 0;
+                obj->bWork[COMB::COMB_ANIME] = false;
+            }
+        }
+
+        obj->position.x += obj->speed.x;
         break;
     }
 }
@@ -190,11 +234,19 @@ void UI::randoMark(OBJ2D* obj)
             
             if (obj->count == 0)
             {                
-                int no = rand() % 6;
+                int no = rand() % 10;
+                if (no < 8)
+                {
+                    no = rand() % 3;
+                }
+                else
+                {
+                    no = rand() % 4 + 3;
+                }
                 obj->data = &sprRandoMark[no];
 
-                if (no <= 3) { GarbageManager_.add(&garbage, obj->position, no); }
-                else if (no <= 6) { ItemManager_.add(&item, obj->position, no); }
+                if (no < 3) { GarbageManager_.add(&garbage, obj->position, no); }
+                else  { ItemManager_.add(&item, obj->position, no); }
                 
                 obj->count++;
             }

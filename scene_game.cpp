@@ -73,16 +73,16 @@ void game_common()
     }
 
     //ÉRÉìÉ{åÖê∂ê¨
-    for (auto it : combKeta)
+    for ( int i = 0; i < 2; i++)
     {
-        if (combNum[it] >= 10 && combKeta[it] == 1)
+        if (combNum[i] >= 10 && combKeta[i] == 1)
         {
-            CombManager_.add(&comb, VECTOR2(1060, 350));
+            CombManager_.add(&comb, VECTOR2(1060, 350), i);
         }
 
-        if (combNum[it] >= 100 && combKeta[it] == 2)
+        if (combNum[i] >= 100 && combKeta[i] == 2)
         {
-            CombManager_.add(&comb, VECTOR2(1060, 350));
+            CombManager_.add(&comb, VECTOR2(1060, 350), i);
         }
     }
 }
@@ -135,7 +135,8 @@ void game_update()
         TimerManager_.add(&timer, VECTOR2(600, 350));
 
         CombManager_.init();
-        CombManager_.add(&comb, VECTOR2(1060, 350));
+        CombManager_.add(&comb, VECTOR2(1060, 350), 0);
+        CombManager_.add(&comb, VECTOR2(860, 350), 1);
 
         RandoManager_.init();
         RandoManager_.add(&randomMark, VECTOR2(390, 105));
