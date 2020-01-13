@@ -19,9 +19,9 @@ void Garbage::move(OBJ2D* obj)
     switch (obj->state)
     {
     case GARBAGE_INIT://初期設定
-        if (obj->type == 0) { obj->animeData = animeGarbage_Large; }
-        if (obj->type == 1) { obj->animeData = animeGarbage_Medium; }
-        if (obj->type == 2) { obj->animeData = animeGarbage_Small; }
+        if (obj->type == 0) { obj->data = &sprGarbage_Large0; }
+        if (obj->type == 1) { obj->data = &sprGarbage_Medium0; }
+        if (obj->type == 2) { obj->data = &sprGarbage_Small0; }
 
         //obj->animeData = animeGarbage_Large;
         obj->size = VECTOR2(27,32-2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
@@ -97,10 +97,10 @@ void Garbage::move(OBJ2D* obj)
         break;
     }
     //アニメアップデート
-    if (obj->animeData)
-    {
-        obj->animeUpdate(obj->animeData);
-    }
+    //if (obj->animeData)
+    //{
+    //    obj->animeUpdate(obj->animeData);
+    //}
 
     if (obj->position.y > SCREEN_HEIGHT)
     {

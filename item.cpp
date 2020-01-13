@@ -6,11 +6,11 @@ extern float belt;//ベルトコンベアーの強制移動
 
 void Item::move(OBJ2D* obj)
 {
-    if (obj->state == 0) 
-    { 
-        obj->type = 1;
-        //obj->type -= 3;
-    }
+    //if (obj->state == 0) 
+    //{ 
+    //    obj->type = 1;
+    //    //obj->type -= 3;
+    //}
 
     switch (obj->type)
     {
@@ -91,7 +91,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     }
 }
 
-void itemMove2(OBJ2D* obj)//スピードアップ
+void itemMove2(OBJ2D* obj)//スピードダウン
 {
     switch (obj->state)
     {

@@ -225,7 +225,7 @@ void UI::randoMark(OBJ2D* obj)
         //絵が次々に代わるアニメーションをしてaddするタイミングになったらアニメーションを止める。
         if (obj->timer < 360)
         {
-            obj->animeData = animeRandoMark;            
+            obj->animeData = animeRandoMark;
             obj->timer++;
         }
         else if(obj->timer < 540)
@@ -238,15 +238,15 @@ void UI::randoMark(OBJ2D* obj)
                 if (no < 8)
                 {
                     no = rand() % 3;
+                    GarbageManager_.add(&garbage, obj->position, no);
                 }
                 else
                 {
-                    no = rand() % 4 + 3;
+                    no = rand() % 4 + 1;
+                    ItemManager_.add(&item, obj->position, no);
+                    no += 2;
                 }
                 obj->data = &sprRandoMark[no];
-
-                if (no < 3) { GarbageManager_.add(&garbage, obj->position, no); }
-                else  { ItemManager_.add(&item, obj->position, no); }
                 
                 obj->count++;
             }
