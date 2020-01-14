@@ -16,9 +16,9 @@ void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
         //obj->data = &spr
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
-        if (combKeta[obj->type] == 1) { obj->position.x -= obj->size.x + 8; }    //2桁目
-        if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2 + 8; }//3桁目
-        if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3 + 8; }//4桁目
+        if (combKeta[obj->type] == 1) { obj->position.x -= obj->size.x + 16; }    //2桁目
+        if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2 + 16; }//3桁目
+        if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3 + 16; }//4桁目
         obj->no = combKeta[obj->type];
         combKeta[obj->type]++;
         obj->data = &sprComb[0];

@@ -67,7 +67,7 @@ void PressMachine::update()
 
     if (shakeFlag) //”j‰ó‚µ‚½‚Æ‚«‚Ì‹““®
     {
-        speed.y = 14.8f;
+        speed.y = 32.8f;
 
         timer++;
 
