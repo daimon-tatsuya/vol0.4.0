@@ -4,14 +4,34 @@ using namespace system;
 
 extern float belt;//ベルトコンベアーの強制移動
 
+//int groundPosYKeep_Item = 0;
 void Item::move(OBJ2D* obj)
 {
-    //if (obj->state == 0) 
-    //{ 
-    //    obj->type = 1;
-    //    //obj->type -= 3;
-    //}
+    if(obj->state == 0)
+    {
+        int groundPosY = rand() % 3;//乱数用
 
+        while (1)
+        {
+            if (groundPosYKeep_Item != groundPosY) { break; }
+            groundPosY = rand() % 3;
+        }
+
+
+        switch (groundPosY)
+        {
+        case 0:
+            obj->GROUND_POS_Y = 482.0f;//上
+            break;
+        case 1:
+            obj->GROUND_POS_Y = 546.0f;//中
+            break;
+        case 2:
+            obj->GROUND_POS_Y = 610.0f;//下
+            break;
+        }
+        groundPosYKeep_Item = groundPosY;
+    }
     switch (obj->type)
     {
     case 1:
@@ -41,10 +61,12 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     switch (obj->state)
     {
     case 0://初期設定
+
+
         obj->data = &sprItem0;
         obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
-       // obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+        // obj->position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
         obj->speed.y = 4;
 
         obj->state++;
@@ -54,18 +76,18 @@ void itemMove1(OBJ2D* obj) //スピードアップ
 
         obj->position.y += obj->speed.y;
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
         break;
 
     case 2:
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
         }
 
         //ベルトコンベアーの強制移動
@@ -109,18 +131,18 @@ void itemMove2(OBJ2D* obj)//スピードダウン
 
         obj->position.y += obj->speed.y;
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
         break;
 
     case 2:
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
         }
 
         //ベルトコンベアーの強制移動
@@ -163,18 +185,18 @@ void itemMove3(OBJ2D* obj)
 
         obj->position.y += obj->speed.y;
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
         break;
 
     case 2:
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
         }
 
         //ベルトコンベアーの強制移動
@@ -216,18 +238,18 @@ void itemMove4(OBJ2D* obj)
 
         obj->position.y += obj->speed.y;
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
         break;
 
     case 2:
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
         }
 
         //ベルトコンベアーの強制移動

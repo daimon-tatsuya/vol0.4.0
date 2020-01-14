@@ -8,8 +8,11 @@ void itemMove4(OBJ2D* obj);
 class Item : public MoveAlg
 {
 public:
+    
     void move(OBJ2D*);
 };
+
+static int groundPosYKeep_Item;
 
 EXTERN Item item;
 

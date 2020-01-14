@@ -1,80 +1,132 @@
 #include "all.h"
-
+#include "ctime"
 using namespace GameLib;
 using namespace system;
-int count = 0;
-
 extern float belt ;//ベルトコンベアーの強制移動
-//void Garbage::init()
-//{
-//    position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-//    exist = true;
-//    throwFlg = false;
-//}
-
+int count = 0;
+//static int groundPosYKeep_Garbage = 0;
 void Garbage::move(OBJ2D* obj)
 {
-//    count++;
+    /*  if (rectHitCheck(obj->position-VECTOR2(32,64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y),SCREEN_WIDTH, SCREEN_HEIGHT))
+      {
+          obj->position.y = obj->GROUND_POS_Y;
+      }*/
+      //消滅の判定
+    if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(1200, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))//ｘ1140はコンベアーの右端
+    {
+        obj->state++;
+    }
 
     switch (obj->state)
     {
-    case GARBAGE_INIT://初期設定
+    case GARBAGE_INIT://初期設定  
+        //ここでごみの流れる地面を決める
+    {
+        int groundPosY = rand() % 3;//乱数用
+        while (groundPosYKeep_Garbage == groundPosY)
+        {
+            groundPosY = rand() % 3;
+        }
+
+        switch (groundPosY)
+        {
+        case 0:
+            obj->GROUND_POS_Y = 482.0f;//上
+            break;
+        case 1:
+            obj->GROUND_POS_Y = 546.0f;//中
+            break;
+        case 2:
+            obj->GROUND_POS_Y = 610.0f;//下
+            break;
+        }
+        groundPosYKeep_Garbage = groundPosY;
+    }
+        // obj->animeData = animeGarbage_Large;
+       //  obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+       //  obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+         //obj->position = { SCREEN_WIDTH / 2,obj->GROUND_POS_Y };
         if (obj->type == 0) { obj->data = &sprGarbage_Large0; }
         if (obj->type == 1) { obj->data = &sprGarbage_Medium0; }
         if (obj->type == 2) { obj->data = &sprGarbage_Small0; }
 
+
         //obj->animeData = animeGarbage_Large;
-        obj->size = VECTOR2(27,32-2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
-        obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);        
+        obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         obj->caughtFlg = false;
         obj->speed.y = 4;
+
+
+        // case GARBAGE_INIT://初期設定
+       /* if (obj->type == 0) { obj->animeData = animeGarbage_Large; }
+        if (obj->type == 1) { obj->animeData = animeGarbage_Medium; }
+        if (obj->type == 2) { obj->animeData = animeGarbage_Small; }*/
+
+        //obj->animeData = animeGarbage_Large;
+        //obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+        //obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+
+        //obj->caughtFlg = false;
+        //obj->speed.y = 3;
 
         obj->exist = true;
         obj->throwFlg = false;
 
+        srand((unsigned int)time(NULL));//乱数を更新する
+
+        //position = { SCREEN_WIDTH / 2,GROUND_POS_Y };//落ちてくるポジ
+      //  exist = true;
+     //   throwFlg = false;
+
         obj->state++;
-        break;   
+        break;
 
     case GARBAGE_DROP:
 
         obj->position.y += obj->speed.y;
 
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->position.y = GROUND_POS_Y;
+            obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
+
         break;
 
-    case GARBAGE_MOVE:   
-        switch ( (TRG(0) & PAD_TRG1) | (TRG(0) & PAD_TRG2))
+    case GARBAGE_MOVE:
+        switch ((TRG(0) & PAD_TRG1) | (TRG(0) & PAD_TRG2))
         {
         case PAD_TRG1://持ち上げ
             //if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position - player.size.x)))
             //{
 
+
             //}
-            lifted(obj);   
+            lifted(obj);
 
             break;
         case PAD_TRG2://投げる
 
             thrown(obj);
-            
+
             break;
+
+
         default://何も押してないとき
             if (!obj->throwFlg)
+
             {
-                if (rectHitCheck(obj->position-VECTOR2(32,64), 64, 64, VECTOR2(0,GROUND_POS_Y),SCREEN_WIDTH, SCREEN_HEIGHT))
+                if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
                 {
-                    obj->position.y = GROUND_POS_Y;
+                    obj->position.y = obj->GROUND_POS_Y;
                 }
 
                 //ベルトコンベアーの強制移動
                 obj->speed.x = belt;
             }
             else //投げられてるとき
-            {                
+            {
                 if (obj->speed.y >= 20)
                 {
                     obj->speed.y = 20;
@@ -85,17 +137,38 @@ void Garbage::move(OBJ2D* obj)
                 }
             }
             break;
-        }       
+        }
         if (obj->caughtFlg)//持ち上げられているときプレイヤーの頭上にいる
         {
-            obj->position = { player.position.x,player.position.y - player.size.y/*- */ };
+            obj->position = { player.position.x + (64 * player.xFlip),player.position.y - player.size.y - (64 * liftedCount) };
         }
         else
         {
             obj->position += obj->speed;
-        }       
+        }
+        break;
+    case GARBAGE_DELETE:
+        obj->speed.y -= 3;
+        obj->speed.x = 1;
+        if (obj->position.y < (-obj->size.y*2.0f))
+        {
+            garbageErase.erase(obj);
+
+        }
         break;
     }
+//<<<<<<< HEAD
+    //if (obj->caughtFlg)//持ち上げられているときプレイヤーの頭上にいる
+    //{
+    //    obj->position = { player.position.x,player.position.y - player.size.y/*- */ };
+    //}
+    //else
+    //{
+        //obj->position += obj->speed;
+  //  }
+
+//=======
+//>>>>>>> fc363666f309b4f47016c4506404a96ebdb0af6b
     //アニメアップデート
     //if (obj->animeData)
     //{
@@ -110,24 +183,27 @@ void Garbage::move(OBJ2D* obj)
     debug::setString("count:%d", count);
 }
 
-//void Garbage::draw()
-//{
-//    if (data)
-//    { data->draw(position, scale, angle, color); }
-//}
+
 
 void Garbage::lifted(OBJ2D* obj)//持ち上げるた時のゴミの動き
 {
- obj->position = { player.position.x,player.position.y - player.size.y/*- */};
+ obj->position = { player.position.x+(98*player.xFlip),player.position.y - player.size.y/*- */};
  obj->caughtFlg = true;
+ liftedCount++;
 }; 
+ 
+
+
+
 void Garbage::thrown(OBJ2D* obj) //投げた時のゴミの動き
+ 
 {
     count++;
 
     int state_throw = 0;
     if (obj->caughtFlg)//プレイヤーの頭上にいるとき
     {
+
         switch (state_throw)
         {
         case 0:
@@ -137,13 +213,11 @@ void Garbage::thrown(OBJ2D* obj) //投げた時のゴミの動き
             obj->speed.y -= 14.0f;
             obj->caughtFlg = false;
             break;
-        //case 1:
-        //    speed.y -= 1.0f;
-        //    position += speed;
+       
 
         }
     }
-
+    liftedCount = 0;
 };
 
 void GarbageErase::erase(OBJ2D* obj)

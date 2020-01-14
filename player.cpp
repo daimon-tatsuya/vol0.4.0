@@ -36,6 +36,7 @@ void Player::update()
         // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
         size = VECTOR2(24 / 2, 32 - 2);
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+        GROUND_POS_Y = 570.0f;
         position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
 
         if (animeData)
@@ -47,22 +48,6 @@ void Player::update()
         break;
 
     case PLAYER_MOVE://動き
-        //onGround = false;
-        //speed.y += 0.5f;
-        //position.y += speed.y;
-        //if (speed.y < -SpeedMax)
-        //{
-        //    speed.y = -SpeedMax;
-        //}
-        //if (position.y > GROUND_POS_Y)
-        //{
-        //    position.y = GROUND_POS_Y;
-        //    onGround = true;
-        //    //Player.attackFlg = true;
-        //}
-
-        //左右操作\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        //何も押してないとき
 
         //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
         if (player.bWork[PLAYER_STATUS::SPEEDUP] && player.timer < 360) { player.timer++; }

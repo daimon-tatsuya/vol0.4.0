@@ -100,8 +100,20 @@ public:
     int                     param = 0;              //汎用パラメータ
     int                     type = 0;               // タイプ
     int                     inversion;              //反転
+//<<<<<<< HEAD
+    float                   GROUND_POS_Y;           //地面(initで決める)
+//=======
    
-    int                     no;                     //番号振り分け
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+     int            no;                     //positionずらしよう
+//>>>>>>> 0ecd60dfe11cdb69557f833ea8a896513ec56bde
+//=======
+   //int              no;                     //番号振り分け
+//>>>>>>> 0109f21d0b202314af7c1d09622182140ff74ef5
+//=======
+  //  int                     no;                     //番号振り分け
+//>>>>>>> a24f0345bfffecba1977123f24777fafc7059949
 
     int                     iWork[16] ;             // 汎用（使い方は自由）
     float                   fWork[16] ;             // 汎用（使い方は自由）
