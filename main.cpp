@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <time.h>
 
 #include "all.h"
 
@@ -134,6 +135,7 @@ LRESULT WINAPI MyImGui::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 {
     // ゲームライブラリの初期設定
+    srand((unsigned int)time(NULL));
     GameLib::init(L"ゲームプログラミングⅠ　制作用ひな型", 
         (int)system::SCREEN_WIDTH, (int)system::SCREEN_HEIGHT, FALSE);
 
