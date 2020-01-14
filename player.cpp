@@ -141,6 +141,17 @@ void Player::update()
             speed.x = 0;
         }
 
+        if (position.y < 432)
+        {
+            position.y = 432;
+            speed.y = 0;
+        }
+
+        if (position.y > 610)
+        {
+            position.y = 610;
+            speed.y = 0;
+        }
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
       
         break;
