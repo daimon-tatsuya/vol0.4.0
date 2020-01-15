@@ -75,7 +75,7 @@ void Garbage::move(OBJ2D* obj)
         {
         case PAD_TRG1://Ž‚¿ã‚°
 
-            if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position, player.size.x * 2, player.size.y * 2) && !obj->caughtFlg)
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position, player.size.x * 2, player.size.y * 2) && !obj->caughtFlg && player.liftedCount < player.iWork[PLAYER::LIFTED_MAX])
             {
                 lifted(obj);
             }
@@ -169,10 +169,10 @@ void Garbage::move(OBJ2D* obj)
 
 void Garbage::lifted(OBJ2D* obj)//Ž‚¿ã‚°‚é‚½Žž‚ÌƒSƒ~‚Ì“®‚«
 {
-    obj->position = { player.position.x + (64 * -1),player.position.y - player.size.y - (64 * liftedCount) };
+    obj->position = { player.position.x + (64 * -1),player.position.y - player.size.y - (64 * player.liftedCount) };
 // obj->position = { player.position.x+(98*player.xFlip),player.position.y - player.size.y/*- */};
  obj->caughtFlg = true;
- liftedCount++;
+ player.liftedCount++;
 }; 
  
 
@@ -197,7 +197,7 @@ void Garbage::thrown(OBJ2D* obj) //“Š‚°‚½Žž‚ÌƒSƒ~‚Ì“®‚«
             break;
         }
     }
-    liftedCount = 0;
+    player.liftedCount = 0;
 };
 
 void GarbageErase::erase(OBJ2D* obj)

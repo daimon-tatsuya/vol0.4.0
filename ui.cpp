@@ -16,9 +16,9 @@ void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
         //obj->data = &spr
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
-        if (combKeta[obj->type] == 1) { obj->position.x -= obj->size.x + 16; }    //2桁目
-        if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2 + 16; }//3桁目
-        if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3 + 16; }//4桁目
+        if (combKeta[obj->type] == combKeta[obj->type]) { obj->position.x -= obj->size.x * combKeta[obj->type]; } 
+        //if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2; }//3桁目
+        //if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3; }//4桁目
         obj->no = combKeta[obj->type];
         combKeta[obj->type]++;
         obj->data = &sprComb[0];
@@ -47,11 +47,11 @@ void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
         if (obj->bWork[COMB::COMB_ANIME])
         {
             obj->timer++;
-            if (obj->timer < 5)
+            if (obj->timer <= 5)
             {
                 obj->speed.x = 4;
             }
-            else if(obj->timer < 10)
+            else if(obj->timer <= 10)
             {
                 obj->speed.x = -4;
             }
@@ -134,28 +134,31 @@ void UI::timerMove(OBJ2D* obj)//タイマー表示＆処理
     {
     case 0:
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
-        obj->size = VECTOR2(32, 32);
+        obj->size = VECTOR2(48, 32);
         //obj->scale = VECTOR2(0.5f, 0.5f);
-        if (timerKeta == 0)
-        {
-            obj->animeData = animeTimer1;
-        }
-        if (timerKeta == 1) //2桁目
-        { 
-            obj->position.x -= obj->size.x + 16;
-            obj->animeData = animeTimer10;
-        }
+        obj->animeData = animeTimer[timerKeta];
+        obj->position.x -= obj->size.x * timerKeta;
 
-        if (timerKeta == 2)//3桁目
-        {
-            obj->position.x -= obj->size.x * 2 + 32;
-            obj->animeData = animeTimer100;
-        }
-        if (timerKeta == 3) //4桁目
-        {
-            obj->position.x -= obj->size.x * 3 + 48; 
-            obj->animeData = animeTimer100;
-        }
+        //if (timerKeta == 0)
+        //{
+        //    obj->animeData = animeTimer[0];
+        //}
+        //if (timerKeta == 1) //2桁目
+        //{ 
+        //    obj->position.x -= obj->size.x + 16;
+        //    obj->animeData = animeTimer10;
+        //}
+        //
+        //if (timerKeta == 2)//3桁目
+        //{
+        //    obj->position.x -= obj->size.x * 2 + 32;
+        //    obj->animeData = animeTimer100;
+        //}
+        //if (timerKeta == 3) //4桁目
+        //{
+        //    obj->position.x -= obj->size.x * 3 + 48; 
+        //    obj->animeData = animeTimer100;
+        //}
         
         timerKeta++;
         obj->state++;

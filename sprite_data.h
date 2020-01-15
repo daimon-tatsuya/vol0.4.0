@@ -64,6 +64,7 @@ extern GameLib::AnimeData animeTimer10[];
 extern GameLib::AnimeData animeTimer100[];
 extern GameLib::AnimeData animeRandoMark[];
 extern GameLib::AnimeData animeConveyor[];
+extern GameLib::AnimeData* animeTimer[];
 
 //è„ï‡Ç´
 extern GameLib::SpriteData sprPlayer_Up0;

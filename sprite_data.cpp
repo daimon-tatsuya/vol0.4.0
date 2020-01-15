@@ -264,6 +264,13 @@ AnimeData animeTimer100[] =
     { nullptr, -1 },// 終了フラグ
 };
 
+AnimeData* animeTimer[] =
+{
+    animeTimer1,
+    animeTimer10,
+    animeTimer100,
+};
+
 //ランダムマーク
 AnimeData animeRandoMark[] =
 {

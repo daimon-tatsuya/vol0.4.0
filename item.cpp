@@ -17,7 +17,6 @@ void Item::move(OBJ2D* obj)
             groundPosY = rand() % 3;
         }
 
-
         switch (groundPosY)
         {
         case 0:
@@ -60,8 +59,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
 {
     switch (obj->state)
     {
-    case 0://初期設定
-
+    case ITEM_INIT://初期設定
 
         obj->data = &sprItem0;
         obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
@@ -72,7 +70,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
         obj->state++;
         break;
 
-    case 1:
+    case ITEM_DROP:
 
         obj->position.y += obj->speed.y;
 
@@ -83,7 +81,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
         }
         break;
 
-    case 2:
+    case ITEM_MOVE:
 
         if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
@@ -109,6 +107,21 @@ void itemMove1(OBJ2D* obj) //スピードアップ
             obj->eraseAlg = &itemErase;
         }
 
+        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
+        {
+            obj->state++;
+        }
+        break;
+
+    case ITEM_DELETE:
+        obj->speed.y = 3;
+        obj->speed.x = 1;
+        if (obj->position.y < (-obj->size.y*2.0f))
+        {
+            garbageErase.erase(obj);
+
+        }
+        obj->position += obj->speed;
         break;
     }
 }
@@ -117,7 +130,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
 {
     switch (obj->state)
     {
-    case 0://初期設定
+    case ITEM_INIT://初期設定
         obj->data = &sprItem1;
         obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -127,7 +140,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
         obj->state++;
         break;
 
-    case 1:
+    case ITEM_DROP:
 
         obj->position.y += obj->speed.y;
 
@@ -138,7 +151,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
         }
         break;
 
-    case 2:
+    case ITEM_MOVE:
 
         if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
@@ -163,7 +176,22 @@ void itemMove2(OBJ2D* obj)//スピードダウン
             obj->eraseAlg = &itemErase;
         }
 
+        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
+        {
+            obj->state++;
+        }
         break;
+
+    case ITEM_DELETE:
+        obj->speed.y = 3;
+        obj->speed.x = 1;
+        if (obj->position.y < (-obj->size.y*2.0f))
+        {
+            garbageErase.erase(obj);
+
+        }
+        obj->position += obj->speed;
+        break;    
     }
 }
 
@@ -171,7 +199,7 @@ void itemMove3(OBJ2D* obj)
 {
     switch (obj->state)
     {
-    case 0://初期設定
+    case ITEM_INIT://初期設定
         obj->data = &sprItem2;
         obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -181,7 +209,7 @@ void itemMove3(OBJ2D* obj)
         obj->state++;
         break;
 
-    case 1:
+    case ITEM_DROP:
 
         obj->position.y += obj->speed.y;
 
@@ -192,7 +220,7 @@ void itemMove3(OBJ2D* obj)
         }
         break;
 
-    case 2:
+    case ITEM_MOVE:
 
         if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
@@ -216,6 +244,21 @@ void itemMove3(OBJ2D* obj)
             obj->eraseAlg = &itemErase;
         }
 
+        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
+        {
+            obj->state++;
+        }
+        break;
+
+    case ITEM_DELETE:
+        obj->speed.y = 3;
+        obj->speed.x = 1;
+        if (obj->position.y < (-obj->size.y*2.0f))
+        {
+            garbageErase.erase(obj);
+
+        }
+        obj->position += obj->speed;
         break;
     }
 }
@@ -224,7 +267,7 @@ void itemMove4(OBJ2D* obj)
 {
     switch (obj->state)
     {
-    case 0://初期設定
+    case ITEM_INIT://初期設定
         obj->data = &sprItem3;
         obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -234,7 +277,7 @@ void itemMove4(OBJ2D* obj)
         obj->state++;
         break;
 
-    case 1:
+    case ITEM_DROP:
 
         obj->position.y += obj->speed.y;
 
@@ -245,7 +288,7 @@ void itemMove4(OBJ2D* obj)
         }
         break;
 
-    case 2:
+    case ITEM_MOVE:
 
         if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
@@ -268,6 +311,21 @@ void itemMove4(OBJ2D* obj)
             obj->eraseAlg = &itemErase;
         }
 
+        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
+        {
+            obj->state++;
+        }
+        break;
+
+    case ITEM_DELETE:
+        obj->speed.y = 3;
+        obj->speed.x = 1;
+        if (obj->position.y < (-obj->size.y*2.0f))
+        {
+            garbageErase.erase(obj);
+
+        }
+        obj->position += obj->speed;
         break;
     }
 }

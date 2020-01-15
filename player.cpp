@@ -38,6 +38,7 @@ void Player::update()
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         GROUND_POS_Y = 570.0f;
         position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+        iWork[PLAYER::LIFTED_MAX] = 3;
 
         if (animeData)
         {

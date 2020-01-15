@@ -29,18 +29,19 @@ void PressMachine::update()
             it.eraseAlg = &garbageErase;
 
             //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
-            if (it.type == 0) { combNum[0] += 3; }
-            if (it.type == 1) { combNum[0] += 2; }
-            if (it.type == 2) { combNum[0]++; }          
+            if (it.type == 0) { combNum[0] += 3; } //large
+            if (it.type == 1) { combNum[0] += 2; } //middle
+            if (it.type == 2) { combNum[0]++; }    //small
            
-            for ( auto& it : *CombManager_.getList())
+            for ( auto& comb : *CombManager_.getList())
             {
-                if (it.type == 0)
+                if (comb.type == 0)
                 {
-                    it.bWork[COMB::COMB_ANIME] = true;
+                    comb.bWork[COMB::COMB_ANIME] = true;
                 }
             }
-
+            
+            count++;
             shakeFlag = true;
         }
     }
@@ -65,7 +66,7 @@ void PressMachine::update()
     //    shakeFlag = true;
     //}
 
-    if (shakeFlag) //破壊したときの挙動
+    if (shakeFlag && count != 0) //破壊したときの挙動
     {
         speed.y = 32.8f;
 
@@ -73,6 +74,7 @@ void PressMachine::update()
 
         if (timer >= 5)
         {
+            count--;
             shakeFlag = false;
             timer = 0;
         }

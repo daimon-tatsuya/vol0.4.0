@@ -5,6 +5,11 @@ void itemMove2(OBJ2D* obj);
 void itemMove3(OBJ2D* obj);
 void itemMove4(OBJ2D* obj);
 
+#define ITEM_INIT     (0)   
+#define ITEM_DROP     (1)
+#define ITEM_MOVE     (2)
+#define ITEM_DELETE   (3)
+
 class Item : public MoveAlg
 {
 public:

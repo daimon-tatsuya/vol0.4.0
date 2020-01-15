@@ -106,7 +106,7 @@ public:
    
 //<<<<<<< HEAD
 //<<<<<<< HEAD
-     int            no;                     //position‚¸‚ç‚µ‚æ‚¤
+     int                    no;                     //”Ä—p
 //>>>>>>> 0ecd60dfe11cdb69557f833ea8a896513ec56bde
 //=======
    //int              no;                     //”Ô†U‚è•ª‚¯
