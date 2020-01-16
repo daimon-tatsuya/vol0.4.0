@@ -75,11 +75,10 @@ void Garbage::move(OBJ2D* obj)
         {
         case PAD_TRG1://持ち上げ
 
-            if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position, player.size.x * 2, player.size.y * 2) && !obj->caughtFlg && player.liftedCount < player.iWork[PLAYER::LIFTED_MAX])
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player.position, player.size.x * 2, player.size.y * 2))
             {
-                lifted(obj);
-            }
-           
+                if (!obj->caughtFlg && player.liftedCount < player.iWork[PLAYER::LIFTED_MAX]) { lifted(obj); }                
+            }           
 
             break;
         case PAD_TRG2://投げる
@@ -101,7 +100,7 @@ void Garbage::move(OBJ2D* obj)
                 //ベルトコンベアーの強制移動
                 obj->speed.x = belt;
             }
-            else //投げられてるとき
+            else if(obj->throwFlg) //投げられてるとき
             {
                 if (obj->speed.y >= 20)
                 {

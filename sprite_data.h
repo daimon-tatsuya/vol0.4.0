@@ -30,6 +30,8 @@ enum TEXNO
     // ÉQÅ[ÉÄ
     PLAYER,
     GARBAGE,
+    GOLD,
+    ITEM2,
     PRESS,
     BG,
     CONVEYOR,

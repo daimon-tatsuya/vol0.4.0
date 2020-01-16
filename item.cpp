@@ -102,7 +102,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
         if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
             //ここにアイテム効果の処理のフラグを立てる。
-            player.bWork[PLAYER_STATUS::SPEEDUP] = true;
+            player.bWork[PLAYER_STATUS::CONVEYORUP] = true;
             belt = 3.5f;
             obj->eraseAlg = &itemErase;
         }
@@ -126,7 +126,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     }
 }
 
-void itemMove2(OBJ2D* obj)//スピードダウン
+void itemMove2(OBJ2D* obj)//足のスピードアップ
 {
     switch (obj->state)
     {
@@ -171,8 +171,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
         if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
             //ここにアイテム効果の処理のフラグを立てる。
-            player.bWork[PLAYER_STATUS::SPEEDDOWN] = true;
-            belt = 0.5f;
+            player.bWork[PLAYER_STATUS::SPEEDUP] = true;
             obj->eraseAlg = &itemErase;
         }
 
@@ -195,7 +194,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
     }
 }
 
-void itemMove3(OBJ2D* obj)
+void itemMove3(OBJ2D* obj)//持てる量アップ
 {
     switch (obj->state)
     {
@@ -240,7 +239,8 @@ void itemMove3(OBJ2D* obj)
         if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
         {
             //ここにアイテム効果の処理のフラグを立てる。
-
+            player.bWork[PLAYER_STATUS::POWERUP] = true;
+            player.iWork[PLAYER::LIFTED_MAX] = 4;
             obj->eraseAlg = &itemErase;
         }
 
@@ -263,7 +263,7 @@ void itemMove3(OBJ2D* obj)
     }
 }
 
-void itemMove4(OBJ2D* obj)
+void itemMove4(OBJ2D* obj) //アイテム出現量アップ
 {
     switch (obj->state)
     {

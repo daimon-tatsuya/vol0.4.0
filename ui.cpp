@@ -15,8 +15,8 @@ void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
     case 0:
         //obj->data = &spr
         obj->color = VECTOR4(1.0f, 0.0f, 0.0f, 1.0f);
-        obj->size = VECTOR2(32, 32);
-        if (combKeta[obj->type] == combKeta[obj->type]) { obj->position.x -= obj->size.x * combKeta[obj->type]; } 
+        obj->size = VECTOR2(40, 32);
+        obj->position.x -= obj->size.x * combKeta[obj->type]; 
         //if (combKeta[obj->type] == 2) { obj->position.x -= obj->size.x * 2; }//3桁目
         //if (combKeta[obj->type] == 3) { obj->position.x -= obj->size.x * 3; }//4桁目
         obj->no = combKeta[obj->type];
@@ -136,7 +136,7 @@ void UI::timerMove(OBJ2D* obj)//タイマー表示＆処理
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         obj->size = VECTOR2(48, 32);
         //obj->scale = VECTOR2(0.5f, 0.5f);
-        obj->animeData = animeTimer[timerKeta];
+        obj->animeData = animeTimer[timerKeta]; //単位のアニメーション設定
         obj->position.x -= obj->size.x * timerKeta;
 
         //if (timerKeta == 0)
@@ -247,6 +247,9 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
                     ItemManager_.add(&item, obj->position, no);
                     no += 2;
                 }
+                //int no = 3;
+                //ItemManager_.add(&item, obj->position, no);
+                //no += 2;
                 obj->data = &sprRandoMark[no];
                 
                 obj->count++;

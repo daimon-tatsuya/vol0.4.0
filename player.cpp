@@ -51,55 +51,68 @@ void Player::update()
     case PLAYER_MOVE://動き
 
         //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
-        if (player.bWork[PLAYER_STATUS::SPEEDUP] && player.timer < 360) { player.timer++; }
-        else if(player.bWork[PLAYER_STATUS::SPEEDUP])
+        if (bWork[PLAYER_STATUS::CONVEYORUP] && iWork[PLAYER::CONVETIMER] < 360) { iWork[PLAYER::CONVETIMER]++; }
+        else if(bWork[PLAYER_STATUS::CONVEYORUP])
         {
-            player.bWork[PLAYER_STATUS::SPEEDUP] = false;
-            player.timer = 0;
+            bWork[PLAYER_STATUS::CONVEYORUP] = false;
+            iWork[PLAYER::CONVETIMER] = 0;
             belt = 2.0f;
+        }
+
+
+        //スピードダウンアイテムをとった時一定時間コンベアーのスピードダウン。
+        if (bWork[PLAYER_STATUS::SPEEDUP] && iWork[PLAYER::SPEEDTIMER] < 360)
+        {
+            iWork[PLAYER::SPEEDTIMER]++;
+            itemSpeed = 2;
+        }
+        else if (bWork[PLAYER_STATUS::SPEEDUP])
+        {
+            bWork[PLAYER_STATUS::SPEEDUP] = false;
+            itemSpeed = 0;
+            iWork[PLAYER::SPEEDTIMER] = 0;
         }
 
         //スピードダウンアイテムをとった時一定時間コンベアーのスピードダウン。
-        if (player.bWork[PLAYER_STATUS::SPEEDDOWN] && player.timer < 360) {
-            player.timer++; }
-        else if (player.bWork[PLAYER_STATUS::SPEEDDOWN])
+        if (bWork[PLAYER_STATUS::POWERUP] && iWork[PLAYER::POWERTIMER] < 720)
         {
-            player.bWork[PLAYER_STATUS::SPEEDDOWN] = false;
-            player.timer = 0;
-            belt = 2.0f;
+            iWork[PLAYER::POWERTIMER]++;            
+        }
+        else if (bWork[PLAYER_STATUS::POWERUP])
+        {
+            bWork[PLAYER_STATUS::POWERUP] = false;
+            iWork[PLAYER::LIFTED_MAX] = 3;
+            iWork[PLAYER::POWERTIMER] = 0;
         }
 
-
         //ベルトコンベアーの強制移動
-        speed = { 0,0 };
-        speed.x = belt;
-        
-       
+        speed.y = 0;
+        speed.x = belt;              
 
             if (STATE(0) & PAD_LEFT)//左移動
             {
                 animeData = animePlayer_Left;
-                speed.x += -4;
+                speed.x += -4 - itemSpeed;
                 xFlip = -1.0f;
             }
             if (STATE(0) & PAD_RIGHT)//右移動
             {
                 animeData = animePlayer_Right;
-                speed.x += 3;
+                speed.x += 3 + itemSpeed;
                 xFlip = 1.0f;
             }
             if (STATE(0) & PAD_UP) //上移動
             {
                 animeData = animePlayer_Up;
-                speed.y = -1;
+                speed.y += -1 - itemSpeed;
             }
             if (STATE(0) & PAD_DOWN) //下移動
             {
                 animeData = animePlayer_Down;
-                speed.y = 1;
+                speed.y += 1 + itemSpeed;
             }
        
-            
+       
        
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //移動\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

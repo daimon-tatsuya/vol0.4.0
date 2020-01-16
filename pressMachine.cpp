@@ -33,11 +33,11 @@ void PressMachine::update()
             if (it.type == 1) { combNum[0] += 2; } //middle
             if (it.type == 2) { combNum[0]++; }    //small
            
-            for ( auto& comb : *CombManager_.getList())
+            for ( auto& comb_ : *CombManager_.getList())
             {
-                if (comb.type == 0)
+                if (comb_.type == 0)
                 {
-                    comb.bWork[COMB::COMB_ANIME] = true;
+                    comb_.bWork[COMB::COMB_ANIME] = true;
                 }
             }
             

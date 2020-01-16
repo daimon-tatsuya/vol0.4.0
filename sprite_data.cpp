@@ -130,15 +130,16 @@ SpriteData sprGarbage[] = {
 
 //アイテム
 SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 128, 64, 64);
-SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 2, 128, 64, 64);
+SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 192, 64, 64);
 SpriteData sprItem2 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
-SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 2, 64, 64, 64);
+SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
 
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER,        L"./Data/Images/player.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
+    { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
     { TEXNO::CONVEYOR,      L"./Data/Images/berutokonbea.png",    1U },//コンベアー
@@ -146,6 +147,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
+    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
     //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
     //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
     //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
