@@ -14,7 +14,7 @@
 int game_state;     // 状態
 int game_timer;     // タイマー
 
-Player player;
+Player player[2];
 
 //std::list<Garbage> garbageList;
 //
@@ -38,6 +38,7 @@ void game_init()
 //--------------------------------
 void game_common()
 {
+
     if (TRG(0) & PAD_START)
     {
         combNum[0] = 0;
@@ -51,7 +52,8 @@ void game_common()
 
     bg.update();
     conveyor.update();
-    player.update();    
+    player[0].update();  
+    player[1].update();
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -110,8 +112,10 @@ void game_update()
 
         ber.init();
 
-        player.init();
-
+        player[0].init();
+        player[0].type = 0;
+        player[1].init();
+        player[1].type = 1;
         //garbage.init();
 
         GarbageManager_.init();
@@ -154,13 +158,13 @@ void game_update()
 
         if (timerNum < 0)
         {
-            //game_state++;
+            game_state++;
         }
 
         break;
 
     case 2:
-        //ランキング表示
+        
 
         break;
     }
@@ -181,8 +185,8 @@ void game_draw()
 
     ber.draw();
 
-    player.draw();
-      
+    player[0].draw();
+    player[1].draw();
     GarbageManager_.draw();
 
     press_machine.draw();

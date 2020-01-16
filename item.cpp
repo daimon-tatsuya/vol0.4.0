@@ -82,37 +82,40 @@ void itemMove1(OBJ2D* obj) //スピードアップ
         break;
 
     case ITEM_MOVE:
-
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        for (int i = 0; i < 2; i++)
         {
-            obj->position.y = obj->GROUND_POS_Y;
+
+
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+            {
+                obj->position.y = obj->GROUND_POS_Y;
+            }
+
+            //ベルトコンベアーの強制移動
+            obj->speed.x = belt;
+
+            obj->position += obj->speed;
+
+
+            //アニメアップデート
+            //if (obj->animeData) { obj->animeUpdate(obj->animeData); }
+
+            if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
+
+            if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
+            {
+                //ここにアイテム効果の処理のフラグを立てる。
+                player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;
+                belt = 3.5f;
+                obj->eraseAlg = &itemErase;
+            }
+
+            if (obj->position.x > 1092.0f)//ｘ1200はコンベアーの右端
+            {
+                obj->state++;
+            }
+            break;
         }
-
-        //ベルトコンベアーの強制移動
-        obj->speed.x = belt;
-
-        obj->position += obj->speed;
-
-
-        //アニメアップデート
-        //if (obj->animeData) { obj->animeUpdate(obj->animeData); }
-
-        if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
-
-        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
-        {
-            //ここにアイテム効果の処理のフラグを立てる。
-            player.bWork[PLAYER_STATUS::CONVEYORUP] = true;
-            belt = 3.5f;
-            obj->eraseAlg = &itemErase;
-        }
-
-        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
-        {
-            obj->state++;
-        }
-        break;
-
     case ITEM_DELETE:
         obj->speed.y = 3;
         obj->speed.x = 1;
@@ -126,7 +129,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     }
 }
 
-void itemMove2(OBJ2D* obj)//足のスピードアップ
+void itemMove2(OBJ2D* obj)//スピードダウン
 {
     switch (obj->state)
     {
@@ -152,35 +155,38 @@ void itemMove2(OBJ2D* obj)//足のスピードアップ
         break;
 
     case ITEM_MOVE:
-
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        for (int i = 0; i < 2; i++)
         {
-            obj->position.y = obj->GROUND_POS_Y;
+
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+            {
+                obj->position.y = obj->GROUND_POS_Y;
+            }
+
+            //ベルトコンベアーの強制移動
+            obj->speed.x = belt;
+
+            obj->position += obj->speed;
+
+            //アニメアップデート
+            if (obj->animeData) { obj->animeUpdate(obj->animeData); }
+
+            if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
+
+            if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
+            {
+                //ここにアイテム効果の処理のフラグを立てる。
+                player[i].bWork[PLAYER_STATUS::SPEEDDOWN] = true;
+                belt = 0.5f;
+                obj->eraseAlg = &itemErase;
+            }
+
+            if (obj->position.x > 1092.0f)//ｘ1200はコンベアーの右端
+            {
+                obj->state++;
+            }
+            break;
         }
-
-        //ベルトコンベアーの強制移動
-        obj->speed.x = belt;
-
-        obj->position += obj->speed;
-
-        //アニメアップデート
-        if (obj->animeData) { obj->animeUpdate(obj->animeData); }
-
-        if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
-
-        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
-        {
-            //ここにアイテム効果の処理のフラグを立てる。
-            player.bWork[PLAYER_STATUS::SPEEDUP] = true;
-            obj->eraseAlg = &itemErase;
-        }
-
-        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
-        {
-            obj->state++;
-        }
-        break;
-
     case ITEM_DELETE:
         obj->speed.y = 3;
         obj->speed.x = 1;
@@ -194,7 +200,7 @@ void itemMove2(OBJ2D* obj)//足のスピードアップ
     }
 }
 
-void itemMove3(OBJ2D* obj)//持てる量アップ
+void itemMove3(OBJ2D* obj)
 {
     switch (obj->state)
     {
@@ -220,36 +226,38 @@ void itemMove3(OBJ2D* obj)//持てる量アップ
         break;
 
     case ITEM_MOVE:
-
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        for (int i = 0; i < 2; i++)
         {
-            obj->position.y = obj->GROUND_POS_Y;
+
+
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+            {
+                obj->position.y = obj->GROUND_POS_Y;
+            }
+
+            //ベルトコンベアーの強制移動
+            obj->speed.x = belt;
+
+            obj->position += obj->speed;
+
+            //アニメアップデート
+            if (obj->animeData) { obj->animeUpdate(obj->animeData); }
+
+            if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
+
+            if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
+            {
+                //ここにアイテム効果の処理のフラグを立てる。
+
+                obj->eraseAlg = &itemErase;
+            }
+
+            if (obj->position.x > 1092.0f)//ｘ1200はコンベアーの右端
+            {
+                obj->state++;
+            }
+            break;
         }
-
-        //ベルトコンベアーの強制移動
-        obj->speed.x = belt;
-
-        obj->position += obj->speed;
-
-        //アニメアップデート
-        if (obj->animeData) { obj->animeUpdate(obj->animeData); }
-
-        if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
-
-        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
-        {
-            //ここにアイテム効果の処理のフラグを立てる。
-            player.bWork[PLAYER_STATUS::POWERUP] = true;
-            player.iWork[PLAYER::LIFTED_MAX] = 4;
-            obj->eraseAlg = &itemErase;
-        }
-
-        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
-        {
-            obj->state++;
-        }
-        break;
-
     case ITEM_DELETE:
         obj->speed.y = 3;
         obj->speed.x = 1;
@@ -263,7 +271,7 @@ void itemMove3(OBJ2D* obj)//持てる量アップ
     }
 }
 
-void itemMove4(OBJ2D* obj) //アイテム出現量アップ
+void itemMove4(OBJ2D* obj)
 {
     switch (obj->state)
     {
@@ -289,34 +297,37 @@ void itemMove4(OBJ2D* obj) //アイテム出現量アップ
         break;
 
     case ITEM_MOVE:
-
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        for (int i = 0; i < 2; i++)
         {
-            obj->position.y = obj->GROUND_POS_Y;
+
+
+            if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+            {
+                obj->position.y = obj->GROUND_POS_Y;
+            }
+
+            //ベルトコンベアーの強制移動
+            obj->speed.x = belt;
+
+            obj->position += obj->speed;
+
+            //アニメアップデート
+            if (obj->animeData) { obj->animeUpdate(obj->animeData); }
+
+            if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
+
+            if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
+            {
+                //ここにアイテム効果の処理のフラグを立てる。
+                obj->eraseAlg = &itemErase;
+            }
+
+            if (obj->position.x > 1092.0f)//ｘ1200はコンベアーの右端
+            {
+                obj->state++;
+            }
+            break;
         }
-
-        //ベルトコンベアーの強制移動
-        obj->speed.x = belt;
-
-        obj->position += obj->speed;
-
-        //アニメアップデート
-        if (obj->animeData) { obj->animeUpdate(obj->animeData); }
-
-        if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
-
-        if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player.position.x - player.size.x, player.position.y - player.size.y), player.size.x, player.size.y))
-        {
-            //ここにアイテム効果の処理のフラグを立てる。
-            obj->eraseAlg = &itemErase;
-        }
-
-        if (obj->position.x>1092.0f)//ｘ1200はコンベアーの右端
-        {
-            obj->state++;
-        }
-        break;
-
     case ITEM_DELETE:
         obj->speed.y = 3;
         obj->speed.x = 1;

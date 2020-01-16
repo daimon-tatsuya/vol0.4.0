@@ -14,7 +14,7 @@ int title_state;    // 状態
 int title_timer;    // タイマー
 // フェードアウト用変数の宣言
 float fadeOut;
-
+bool twoPlayMode;
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
@@ -43,17 +43,33 @@ void title_update()
         title_state++;
         break;
 
-    case 1:
-        //////// 通常時 ////////
-        // キー入力でシーン切り替え
+    case 1: //ゲームモードを決める
+       
+        //1人プレイ
         if (TRG(0) & PAD_START)
         {
-            title_state++;
+            title_state=3;
+        }
+        if (TRG(0) & PAD_UP| TRG(0) & PAD_DOWN)
+        {
+            twoPlayMode = false;
+            title_state = 2;
         }
         break;
-
-    // フェードアウト用のcase 2:をつくる
     case 2:
+        //２人プレイ
+        if (TRG(0) & PAD_START)
+        {
+            title_state = 3;
+        }
+        if (TRG(0) & PAD_UP | TRG(0) & PAD_DOWN)
+        {
+            twoPlayMode = true;
+            title_state = 1;
+        }
+        break;
+    // フェードアウト用のcase 3:をつくる
+    case 3:
         //////// フェードアウト ////////
         fadeOut += 0.0167f;
         if (fadeOut >= 1.0f)
