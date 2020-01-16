@@ -12,8 +12,8 @@ public:
     //void init();
     //void update();
     //void draw(); 
-    void lifted(OBJ2D* obj);//‚¿ã‚°‚é‚½‚ÌƒSƒ~‚Ì“®‚«
-    void thrown(OBJ2D* obj);//“Š‚°‚½‚ÌƒSƒ~‚Ì“®‚«
+    void lifted(OBJ2D* obj, int playerType);//‚¿ã‚°‚é‚½‚ÌƒSƒ~‚Ì“®‚«
+    void thrown(OBJ2D* obj, int playerType);//“Š‚°‚½‚ÌƒSƒ~‚Ì“®‚«
 
 };
 static int groundPosYKeep_Garbage=0;

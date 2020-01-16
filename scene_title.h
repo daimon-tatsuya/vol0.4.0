@@ -14,5 +14,5 @@ void title_init();
 void title_update();
 void title_draw();
 void title_end();
-
+extern bool twoPlayMode;
 #endif // !INCLUDED_SCENE_TITLE

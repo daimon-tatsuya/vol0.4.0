@@ -22,9 +22,9 @@ class Player : public OBJ2D
 {
 public:
     int liftedCount = 0;//‚¿ã‚°‚½”
-
+    int type;//1p,2p‚Ì
     void init();
     void update();
     void draw();
 };
-extern Player player;
+extern Player player[2];

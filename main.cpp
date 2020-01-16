@@ -263,8 +263,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
-            ImGui::SliderFloat("player.x", &player.position.x, 0.0f, system::SCREEN_WIDTH); //プレイヤーのx軸のパラメーター
-            ImGui::SliderFloat("player.y", &player.position.y, 0.0f, system::SCREEN_HEIGHT); //プレイヤーのy軸のパラメーター
+            ImGui::SliderFloat("player.x", &player[0].position.x, 0.0f, system::SCREEN_WIDTH); //プレイヤーのx軸のパラメーター
+            ImGui::SliderFloat("player.y", &player[0].position.y, 0.0f, system::SCREEN_HEIGHT); //プレイヤーのy軸のパラメーター
             if (ImGui::Button("Save"))
             {
                 //std::ofstream ofs("player.pos.txt");
@@ -277,8 +277,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
                 //
                 //ofs << player.position.x;
 
-                writeData("player.pos.txt", player.position.x);
-                writeData("player.pos.txt", player.position.y);
+                writeData("player.pos.txt", player[0].position.x);
+                writeData("player.pos.txt", player[0].position.y);
             }
 
             if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
