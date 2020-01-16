@@ -29,9 +29,9 @@ void PressMachine::update()
             it.eraseAlg = &garbageErase;
 
             //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
-            if (it.type == 0) { combNum[0] += 3; } //large
-            if (it.type == 1) { combNum[0] += 2; } //middle
-            if (it.type == 2) { combNum[0]++; }    //small
+            if (it.type == 0) { combNum[it.no] += 3; } //large
+            if (it.type == 1) { combNum[it.no] += 2; } //middle
+            if (it.type == 2) { combNum[it.no]++; }    //small
            
             for ( auto& comb_ : *CombManager_.getList())
             {

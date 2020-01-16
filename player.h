@@ -5,13 +5,17 @@
 
 enum PLAYER_STATUS
 {
+    CONVEYORUP,
     SPEEDUP,
-    SPEEDDOWN,
+    POWERUP,
 };
 
 enum PLAYER
 {
     LIFTED_MAX,
+    CONVETIMER,
+    SPEEDTIMER,
+    POWERTIMER,
 };
 
 constexpr float SpeedMax = 8.0f;
@@ -22,7 +26,8 @@ class Player : public OBJ2D
 {
 public:
     int liftedCount = 0;//éùÇøè„Ç∞ÇΩêî
-    int type;//1p,2pÇÃ
+    float itemSpeed = 0;
+    //int type;//1p,2pÇÃ
     void init();
     void update();
     void draw();

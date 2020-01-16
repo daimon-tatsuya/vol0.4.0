@@ -164,7 +164,13 @@ void game_update()
         break;
 
     case 2:
-        
+        combNum[0] = 0;
+        combNum[1] = 0;
+        combKeta[0] = 0;
+        combKeta[1] = 0;
+        timerNum = 10800;
+        timerKeta = 0;
+        nextScene = SCENE_TITLE;
 
         break;
     }

@@ -55,7 +55,7 @@ void Item::move(OBJ2D* obj)
     }
 }
 
-void itemMove1(OBJ2D* obj) //スピードアップ
+void itemMove1(OBJ2D* obj) //コンベアースピードアップ
 {
     switch (obj->state)
     {
@@ -84,8 +84,6 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     case ITEM_MOVE:
         for (int i = 0; i < 2; i++)
         {
-
-
             if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
             {
                 obj->position.y = obj->GROUND_POS_Y;
@@ -105,7 +103,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
-                player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;
+                player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
                 belt = 3.5f;
                 obj->eraseAlg = &itemErase;
             }
@@ -129,7 +127,7 @@ void itemMove1(OBJ2D* obj) //スピードアップ
     }
 }
 
-void itemMove2(OBJ2D* obj)//スピードダウン
+void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
 {
     switch (obj->state)
     {
@@ -176,8 +174,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
-                player[i].bWork[PLAYER_STATUS::SPEEDDOWN] = true;
-                belt = 0.5f;
+                player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;                
                 obj->eraseAlg = &itemErase;
             }
 
@@ -200,7 +197,7 @@ void itemMove2(OBJ2D* obj)//スピードダウン
     }
 }
 
-void itemMove3(OBJ2D* obj)
+void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
 {
     switch (obj->state)
     {
@@ -228,8 +225,6 @@ void itemMove3(OBJ2D* obj)
     case ITEM_MOVE:
         for (int i = 0; i < 2; i++)
         {
-
-
             if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
             {
                 obj->position.y = obj->GROUND_POS_Y;
@@ -248,12 +243,13 @@ void itemMove3(OBJ2D* obj)
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
-
+                player[i].bWork[PLAYER_STATUS::POWERUP] = true;
+                player[i].iWork[PLAYER::LIFTED_MAX] = 4;
                 obj->eraseAlg = &itemErase;
             }
 
             if (obj->position.x > 1092.0f)//ｘ1200はコンベアーの右端
-            {
+            {                
                 obj->state++;
             }
             break;
@@ -299,7 +295,6 @@ void itemMove4(OBJ2D* obj)
     case ITEM_MOVE:
         for (int i = 0; i < 2; i++)
         {
-
 
             if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
             {
