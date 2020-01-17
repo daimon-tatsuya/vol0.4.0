@@ -8,6 +8,7 @@ enum PLAYER_STATUS
     CONVEYORUP,
     SPEEDUP,
     POWERUP,
+    ITEMADD,
 };
 
 enum PLAYER
@@ -16,6 +17,7 @@ enum PLAYER
     CONVETIMER,
     SPEEDTIMER,
     POWERTIMER,
+    ITEMADDTIMER,
 };
 
 constexpr float SpeedMax = 8.0f;

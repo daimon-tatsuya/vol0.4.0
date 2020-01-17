@@ -8,6 +8,30 @@ float belt = 2.0f;//ベルトコンベアーの強制移動
 
 void Player::init()
 {
+    animeData = animePlayer_Down;
+
+    // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
+    size = VECTOR2(24 / 2, 32 - 2);
+    color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+    GROUND_POS_Y = 570.0f;
+    speed = VECTOR2(0, 0);
+    position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+    iWork[PLAYER::CONVETIMER] = 0;
+    iWork[PLAYER::ITEMADDTIMER] = 0;
+    iWork[PLAYER::POWERTIMER] = 0;
+    iWork[PLAYER::SPEEDTIMER] = 0;
+    iWork[PLAYER::LIFTED_MAX] = 3;
+    bWork[PLAYER_STATUS::CONVEYORUP] = false;
+    bWork[PLAYER_STATUS::ITEMADD] = false;
+    bWork[PLAYER_STATUS::POWERUP] = false;
+    bWork[PLAYER_STATUS::SPEEDUP] = false;
+    itemSpeed = 0;
+    belt = 2.0f;
+
+    if (animeData)
+    {
+        animeUpdate(animeData);
+    }
 }
 
 void Player::update()
@@ -26,8 +50,19 @@ void Player::update()
         size = VECTOR2(24 / 2, 32 - 2);
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         GROUND_POS_Y = 570.0f;
+        speed = VECTOR2(0, 0);
         position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
-        iWork[PLAYER::LIFTED_MAX] = 3;
+        iWork[PLAYER::CONVETIMER]   = 0;
+        iWork[PLAYER::ITEMADDTIMER] = 0;
+        iWork[PLAYER::POWERTIMER]   = 0;
+        iWork[PLAYER::SPEEDTIMER]   = 0;
+        iWork[PLAYER::LIFTED_MAX]   = 3;
+        bWork[PLAYER_STATUS::CONVEYORUP] = false;
+        bWork[PLAYER_STATUS::ITEMADD]    = false;
+        bWork[PLAYER_STATUS::POWERUP]    = false;
+        bWork[PLAYER_STATUS::SPEEDUP]    = false;
+        itemSpeed = 0;
+        belt = 2.0f;
 
         if (animeData)
         {
@@ -71,6 +106,23 @@ void Player::update()
             player[type].bWork[PLAYER_STATUS::POWERUP] = false;
             player[type].iWork[PLAYER::LIFTED_MAX] = 3;
             player[type].iWork[PLAYER::POWERTIMER] = 0;
+        }
+
+        //一定時間アイテム出現量アップ
+        if (player[type].bWork[PLAYER_STATUS::ITEMADD] && player[type].iWork[PLAYER::ITEMADDTIMER] < 600)
+        {
+            player[type].iWork[PLAYER::ITEMADDTIMER]++;
+        }
+        else if (player[type].bWork[PLAYER_STATUS::ITEMADD])
+        {
+            player[type].bWork[PLAYER_STATUS::ITEMADD] = false;            
+            player[type].iWork[PLAYER::ITEMADDTIMER] = 0;
+
+            for (auto& it : *RandoManager_.getList())
+            {
+                it.iWork[RandoManager::RandoMark::TIMER_MAX1] = 360;
+                it.iWork[RandoManager::RandoMark::TIMER_MAX2] = 540;
+            }
         }
 
 

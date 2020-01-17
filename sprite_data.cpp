@@ -36,11 +36,6 @@ SpriteData sprPlayer_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 0, 128 * 4, 96, 
 SpriteData sprPlayer_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 1, 128 * 4, 96, 128);
 SpriteData sprPlayer_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 2, 128 * 4, 96, 128);
 
-
-
-
-
-
 ////大型
 //SpriteData sprGarbage_Large0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 192 * 0, 0, 192, 192);
 //SpriteData sprGarbage_Large1  = SPRITE_BOTTOM(TEXNO::GARBAGE, 192 * 1, 0, 192, 192);
@@ -65,6 +60,8 @@ SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 0, 64, 64)
 SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 0, 0, 64, 64);
 //SpriteData sprGarbage_Small1  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 1, 128, 64, 64);
 //SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 2 ,128, 64, 64);
+
+SpriteData sprGarbage_Gold = SPRITE_BOTTOM(TEXNO::GOLD, 64 * 0, 0, 64, 64);
 
 //プレス機
 SpriteData sprPressMachine = SPRITE_BOTTOM(TEXNO::PRESS, 0, 0, 275, 610);
@@ -115,10 +112,12 @@ SpriteData sprRandoMark[] = {
     sprGarbage_Large0,
     sprGarbage_Medium0,
     sprGarbage_Small0,
+    sprGarbage_Gold,
     sprItem0,
     sprItem1,
     sprItem2,
     sprItem3,
+    sprHatena,
 };
 
 //ゴミ
@@ -133,6 +132,9 @@ SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 128, 64, 64);
 SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 192, 64, 64);
 SpriteData sprItem2 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
 SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
+
+//はてなマーク
+SpriteData sprHatena = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 3, 0, 64, 64);
 
 //******************************************************************************
 // 2D画像ロードデータ
@@ -279,10 +281,12 @@ AnimeData animeRandoMark[] =
     { &sprGarbage_Large0, 20 },
     { &sprGarbage_Medium0, 20 },
     { &sprGarbage_Small0, 20 },
+    { &sprGarbage_Gold, 20 },
     { &sprItem0, 20 },
     { &sprItem1, 20 },
     { &sprItem2, 20 },
     { &sprItem3, 20 },
+    { &sprHatena, 20 },
     { nullptr, -1 },// 終了フラグ
 };
 

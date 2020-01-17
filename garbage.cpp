@@ -41,15 +41,17 @@ void Garbage::move(OBJ2D* obj)
     if (obj->type == 0) { obj->data = &sprGarbage_Large0; }
     if (obj->type == 1) { obj->data = &sprGarbage_Medium0; }
     if (obj->type == 2) { obj->data = &sprGarbage_Small0; }
+    if (obj->type == 3) { obj->data = &sprGarbage_Gold; }
 
 
     //obj->animeData = animeGarbage_Large;
     obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
-    obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+    obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);    
     obj->caughtFlg = false;
     obj->speed.y = 4;
     obj->exist = true;
     obj->throwFlg = false;
+    obj->no = 0;
 
     srand((unsigned int)time(NULL));//乱数を更新する
 

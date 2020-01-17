@@ -6,8 +6,10 @@ using namespace system;
 void PressMachine::init()
 {
     data = &sprPressMachine;
-
     position = VECTOR2(108, 610);
+    speed = VECTOR2(0, 0);
+    count = 0;
+    shakeFlag = false;
 
     timer = 0;
 
@@ -32,6 +34,7 @@ void PressMachine::update()
             if (it.type == 0) { combNum[it.no] += 3; } //large
             if (it.type == 1) { combNum[it.no] += 2; } //middle
             if (it.type == 2) { combNum[it.no]++; }    //small
+            if (it.type == 3) { combNum[it.no] += 10; }    //gold
            
             for ( auto& comb_ : *CombManager_.getList())
             {

@@ -111,6 +111,12 @@ extern GameLib::SpriteData sprGarbage_Small0;
 extern GameLib::SpriteData sprGarbage_Small1;
 extern GameLib::SpriteData sprGarbage_Small2;
 
+//ゴールドゴミ
+extern GameLib::SpriteData sprGarbage_Gold;
+
+//はてなマーク
+extern GameLib::SpriteData sprHatena;
+
 //プレス機
 extern GameLib::SpriteData sprPressMachine;
 

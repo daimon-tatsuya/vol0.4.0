@@ -18,7 +18,12 @@ EXTERN RandoMErase randoMErase;
 
 class RandoManager : public OBJ2DManager
 {
-
+public:
+    enum RandoMark
+    {
+        TIMER_MAX1,
+        TIMER_MAX2,
+    };
 };
 
 EXTERN RandoManager RandoManager_;

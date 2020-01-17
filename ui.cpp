@@ -22,6 +22,7 @@ void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
         obj->no = combKeta[obj->type];
         combKeta[obj->type]++;
         obj->data = &sprComb[0];
+        obj->bWork[COMB::COMB_ANIME] = false;
         obj->state++;
         break;
         
@@ -217,6 +218,10 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
 
         obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         obj->size = VECTOR2(32, 32);
+        obj->iWork[RandoManager::RandoMark::TIMER_MAX1] = 180;
+        obj->iWork[RandoManager::RandoMark::TIMER_MAX2] = 240;
+        obj->timer = 0;
+        obj->count = 0;
 
         obj->state++;
         break;
@@ -224,12 +229,12 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
     case  1:
 
         //絵が次々に代わるアニメーションをしてaddするタイミングになったらアニメーションを止める。
-        if (obj->timer < 360)
+        if (obj->timer < obj->iWork[RandoManager::RandoMark::TIMER_MAX1])
         {
             obj->animeData = animeRandoMark;
             obj->timer++;
         }
-        else if(obj->timer < 540)
+        else if(obj->timer < obj->iWork[RandoManager::RandoMark::TIMER_MAX2])
         {
             obj->timer++;
             
@@ -238,20 +243,32 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
                 int no = rand() % 10;
                 if (no < 8)
                 {
-                    no = rand() % 3;
-                    GarbageManager_.add(&garbage, obj->position, no);
+                    no = rand() % 30;
+                    if (no == 3) { GarbageManager_.add(&garbage, obj->position, no); }
+                    else
+                    {
+                        no = rand() % 3;
+                        GarbageManager_.add(&garbage, obj->position, no);
+                    }                    
                 }
                 else
                 {
                     no = rand() % 4 + 1;
                     ItemManager_.add(&item, obj->position, no);
-                    no += 2;
+                    no += 3;
                 }
                 //int no = 3;
-                //ItemManager_.add(&item, obj->position, no);
+                //GarbageManager_.add(&garbage, obj->position, no);
                 //no += 2;
                 obj->data = &sprRandoMark[no];
-                
+                if (timerNum < 5400)
+                {
+                    int hatenaRandom = rand() % 3;
+                    if (hatenaRandom == 1)
+                    {
+                        obj->data = &sprRandoMark[8];
+                    }
+                }                                
                 obj->count++;
             }
             obj->animeData = nullptr;

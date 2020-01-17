@@ -107,9 +107,7 @@ void game_update()
         texture::load(loadTexture);
 
         bg.init();
-
         conveyor.init();
-
         ber.init();
 
         player[0].init();
