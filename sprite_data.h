@@ -38,6 +38,8 @@ enum TEXNO
     BER,
     DUSTBOX,
     NUMBER,
+    PLATE1,
+    EFFECT,
     ITEM,
     OBJ,
     /*MAP_BACK,
@@ -67,6 +69,8 @@ extern GameLib::AnimeData animeTimer100[];
 extern GameLib::AnimeData animeRandoMark[];
 extern GameLib::AnimeData animeConveyor[];
 extern GameLib::AnimeData* animeTimer[];
+extern GameLib::AnimeData animeEffect1[];
+extern GameLib::AnimeData animeEffect2[];
 
 //上歩き
 extern GameLib::SpriteData sprPlayer_Up0;
@@ -157,4 +161,12 @@ extern GameLib::SpriteData sprItem0;
 extern GameLib::SpriteData sprItem1;
 extern GameLib::SpriteData sprItem2;
 extern GameLib::SpriteData sprItem3;
+
+//エフェクト
+extern GameLib::SpriteData sprEffect1_1;
+extern GameLib::SpriteData sprEffect1_2;
+extern GameLib::SpriteData sprEffect2_1;
+extern GameLib::SpriteData sprEffect2_2;
+//プレート       
+extern GameLib::SpriteData sprPlate1;
 #endif // !INCLUDED_SPRITE_DATA

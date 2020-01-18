@@ -50,6 +50,8 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ð—Dæ
 //>>>>>>> 0109f21d0b202314af7c1d09622182140ff74ef5
 //=======
 #include "ranking.h"
+#include "plate.h"
+#include "effect.h"
 //>>>>>>> a24f0345bfffecba1977123f24777fafc7059949
 //******************************************************************************
 #endif // !INCLUDED_ALL

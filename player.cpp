@@ -94,6 +94,14 @@ void Player::update()
             player[type].bWork[PLAYER_STATUS::SPEEDUP] = false;
             player[type].itemSpeed = 0;
             player[type].iWork[PLAYER::SPEEDTIMER] = 0;
+            for ( auto& efe : *EffectManager_.getList() )
+            {
+                if (efe.position == position)
+                {
+                    efe.eraseAlg = &effectErase;
+                    break;
+                }
+            }
         }
 
         //一定時間持てる量増やす
@@ -106,6 +114,14 @@ void Player::update()
             player[type].bWork[PLAYER_STATUS::POWERUP] = false;
             player[type].iWork[PLAYER::LIFTED_MAX] = 3;
             player[type].iWork[PLAYER::POWERTIMER] = 0;
+            for (auto& efe : *EffectManager_.getList())
+            {
+                if (efe.position == position)
+                {
+                    efe.eraseAlg = &effectErase;
+                    break;
+                }
+            }
         }
 
         //一定時間アイテム出現量アップ
@@ -120,8 +136,8 @@ void Player::update()
 
             for (auto& it : *RandoManager_.getList())
             {
-                it.iWork[RandoManager::RandoMark::TIMER_MAX1] = 360;
-                it.iWork[RandoManager::RandoMark::TIMER_MAX2] = 540;
+                it.iWork[RandoManager::RandoMark::TIMER_MAX1] = 180;
+                it.iWork[RandoManager::RandoMark::TIMER_MAX2] = 240;
             }
         }
 

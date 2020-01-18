@@ -51,9 +51,11 @@ void game_common()
     }
 
     bg.update();
+    PlateManager_.update();
     conveyor.update();
     player[0].update();  
     player[1].update();
+    EffectManager_.update();
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -79,12 +81,14 @@ void game_common()
     {
         if (combNum[i] >= 10 && combKeta[i] == 1)
         {
-            CombManager_.add(&comb, VECTOR2(1060, 350), i);
+            if (i == 0) { CombManager_.add(&comb, VECTOR2(860, 350), i); }
+            else { CombManager_.add(&comb, VECTOR2(1060, 350), i); }            
         }
 
         if (combNum[i] >= 100 && combKeta[i] == 2)
         {
-            CombManager_.add(&comb, VECTOR2(1060, 350), i);
+            if (i == 0) { CombManager_.add(&comb, VECTOR2(860, 350), i); }
+            else { CombManager_.add(&comb, VECTOR2(1060, 350), i); }            
         }
     }
 }
@@ -107,6 +111,8 @@ void game_update()
         texture::load(loadTexture);
 
         bg.init();
+        PlateManager_.init();
+        PlateManager_.add(&plate, VECTOR2(0, 0));
         conveyor.init();
         ber.init();
 
@@ -114,6 +120,7 @@ void game_update()
         player[0].type = 0;
         player[1].init();
         player[1].type = 1;
+        EffectManager_.init();
         //garbage.init();
 
         GarbageManager_.init();
@@ -136,9 +143,9 @@ void game_update()
         TimerManager_.add(&timer, VECTOR2(640, 350));
         TimerManager_.add(&timer, VECTOR2(600, 350));
 
-        CombManager_.init();
-        CombManager_.add(&comb, VECTOR2(1060, 350), 0);
-        CombManager_.add(&comb, VECTOR2(860, 350), 1);
+        CombManager_.init();        
+        CombManager_.add(&comb, VECTOR2(860, 350), 0);
+        CombManager_.add(&comb, VECTOR2(1060, 350), 1);
 
         RandoManager_.init();
         RandoManager_.add(&randomMark, VECTOR2(390, 105));
@@ -185,12 +192,17 @@ void game_draw()
 
     bg.draw();
 
+    PlateManager_.draw();
+
     conveyor.draw();
 
     ber.draw();
 
     player[0].draw();
     player[1].draw();
+
+    EffectManager_.draw();
+
     GarbageManager_.draw();
 
     press_machine.draw();
