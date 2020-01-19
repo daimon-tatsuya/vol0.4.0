@@ -185,6 +185,7 @@
     <ClCompile Include="scene_title.cpp" />
     <ClCompile Include="sprite_data.cpp" />
     <ClCompile Include="timer.cpp" />
+    <ClCompile Include="title.cpp" />
     <ClCompile Include="ui.cpp" />
     <ClCompile Include="work.cpp" />
   </ItemGroup>
@@ -235,6 +236,7 @@
     <ClInclude Include="sprite_data.h" />
     <ClInclude Include="garbage.h" />
     <ClInclude Include="timer.h" />
+    <ClInclude Include="title.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="work.h" />
   </ItemGroup>

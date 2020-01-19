@@ -14,7 +14,7 @@ int title_state;    // 状態
 int title_timer;    // タイマー
 // フェードアウト用変数の宣言
 float fadeOut;
-bool twoPlayMode;
+bool twoPlayMode;//trueの時２人プレイ
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
@@ -28,6 +28,26 @@ void title_init()
 
     // フェードアウト用変数の初期設定
     fadeOut = 0.0f;
+
+    texture::load(loadTexture);
+
+    bg.init();
+    conveyor.init();
+    ber.init();
+
+    GarbageManager_.init();
+
+    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+
+    press_machine.init();
+
+    DustBoxManager_.init();
+
+    DustBoxManager_.add(&dustBox, VECTOR2(400, 84));
+
+    DustBoxManager_.add(&dustBox, VECTOR2(663, 84));
+
+    DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 }
 
 //--------------------------------
@@ -35,6 +55,12 @@ void title_init()
 //--------------------------------
 void title_update()
 {
+    bg.update();
+    conveyor.update();
+    GarbageManager_.update();
+    press_machine.update();
+    DustBoxManager_.update();
+
     switch (title_state)
     {
     case 0:
@@ -50,10 +76,11 @@ void title_update()
         {
             title_state=3;
         }
-        if (TRG(0) & PAD_UP| TRG(0) & PAD_DOWN)
+        if ( (TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN) )
         {
             twoPlayMode = false;
             title_state = 2;
+
         }
         break;
     case 2:
@@ -62,7 +89,7 @@ void title_update()
         {
             title_state = 3;
         }
-        if (TRG(0) & PAD_UP | TRG(0) & PAD_DOWN)
+        if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
         {
             twoPlayMode = true;
             title_state = 1;
@@ -107,6 +134,17 @@ void title_draw()
         primitive::rect(0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT, 
             0, 0, 0, 0, 0, 0, fadeOut);
     }
+    bg.draw();
+
+    conveyor.draw();
+
+    ber.draw();
+
+    press_machine.draw();
+
+    DustBoxManager_.draw();
+
+    TimerManager_.draw();
 }
 
 //--------------------------------

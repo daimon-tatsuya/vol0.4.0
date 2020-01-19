@@ -52,8 +52,12 @@ void game_common()
 
     bg.update();
     conveyor.update();
-    player[0].update();  
-    player[1].update();
+    player[0].update(); 
+    if (twoPlayMode)
+    {
+        player[1].update();
+    }
+   
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -112,8 +116,12 @@ void game_update()
 
         player[0].init();
         player[0].type = 0;
-        player[1].init();
-        player[1].type = 1;
+        if (twoPlayMode)
+        {
+            player[1].init();
+            player[1].type = 1;
+        }
+       
         //garbage.init();
 
         GarbageManager_.init();
@@ -190,7 +198,11 @@ void game_draw()
     ber.draw();
 
     player[0].draw();
-    player[1].draw();
+    if (twoPlayMode)
+    {
+        player[1].draw();
+    }
+   
     GarbageManager_.draw();
 
     press_machine.draw();

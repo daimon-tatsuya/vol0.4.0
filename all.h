@@ -34,22 +34,12 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "BG.h"
 #include "conveyor.h"
 #include "ber.h"
-//<<<<<<< HEAD
-
-//=======
 #include "dustbox.h"
 #include "ui.h"
 #include "timer.h"
 #include "comb.h"
-//<<<<<<< HEAD
-//>>>>>>> 0ecd60dfe11cdb69557f833ea8a896513ec56bde
-//=======
 #include "randomMark.h"
 #include "item.h"
-//<<<<<<< HEAD
-//>>>>>>> 0109f21d0b202314af7c1d09622182140ff74ef5
-//=======
 #include "ranking.h"
-//>>>>>>> a24f0345bfffecba1977123f24777fafc7059949
-//******************************************************************************
+#include "title.h"
 #endif // !INCLUDED_ALL
