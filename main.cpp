@@ -215,7 +215,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
     float clear_color[4] = { 0.45f, 0.55f, 0.60f, 1.00f };
     float color_picker[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
-
+    float conveyor_color[4] = { conveyor.color.w, conveyor.color.x, conveyor.color.y, conveyor.color.z };    
     // ゲームシーンの設定
     curScene  = SCENE_TITLE;
     nextScene = SCENE_TITLE;
@@ -265,6 +265,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 
             ImGui::SliderFloat("player.x", &player[0].position.x, 0.0f, system::SCREEN_WIDTH); //プレイヤーのx軸のパラメーター
             ImGui::SliderFloat("player.y", &player[0].position.y, 0.0f, system::SCREEN_HEIGHT); //プレイヤーのy軸のパラメーター
+            ImGui::ColorEdit4("aaa", conveyor_color);
             if (ImGui::Button("Save"))
             {
                 //std::ofstream ofs("player.pos.txt");
@@ -360,6 +361,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             break;
         case SCENE_GAME:
             game_update();
+            //conveyor.color = VECTOR4(conveyor_color[0], conveyor_color[1], conveyor_color[2], conveyor_color[3]);
             break;
         }
 

@@ -124,6 +124,19 @@ SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
 
 //はてなマーク
 SpriteData sprHatena = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 3, 0, 64, 64);
+<<<<<<< HEAD
+=======
+
+//エフェクト
+SpriteData sprEffect1_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 0, 96, 128);
+SpriteData sprEffect1_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 0, 96, 128);
+SpriteData sprEffect2_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 128, 96, 128);
+SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
+
+//プレート
+SpriteData sprPlate1 = SPRITE_LEFT(TEXNO::PLATE1, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
@@ -137,11 +150,30 @@ LoadTexture loadTexture[] = {
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
+<<<<<<< HEAD
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
   //  { TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
 
+=======
+    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
+    { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
+    { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
+    
+    //アイテム
+    //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
+    //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
+    //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
+    //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画
+    //                                                                    //TODO_12
+    //{ TEXNO::ENEMY0, L"./Data/Images/enemy00.png", 1U },
+    //{ TEXNO::ENEMY1, L"./Data/Images/enemy01.png", 1U },
+    //{ TEXNO::ENEMY2, L"./Data/Images/enemy02.png", 1U },
+    //{ TEXNO::ENEMY3, L"./Data/Images/enemy03.png", 1U },
+    //{ TEXNO::ENEMY4, L"./Data/Images/enemy04.png", 1U },
+    //{ TEXNO::ENEMY5, L"./Data/Images/enemy05.png", 1U },
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     { -1, nullptr }	// 終了フラグ
 };
 
@@ -242,6 +274,7 @@ AnimeData animeRandoMark[] =
     { nullptr, -1 },// 終了フラグ
 };
 
+//ベルトコンベア
 AnimeData animeConveyor[] = {
     { &sprConveyor0, 10},
     { &sprConveyor1, 10 },
@@ -249,3 +282,18 @@ AnimeData animeConveyor[] = {
     { nullptr, -1 },// 終了フラグ
 };
 
+<<<<<<< HEAD
+=======
+//エフェクト
+AnimeData animeEffect1[] = {
+    { &sprEffect1_1, 10 },
+    { &sprEffect1_2, 10 },    
+    { nullptr, -1 },// 終了フラグ
+};
+
+AnimeData animeEffect2[] = {
+    { &sprEffect2_1, 10 },
+    { &sprEffect2_2, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986

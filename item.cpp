@@ -164,11 +164,23 @@ void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
             if (obj->animeData) { obj->animeUpdate(obj->animeData); }
 
             if (obj->position.y > SCREEN_HEIGHT || obj->position.x > SCREEN_WIDTH) { obj->eraseAlg = &garbageErase; }
-
+                          
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
+                if (player[i].bWork[PLAYER_STATUS::SPEEDUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
+                {
+                    for (auto& efe : *EffectManager_.getList())
+                    {
+                        if (efe.position == player[i].position)
+                        {
+                            efe.eraseAlg = &effectErase;
+                            break;
+                        }
+                    }
+                }
                 player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;
+                EffectManager_.add(&effect, player[i].position, 1, i);
                 obj->eraseAlg = &itemErase;
             }
         }
@@ -237,8 +249,20 @@ void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
+                if (player[i].bWork[PLAYER_STATUS::POWERUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
+                {
+                    for (auto& efe : *EffectManager_.getList())
+                    {
+                        if (efe.position == player[i].position)
+                        {
+                            efe.eraseAlg = &effectErase;
+                            break;
+                        }
+                    }
+                }
                 player[i].bWork[PLAYER_STATUS::POWERUP] = true;
                 player[i].iWork[PLAYER::LIFTED_MAX] = 4;
+                EffectManager_.add(&effect, player[i].position, 0, i);
                 obj->eraseAlg = &itemErase;
             }
         }

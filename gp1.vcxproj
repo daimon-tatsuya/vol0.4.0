@@ -154,6 +154,7 @@
     <ClCompile Include="comb.cpp" />
     <ClCompile Include="conveyor.cpp" />
     <ClCompile Include="dustbox.cpp" />
+    <ClCompile Include="effect.cpp" />
     <ClCompile Include="GameLib\debug.cpp" />
     <ClCompile Include="GameLib\dxtk_audio.cpp" />
     <ClCompile Include="GameLib\font.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="judge.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="obj2d.cpp" />
+    <ClCompile Include="plate.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="pressMachine.cpp" />
     <ClCompile Include="randomMark.cpp" />
@@ -198,6 +200,7 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="conveyor.h" />
     <ClInclude Include="dustbox.h" />
+    <ClInclude Include="effect.h" />
     <ClInclude Include="GameLib\blender.h" />
     <ClInclude Include="GameLib\debug.h" />
     <ClInclude Include="GameLib\dxtk_audio.h" />
@@ -227,6 +230,7 @@
     <ClInclude Include="judge.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="obj2d.h" />
+    <ClInclude Include="plate.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="pressMachine.h" />
     <ClInclude Include="randomMark.h" />

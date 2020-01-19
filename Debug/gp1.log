@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  work.cpp
   ui.cpp
 d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\ui.cpp(292): warning C4100: 'obj': 引数は関数の本体部で 1 度も参照されません。
@@ -28,3 +29,8 @@ d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.
   BG.cpp
   コードを生成中...
   gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe
+=======
+﻿  player.cpp
+  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.exe
+  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.pdb (Full PDB)
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
