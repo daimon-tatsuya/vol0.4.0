@@ -66,6 +66,7 @@ void title_update()
     case 0:
         //////// 初期設定 ////////
 
+        twoPlayMode = false;
         title_state++;
         break;
 
@@ -74,29 +75,31 @@ void title_update()
         //1人プレイ
         if (TRG(0) & PAD_START)
         {
-            title_state=3;
-        }
-        if ( (TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN) )
-        {
-            twoPlayMode = false;
             title_state = 2;
-
+        }
+        if (TRG(0) & PAD_UP)
+        {
+            twoPlayMode = false;            
+        }
+        else if (TRG(0) & PAD_DOWN)
+        {
+            twoPlayMode = true;            
         }
         break;
-    case 2:
-        //２人プレイ
-        if (TRG(0) & PAD_START)
-        {
-            title_state = 3;
-        }
-        if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
-        {
-            twoPlayMode = true;
-            title_state = 1;
-        }
-        break;
+    //case 2:
+    //    //２人プレイ
+    //    if (TRG(0) & PAD_START)
+    //    {
+    //        title_state = 3;
+    //    }
+    //    if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
+    //    {
+    //        twoPlayMode = true;
+    //        title_state = 1;
+    //    }
+    //    break;
     // フェードアウト用のcase 3:をつくる
-    case 3:
+    case 2:
         //////// フェードアウト ////////
         fadeOut += 0.0167f;
         if (fadeOut >= 1.0f)

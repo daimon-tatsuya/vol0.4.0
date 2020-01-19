@@ -53,18 +53,13 @@ void game_common()
     bg.update();
     PlateManager_.update();
     conveyor.update();
-<<<<<<< HEAD
     player[0].update(); 
     if (twoPlayMode)
     {
         player[1].update();
     }
    
-=======
-    player[0].update();  
-    player[1].update();
     EffectManager_.update();
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -127,18 +122,16 @@ void game_update()
 
         player[0].init();
         player[0].type = 0;
-<<<<<<< HEAD
+
         if (twoPlayMode)
         {
             player[1].init();
             player[1].type = 1;
         }
        
-=======
-        player[1].init();
-        player[1].type = 1;
+        //player[1].init();
+        //player[1].type = 1;
         EffectManager_.init();
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
         //garbage.init();
 
         GarbageManager_.init();
@@ -163,7 +156,10 @@ void game_update()
 
         CombManager_.init();        
         CombManager_.add(&comb, VECTOR2(890, 350), 0);
-        CombManager_.add(&comb, VECTOR2(1060, 350), 1);
+        if (twoPlayMode)
+        {
+            CombManager_.add(&comb, VECTOR2(1060, 350), 1);
+        }        
 
         RandoManager_.init();
         RandoManager_.add(&randomMark, VECTOR2(390, 105));
@@ -217,18 +213,15 @@ void game_draw()
     ber.draw();
 
     player[0].draw();
-<<<<<<< HEAD
     if (twoPlayMode)
     {
         player[1].draw();
     }
    
-=======
-    player[1].draw();
+    //player[1].draw();
 
     EffectManager_.draw();
 
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     GarbageManager_.draw();
 
     press_machine.draw();
@@ -260,7 +253,10 @@ void game_draw()
 //--------------------------------
 void game_end()
 {
-    
+    for ( int i = 0; i < 2; i++ )
+    {
+        player[i].mvAlg = nullptr;
+    }
 
     int i;
     for (i = 0; i < MUSIC_FILE_MAX; i++)

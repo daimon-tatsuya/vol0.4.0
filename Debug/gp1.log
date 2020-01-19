@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-﻿  work.cpp
-  ui.cpp
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\ui.cpp(292): warning C4100: 'obj': 引数は関数の本体部で 1 度も参照されません。
-  title.cpp
-  timer.cpp
-  sprite_data.cpp
-  scene_title.cpp
-  scene_game.cpp
-  randomMark.cpp
-  pressMachine.cpp
-  player.cpp
-  obj2d.cpp
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\obj2d.cpp(123): warning C4458: 'animeData' を宣言すると、クラス メンバーが隠蔽されます
-  d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\obj2d.h(136): note: 'OBJ2D::animeData' の宣言を確認してください
-  main.cpp
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\main.cpp(36): warning C4459: 'hWindow' を宣言すると、グローバル宣言が隠蔽されます
-  d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\main.h(22): note: 'MyImGui::hWindow' の宣言を確認してください
-  judge.cpp
-  item.cpp
-  garbage.cpp
-  dustbox.cpp
-  conveyor.cpp
-  comb.cpp
-  ber.cpp
-  audio.cpp
-  コードを生成中...
-  コンパイル中...
-  BG.cpp
-  コードを生成中...
-  gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe
-=======
-﻿  player.cpp
+﻿  scene_title.cpp
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.pdb (Full PDB)
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986

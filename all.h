@@ -41,12 +41,9 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "randomMark.h"
 #include "item.h"
 #include "ranking.h"
-<<<<<<< HEAD
 #include "title.h"
-=======
 #include "plate.h"
 #include "effect.h"
 //>>>>>>> a24f0345bfffecba1977123f24777fafc7059949
 //******************************************************************************
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
 #endif // !INCLUDED_ALL
