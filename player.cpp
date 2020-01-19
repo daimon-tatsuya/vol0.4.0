@@ -5,6 +5,7 @@ using namespace system;
 
 float belt = 2.0f;//ベルトコンベアーの強制移動
 
+float deltaY = 0;
 
 void Player::init()
 {
@@ -72,13 +73,14 @@ void Player::update()
         state++;
         break;
 
-    case PLAYER_MOVE://動き
+    case PLAYER_MOVE://動き        
 
         //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
         if (player[type].bWork[PLAYER_STATUS::CONVEYORUP] && player[type].iWork[PLAYER::CONVETIMER] < 360) { player[type].iWork[PLAYER::CONVETIMER]++; }
         else if(player[type].bWork[PLAYER_STATUS::CONVEYORUP])
         {
             player[type].bWork[PLAYER_STATUS::CONVEYORUP] = false;
+            conveyor.animeData = animeConveyor[0];
             player[type].iWork[PLAYER::CONVETIMER] = 0;
             belt = 2.0f;
         }
@@ -177,7 +179,24 @@ void Player::update()
         
         position += speed;
        
+        if (delta.y < position.y)
+        {
+            scale += VECTOR2(0.001f, 0.001f);
+            if (scale.x >= 1)
+            {
+                scale = VECTOR2(1, 1);
+            }
+        }
+        else if (delta.y > position.y)
+        {
+            scale -= VECTOR2(0.001f, 0.001f);
+            if (scale.x <= 0.8f)
+            {
+                scale = VECTOR2(0.8f, 0.8f);
+            }
+        }
 
+        delta.y = position.y;
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         ////ジャンプ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 

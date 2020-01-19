@@ -5,8 +5,8 @@ using namespace system;
 
 void Conveyor::init()
 {
-    animeData = animeConveyor;
-    color = VECTOR4(0.8f, 0.3f, 0, 1);
+    animeData = animeConveyor[0];
+    color = VECTOR4(1.0f, 1.0f, 1.0f, 1);
     position = VECTOR2(0, 0);
     scale = VECTOR2(1, 1);
 }

@@ -34,7 +34,8 @@ enum TEXNO
     ITEM2,
     PRESS,
     BG,
-    CONVEYOR,
+    CONVEYOR1,
+    CONVEYOR2,
     BER,
     DUSTBOX,
     NUMBER,
@@ -67,7 +68,9 @@ extern GameLib::AnimeData animeTimer1[];
 extern GameLib::AnimeData animeTimer10[];
 extern GameLib::AnimeData animeTimer100[];
 extern GameLib::AnimeData animeRandoMark[];
-extern GameLib::AnimeData animeConveyor[];
+extern GameLib::AnimeData animeConveyor1[];
+extern GameLib::AnimeData animeConveyor2[];
+extern GameLib::AnimeData* animeConveyor[];
 extern GameLib::AnimeData* animeTimer[];
 extern GameLib::AnimeData animeEffect1[];
 extern GameLib::AnimeData animeEffect2[];
@@ -128,9 +131,13 @@ extern GameLib::SpriteData sprPressMachine;
 extern GameLib::SpriteData sprBG;
 
 //コンベアー
-extern GameLib::SpriteData sprConveyor0;
-extern GameLib::SpriteData sprConveyor1;
-extern GameLib::SpriteData sprConveyor2;
+extern GameLib::SpriteData sprConveyor1_0;
+extern GameLib::SpriteData sprConveyor1_1;
+extern GameLib::SpriteData sprConveyor1_2;
+
+extern GameLib::SpriteData sprConveyor2_0;
+extern GameLib::SpriteData sprConveyor2_1;
+extern GameLib::SpriteData sprConveyor2_2;
 
 //柵
 extern GameLib::SpriteData sprBer;
