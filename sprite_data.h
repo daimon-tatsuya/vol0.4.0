@@ -42,7 +42,11 @@ enum TEXNO
     PLATE1,
     EFFECT,
     ITEM,
+    TITLE,
+    SINGLE,
+    DOUDLE,
     OBJ,
+
     /*MAP_BACK,
     MAP_TERRAIN,
     MAP_ITEM,

@@ -8,10 +8,6 @@ class Garbage : public MoveAlg
 {
 public:    
     void move(OBJ2D* obj);
-    
-    //void init();
-    //void update();
-    //void draw(); 
     void lifted(OBJ2D* obj, int playerType);//‚¿ã‚°‚é‚½‚ÌƒSƒ~‚Ì“®‚«
     void thrown(OBJ2D* obj, int playerType);//“Š‚°‚½‚ÌƒSƒ~‚Ì“®‚«
 

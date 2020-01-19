@@ -36,30 +36,12 @@ SpriteData sprPlayer_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 0, 128 * 4, 96, 
 SpriteData sprPlayer_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 1, 128 * 4, 96, 128);
 SpriteData sprPlayer_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER, 96 * 2, 128 * 4, 96, 128);
 
-////大型
-//SpriteData sprGarbage_Large0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 192 * 0, 0, 192, 192);
-//SpriteData sprGarbage_Large1  = SPRITE_BOTTOM(TEXNO::GARBAGE, 192 * 1, 0, 192, 192);
-//SpriteData sprGarbage_Large2  = SPRITE_BOTTOM(TEXNO::GARBAGE, 192 * 2, 0, 192, 192);
-////中型
-//SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 128 * 0, 192 , 128, 128);
-//SpriteData sprGarbage_Medium1 = SPRITE_BOTTOM(TEXNO::GARBAGE, 128 * 1, 192 , 128, 128);
-//SpriteData sprGarbage_Medium2 = SPRITE_BOTTOM(TEXNO::GARBAGE, 128 * 2, 192 , 128, 128);
-////小型
-//SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 320 * 0, 320 , 64, 64);
-//SpriteData sprGarbage_Small1  = SPRITE_BOTTOM(TEXNO::GARBAGE, 320 * 1, 320 , 64, 64);
-//SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE, 320 * 2, 320 , 64, 64);
 //大型
 SpriteData sprGarbage_Large0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 0, 64, 64);
-//SpriteData sprGarbage_Large1  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 0, 64, 64);
-//SpriteData sprGarbage_Large2  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 0, 64, 64);
 //中型
 SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 0, 64, 64);
-//SpriteData sprGarbage_Medium1 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 192, 64, 64);
-//SpriteData sprGarbage_Medium2 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 192 ,64, 64);
 //小型
 SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 0, 0, 64, 64);
-//SpriteData sprGarbage_Small1  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 1, 128, 64, 64);
-//SpriteData sprGarbage_Small2  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 2 ,128, 64, 64);
 
 SpriteData sprGarbage_Gold = SPRITE_BOTTOM(TEXNO::GOLD, 64 * 0, 0, 64, 64);
 
@@ -70,13 +52,9 @@ SpriteData sprPressMachine = SPRITE_BOTTOM(TEXNO::PRESS, 0, 0, 275, 610);
 SpriteData sprBG = SPRITE_LEFT(TEXNO::BG, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
 //コンベアー
-SpriteData sprConveyor1_0 = SPRITE_LEFT(TEXNO::CONVEYOR1, system::SCREEN_WIDTH * 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
-SpriteData sprConveyor1_1 = SPRITE_LEFT(TEXNO::CONVEYOR1, system::SCREEN_WIDTH * 1, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
-SpriteData sprConveyor1_2 = SPRITE_LEFT(TEXNO::CONVEYOR1, system::SCREEN_WIDTH * 2, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
-
-SpriteData sprConveyor2_0 = SPRITE_LEFT(TEXNO::CONVEYOR2, system::SCREEN_WIDTH * 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
-SpriteData sprConveyor2_1 = SPRITE_LEFT(TEXNO::CONVEYOR2, system::SCREEN_WIDTH * 1, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
-SpriteData sprConveyor2_2 = SPRITE_LEFT(TEXNO::CONVEYOR2, system::SCREEN_WIDTH * 2, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor0 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor1 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 1, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprConveyor2 = SPRITE_LEFT(TEXNO::CONVEYOR, system::SCREEN_WIDTH * 2, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
 //柵
 SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
@@ -129,6 +107,14 @@ SpriteData sprGarbage[] = {
     sprGarbage_Medium0,
     sprGarbage_Small0,
 };
+//ゲームモード
+SpriteData sprTitle_single  = SPRITE_LEFT(TEXNO::SINGLE, 0, 0, 1188, 648);
+SpriteData sprTitle_doubles = SPRITE_LEFT(TEXNO::DOUDLE, 0, 0, 1188, 648);
+
+//タイトル
+//SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
+//SpriteData sprTitle[] =
+//{ };
 
 //アイテム
 SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 128, 64, 64);
@@ -138,6 +124,8 @@ SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
 
 //はてなマーク
 SpriteData sprHatena = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 3, 0, 64, 64);
+<<<<<<< HEAD
+=======
 
 //エフェクト
 SpriteData sprEffect1_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 0, 96, 128);
@@ -148,6 +136,7 @@ SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
 //プレート
 SpriteData sprPlate1 = SPRITE_LEFT(TEXNO::PLATE1, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
@@ -156,12 +145,18 @@ LoadTexture loadTexture[] = {
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
-    { TEXNO::CONVEYOR1,     L"./Data/Images/berutokonbea.png",    1U },//コンベアー
-    { TEXNO::CONVEYOR2,     L"./Data/Images/berutokonbea2.png",   1U },//コンベアー
+    { TEXNO::CONVEYOR,      L"./Data/Images/berutokonbea.png",    1U },//コンベアー
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
+<<<<<<< HEAD
+    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
+  //  { TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
+    { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
+    { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
+
+=======
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
@@ -178,6 +173,7 @@ LoadTexture loadTexture[] = {
     //{ TEXNO::ENEMY3, L"./Data/Images/enemy03.png", 1U },
     //{ TEXNO::ENEMY4, L"./Data/Images/enemy04.png", 1U },
     //{ TEXNO::ENEMY5, L"./Data/Images/enemy05.png", 1U },
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     { -1, nullptr }	// 終了フラグ
 };
 
@@ -216,35 +212,6 @@ AnimeData animePlayer_Left[] = {
     { &sprPlayer_Left1, 10 },
     { nullptr, -1 },// 終了フラグ
 };
-//ゴミ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//大型
-//AnimeData animeGarbage_Large[] =
-//{
-//    {&sprGarbage_Large0,10},
-//    {&sprGarbage_Large1,10},
-//    {&sprGarbage_Large2,10},
-//    { nullptr, -1 },// 終了フラグ
-//};
-//
-////中型
-//AnimeData animeGarbage_Medium[] =
-//{
-//    { &sprGarbage_Medium0,10 },
-//    { &sprGarbage_Medium1,10 },
-//    { &sprGarbage_Medium2,10 },
-//    { nullptr, -1 },// 終了フラグ
-//};
-//
-////小型
-//
-//AnimeData animeGarbage_Small[] =
-//{
-//    { &sprGarbage_Small0,10 },
-//    { &sprGarbage_Small1,10 },
-//    { &sprGarbage_Small2,10 },
-//    { nullptr, -1 },// 終了フラグ
-//};
-
 
 //数字
 //数字を時間で順番に出す場合秒数は0から表示する。
@@ -308,25 +275,15 @@ AnimeData animeRandoMark[] =
 };
 
 //ベルトコンベア
-AnimeData animeConveyor1[] = {
-    { &sprConveyor1_0, 10},
-    { &sprConveyor1_1, 10 },
-    { &sprConveyor1_2, 10 },
+AnimeData animeConveyor[] = {
+    { &sprConveyor0, 10},
+    { &sprConveyor1, 10 },
+    { &sprConveyor2, 10 },
     { nullptr, -1 },// 終了フラグ
 };
 
-AnimeData animeConveyor2[] = {
-    { &sprConveyor2_0, 10 },
-    { &sprConveyor2_1, 10 },
-    { &sprConveyor2_2, 10 },
-    { nullptr, -1 },// 終了フラグ
-};
-
-AnimeData* animeConveyor[] = {
-    animeConveyor1,
-    animeConveyor2,
-};
-
+<<<<<<< HEAD
+=======
 //エフェクト
 AnimeData animeEffect1[] = {
     { &sprEffect1_1, 10 },
@@ -339,3 +296,4 @@ AnimeData animeEffect2[] = {
     { &sprEffect2_2, 10 },
     { nullptr, -1 },// 終了フラグ
 };
+>>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
