@@ -108,8 +108,8 @@ SpriteData sprGarbage[] = {
     sprGarbage_Small0,
 };
 //ゲームモード
-SpriteData sprTitle_single  = SPRITE_LEFT(TEXNO::SINGLE, 0, 0, 1188, 648);
-SpriteData sprTitle_doubles = SPRITE_LEFT(TEXNO::DOUDLE, 0, 0, 1188, 648);
+SpriteData sprTitle_single  = SPRITE_CENTER(TEXNO::SINGLE, 0, 0, 1188, 648);
+SpriteData sprTitle_doubles = SPRITE_CENTER(TEXNO::DOUDLE, 0, 0, 1188, 648);
 
 //タイトル
 //SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
@@ -124,8 +124,6 @@ SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
 
 //はてなマーク
 SpriteData sprHatena = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 3, 0, 64, 64);
-<<<<<<< HEAD
-=======
 
 //エフェクト
 SpriteData sprEffect1_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 0, 96, 128);
@@ -136,11 +134,11 @@ SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
 //プレート
 SpriteData sprPlate1 = SPRITE_LEFT(TEXNO::PLATE1, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
+
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
-    { TEXNO::PLAYER,        L"./Data/Images/player.png",          1U },// プレイヤー
+    { TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
@@ -150,30 +148,13 @@ LoadTexture loadTexture[] = {
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
-<<<<<<< HEAD
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
   //  { TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
-
-=======
-    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
     
-    //アイテム
-    //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
-    //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
-    //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
-    //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画
-    //                                                                    //TODO_12
-    //{ TEXNO::ENEMY0, L"./Data/Images/enemy00.png", 1U },
-    //{ TEXNO::ENEMY1, L"./Data/Images/enemy01.png", 1U },
-    //{ TEXNO::ENEMY2, L"./Data/Images/enemy02.png", 1U },
-    //{ TEXNO::ENEMY3, L"./Data/Images/enemy03.png", 1U },
-    //{ TEXNO::ENEMY4, L"./Data/Images/enemy04.png", 1U },
-    //{ TEXNO::ENEMY5, L"./Data/Images/enemy05.png", 1U },
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     { -1, nullptr }	// 終了フラグ
 };
 
@@ -281,9 +262,6 @@ AnimeData animeConveyor[] = {
     { &sprConveyor2, 10 },
     { nullptr, -1 },// 終了フラグ
 };
-
-<<<<<<< HEAD
-=======
 //エフェクト
 AnimeData animeEffect1[] = {
     { &sprEffect1_1, 10 },
@@ -296,4 +274,4 @@ AnimeData animeEffect2[] = {
     { &sprEffect2_2, 10 },
     { nullptr, -1 },// 終了フラグ
 };
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
+

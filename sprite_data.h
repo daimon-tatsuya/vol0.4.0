@@ -173,4 +173,13 @@ extern GameLib::SpriteData sprEffect2_1;
 extern GameLib::SpriteData sprEffect2_2;
 //プレート       
 extern GameLib::SpriteData sprPlate1;
+//ゲームモード
+extern GameLib::SpriteData sprTitle_single;
+extern GameLib::SpriteData sprTitle_doubles;
+//タイトル
+//extern GameLib::SpriteData SpriteData sprTitle;
+
+
+//extern GameLib::SpriteData  SpriteData sprTitle[];
+
 #endif // !INCLUDED_SPRITE_DATA

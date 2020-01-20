@@ -8,7 +8,11 @@ float belt = 2.0f;//ベルトコンベアーの強制移動
 
 void Player::init()
 {
-    animeData = animePlayer_Down;
+    if (type == 0)
+    {
+        animeData = animePlayer_Down;
+    }
+   
 
     // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
     size = VECTOR2(24 / 2, 32 - 2);
@@ -44,7 +48,10 @@ void Player::update()
     {
     case PLAYER_INIT://初期設定 1
 
-        animeData = animePlayer_Down;
+        if (type == 0)
+        {
+            animeData = animePlayer_Down;
+        }
 
         // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
         size = VECTOR2(24 / 2, 32 - 2);
@@ -149,24 +156,38 @@ void Player::update()
 
             if (STATE(type) & PAD_LEFT)//左移動
             {
-                animeData = animePlayer_Left;
+                if (type == 0)
+                {
+                    animeData = animePlayer_Left;
+                }
                 speed.x += -4 - itemSpeed;
                 xFlip = -1.0f;
             }
             if (STATE(type) & PAD_RIGHT)//右移動
             {
-                animeData = animePlayer_Right;
+                if (type == 0)
+                {
+                    animeData = animePlayer_Right;
+                }
                 speed.x += 3 + itemSpeed;
                 xFlip = 1.0f;
             }
             if (STATE(type) & PAD_UP) //上移動
             {
-                animeData = animePlayer_Up;
+                if (type == 0)
+                {
+                    animeData = animePlayer_Up;
+                }
+
                 speed.y += -1 - itemSpeed;
             }
             if (STATE(type) & PAD_DOWN) //下移動
             {
-                animeData = animePlayer_Down;
+                if (type == 0)
+                {
+                    animeData = animePlayer_Down;
+                }
+               
                 speed.y = 1 + itemSpeed;
             }
        
@@ -178,27 +199,6 @@ void Player::update()
         position += speed;
        
 
-        //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        ////ジャンプ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-        //if (onGround && TRG(0)&PAD_TRG3)
-        //{
-        //    jumpTimer = 10;
-        //}
-        //if (jumpTimer > 0)
-        //{
-        //    if (STATE(0) & PAD_TRG3)
-        //    {
-        //        speed.y += jump;
-        //        jumpTimer -= 1;
-        //    }
-        //}
-        //else
-        //{
-        //    jumpTimer = 0;
-        //}
-
-        //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //移動制限\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         
         if (position.x < 330)

@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+
 #define TITLE_INIT     (0)   
 #define TITLE_DROP     (1)
 #define TITLE_MOVE     (2)
@@ -8,6 +9,7 @@ class Title : public MoveAlg
 {
 public:
     void move(OBJ2D* obj);
+ 
 };
 static int groundPosYKeep_Title = 0;
 
@@ -29,4 +31,7 @@ public:
 
 };
 
-EXTERN TitleManager titleManager_;
+EXTERN TitleManager TitleManager_;
+
+
+

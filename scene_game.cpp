@@ -53,18 +53,15 @@ void game_common()
     bg.update();
     PlateManager_.update();
     conveyor.update();
-<<<<<<< HEAD
     player[0].update(); 
     if (twoPlayMode)
     {
         player[1].update();
     }
    
-=======
-    player[0].update();  
-    player[1].update();
+
     EffectManager_.update();
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
+
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -75,15 +72,15 @@ void game_common()
 
     timerNum--;
 
-    if (TRG(0) & PAD_R1) //ゴミ生成
-    {
-        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
-    }
+    //if (TRG(0) & PAD_R1) //ゴミ生成
+    //{
+    //    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+    //}
 
-    if (TRG(0) & PAD_L1)//アイテム生成
-    {
-        ItemManager_.add(&item, VECTOR2(0, 0), 0);
-    }
+    //if (TRG(0) & PAD_L1)//アイテム生成
+    //{
+    //    ItemManager_.add(&item, VECTOR2(0, 0), 0);
+    //}
 
     //コンボ桁生成
     for ( int i = 0; i < 2; i++)
@@ -127,23 +124,17 @@ void game_update()
 
         player[0].init();
         player[0].type = 0;
-<<<<<<< HEAD
         if (twoPlayMode)
         {
             player[1].init();
             player[1].type = 1;
         }
-       
-=======
-        player[1].init();
-        player[1].type = 1;
+
         EffectManager_.init();
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
-        //garbage.init();
 
         GarbageManager_.init();
 
-        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+      //  GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
         press_machine.init();
 
@@ -193,7 +184,7 @@ void game_update()
         combKeta[1] = 0;
         timerNum = 10800;
         timerKeta = 0;
-        nextScene = SCENE_TITLE;
+        nextScene = SCENE_OVER;
 
         break;
     }
@@ -217,18 +208,14 @@ void game_draw()
     ber.draw();
 
     player[0].draw();
-<<<<<<< HEAD
+
     if (twoPlayMode)
     {
         player[1].draw();
     }
-   
-=======
-    player[1].draw();
-
+      
     EffectManager_.draw();
 
->>>>>>> 70ace1d1e7709795fd0fa6b4e7857c3158b56986
     GarbageManager_.draw();
 
     press_machine.draw();

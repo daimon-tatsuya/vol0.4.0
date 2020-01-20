@@ -8,8 +8,9 @@ void Title::move(OBJ2D* obj)
 {
     switch (obj->state)
     {
-    case GARBAGE_INIT://初期設定  
-                      //ここでごみの流れる地面を決める
+    case TITLE_INIT://初期設定  
+        
+                      //ここでtitleの文字の流れる地面を決める
     {
         int groundPosY = rand() % 3;//乱数用
         while (groundPosYKeep_Title == groundPosY)
@@ -31,21 +32,24 @@ void Title::move(OBJ2D* obj)
         }
         groundPosYKeep_Title = groundPosY;
     }
-  
+   
     obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
     obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
     obj->caughtFlg = false;
-    obj->speed.y = 4;
     obj->exist = true;
     obj->throwFlg = false;
     obj->no = 0;
-
+    obj->position.y = SCREEN_HEIGHT / 2.0f;
     srand((unsigned int)time(NULL));//乱数を更新する
-
-    obj->state++;
+    if ((TRG(0)&PAD_TRG1) | (TRG(0)&PAD_TRG2))
+    {
+        obj->state++;
+        obj->speed.y = 4;
+    }
+   
     break;
 
-    case GARBAGE_DROP:
+    case TITLE_DROP:
 
         obj->position.y += obj->speed.y;
 
@@ -57,27 +61,20 @@ void Title::move(OBJ2D* obj)
 
         break;
 
-    case GARBAGE_MOVE:
+    case TITLE_MOVE:
   
-        //何も押してないとき
-        if (!obj->throwFlg&&!obj->caughtFlg)
-        {
+       
             if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
             {
                 obj->position.y = obj->GROUND_POS_Y;
             }
         //ベルトコンベアーの強制移動
             obj->speed.x = belt;
-        }
+        
       
-        if (!obj->caughtFlg)//持ち上げられているときプレイヤーの頭上にいる
-        {
+       
             obj->position += obj->speed;
-        }
-        else if (obj->caughtFlg)
-        {
-            obj->position += player[obj->no].speed;
-        }
+       
 
         if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端
         {
@@ -85,20 +82,16 @@ void Title::move(OBJ2D* obj)
         }
 
         break;
-    case GARBAGE_DELETE:
+    case TITLE_DELETE:
 
         obj->speed.y = 3;
         obj->speed.x = 1;
-        if (obj->position.y < (-obj->size.y*2.0f))
-        {
-            titleErase.erase(obj);
-
-        }
+      
         obj->position += obj->speed;
         break;
     }
 
-    if (obj->position.y > SCREEN_HEIGHT)
+    if (obj->position.y > SCREEN_HEIGHT+64.0f)
     {
         obj->eraseAlg = &titleErase;
     }
@@ -120,3 +113,4 @@ OBJ2D* TitleManager::add(MoveAlg* mvAlg, const VECTOR2& pos, int type)
     objList.push_back(obj);             // リストにobjを追加する
     return &(*objList.rbegin());        // 今追加したobjのアドレスを返す（何かで使えるように）
 }
+
