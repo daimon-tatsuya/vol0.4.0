@@ -9,14 +9,15 @@ float deltaY = 0;
 
 void Player::init()
 {
-    animeData = animePlayer_Down;
+    animeData = animePlayer[type][0];
 
     // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
     size = VECTOR2(24 / 2, 32 - 2);
     color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
     GROUND_POS_Y = 570.0f;
     speed = VECTOR2(0, 0);
-    position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+    player[0].position = { SCREEN_WIDTH / 2 , 410.0f };
+    player[1].position = { SCREEN_WIDTH / 2 , 570.0f };
     iWork[PLAYER::CONVETIMER] = 0;
     iWork[PLAYER::ITEMADDTIMER] = 0;
     iWork[PLAYER::POWERTIMER] = 0;
@@ -45,14 +46,15 @@ void Player::update()
     {
     case PLAYER_INIT://初期設定 1
 
-        animeData = animePlayer_Down;
-
+        animeData = animePlayer[type][0];
+      
         // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
         size = VECTOR2(24 / 2, 32 - 2);
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         GROUND_POS_Y = 570.0f;
         speed = VECTOR2(0, 0);
-        position = { SCREEN_WIDTH / 2,GROUND_POS_Y };
+        player[0].position = { SCREEN_WIDTH / 2 , 410.0f };
+        player[1].position = { SCREEN_WIDTH / 2 , 570.0f };
         iWork[PLAYER::CONVETIMER]   = 0;
         iWork[PLAYER::ITEMADDTIMER] = 0;
         iWork[PLAYER::POWERTIMER]   = 0;
@@ -151,24 +153,24 @@ void Player::update()
 
             if (STATE(type) & PAD_LEFT)//左移動
             {
-                animeData = animePlayer_Left;
+                animeData = animePlayer[type][2];
                 speed.x += -4 - itemSpeed;
                 xFlip = -1.0f;
             }
             if (STATE(type) & PAD_RIGHT)//右移動
             {
-                animeData = animePlayer_Right;
+                animeData = animePlayer[type][3];
                 speed.x += 3 + itemSpeed;
                 xFlip = 1.0f;
             }
             if (STATE(type) & PAD_UP) //上移動
             {
-                animeData = animePlayer_Up;
+                animeData = animePlayer[type][1];
                 speed.y += -1 - itemSpeed;
             }
             if (STATE(type) & PAD_DOWN) //下移動
             {
-                animeData = animePlayer_Down;
+                animeData = animePlayer[type][0];
                 speed.y = 1 + itemSpeed;
             }
        

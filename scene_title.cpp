@@ -32,7 +32,9 @@ void title_init()
     texture::load(loadTexture);
 
     bg.init();
+
     conveyor.init();
+
     ber.init();
 
     GarbageManager_.init();
@@ -48,6 +50,9 @@ void title_init()
     DustBoxManager_.add(&dustBox, VECTOR2(663, 84));
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
+
+    gamemode[0].init();
+    gamemode[1].init();
 }
 
 //--------------------------------
@@ -72,19 +77,7 @@ void title_update()
 
     case 1: //ゲームモードを決める
        
-        //1人プレイ
-        if (TRG(0) & PAD_START)
-        {
-            title_state = 2;
-        }
-        if (TRG(0) & PAD_UP)
-        {
-            twoPlayMode = false;            
-        }
-        else if (TRG(0) & PAD_DOWN)
-        {
-            twoPlayMode = true;            
-        }
+        gamemode[0].update();
         break;
     //case 2:
     //    //２人プレイ
@@ -147,7 +140,8 @@ void title_draw()
 
     DustBoxManager_.draw();
 
-    TimerManager_.draw();
+    gamemode[0].draw();
+    gamemode[1].draw();
 }
 
 //--------------------------------
