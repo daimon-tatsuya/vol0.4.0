@@ -112,7 +112,7 @@ void Tutorial::update()
         }
 
         data = &sprItiran;
-        if (TRG(0) & PAD_TRG1)
+        if (TRG(0) & PAD_TRG2)
         {
             nextScene = SCENE_TITLE;
         }

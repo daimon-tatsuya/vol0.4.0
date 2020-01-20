@@ -19,7 +19,7 @@ void GameMode::init()
 void GameMode::update() 
 {
 
-    if (TRG(0) & PAD_START)//ゲームを開始
+    if (TRG(0) & PAD_TRG2)//ゲームを開始
     {
         title_state = 2;
     }
