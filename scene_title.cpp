@@ -12,9 +12,11 @@
 //------< 変数 >----------------------------------------------------------------
 int title_state;    // 状態
 int title_timer;    // タイマー
+int game_mode = 0;
 // フェードアウト用変数の宣言
 float fadeOut;
-bool twoPlayMode;//trueの時２人プレイ
+bool twoPlayMode = false;//trueの時２人プレイ
+bool tutorialMode = false;//trueの時２人プレイ
 // 別のファイルの変数を使用する宣言
 extern int nextScene;
 
@@ -25,6 +27,9 @@ void title_init()
 {
     title_state = 0;
     title_timer = 0;
+    game_mode = 0;
+    twoPlayMode = false;
+    tutorialMode = false;
 
     // フェードアウト用変数の初期設定
     fadeOut = 0.0f;
@@ -34,10 +39,6 @@ void title_init()
     bg.init();
     conveyor.init();
     ber.init();
-
-    GarbageManager_.init();
-
-    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
     press_machine.init();
 
@@ -79,11 +80,13 @@ void title_update()
         }
         if (TRG(0) & PAD_UP)
         {
-            twoPlayMode = false;            
+            game_mode++;
+            if (game_mode > 0) { game_mode = 2; }
         }
         else if (TRG(0) & PAD_DOWN)
         {
-            twoPlayMode = true;            
+            game_mode--;
+            if (game_mode < 0) { game_mode = 0; }
         }
         break;
     //case 2:
@@ -106,6 +109,11 @@ void title_update()
         {
             nextScene = SCENE_GAME;
         }
+
+        if (game_mode == 0) { twoPlayMode = false; tutorialMode = true;}
+        if (game_mode == 1) { twoPlayMode = false; }
+        if (game_mode == 2) { twoPlayMode = true; }
+
         break;
     }
     title_timer++;
@@ -145,9 +153,7 @@ void title_draw()
 
     press_machine.draw();
 
-    DustBoxManager_.draw();
-
-    TimerManager_.draw();
+    DustBoxManager_.draw();    
 }
 
 //--------------------------------

@@ -44,6 +44,7 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ð—Dæ
 #include "title.h"
 #include "plate.h"
 #include "effect.h"
-//>>>>>>> a24f0345bfffecba1977123f24777fafc7059949
+#include "fukidasi.h"
+#include "tutorial.h"
 //******************************************************************************
 #endif // !INCLUDED_ALL

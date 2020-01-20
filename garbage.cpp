@@ -23,8 +23,8 @@ void Garbage::move(OBJ2D* obj)
         switch (groundPosY)
         {
         case 0:
-            obj->GROUND_POS_Y = 482.0f;//上
-            obj->scale = VECTOR2(0.8f, 0.8f);
+            obj->GROUND_POS_Y = 448.0f;//上
+            obj->scale = VECTOR2(0.9f, 0.9f);
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//中
@@ -130,8 +130,7 @@ void Garbage::move(OBJ2D* obj)
         {
             obj->position += player[obj->no].speed;
             obj->scale = player[obj->no].scale;
-        }
-
+        }        
         if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端
         {
             obj->state++;
@@ -156,7 +155,7 @@ void Garbage::move(OBJ2D* obj)
         obj->eraseAlg = &garbageErase;
     }
 
-    debug::setString("count:%d", count);
+    //debug::setString("count:%d", count);
 }
 
 

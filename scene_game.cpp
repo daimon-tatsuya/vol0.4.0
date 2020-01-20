@@ -63,13 +63,17 @@ void game_common()
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
-    TimerManager_.update();
+
+    if (!tutorialMode)//チュートリアルに入ってないとき。
+    {
+        TimerManager_.update();
+        RandoManager_.update();
+        ItemManager_.update();
+        timerNum--;
+    }
+    
     CombManager_.update();
-    RandoManager_.update();
-    ItemManager_.update();
-
-    timerNum--;
-
+        
     if (TRG(0) & PAD_R1) //ゴミ生成
     {
         GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
@@ -136,7 +140,7 @@ void game_update()
 
         GarbageManager_.init();
 
-        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+        //GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
         press_machine.init();
 
@@ -150,9 +154,12 @@ void game_update()
 
         TimerManager_.init();
 
-        TimerManager_.add(&timer, VECTOR2(640, 350));
-        TimerManager_.add(&timer, VECTOR2(640, 350));
-        TimerManager_.add(&timer, VECTOR2(600, 350));
+        if (!tutorialMode)//チュートリアルに入ってないとき。
+        {
+            TimerManager_.add(&timer, VECTOR2(640, 350));
+            TimerManager_.add(&timer, VECTOR2(640, 350));
+            TimerManager_.add(&timer, VECTOR2(600, 350));
+        }        
 
         CombManager_.init();        
         CombManager_.add(&comb, VECTOR2(890, 350), 0);
@@ -162,9 +169,12 @@ void game_update()
         }        
 
         RandoManager_.init();
-        RandoManager_.add(&randomMark, VECTOR2(390, 105));
-        RandoManager_.add(&randomMark, VECTOR2(653, 105));
-        RandoManager_.add(&randomMark, VECTOR2(916, 105));
+        if (!tutorialMode)//チュートリアルに入ってないとき。
+        {
+            RandoManager_.add(&randomMark, VECTOR2(390, 105));
+            RandoManager_.add(&randomMark, VECTOR2(653, 105));
+            RandoManager_.add(&randomMark, VECTOR2(916, 105));
+        }        
 
         ItemManager_.init();
 

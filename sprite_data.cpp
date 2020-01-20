@@ -154,7 +154,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
-  //  { TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
+    //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },

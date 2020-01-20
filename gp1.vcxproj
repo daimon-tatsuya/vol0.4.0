@@ -155,6 +155,7 @@
     <ClCompile Include="conveyor.cpp" />
     <ClCompile Include="dustbox.cpp" />
     <ClCompile Include="effect.cpp" />
+    <ClCompile Include="fukidasi.cpp" />
     <ClCompile Include="GameLib\debug.cpp" />
     <ClCompile Include="GameLib\dxtk_audio.cpp" />
     <ClCompile Include="GameLib\font.cpp" />
@@ -188,6 +189,7 @@
     <ClCompile Include="sprite_data.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="title.cpp" />
+    <ClCompile Include="tutorial.cpp" />
     <ClCompile Include="ui.cpp" />
     <ClCompile Include="work.cpp" />
   </ItemGroup>
@@ -201,6 +203,7 @@
     <ClInclude Include="conveyor.h" />
     <ClInclude Include="dustbox.h" />
     <ClInclude Include="effect.h" />
+    <ClInclude Include="fukidasi.h" />
     <ClInclude Include="GameLib\blender.h" />
     <ClInclude Include="GameLib\debug.h" />
     <ClInclude Include="GameLib\dxtk_audio.h" />
@@ -241,6 +244,7 @@
     <ClInclude Include="garbage.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="title.h" />
+    <ClInclude Include="tutorial.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="work.h" />
   </ItemGroup>
