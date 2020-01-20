@@ -5,14 +5,11 @@ using namespace system;
 
 float belt = 2.0f;//ベルトコンベアーの強制移動
 
+float deltaY = 0;
 
 void Player::init()
 {
-    if (type == 0)
-    {
-        animeData = animePlayer_Down;
-    }
-   
+    animeData = animePlayer_Down;
 
     // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
     size = VECTOR2(24 / 2, 32 - 2);
@@ -48,10 +45,7 @@ void Player::update()
     {
     case PLAYER_INIT://初期設定 1
 
-        if (type == 0)
-        {
-            animeData = animePlayer_Down;
-        }
+        animeData = animePlayer_Down;
 
         // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
         size = VECTOR2(24 / 2, 32 - 2);
@@ -79,13 +73,14 @@ void Player::update()
         state++;
         break;
 
-    case PLAYER_MOVE://動き
+    case PLAYER_MOVE://動き        
 
         //スピードアップアイテムをとった時一定時間コンベアーのスピードアップ。
         if (player[type].bWork[PLAYER_STATUS::CONVEYORUP] && player[type].iWork[PLAYER::CONVETIMER] < 360) { player[type].iWork[PLAYER::CONVETIMER]++; }
         else if(player[type].bWork[PLAYER_STATUS::CONVEYORUP])
         {
             player[type].bWork[PLAYER_STATUS::CONVEYORUP] = false;
+            conveyor.animeData = animeConveyor[0];
             player[type].iWork[PLAYER::CONVETIMER] = 0;
             belt = 2.0f;
         }
@@ -156,38 +151,24 @@ void Player::update()
 
             if (STATE(type) & PAD_LEFT)//左移動
             {
-                if (type == 0)
-                {
-                    animeData = animePlayer_Left;
-                }
+                animeData = animePlayer_Left;
                 speed.x += -4 - itemSpeed;
                 xFlip = -1.0f;
             }
             if (STATE(type) & PAD_RIGHT)//右移動
             {
-                if (type == 0)
-                {
-                    animeData = animePlayer_Right;
-                }
+                animeData = animePlayer_Right;
                 speed.x += 3 + itemSpeed;
                 xFlip = 1.0f;
             }
             if (STATE(type) & PAD_UP) //上移動
             {
-                if (type == 0)
-                {
-                    animeData = animePlayer_Up;
-                }
-
+                animeData = animePlayer_Up;
                 speed.y += -1 - itemSpeed;
             }
             if (STATE(type) & PAD_DOWN) //下移動
             {
-                if (type == 0)
-                {
-                    animeData = animePlayer_Down;
-                }
-               
+                animeData = animePlayer_Down;
                 speed.y = 1 + itemSpeed;
             }
        
@@ -198,7 +179,45 @@ void Player::update()
         
         position += speed;
        
+        if (delta.y < position.y)
+        {
+            scale += VECTOR2(0.001f, 0.001f);
+            if (scale.x >= 1)
+            {
+                scale = VECTOR2(1, 1);
+            }
+        }
+        else if (delta.y > position.y)
+        {
+            scale -= VECTOR2(0.001f, 0.001f);
+            if (scale.x <= 0.8f)
+            {
+                scale = VECTOR2(0.8f, 0.8f);
+            }
+        }
 
+        delta.y = position.y;
+        //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        ////ジャンプ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+        //if (onGround && TRG(0)&PAD_TRG3)
+        //{
+        //    jumpTimer = 10;
+        //}
+        //if (jumpTimer > 0)
+        //{
+        //    if (STATE(0) & PAD_TRG3)
+        //    {
+        //        speed.y += jump;
+        //        jumpTimer -= 1;
+        //    }
+        //}
+        //else
+        //{
+        //    jumpTimer = 0;
+        //}
+
+        //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //移動制限\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         
         if (position.x < 330)

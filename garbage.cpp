@@ -24,9 +24,11 @@ void Garbage::move(OBJ2D* obj)
         {
         case 0:
             obj->GROUND_POS_Y = 482.0f;//上
+            obj->scale = VECTOR2(0.8f, 0.8f);
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//中
+            obj->scale = VECTOR2(0.95f, 0.95f);
             break;
         case 2:
             obj->GROUND_POS_Y = 610.0f;//下
@@ -127,6 +129,7 @@ void Garbage::move(OBJ2D* obj)
         else if (obj->caughtFlg)
         {
             obj->position += player[obj->no].speed;
+            obj->scale = player[obj->no].scale;
         }
 
         if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端

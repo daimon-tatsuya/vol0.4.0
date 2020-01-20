@@ -21,9 +21,11 @@ void Item::move(OBJ2D* obj)
         {
         case 0:
             obj->GROUND_POS_Y = 482.0f;//上
+            obj->scale = VECTOR2(0.8f, 0.8f);
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//中
+            obj->scale = VECTOR2(0.95f, 0.95f);
             break;
         case 2:
             obj->GROUND_POS_Y = 610.0f;//下
@@ -98,6 +100,7 @@ void itemMove1(OBJ2D* obj) //コンベアースピードアップ
             {
                 //ここにアイテム効果の処理のフラグを立てる。
                 player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
+                conveyor.animeData = animeConveyor[1];
                 belt = 3.5f;
                 obj->eraseAlg = &itemErase;
             }

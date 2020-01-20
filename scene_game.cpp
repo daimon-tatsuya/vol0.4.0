@@ -59,9 +59,7 @@ void game_common()
         player[1].update();
     }
    
-
     EffectManager_.update();
-
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
@@ -72,28 +70,28 @@ void game_common()
 
     timerNum--;
 
-    //if (TRG(0) & PAD_R1) //ゴミ生成
-    //{
-    //    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
-    //}
+    if (TRG(0) & PAD_R1) //ゴミ生成
+    {
+        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+    }
 
-    //if (TRG(0) & PAD_L1)//アイテム生成
-    //{
-    //    ItemManager_.add(&item, VECTOR2(0, 0), 0);
-    //}
+    if (TRG(0) & PAD_L1)//アイテム生成
+    {
+        ItemManager_.add(&item, VECTOR2(0, 0), 0);
+    }
 
     //コンボ桁生成
     for ( int i = 0; i < 2; i++)
     {
         if (combNum[i] >= 10 && combKeta[i] == 1)
         {
-            if (i == 0) { CombManager_.add(&comb, VECTOR2(860, 350), i); }
+            if (i == 0) { CombManager_.add(&comb, VECTOR2(890, 350), i); }
             else { CombManager_.add(&comb, VECTOR2(1060, 350), i); }            
         }
 
         if (combNum[i] >= 100 && combKeta[i] == 2)
         {
-            if (i == 0) { CombManager_.add(&comb, VECTOR2(860, 350), i); }
+            if (i == 0) { CombManager_.add(&comb, VECTOR2(890, 350), i); }
             else { CombManager_.add(&comb, VECTOR2(1060, 350), i); }            
         }
     }
@@ -124,17 +122,21 @@ void game_update()
 
         player[0].init();
         player[0].type = 0;
+
         if (twoPlayMode)
         {
             player[1].init();
             player[1].type = 1;
         }
-
+       
+        //player[1].init();
+        //player[1].type = 1;
         EffectManager_.init();
+        //garbage.init();
 
         GarbageManager_.init();
 
-      //  GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
         press_machine.init();
 
@@ -153,8 +155,11 @@ void game_update()
         TimerManager_.add(&timer, VECTOR2(600, 350));
 
         CombManager_.init();        
-        CombManager_.add(&comb, VECTOR2(860, 350), 0);
-        CombManager_.add(&comb, VECTOR2(1060, 350), 1);
+        CombManager_.add(&comb, VECTOR2(890, 350), 0);
+        if (twoPlayMode)
+        {
+            CombManager_.add(&comb, VECTOR2(1060, 350), 1);
+        }        
 
         RandoManager_.init();
         RandoManager_.add(&randomMark, VECTOR2(390, 105));
@@ -184,7 +189,7 @@ void game_update()
         combKeta[1] = 0;
         timerNum = 10800;
         timerKeta = 0;
-        nextScene = SCENE_OVER;
+        nextScene = SCENE_TITLE;
 
         break;
     }
@@ -208,12 +213,13 @@ void game_draw()
     ber.draw();
 
     player[0].draw();
-
     if (twoPlayMode)
     {
         player[1].draw();
     }
-      
+   
+    //player[1].draw();
+
     EffectManager_.draw();
 
     GarbageManager_.draw();
@@ -247,7 +253,10 @@ void game_draw()
 //--------------------------------
 void game_end()
 {
-    
+    for ( int i = 0; i < 2; i++ )
+    {
+        player[i].mvAlg = nullptr;
+    }
 
     int i;
     for (i = 0; i < MUSIC_FILE_MAX; i++)

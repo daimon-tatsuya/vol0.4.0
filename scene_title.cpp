@@ -32,17 +32,12 @@ void title_init()
     texture::load(loadTexture);
 
     bg.init();
-
     conveyor.init();
-
     ber.init();
 
-  //  GarbageManager_.init();
+    GarbageManager_.init();
 
-   // GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
-    gamemode[0].init();
-
-    gamemode[1].init();
+    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
     press_machine.init();
 
@@ -53,9 +48,6 @@ void title_init()
     DustBoxManager_.add(&dustBox, VECTOR2(663, 84));
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
-
-    TitleManager_.init();
-
 }
 
 //--------------------------------
@@ -64,35 +56,49 @@ void title_init()
 void title_update()
 {
     bg.update();
-
     conveyor.update();
-
-   // GarbageManager_.update();
-
+    GarbageManager_.update();
     press_machine.update();
-
     DustBoxManager_.update();
-
 
     switch (title_state)
     {
     case 0:
         //////// 初期設定 ////////
-       // TitleManager_.add(&)
-        if (TRG(0) & PAD_TRG1)
-        {
-            title_state++;
-        }
-       
+
+        twoPlayMode = false;
+        title_state++;
         break;
 
     case 1: //ゲームモードを決める
        
-        //ゲームモードを決める
-        gamemode[0].update();
-//        gamemode[1].update();
+        //1人プレイ
+        if (TRG(0) & PAD_START)
+        {
+            title_state = 2;
+        }
+        if (TRG(0) & PAD_UP)
+        {
+            twoPlayMode = false;            
+        }
+        else if (TRG(0) & PAD_DOWN)
+        {
+            twoPlayMode = true;            
+        }
         break;
-
+    //case 2:
+    //    //２人プレイ
+    //    if (TRG(0) & PAD_START)
+    //    {
+    //        title_state = 3;
+    //    }
+    //    if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
+    //    {
+    //        twoPlayMode = true;
+    //        title_state = 1;
+    //    }
+    //    break;
+    // フェードアウト用のcase 3:をつくる
     case 2:
         //////// フェードアウト ////////
         fadeOut += 0.0167f;
@@ -141,11 +147,7 @@ void title_draw()
 
     DustBoxManager_.draw();
 
-    TitleManager_.draw();
-
-    gamemode[0].draw();
-
-    gamemode[1].draw();
+    TimerManager_.draw();
 }
 
 //--------------------------------
