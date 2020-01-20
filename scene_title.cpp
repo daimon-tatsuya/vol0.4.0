@@ -37,7 +37,9 @@ void title_init()
     texture::load(loadTexture);
 
     bg.init();
+
     conveyor.init();
+
     ber.init();
 
     press_machine.init();
@@ -50,10 +52,15 @@ void title_init()
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 
+<<<<<<< HEAD
+    gamemode[0].init();
+    gamemode[1].init();
+=======
     for ( int i = 0; i < 2; i++ )
     {
         gamemode[i].init();
     }
+>>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
 }
 
 //--------------------------------
@@ -78,6 +85,8 @@ void title_update()
 
     case 1: //ゲームモードを決める
        
+<<<<<<< HEAD
+=======
         //1人プレイ
         //if (TRG(0) & PAD_START)
         //{
@@ -94,6 +103,7 @@ void title_update()
         //    if (game_mode < 0) { game_mode = 0; }
         //}
 
+>>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
         gamemode[0].update();
         break;
     //case 2:
@@ -163,10 +173,15 @@ void title_draw()
 
     DustBoxManager_.draw();    
 
+<<<<<<< HEAD
+    gamemode[0].draw();
+    gamemode[1].draw();
+=======
     for (int i = 0; i < 2; i++)
     {
         gamemode[i].draw();
     }
+>>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
 }
 
 //--------------------------------

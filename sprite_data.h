@@ -28,7 +28,8 @@
 enum TEXNO
 {
     // ゲーム
-    PLAYER,
+    PLAYER1,
+    PLAYER2,
     GARBAGE,
     GOLD,
     ITEM2,
@@ -66,10 +67,14 @@ extern GameLib::LoadTexture loadTexture[];
 // ------< プレイヤー >----------------------------------------------------------
 
 //アニメーション
-extern GameLib::AnimeData animePlayer_Up[];
-extern GameLib::AnimeData animePlayer_Right[];
-extern GameLib::AnimeData animePlayer_Down[];
-extern GameLib::AnimeData animePlayer_Left[];
+extern GameLib::AnimeData animePlayer1_Up[];
+extern GameLib::AnimeData animePlayer1_Right[];
+extern GameLib::AnimeData animePlayer1_Down[];
+extern GameLib::AnimeData animePlayer1_Left[];
+extern GameLib::AnimeData animePlayer2_Up[];
+extern GameLib::AnimeData animePlayer2_Right[];
+extern GameLib::AnimeData animePlayer2_Down[];
+extern GameLib::AnimeData animePlayer2_Left[];
 extern GameLib::AnimeData animeTimer1[];
 extern GameLib::AnimeData animeTimer10[];
 extern GameLib::AnimeData animeTimer100[];
@@ -80,26 +85,46 @@ extern GameLib::AnimeData* animeConveyor[];
 extern GameLib::AnimeData* animeTimer[];
 extern GameLib::AnimeData animeEffect1[];
 extern GameLib::AnimeData animeEffect2[];
-
+//player(kuma)
 //上歩き
-extern GameLib::SpriteData sprPlayer_Up0;
-extern GameLib::SpriteData sprPlayer_Up1;
-extern GameLib::SpriteData sprPlayer_Up2;
+extern GameLib::SpriteData sprPlayer1_Up0;
+extern GameLib::SpriteData sprPlayer1_Up1;
+extern GameLib::SpriteData sprPlayer1_Up2;
 
 //右歩き
-extern GameLib::SpriteData sprPlayer_Right0;
-extern GameLib::SpriteData sprPlayer_Right1;
-extern GameLib::SpriteData sprPlayer_Right2;
+extern GameLib::SpriteData sprPlayer1_Right0;
+extern GameLib::SpriteData sprPlayer1_Right1;
+extern GameLib::SpriteData sprPlayer1_Right2;
 
 //下歩き
-extern GameLib::SpriteData sprPlayer_Down0;
-extern GameLib::SpriteData sprPlayer_Down1;
-extern GameLib::SpriteData sprPlayer_Down2;
+extern GameLib::SpriteData sprPlayer1_Down0;
+extern GameLib::SpriteData sprPlayer1_Down1;
+extern GameLib::SpriteData sprPlayer1_Down2;
 
 //左歩き
-extern GameLib::SpriteData sprPlayer_Left0;
-extern GameLib::SpriteData sprPlayer_Left1;
-extern GameLib::SpriteData sprPlayer_Left2;
+extern GameLib::SpriteData sprPlayer1_Left0;
+extern GameLib::SpriteData sprPlayer1_Left1;
+extern GameLib::SpriteData sprPlayer1_Left2;
+//player(buriki)
+//上歩き
+extern GameLib::SpriteData sprPlayer2_Up0;
+extern GameLib::SpriteData sprPlayer2_Up1;
+extern GameLib::SpriteData sprPlayer2_Up2;
+
+//右歩き
+extern GameLib::SpriteData sprPlayer2_Right0;
+extern GameLib::SpriteData sprPlayer2_Right1;
+extern GameLib::SpriteData sprPlayer2_Right2;
+
+//下歩き
+extern GameLib::SpriteData sprPlayer2_Down0;
+extern GameLib::SpriteData sprPlayer2_Down1;
+extern GameLib::SpriteData sprPlayer2_Down2;
+
+//左歩き
+extern GameLib::SpriteData sprPlayer2_Left0;
+extern GameLib::SpriteData sprPlayer2_Left1;
+extern GameLib::SpriteData sprPlayer2_Left2;
 
 //ゴミ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //アニメーション\\AnimeData animeGarbage_Large[]
@@ -200,5 +225,5 @@ extern GameLib::SpriteData sprFukidasi[];
 extern GameLib::SpriteData sprItiran;
 
 //extern GameLib::SpriteData  SpriteData sprTitle[];
-
+extern  GameLib::AnimeData*animePlayer[2][4];
 #endif // !INCLUDED_SPRITE_DATA
