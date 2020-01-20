@@ -63,13 +63,22 @@ void game_common()
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
-    TimerManager_.update();
+
+    if (!tutorialMode)//チュートリアルに入ってないとき。
+    {
+        TimerManager_.update();
+        RandoManager_.update();
+        ItemManager_.update();
+        timerNum--;
+    }
+    else 
+    { 
+        tutorial.update(); 
+        FukidasiManager_.update();
+    }
+    
     CombManager_.update();
-    RandoManager_.update();
-    ItemManager_.update();
-
-    timerNum--;
-
+        
     if (TRG(0) & PAD_R1) //ゴミ生成
     {
         GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
@@ -136,7 +145,7 @@ void game_update()
 
         GarbageManager_.init();
 
-        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+        //GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
 
         press_machine.init();
 
@@ -150,9 +159,17 @@ void game_update()
 
         TimerManager_.init();
 
-        TimerManager_.add(&timer, VECTOR2(640, 350));
-        TimerManager_.add(&timer, VECTOR2(640, 350));
-        TimerManager_.add(&timer, VECTOR2(600, 350));
+        if (!tutorialMode)//チュートリアルに入ってないとき。
+        {
+            TimerManager_.add(&timer, VECTOR2(640, 350));
+            TimerManager_.add(&timer, VECTOR2(640, 350));
+            TimerManager_.add(&timer, VECTOR2(600, 350));
+        }
+        else 
+        {
+            tutorial.init(); 
+            FukidasiManager_.init();
+        }
 
         CombManager_.init();        
         CombManager_.add(&comb, VECTOR2(890, 350), 0);
@@ -162,9 +179,12 @@ void game_update()
         }        
 
         RandoManager_.init();
-        RandoManager_.add(&randomMark, VECTOR2(390, 105));
-        RandoManager_.add(&randomMark, VECTOR2(653, 105));
-        RandoManager_.add(&randomMark, VECTOR2(916, 105));
+        if (!tutorialMode)//チュートリアルに入ってないとき。
+        {
+            RandoManager_.add(&randomMark, VECTOR2(390, 105));
+            RandoManager_.add(&randomMark, VECTOR2(653, 105));
+            RandoManager_.add(&randomMark, VECTOR2(916, 105));
+        }        
 
         ItemManager_.init();
 
@@ -175,7 +195,7 @@ void game_update()
         //////// 通常時 ////////
         game_common();
 
-        if (timerNum < 0)
+        if (timerNum < 0 && !tutorialMode)
         {
             game_state++;
         }
@@ -212,6 +232,26 @@ void game_draw()
 
     ber.draw();
 
+    DustBoxManager_.draw();
+
+    if (!tutorialMode)
+    {
+        TimerManager_.draw();
+        RandoManager_.draw();
+        if (timerNum > 0) //タイマーのコンマ
+        {
+            texture::begin(TEXNO::NUMBER);
+            texture::draw(TEXNO::NUMBER,
+                550, 350, 1.0f, 1.0f,
+                64 * 12, 64, 64, 64,
+                32, 32, 0,
+                1.0f, 1.0f, 1.0f, 1.0f);
+            texture::end(TEXNO::NUMBER);
+        }
+    }
+
+    CombManager_.draw();
+
     player[0].draw();
     if (twoPlayMode)
     {
@@ -224,28 +264,19 @@ void game_draw()
 
     GarbageManager_.draw();
 
-    press_machine.draw();
+    press_machine.draw();       
 
-    DustBoxManager_.draw();
-
-    TimerManager_.draw();
-
-    if (timerNum > 0) //タイマーのコンマ
+    if (!tutorialMode)
     {
-        texture::begin(TEXNO::NUMBER);
-        texture::draw(TEXNO::NUMBER,
-            550, 350, 1.0f, 1.0f,
-            64 * 12, 64, 64, 64,
-            32, 32, 0,
-            1.0f, 1.0f, 1.0f, 1.0f);
-        texture::end(TEXNO::NUMBER);
+        ItemManager_.draw();
+    }
+    else
+    {
+        tutorial.draw(); 
+        FukidasiManager_.draw();
     }
 
-    CombManager_.draw();
-
-    RandoManager_.draw();
-
-    ItemManager_.draw();
+    
 }
 
 //--------------------------------

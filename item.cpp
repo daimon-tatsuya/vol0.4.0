@@ -20,8 +20,8 @@ void Item::move(OBJ2D* obj)
         switch (groundPosY)
         {
         case 0:
-            obj->GROUND_POS_Y = 482.0f;//ã
-            obj->scale = VECTOR2(0.8f, 0.8f);
+            obj->GROUND_POS_Y = 448.0f;//ã
+            obj->scale = VECTOR2(0.9f, 0.9f);
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//’†

@@ -54,6 +54,7 @@ void GameMode::update()
     if (GameModeCount == 0)
     {
         twoPlayMode = false;
+        tutorialMode = false;
         gamemode[0].scale = { 0.75f,0.75f };
         gamemode[1].scale = { 0.45f,0.45f }; 
        
@@ -62,6 +63,7 @@ void GameMode::update()
     if (GameModeCount == 1)
     {
         twoPlayMode = true;
+        tutorialMode = false;
         gamemode[0].scale = { 0.45f,0.45f };
         gamemode[1].scale = { 0.75f,0.75f };
     }
@@ -69,6 +71,7 @@ void GameMode::update()
     if (GameModeCount == 2)
     {
         twoPlayMode = false;
+        tutorialMode = true;
 
         gamemode[0].scale = { 0.45f,0.45f };
         gamemode[1].scale = { 0.45f,0.45f };

@@ -46,6 +46,8 @@ enum TEXNO
     TITLE,
     SINGLE,
     DOUDLE,
+    FUKIDASI,
+    ITIRAN,
     OBJ,
 
     /*MAP_BACK,
@@ -211,6 +213,16 @@ extern GameLib::SpriteData sprTitle_doubles;
 //タイトル
 //extern GameLib::SpriteData SpriteData sprTitle;
 
+//吹き出し
+extern GameLib::SpriteData sprFukidasi1;
+extern GameLib::SpriteData sprFukidasi2;
+extern GameLib::SpriteData sprFukidasi3;
+
+extern GameLib::SpriteData sprFukidasi[];
+
+//アイテム一覧
+
+extern GameLib::SpriteData sprItiran;
 
 //extern GameLib::SpriteData  SpriteData sprTitle[];
 extern  GameLib::AnimeData*animePlayer[2][4];

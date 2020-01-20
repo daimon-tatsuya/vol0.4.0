@@ -46,4 +46,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "effect.h"
 #include "gameMode.h"
 #include "scne_over.h"
+#include "fukidasi.h"
+#include "tutorial.h"
 #endif // !INCLUDED_ALL
