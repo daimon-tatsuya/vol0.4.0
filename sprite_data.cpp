@@ -174,14 +174,11 @@ SpriteData sprFukidasi[] = {
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
-<<<<<<< HEAD
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
-=======
-    { TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
+    //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
->>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
