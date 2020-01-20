@@ -71,6 +71,11 @@ void game_common()
         ItemManager_.update();
         timerNum--;
     }
+    else 
+    { 
+        tutorial.update(); 
+        FukidasiManager_.update();
+    }
     
     CombManager_.update();
         
@@ -159,7 +164,12 @@ void game_update()
             TimerManager_.add(&timer, VECTOR2(640, 350));
             TimerManager_.add(&timer, VECTOR2(640, 350));
             TimerManager_.add(&timer, VECTOR2(600, 350));
-        }        
+        }
+        else 
+        {
+            tutorial.init(); 
+            FukidasiManager_.init();
+        }
 
         CombManager_.init();        
         CombManager_.add(&comb, VECTOR2(890, 350), 0);
@@ -185,7 +195,7 @@ void game_update()
         //////// 通常時 ////////
         game_common();
 
-        if (timerNum < 0)
+        if (timerNum < 0 && !tutorialMode)
         {
             game_state++;
         }
@@ -222,6 +232,26 @@ void game_draw()
 
     ber.draw();
 
+    DustBoxManager_.draw();
+
+    if (!tutorialMode)
+    {
+        TimerManager_.draw();
+        RandoManager_.draw();
+        if (timerNum > 0) //タイマーのコンマ
+        {
+            texture::begin(TEXNO::NUMBER);
+            texture::draw(TEXNO::NUMBER,
+                550, 350, 1.0f, 1.0f,
+                64 * 12, 64, 64, 64,
+                32, 32, 0,
+                1.0f, 1.0f, 1.0f, 1.0f);
+            texture::end(TEXNO::NUMBER);
+        }
+    }
+
+    CombManager_.draw();
+
     player[0].draw();
     if (twoPlayMode)
     {
@@ -234,28 +264,19 @@ void game_draw()
 
     GarbageManager_.draw();
 
-    press_machine.draw();
+    press_machine.draw();       
 
-    DustBoxManager_.draw();
-
-    TimerManager_.draw();
-
-    if (timerNum > 0) //タイマーのコンマ
+    if (!tutorialMode)
     {
-        texture::begin(TEXNO::NUMBER);
-        texture::draw(TEXNO::NUMBER,
-            550, 350, 1.0f, 1.0f,
-            64 * 12, 64, 64, 64,
-            32, 32, 0,
-            1.0f, 1.0f, 1.0f, 1.0f);
-        texture::end(TEXNO::NUMBER);
+        ItemManager_.draw();
+    }
+    else
+    {
+        tutorial.draw(); 
+        FukidasiManager_.draw();
     }
 
-    CombManager_.draw();
-
-    RandoManager_.draw();
-
-    ItemManager_.draw();
+    
 }
 
 //--------------------------------

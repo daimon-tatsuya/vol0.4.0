@@ -11,17 +11,13 @@ void Fukidasi::move(OBJ2D* obj)
     case GARBAGE_INIT://初期設定                       
         
         obj->GROUND_POS_Y = 546.0f;//中
-        obj->scale = VECTOR2(0.95f, 0.95f);
+        obj->scale = VECTOR2(0.4f, 0.4f);
         
     // obj->animeData = animeGarbage_Large;
     //  obj->size = VECTOR2(27, 64 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
     //  obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
     //obj->position = { SCREEN_WIDTH / 2,obj->GROUND_POS_Y };
-    if (obj->type == 0) { obj->data = &sprGarbage_Large0; }
-    if (obj->type == 1) { obj->data = &sprGarbage_Medium0; }
-    if (obj->type == 2) { obj->data = &sprGarbage_Small0; }
-    if (obj->type == 3) { obj->data = &sprGarbage_Gold; }
-
+    obj->data = &sprFukidasi[obj->type];
 
     //obj->animeData = animeGarbage_Large;
     obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
@@ -42,12 +38,18 @@ void Fukidasi::move(OBJ2D* obj)
             obj->position.y = obj->GROUND_POS_Y;
             obj->state++;
         }
-
         break;
 
     case GARBAGE_MOVE:
         
+        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        {
+            obj->position.y = obj->GROUND_POS_Y;
+        }
+
         obj->speed.x = belt;//ベルトコンベアの強制移動。
+
+        obj->position += obj->speed;
 
         if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端
         {
@@ -74,6 +76,7 @@ void Fukidasi::move(OBJ2D* obj)
         if (!tutorial.nextFlag)
         {
             FukidasiManager_.add(&fukidasi, VECTOR2(400, 84), obj->type);
+            GarbageManager_.add(&garbage, VECTOR2(653, 105), 0);
         }
     }
 

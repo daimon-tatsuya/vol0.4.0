@@ -8,6 +8,7 @@ void Tutorial::init()
     state = 0;
     timer = 0;
     nextFlag = false;
+    data = nullptr;
 }
 
 
@@ -17,8 +18,6 @@ void Tutorial::update()
     {
     case 0: //十字キー操作
         
-            //data = &spr
-
         if (state == 0)
         {
             FukidasiManager_.add(&fukidasi, VECTOR2(400, 84), mode);
@@ -37,17 +36,21 @@ void Tutorial::update()
                 timer = 0;
                 nextFlag = false;
                 mode++;
+
             }
         }
         break;
 
     case 1: //拾うチュートリアル
 
-            //data = &spr
-
         if (state == 0)
         {
             FukidasiManager_.add(&fukidasi, VECTOR2(400, 84), mode);
+            GarbageManager_.add(&garbage, VECTOR2(653, 105), 0);
+            for ( auto& it : *FukidasiManager_.getList())
+            {
+                if (it.type == mode - 1) { it.eraseAlg = &fukidasiErase; }
+            }
             state++;
         }
 
@@ -71,11 +74,14 @@ void Tutorial::update()
 
     case 2://投げるチュートリアル
 
-           //data = &spr
-
         if (state == 0)
         {
             FukidasiManager_.add(&fukidasi, VECTOR2(400, 84), mode);
+            GarbageManager_.add(&garbage, VECTOR2(653, 105), 0);
+            for (auto& it : *FukidasiManager_.getList())
+            {
+                if (it.type == mode - 1) { it.eraseAlg = &fukidasiErase; }
+            }
             state++;
         }
 
@@ -88,7 +94,7 @@ void Tutorial::update()
         if (nextFlag)
         {
             timer++;
-            if (timer > 300)
+            if (timer > 150)
             {
                 state = 0;
                 timer = 0;
@@ -100,11 +106,24 @@ void Tutorial::update()
 
     case 3://アイテム画像表示
         
-        //data = &spr
+        for (auto& it : *FukidasiManager_.getList())
+        {
+            if (it.type == mode - 1) { it.eraseAlg = &fukidasiErase; }
+        }
+
+        data = &sprItiran;
         if (TRG(0) & PAD_TRG1)
         {
             nextScene = SCENE_TITLE;
         }
         break;
+    }
+}
+
+void Tutorial::draw()
+{
+    if (data)
+    {
+        data->draw(position);
     }
 }

@@ -112,8 +112,8 @@ SpriteData sprGarbage[] = {
     sprGarbage_Small0,
 };
 //ゲームモード
-SpriteData sprTitle_single  = SPRITE_LEFT(TEXNO::SINGLE, 0, 0, 1188, 648);
-SpriteData sprTitle_doubles = SPRITE_LEFT(TEXNO::DOUDLE, 0, 0, 1188, 648);
+SpriteData sprTitle_single  = SPRITE_CENTER(TEXNO::SINGLE, 0, 0, 1188, 648);
+SpriteData sprTitle_doubles = SPRITE_CENTER(TEXNO::DOUDLE, 0, 0, 1188, 648);
 
 //タイトル
 //SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
@@ -138,11 +138,24 @@ SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
 //プレート
 SpriteData sprPlate1 = SPRITE_LEFT(TEXNO::PLATE1, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
+//吹き出し
+SpriteData sprFukidasi1 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 0, 0, 600, 400);
+SpriteData sprFukidasi2 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 1, 0, 600, 400);
+SpriteData sprFukidasi3 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 2, 0, 600, 400);
+
+//アイテム一覧
+SpriteData sprItiran = SPRITE_LEFT(TEXNO::ITIRAN, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+
+SpriteData sprFukidasi[] = {
+    sprFukidasi1,
+    sprFukidasi2,
+    sprFukidasi3,
+};
 
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
-    { TEXNO::PLAYER,        L"./Data/Images/player.png",          1U },// プレイヤー
+    { TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
@@ -154,6 +167,8 @@ LoadTexture loadTexture[] = {
     { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
+    { TEXNO::FUKIDASI,      L"./Data/Images/hukidasi.png",        1U },//吹き出し
+    { TEXNO::ITIRAN ,       L"./Data/Images/item_itiran.png",     1U },//一覧
     //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード

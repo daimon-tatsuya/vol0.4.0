@@ -8,6 +8,7 @@ public:
 
     void init();
     void update();
+    void draw();
 };
 
 EXTERN Tutorial tutorial;

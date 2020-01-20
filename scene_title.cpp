@@ -49,6 +49,11 @@ void title_init()
     DustBoxManager_.add(&dustBox, VECTOR2(663, 84));
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
+
+    for ( int i = 0; i < 2; i++ )
+    {
+        gamemode[i].init();
+    }
 }
 
 //--------------------------------
@@ -74,20 +79,22 @@ void title_update()
     case 1: //ゲームモードを決める
        
         //1人プレイ
-        if (TRG(0) & PAD_START)
-        {
-            title_state = 2;
-        }
-        if (TRG(0) & PAD_UP)
-        {
-            game_mode++;
-            if (game_mode > 0) { game_mode = 2; }
-        }
-        else if (TRG(0) & PAD_DOWN)
-        {
-            game_mode--;
-            if (game_mode < 0) { game_mode = 0; }
-        }
+        //if (TRG(0) & PAD_START)
+        //{
+        //    title_state = 2;
+        //}
+        //if (TRG(0) & PAD_UP)
+        //{
+        //    game_mode++;
+        //    if (game_mode > 0) { game_mode = 2; }
+        //}
+        //else if (TRG(0) & PAD_DOWN)
+        //{
+        //    game_mode--;
+        //    if (game_mode < 0) { game_mode = 0; }
+        //}
+
+        gamemode[0].update();
         break;
     //case 2:
     //    //２人プレイ
@@ -110,15 +117,16 @@ void title_update()
             nextScene = SCENE_GAME;
         }
 
-        if (game_mode == 0) { twoPlayMode = false; tutorialMode = true;}
-        if (game_mode == 1) { twoPlayMode = false; }
-        if (game_mode == 2) { twoPlayMode = true; }
+        //if (game_mode == 0) { twoPlayMode = false; tutorialMode = true;}
+        //if (game_mode == 1) { twoPlayMode = false; }
+        //if (game_mode == 2) { twoPlayMode = true; }
 
         break;
     }
     title_timer++;
 
     // デバッグ用文字列の設定
+    debug::setString("TITLE_STATE:%d", game_mode);
     //debug::setString("title_state:%d", title_state);
     //debug::setString("title_timer:%d", title_timer);
 }
@@ -154,6 +162,11 @@ void title_draw()
     press_machine.draw();
 
     DustBoxManager_.draw();    
+
+    for (int i = 0; i < 2; i++)
+    {
+        gamemode[i].draw();
+    }
 }
 
 //--------------------------------
