@@ -153,10 +153,10 @@
     <ClCompile Include="title.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tutorial.cpp">
+    <ClCompile Include="gameMode.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="fukidasi.cpp">
+    <ClCompile Include="scene_over.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -314,10 +314,10 @@
     <ClInclude Include="title.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="tutorial.h">
+    <ClInclude Include="gameMode.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="fukidasi.h">
+    <ClInclude Include="scne_over.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

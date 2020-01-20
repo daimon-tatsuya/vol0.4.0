@@ -168,6 +168,7 @@
     <ClCompile Include="GameLib\sprite.cpp" />
     <ClCompile Include="GameLib\texture.cpp" />
     <ClCompile Include="GameLib\vector.cpp" />
+    <ClCompile Include="gameMode.cpp" />
     <ClCompile Include="garbage.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="randomMark.cpp" />
     <ClCompile Include="ranking.cpp" />
     <ClCompile Include="scene_game.cpp" />
+    <ClCompile Include="scene_over.cpp" />
     <ClCompile Include="scene_title.cpp" />
     <ClCompile Include="sprite_data.cpp" />
     <ClCompile Include="timer.cpp" />
@@ -221,6 +223,7 @@
     <ClInclude Include="GameLib\texture.h" />
     <ClInclude Include="GameLib\util.h" />
     <ClInclude Include="GameLib\vector.h" />
+    <ClInclude Include="gameMode.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx11.h" />
@@ -240,6 +243,7 @@
     <ClInclude Include="ranking.h" />
     <ClInclude Include="scene_game.h" />
     <ClInclude Include="scene_title.h" />
+    <ClInclude Include="scne_over.h" />
     <ClInclude Include="sprite_data.h" />
     <ClInclude Include="garbage.h" />
     <ClInclude Include="timer.h" />

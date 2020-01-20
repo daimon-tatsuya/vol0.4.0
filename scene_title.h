@@ -15,5 +15,5 @@ void title_update();
 void title_draw();
 void title_end();
 extern bool twoPlayMode;
-extern bool tutorialMode;//true‚Ì‚QlƒvƒŒƒC
+extern int title_state;    // ó‘Ô
 #endif // !INCLUDED_SCENE_TITLE

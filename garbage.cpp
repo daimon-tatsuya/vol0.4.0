@@ -140,17 +140,13 @@ void Garbage::move(OBJ2D* obj)
     case GARBAGE_DELETE:
         obj->speed.y = 3;
         obj->speed.x = 1;
-        if (obj->position.y < (-obj->size.y*2.0f))
-        {
-            garbageErase.erase(obj);
-
-        }
+    
         obj->position += obj->speed;
         break;
     }
 
 
-    if (obj->position.y > SCREEN_HEIGHT)
+    if (obj->position.y > SCREEN_HEIGHT+64.0f)
     {
         obj->eraseAlg = &garbageErase;
     }
