@@ -174,18 +174,10 @@ SpriteData sprFukidasi[] = {
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
-<<<<<<< HEAD
-
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
-=======
-    { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
-    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
-    { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
-    //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
->>>>>>> ab36ded76762e8d98f4221a73f58acdce2941067
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
@@ -205,18 +197,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
     
-    //アイテム
-    //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
-    //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
-    //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
-    //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画
-    //                                                                    //TODO_12
-    //{ TEXNO::ENEMY0, L"./Data/Images/enemy00.png", 1U },
-    //{ TEXNO::ENEMY1, L"./Data/Images/enemy01.png", 1U },
-    //{ TEXNO::ENEMY2, L"./Data/Images/enemy02.png", 1U },
-    //{ TEXNO::ENEMY3, L"./Data/Images/enemy03.png", 1U },
-    //{ TEXNO::ENEMY4, L"./Data/Images/enemy04.png", 1U },
-    //{ TEXNO::ENEMY5, L"./Data/Images/enemy05.png", 1U },
+ 
 
     { -1, nullptr }	// 終了フラグ
 };
