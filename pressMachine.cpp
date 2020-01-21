@@ -10,6 +10,8 @@ void PressMachine::init()
     speed = VECTOR2(0, 0);
     count = 0;
     shakeFlag = false;
+    scale = VECTOR2(1, 1);
+    //scale = VECTOR2(9.5f, 3.5f);
 
     timer = 0;
 
@@ -86,5 +88,5 @@ void PressMachine::update()
 
 void PressMachine::draw()
 {
-    if (data) { data->draw(position); }
+    if (data) { data->draw(position, scale, angle); }
 }
