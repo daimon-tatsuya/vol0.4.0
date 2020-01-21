@@ -98,11 +98,14 @@ void itemMove1(OBJ2D* obj) //コンベアースピードアップ
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                //ここにアイテム効果の処理のフラグを立てる。
-                player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
-                conveyor.animeData = animeConveyor[1];
-                belt = 3.5f;
-                obj->eraseAlg = &itemErase;
+                if (player[i].exist)
+                {
+                    //ここにアイテム効果の処理のフラグを立てる。
+                    player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
+                    conveyor.animeData = animeConveyor[1];
+                    belt = 3.5f;
+                    obj->eraseAlg = &itemErase;
+                }
             }
         }
 
@@ -171,20 +174,23 @@ void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
                 //ここにアイテム効果の処理のフラグを立てる。
-                if (player[i].bWork[PLAYER_STATUS::SPEEDUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
+                if (player[i].exist)
                 {
-                    for (auto& efe : *EffectManager_.getList())
+                    if (player[i].bWork[PLAYER_STATUS::SPEEDUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
                     {
-                        if (efe.position == player[i].position)
+                        for (auto& efe : *EffectManager_.getList())
                         {
-                            efe.eraseAlg = &effectErase;
-                            break;
+                            if (efe.exist && efe.type == 1)
+                            {
+                                efe.eraseAlg = &effectErase;
+                                break;
+                            }
                         }
                     }
+                    player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;
+                    EffectManager_.add(&effect, player[i].position, 1, i);
+                    obj->eraseAlg = &itemErase;
                 }
-                player[i].bWork[PLAYER_STATUS::SPEEDUP] = true;
-                EffectManager_.add(&effect, player[i].position, 1, i);
-                obj->eraseAlg = &itemErase;
             }
         }
 
@@ -251,22 +257,25 @@ void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                //ここにアイテム効果の処理のフラグを立てる。
-                if (player[i].bWork[PLAYER_STATUS::POWERUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
+                if (player[i].exist)
                 {
-                    for (auto& efe : *EffectManager_.getList())
+                    //ここにアイテム効果の処理のフラグを立てる。
+                    if (player[i].bWork[PLAYER_STATUS::POWERUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
                     {
-                        if (efe.position == player[i].position)
+                        for (auto& efe : *EffectManager_.getList())
                         {
-                            efe.eraseAlg = &effectErase;
-                            break;
+                            if (efe.exist && efe.type == 0)
+                            {
+                                efe.eraseAlg = &effectErase;
+                                break;
+                            }
                         }
                     }
+                    player[i].bWork[PLAYER_STATUS::POWERUP] = true;
+                    player[i].iWork[PLAYER::LIFTED_MAX] = 4;
+                    EffectManager_.add(&effect, player[i].position, 0, i);
+                    obj->eraseAlg = &itemErase;
                 }
-                player[i].bWork[PLAYER_STATUS::POWERUP] = true;
-                player[i].iWork[PLAYER::LIFTED_MAX] = 4;
-                EffectManager_.add(&effect, player[i].position, 0, i);
-                obj->eraseAlg = &itemErase;
             }
         }
 
@@ -334,14 +343,17 @@ void itemMove4(OBJ2D* obj)//アイテム出現時間短縮
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                //ここにアイテム効果の処理のフラグを立てる。
-                for (auto& it : *RandoManager_.getList())
+                if (player[i].exist)
                 {
-                    it.iWork[RandoManager::RandoMark::TIMER_MAX1] = 120;
-                    it.iWork[RandoManager::RandoMark::TIMER_MAX2] = 240;
+                    //ここにアイテム効果の処理のフラグを立てる。
+                    for (auto& it : *RandoManager_.getList())
+                    {
+                        it.iWork[RandoManager::RandoMark::TIMER_MAX1] = 120;
+                        it.iWork[RandoManager::RandoMark::TIMER_MAX2] = 240;
+                    }
+                    player[i].bWork[PLAYER_STATUS::ITEMADD] = true;
+                    obj->eraseAlg = &itemErase;
                 }
-                player[i].bWork[PLAYER_STATUS::ITEMADD] = true;
-                obj->eraseAlg = &itemErase;
             }
         }
 

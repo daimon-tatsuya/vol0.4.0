@@ -38,6 +38,9 @@ void title_init()
 
     bg.init();
 
+    player[0].exist = false;
+    player[1].exist = false;
+
     conveyor.init();
 
     ber.init();

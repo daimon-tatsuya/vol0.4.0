@@ -165,6 +165,11 @@ SpriteData sprFukidasi3 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 2, 0, 600, 277);
 //アイテム一覧
 SpriteData sprItiran = SPRITE_LEFT(TEXNO::ITIRAN, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
+//煙エフェクト
+SpriteData sprKemuri1 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 0, 0, 64, 64);
+SpriteData sprKemuri2 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 1, 0, 64, 64);
+SpriteData sprKemuri3 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 2, 0, 64, 64);
+
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
     sprFukidasi2,
@@ -175,11 +180,10 @@ SpriteData sprFukidasi[] = {
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
-    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
-    { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
+    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー    
     //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
-    { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
+    { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//高級ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
     { TEXNO::CONVEYOR1,     L"./Data/Images/berutokonbea.png",    1U },//コンベアー
@@ -194,9 +198,10 @@ LoadTexture loadTexture[] = {
     //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
-    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
-    { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
-    { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
+    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//宝箱
+    { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },//UIパネル
+    { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },//バフエフェクト
+    { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト
     
     //アイテム
     //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
@@ -376,6 +381,20 @@ AnimeData animeEffect2[] = {
     { nullptr, -1 },// 終了フラグ
 };
 
+AnimeData animeKemuri[] = {
+    { &sprKemuri1, 10 },
+    { &sprKemuri2, 10 },
+    { &sprKemuri3, 10 },
+    { nullptr, 10 },// 終了フラグ
+    { nullptr, -1 },// 終了フラグ
+};
+
+AnimeData* animeEffect[] = {
+    animeEffect1,
+    animeEffect2,
+    animeKemuri,
+};
+//
 AnimeData*animePlayer[2][4]=
 {
     {animePlayer1_Down,animePlayer1_Up,animePlayer1_Left,animePlayer1_Right },
