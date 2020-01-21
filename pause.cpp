@@ -6,7 +6,7 @@ void Pause::init()
 {
     pause[0].data = &sprTitle_single;
     pause[1].data = &sprTitle_doubles;
-    pause[3].data = &sprTitle_doubles;
+    pause[2].data = &sprTitle_doubles;
     position.y = (SCREEN_HEIGHT / 2.0f);
     position.x = (SCREEN_WIDTH / 2.0f);
     size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる

@@ -185,16 +185,9 @@ SpriteData sprFukidasi[] = {
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
-<<<<<<< HEAD
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
-=======
-    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー    
-    //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
-    { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
-    { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//高級ゴミ
->>>>>>> 0b42177a923316c081ee2b018dc541cfd56bcf75
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
     { TEXNO::CONVEYOR1,     L"./Data/Images/berutokonbea.png",    1U },//コンベアー
@@ -209,7 +202,6 @@ LoadTexture loadTexture[] = {
     //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
-<<<<<<< HEAD
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
@@ -219,16 +211,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::GO_ITIRAN,     L"./Data/Images/pause_item.png",      1U },
     { TEXNO::WIN,           L"./Data/Images/win.png",             1U },
     { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
-
-=======
-    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//宝箱
-    { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },//UIパネル
-    { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },//バフエフェクト
-    { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト
-    
- 
->>>>>>> 0b42177a923316c081ee2b018dc541cfd56bcf75
-
+    { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト    
     { -1, nullptr }	// 終了フラグ
 };
 
