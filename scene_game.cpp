@@ -78,16 +78,16 @@ void game_common()
     }
     
     CombManager_.update();
-        
-    if (TRG(0) & PAD_R1) //ゴミ生成
-    {
-        GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
-    }
+    //    
+    //if (TRG(0) & PAD_R1) //ゴミ生成
+    //{
+    //    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
+    //}
 
-    if (TRG(0) & PAD_L1)//アイテム生成
-    {
-        ItemManager_.add(&item, VECTOR2(0, 0), 0);
-    }
+    //if (TRG(0) & PAD_L1)//アイテム生成
+    //{
+    //    ItemManager_.add(&item, VECTOR2(0, 0), 0);
+    //}
 
     //コンボ桁生成
     for ( int i = 0; i < 2; i++)
@@ -193,6 +193,7 @@ void game_update()
 
     case 1:
         //////// 通常時 ////////
+
         game_common();
 
         if (timerNum < 0 && !tutorialMode)
@@ -209,7 +210,7 @@ void game_update()
         combKeta[1] = 0;
         timerNum = 10800;
         timerKeta = 0;
-        nextScene = SCENE_TITLE;
+        nextScene = SCENE_OVER;
 
         break;
     }

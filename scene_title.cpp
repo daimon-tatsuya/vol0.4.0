@@ -52,15 +52,12 @@ void title_init()
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 
-<<<<<<< HEAD
-    gamemode[0].init();
-    gamemode[1].init();
-=======
+
     for ( int i = 0; i < 2; i++ )
     {
         gamemode[i].init();
     }
->>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
+
 }
 
 //--------------------------------
@@ -85,40 +82,10 @@ void title_update()
 
     case 1: //ゲームモードを決める
        
-<<<<<<< HEAD
-=======
-        //1人プレイ
-        //if (TRG(0) & PAD_START)
-        //{
-        //    title_state = 2;
-        //}
-        //if (TRG(0) & PAD_UP)
-        //{
-        //    game_mode++;
-        //    if (game_mode > 0) { game_mode = 2; }
-        //}
-        //else if (TRG(0) & PAD_DOWN)
-        //{
-        //    game_mode--;
-        //    if (game_mode < 0) { game_mode = 0; }
-        //}
 
->>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
         gamemode[0].update();
         break;
-    //case 2:
-    //    //２人プレイ
-    //    if (TRG(0) & PAD_START)
-    //    {
-    //        title_state = 3;
-    //    }
-    //    if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
-    //    {
-    //        twoPlayMode = true;
-    //        title_state = 1;
-    //    }
-    //    break;
-    // フェードアウト用のcase 3:をつくる
+  
     case 2:
         //////// フェードアウト ////////
         fadeOut += 0.0167f;
@@ -173,15 +140,12 @@ void title_draw()
 
     DustBoxManager_.draw();    
 
-<<<<<<< HEAD
-    gamemode[0].draw();
-    gamemode[1].draw();
-=======
+
     for (int i = 0; i < 2; i++)
     {
         gamemode[i].draw();
     }
->>>>>>> ecc2ab94230981ab212257c9f78a22047a811bfe
+
 }
 
 //--------------------------------
