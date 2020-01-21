@@ -180,6 +180,7 @@
     <ClCompile Include="judge.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="obj2d.cpp" />
+    <ClCompile Include="pause.cpp" />
     <ClCompile Include="plate.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="pressMachine.cpp" />
@@ -236,6 +237,7 @@
     <ClInclude Include="judge.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="obj2d.h" />
+    <ClInclude Include="pause.h" />
     <ClInclude Include="plate.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="pressMachine.h" />
