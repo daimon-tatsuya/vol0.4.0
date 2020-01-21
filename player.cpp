@@ -11,6 +11,8 @@ void Player::init()
 {
     animeData = animePlayer[type][0];
 
+    exist = true;
+
     // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
     size = VECTOR2(24 / 2, 32 - 2);
     color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -100,7 +102,7 @@ void Player::update()
             player[type].iWork[PLAYER::SPEEDTIMER] = 0;
             for ( auto& efe : *EffectManager_.getList() )
             {
-                if (efe.position == position)
+                if (efe.exist && efe.type == 1)
                 {
                     efe.eraseAlg = &effectErase;
                     break;
@@ -120,7 +122,7 @@ void Player::update()
             player[type].iWork[PLAYER::POWERTIMER] = 0;
             for (auto& efe : *EffectManager_.getList())
             {
-                if (efe.position == position)
+                if (efe.exist && efe.type == 0)
                 {
                     efe.eraseAlg = &effectErase;
                     break;

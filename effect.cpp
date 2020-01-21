@@ -5,20 +5,36 @@ void Effect::move(OBJ2D* obj)
     switch (obj->state)
     {
     case 0:
-        if (obj->type == 0) { obj->animeData = animeEffect1; }
-        if (obj->type == 1) { obj->animeData = animeEffect2; }
+        obj->animeData = animeEffect[obj->type];
+
+        if (obj->type == 2)
+        {
+            obj->scale = VECTOR2(2.8f, 2);
+        }
+
         obj->color = VECTOR4(1, 1, 1, 1);
+        obj->exist = true;
 
         obj->state++;
+
+        if (obj->type == 2) { obj->state = 2; }//煙のフラグはstateで行う。
         break;
 
-    case 1:
+    case 1:        
 
         obj->position = player[obj->no].position;
+        obj->position.y += 8;
         
         if (obj->animeData) { obj->animeUpdate(obj->animeData); }
 
         break;
+
+    case 2:
+
+        if (obj->animeData) { obj->animeUpdate(obj->animeData); }
+
+        if (obj->data == nullptr) { obj->eraseAlg = &effectErase; }
+
     }
 }
 

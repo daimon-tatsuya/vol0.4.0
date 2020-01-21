@@ -42,6 +42,7 @@ enum TEXNO
     NUMBER,
     PLATE1,
     EFFECT,
+    KEMURI,
     ITEM,
     TITLE,
     SINGLE,
@@ -91,6 +92,9 @@ extern GameLib::AnimeData* animeConveyor[];
 extern GameLib::AnimeData* animeTimer[];
 extern GameLib::AnimeData animeEffect1[];
 extern GameLib::AnimeData animeEffect2[];
+extern GameLib::AnimeData animeKemuri[];
+extern GameLib::AnimeData* animeEffect[];
+
 //player(kuma)
 //上歩き
 extern GameLib::SpriteData sprPlayer1_Up0;
@@ -180,7 +184,7 @@ extern GameLib::SpriteData sprConveyor2_2;
 extern GameLib::SpriteData sprBer;
 
 //ダストボックス
-extern SpriteData sprDustBox;
+extern GameLib::SpriteData sprDustBox;
 
 //数字
 extern GameLib::SpriteData sprNumber0;
@@ -231,5 +235,13 @@ extern GameLib::SpriteData sprFukidasi[];
 extern GameLib::SpriteData sprItiran;
 
 //extern GameLib::SpriteData  SpriteData sprTitle[];
+
+
 extern  GameLib::AnimeData*animePlayer[2][4];
+
+//煙エフェクト
+extern GameLib::SpriteData sprKemuri1;
+extern GameLib::SpriteData sprKemuri2;
+extern GameLib::SpriteData sprKemuri3;
+
 #endif // !INCLUDED_SPRITE_DATA

@@ -251,16 +251,12 @@ void game_draw()
 
     conveyor.draw();
 
-    ber.draw();
-
-    GarbageManager_.draw();
-
-    DustBoxManager_.draw();
+    ber.draw();        
 
     if (!tutorialMode)
     {
         TimerManager_.draw();
-        RandoManager_.draw();
+        
         if (timerNum > 0) //タイマーのコンマ
         {
             texture::begin(TEXNO::NUMBER);
@@ -283,7 +279,13 @@ void game_draw()
    
     //player[1].draw();
 
-    EffectManager_.draw();    
+    GarbageManager_.draw(); 
+
+    EffectManager_.draw();
+
+    DustBoxManager_.draw();
+
+    if (!tutorialMode) { RandoManager_.draw(); }
 
     press_machine.draw();       
 
