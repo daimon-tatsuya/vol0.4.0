@@ -180,8 +180,13 @@ SpriteData sprFukidasi[] = {
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
+<<<<<<< HEAD
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー    
     //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
+=======
+    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
+    { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
+>>>>>>> 381c91bdf338c2b25deb5922220cfa20e3f794ba
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//高級ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
@@ -203,18 +208,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },//バフエフェクト
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト
     
-    //アイテム
-    //{ TEXNO::OBJ,           L"./Data/Images/garbage.png", },
-    //{ TEXNO::MAP_BACK,      L"./Data/Maps/back_chip.png",       336U }, // マップ背景
-    //{ TEXNO::MAP_TERRAIN,   L"./Data/Maps/terrain_chip.png",    336U }, // マップ地形
-    //{ TEXNO::MAP_ITEM,      L"./Data/Maps/item_chip.png",       1U },   // アイテム描画
-    //                                                                    //TODO_12
-    //{ TEXNO::ENEMY0, L"./Data/Images/enemy00.png", 1U },
-    //{ TEXNO::ENEMY1, L"./Data/Images/enemy01.png", 1U },
-    //{ TEXNO::ENEMY2, L"./Data/Images/enemy02.png", 1U },
-    //{ TEXNO::ENEMY3, L"./Data/Images/enemy03.png", 1U },
-    //{ TEXNO::ENEMY4, L"./Data/Images/enemy04.png", 1U },
-    //{ TEXNO::ENEMY5, L"./Data/Images/enemy05.png", 1U },
+ 
 
     { -1, nullptr }	// 終了フラグ
 };

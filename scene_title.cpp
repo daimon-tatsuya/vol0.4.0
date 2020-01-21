@@ -55,8 +55,6 @@ void title_init()
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 
-    gamemode[0].init();
-    gamemode[1].init();
 
     for ( int i = 0; i < 2; i++ )
     {
@@ -85,38 +83,10 @@ void title_update()
         break;
 
     case 1: //ゲームモードを決める
-       
-        //1人プレイ
-        //if (TRG(0) & PAD_START)
-        //{
-        //    title_state = 2;
-        //}
-        //if (TRG(0) & PAD_UP)
-        //{
-        //    game_mode++;
-        //    if (game_mode > 0) { game_mode = 2; }
-        //}
-        //else if (TRG(0) & PAD_DOWN)
-        //{
-        //    game_mode--;
-        //    if (game_mode < 0) { game_mode = 0; }
-        //}
-
+      
         gamemode[0].update();
         break;
-    //case 2:
-    //    //２人プレイ
-    //    if (TRG(0) & PAD_START)
-    //    {
-    //        title_state = 3;
-    //    }
-    //    if ((TRG(0) & PAD_UP) | (TRG(0) & PAD_DOWN))
-    //    {
-    //        twoPlayMode = true;
-    //        title_state = 1;
-    //    }
-    //    break;
-    // フェードアウト用のcase 3:をつくる
+  
     case 2:
         //////// フェードアウト ////////
         fadeOut += 0.0167f;
@@ -170,9 +140,6 @@ void title_draw()
     press_machine.draw();
 
     DustBoxManager_.draw();    
-
-    gamemode[0].draw();
-    gamemode[1].draw();
 
     for (int i = 0; i < 2; i++)
     {

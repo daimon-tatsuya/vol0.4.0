@@ -340,6 +340,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             case SCENE_GAME:
                 game_end();
                 break;
+            case SCENE_OVER:
+                over_end();
+                break;
             }
             switch (nextScene)      // 次シーンの初期設定を行う
             {
@@ -348,6 +351,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
                 break;
             case SCENE_GAME:
                 game_init();
+                break;
+            case SCENE_OVER:
+                over_init();
                 break;
             }
             curScene = nextScene;   // 現シーンに次シーンを代入する
@@ -363,6 +369,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             game_update();
             //conveyor.color = VECTOR4(conveyor_color[0], conveyor_color[1], conveyor_color[2], conveyor_color[3]);
             break;
+        case SCENE_OVER:
+            over_update();
+            break;
         }
 
         // 現在のシーンに応じた描画処理
@@ -373,6 +382,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             break;
         case SCENE_GAME:
             game_draw();
+            break;
+        case SCENE_OVER:
+            over_draw();
             break;
         }
 
@@ -400,6 +412,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         break;
     case SCENE_GAME:
         game_end();
+        break;
+    case SCENE_OVER:
+        over_end();
         break;
     }
 
