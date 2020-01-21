@@ -30,7 +30,13 @@ void game_init()
 {
     game_state = 0;
     game_timer = 0;
- 
+
+    combNum[0] = 0;
+    combNum[1] = 0;
+    combKeta[0] = 0;
+    combKeta[1] = 0;
+    timerNum = 10800;
+    timerKeta = 0;
 }
 
 //--------------------------------
@@ -233,6 +239,8 @@ void game_draw()
 
     ber.draw();
 
+    GarbageManager_.draw();
+
     DustBoxManager_.draw();
 
     if (!tutorialMode)
@@ -261,9 +269,7 @@ void game_draw()
    
     //player[1].draw();
 
-    EffectManager_.draw();
-
-    GarbageManager_.draw();
+    EffectManager_.draw();    
 
     press_machine.draw();       
 

@@ -158,9 +158,9 @@ SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
 SpriteData sprPlate1 = SPRITE_LEFT(TEXNO::PLATE1, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
 //吹き出し
-SpriteData sprFukidasi1 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 0, 0, 600, 400);
-SpriteData sprFukidasi2 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 1, 0, 600, 400);
-SpriteData sprFukidasi3 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 2, 0, 600, 400);
+SpriteData sprFukidasi1 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 0, 0, 600, 277);
+SpriteData sprFukidasi2 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 1, 0, 600, 277);
+SpriteData sprFukidasi3 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 2, 0, 600, 277);
 
 //アイテム一覧
 SpriteData sprItiran = SPRITE_LEFT(TEXNO::ITIRAN, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
@@ -174,10 +174,18 @@ SpriteData sprFukidasi[] = {
 //******************************************************************************
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
+<<<<<<< HEAD
 
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
+=======
+    { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
+    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
+    { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
+    //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
+    { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
+>>>>>>> ab36ded76762e8d98f4221a73f58acdce2941067
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景

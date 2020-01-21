@@ -1,55 +1,15 @@
-﻿  audio.cpp
-  ber.cpp
-  BG.cpp
-  comb.cpp
-  conveyor.cpp
-  dustbox.cpp
-  debug.cpp
-  dxtk_audio.cpp
-  font.cpp
-  frame_rate.cpp
-  game_lib.cpp
-  input_manager.cpp
-  obj2d_data.cpp
-  primitive.cpp
-  resource_manager.cpp
-  sprite.cpp
-  texture.cpp
-  vector.cpp
-  garbage.cpp
-  imgui.cpp
-  コンパイル中...
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_dx11.cpp
-  imgui_impl_win32.cpp
-  imgui_widgets.cpp
-  item.cpp
-  judge.cpp
-  main.cpp
+﻿  main.cpp
 main.cpp(36): warning C4459: 'hWindow' を宣言すると、グローバル宣言が隠蔽されます
-  d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\main.h(22): note: 'MyImGui::hWindow' の宣言を確認してください
-  obj2d.cpp
-obj2d.cpp(123): warning C4458: 'animeData' を宣言すると、クラス メンバーが隠蔽されます
-  d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\obj2d.h(136): note: 'OBJ2D::animeData' の宣言を確認してください
-  player.cpp
-  pressMachine.cpp
-pressMachine.cpp(36): warning C4459: 'comb' を宣言すると、グローバル宣言が隠蔽されます
-  d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\comb.h(15): note: 'comb' の宣言を確認してください
-  randomMark.cpp
-  ranking.cpp
+  c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\main.h(22): note: 'MyImGui::hWindow' の宣言を確認してください
+main.cpp(230): warning C4189: 'show_demo_window': ローカル変数が初期化されましたが、参照されていません
+main.cpp(231): warning C4189: 'show_another_window': ローカル変数が初期化されましたが、参照されていません
+main.cpp(36): warning C4505: 'MyImGui::CreateDevice': 参照されていないローカル関数は削除されました。
+main.cpp(77): warning C4505: 'MyImGui::CleanupDevice': 参照されていないローカル関数は削除されました。
+main.cpp(106): warning C4505: 'MyImGui::WndProc': 参照されていないローカル関数は削除されました。
   scene_game.cpp
-  scene_title.cpp
-  sprite_data.cpp
-  timer.cpp
-  ui.cpp
-ui.cpp(272): warning C4100: 'obj': 引数は関数の本体部で 1 度も参照されません。
-  work.cpp
   コード生成しています。
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\item.cpp(300): warning C4702: 
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\item.cpp(229): warning C4702: 制御が渡らないコードです。
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\item.cpp(158): warning C4702: 制御が渡らないコードです。
-d:\チーム制作\124_gr1gb大門_gr1ga高尾_gi1a井上 3回目\gamename\vol0.4.0\item.cpp(85): warning C4702: 制御が渡らないコードです。
-  All 2178 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  6 of 946 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    31 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Release\gp1.exe
+  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Release\gp1.exe
