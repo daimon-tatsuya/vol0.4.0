@@ -1,5 +1,5 @@
 #include "all.h"
-using namespace GameLib;
+
 using namespace system;
 static int GameModeCount=0;
 void GameMode::init() 

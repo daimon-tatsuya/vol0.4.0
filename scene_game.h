@@ -23,4 +23,5 @@ void game_update();
 void game_draw();
 void game_end();
 
+extern bool pauseFlg ;
 #endif // !INCLUDED_SCENE_GAME

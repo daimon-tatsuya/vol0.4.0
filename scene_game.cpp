@@ -13,7 +13,7 @@
 //------< 変数 >----------------------------------------------------------------
 int game_state;     // 状態
 int game_timer;     // タイマー
-
+bool pauseFlg = false;
 Player player[2];
 
 //std::list<Garbage> garbageList;
@@ -47,13 +47,14 @@ void game_common()
 
     if (TRG(0) & PAD_START)
     {
-        combNum[0] = 0;
+       /* combNum[0] = 0;
         combNum[1] = 0;
         combKeta[0] = 0;
         combKeta[1] = 0;
         timerNum = 10800;
         timerKeta = 0;
-        nextScene = SCENE_TITLE;
+        nextScene = SCENE_TITLE;*/
+        pauseFlg = true;
     }
 
     bg.update();
@@ -111,7 +112,13 @@ void game_common()
         }
     }
 }
-
+//--------------------------------
+// ポーズ中
+//--------------------------------
+void game_pause()
+{
+    pause[0].update();
+}
 //--------------------------------
 // 更新処理
 //--------------------------------
@@ -200,8 +207,15 @@ void game_update()
     case 1:
         //////// 通常時 ////////
 
-        game_common();
-
+        if (!pauseFlg)
+        {
+            game_common();
+        }
+     
+        if (pauseFlg)
+        {
+            game_pause();
+        }
         if (timerNum < 0 && !tutorialMode)
         {
             game_state++;
@@ -285,7 +299,9 @@ void game_draw()
         FukidasiManager_.draw();
     }
 
-    
+    pause[0].draw();
+    pause[1].draw();
+    pause[2].draw();
 }
 
 //--------------------------------

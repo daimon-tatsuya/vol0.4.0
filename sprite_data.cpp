@@ -134,23 +134,28 @@ SpriteData sprGarbage[] = {
 SpriteData sprTitle_single  = SPRITE_CENTER(TEXNO::SINGLE, 0, 0, 1188, 648);
 SpriteData sprTitle_doubles = SPRITE_CENTER(TEXNO::DOUDLE, 0, 0, 1188, 648);
 
+SpriteData sprPause          = SPRITE_CENTER(TEXNO::PAUSE,     0, 0, 1188, 648);
+SpriteData sprPause_continue = SPRITE_CENTER(TEXNO::CONTINUE,  0, 0, 1188, 648);
+SpriteData sprPause_goTitle  = SPRITE_CENTER(TEXNO::GO_TITLE,  0, 0, 1188, 648);
+SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 1188, 648);
+
 //タイトル
 //SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
 //SpriteData sprTitle[] =
 //{ };
 
 //アイテム
-SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 128, 64, 64);
-SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 192, 64, 64);
-SpriteData sprItem2 = SPRITE_BOTTOM(TEXNO::ITEM, 64 * 0, 64, 64, 64);
+SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM,  64 * 0, 128, 64, 64);
+SpriteData sprItem1 = SPRITE_BOTTOM(TEXNO::ITEM,  64 * 0, 192, 64, 64);
+SpriteData sprItem2 = SPRITE_BOTTOM(TEXNO::ITEM,  64 * 0, 64, 64, 64);
 SpriteData sprItem3 = SPRITE_BOTTOM(TEXNO::ITEM2, 64 * 0,  0, 64, 64);
 
 //はてなマーク
 SpriteData sprHatena = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 3, 0, 64, 64);
 
 //エフェクト
-SpriteData sprEffect1_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 0, 96, 128);
-SpriteData sprEffect1_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 0, 96, 128);
+SpriteData sprEffect1_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 0,   96, 128);
+SpriteData sprEffect1_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 0,   96, 128);
 SpriteData sprEffect2_1 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 0, 128, 96, 128);
 SpriteData sprEffect2_2 = SPRITE_BOTTOM(TEXNO::EFFECT, 96 * 1, 128, 96, 128);
 
@@ -180,10 +185,16 @@ SpriteData sprFukidasi[] = {
 // 2D画像ロードデータ
 LoadTexture loadTexture[] = {
     { TEXNO::PLAYER1,       L"./Data/Images/player1.png",         1U },// プレイヤー
+<<<<<<< HEAD
+    { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー
+    { TEXNO::GARBAGE,       L"./Data/Images/item.png",            1U },//ゴミ
+    { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//ゴミ
+=======
     { TEXNO::PLAYER2,       L"./Data/Images/player2.png",         1U },// プレイヤー    
     //{ TEXNO::PLAYER,        L"./Data/Images/player1.png",          1U },// プレイヤー
     { TEXNO::GARBAGE,       L"./Data/Images/item.png",          256U },//ゴミ
     { TEXNO::GOLD,          L"./Data/Images/golden wheel.png",    1U },//高級ゴミ
+>>>>>>> 0b42177a923316c081ee2b018dc541cfd56bcf75
     { TEXNO::PRESS,         L"./Data/Images/obj_puresu.png",      1U },//プレス機
     { TEXNO::BG,            L"./Data/Images/wall.png",            1U },//背景
     { TEXNO::CONVEYOR1,     L"./Data/Images/berutokonbea.png",    1U },//コンベアー
@@ -198,12 +209,25 @@ LoadTexture loadTexture[] = {
     //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
+<<<<<<< HEAD
+    { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
+    { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
+    { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
+    { TEXNO::GO_TITLE,      L"./Data/Images/pause_title.png",     1U },
+    { TEXNO::CONTINUE,      L"./Data/Images/pause_continue.png",      1U },
+    { TEXNO::TUTORIAL,      L"./Data/Images/tutorial.png",        1U },
+    { TEXNO::GO_ITIRAN,     L"./Data/Images/pause_item.png",      1U },
+    { TEXNO::WIN,           L"./Data/Images/win.png",             1U },
+    { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
+
+=======
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//宝箱
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },//UIパネル
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },//バフエフェクト
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト
     
  
+>>>>>>> 0b42177a923316c081ee2b018dc541cfd56bcf75
 
     { -1, nullptr }	// 終了フラグ
 };

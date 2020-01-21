@@ -48,4 +48,5 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "scne_over.h"
 #include "fukidasi.h"
 #include "tutorial.h"
+#include "pause.h"
 #endif // !INCLUDED_ALL
