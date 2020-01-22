@@ -8,4 +8,6 @@ public:
     void update();
     void draw();
 };
-EXTERN Pause pause[3];
+EXTERN Pause pause[6];
+extern int pause_state;
+extern int PauseCount ;

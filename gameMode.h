@@ -7,4 +7,4 @@ public:
     void update();
     void draw();
 };
-EXTERN GameMode gamemode[2];
+EXTERN GameMode gamemode[3];

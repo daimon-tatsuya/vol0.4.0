@@ -15,7 +15,7 @@ int game_state;     // 状態
 int game_timer;     // タイマー
 bool pauseFlg = false;
 Player player[2];
-
+bool pause_ItiranFlg = false;
 //std::list<Garbage> garbageList;
 //
 //GarbageManager GarbageManager_;
@@ -118,6 +118,11 @@ void game_common()
 void game_pause()
 {
     pause[0].update();
+    if (pause_ItiranFlg&& (TRG(0)&PAD_TRG2))
+    {
+        pause_ItiranFlg = false;
+        pause_state = 0;
+    }
 }
 //--------------------------------
 // 更新処理
@@ -128,7 +133,7 @@ void game_update()
     {
     case 0:
         //////// 初期設定 ////////
-
+        PauseCount = 0;
         // スプライトのロード
         //sprite_load(&sprPlayer, L"./Data/Images/player.png");       // プレイヤースプライト
 
@@ -172,6 +177,12 @@ void game_update()
 
         TimerManager_.init();
 
+        pause[0].init();
+        pause[1].init();
+        pause[2].init();
+        pause[3].init();
+        pause[4].init();
+        pause[5].init();
         if (!tutorialMode)//チュートリアルに入ってないとき。
         {
             TimerManager_.add(&timer, VECTOR2(640, 350));
@@ -244,64 +255,76 @@ void game_draw()
 {
     // 画面を白で塗りつぶす
     GameLib::clear(1, 1, 1);
+   
 
-    bg.draw();
+        bg.draw();
 
-    PlateManager_.draw();
+        PlateManager_.draw();
 
-    conveyor.draw();
+        conveyor.draw();
 
-    ber.draw();        
+        ber.draw();
 
-    if (!tutorialMode)
-    {
-        TimerManager_.draw();
-        
-        if (timerNum > 0) //タイマーのコンマ
+        if (!tutorialMode)
         {
-            texture::begin(TEXNO::NUMBER);
-            texture::draw(TEXNO::NUMBER,
-                550, 350, 1.0f, 1.0f,
-                64 * 12, 64, 64, 64,
-                32, 32, 0,
-                1.0f, 1.0f, 1.0f, 1.0f);
-            texture::end(TEXNO::NUMBER);
+            TimerManager_.draw();
+
+            if (timerNum > 0) //タイマーのコンマ
+            {
+                texture::begin(TEXNO::NUMBER);
+                texture::draw(TEXNO::NUMBER,
+                    550, 350, 1.0f, 1.0f,
+                    64 * 12, 64, 64, 64,
+                    32, 32, 0,
+                    1.0f, 1.0f, 1.0f, 1.0f);
+                texture::end(TEXNO::NUMBER);
+            }
+        }
+
+        CombManager_.draw();
+
+        player[0].draw();
+        if (twoPlayMode)
+        {
+            player[1].draw();
+        }
+
+        //player[1].draw();
+
+        GarbageManager_.draw();
+
+        EffectManager_.draw();
+
+        DustBoxManager_.draw();
+
+        if (!tutorialMode) { RandoManager_.draw(); }
+
+        press_machine.draw();
+
+        if (!tutorialMode)
+        {
+            ItemManager_.draw();
+        }
+        else
+        {
+            tutorial.draw();
+            FukidasiManager_.draw();
+        }
+    
+    if (pauseFlg)
+    {
+        pause[5].draw();//黒の背景
+        pause[0].draw();//pause
+        pause[1].draw();//continue
+        pause[2].draw();//item
+        pause[3].draw();//title
+        
+        if (pause_ItiranFlg)
+        {
+            pause[4].draw();
         }
     }
 
-    CombManager_.draw();
-
-    player[0].draw();
-    if (twoPlayMode)
-    {
-        player[1].draw();
-    }
-   
-    //player[1].draw();
-
-    GarbageManager_.draw(); 
-
-    EffectManager_.draw();
-
-    DustBoxManager_.draw();
-
-    if (!tutorialMode) { RandoManager_.draw(); }
-
-    press_machine.draw();       
-
-    if (!tutorialMode)
-    {
-        ItemManager_.draw();
-    }
-    else
-    {
-        tutorial.draw(); 
-        FukidasiManager_.draw();
-    }
-
-    pause[0].draw();
-    pause[1].draw();
-    pause[2].draw();
 }
 
 //--------------------------------

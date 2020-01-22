@@ -9,21 +9,6 @@
 //******************************************************************************
 
 #include "GameLib\texture.h"
-
-
-
-#if 11
-//******************************************************************************
-// TODO:11 敵テクスチャ用ラベルの定義
-//------------------------------------------------------------------------------
-/*
-課題）
-敵用のテクスチャを識別するラベルを定義する。
-
-下記のTEXNO内に、ENEMY0からENEMY5まで追加せよ。
-*/
-//******************************************************************************
-#endif
 // ラベル定義
 enum TEXNO
 {
@@ -56,6 +41,7 @@ enum TEXNO
     TUTORIAL,
     WIN,
     LOSE,
+    PAUSE_BG,
 
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -220,9 +206,18 @@ extern GameLib::SpriteData sprPlate1;
 //ゲームモード
 extern GameLib::SpriteData sprTitle_single;
 extern GameLib::SpriteData sprTitle_doubles;
+extern GameLib::SpriteData sprTitle_tutorial;
 //タイトル
 //extern GameLib::SpriteData SpriteData sprTitle;
-
+//ポーズ中
+extern SpriteData sprPause;
+extern SpriteData sprPause_continue;
+extern SpriteData sprPause_goTitle ;
+extern SpriteData sprPause_goItiran;
+extern SpriteData sprPause_bg;
+//ゲームオーバー
+extern GameLib::SpriteData sprwin;
+extern GameLib::SpriteData sprlose;
 //吹き出し
 extern GameLib::SpriteData sprFukidasi1;
 extern GameLib::SpriteData sprFukidasi2;
@@ -233,10 +228,10 @@ extern GameLib::SpriteData sprFukidasi[];
 //アイテム一覧
 
 extern GameLib::SpriteData sprItiran;
-
+extern GameLib::SpriteData sprpause_itiran;
 //extern GameLib::SpriteData  SpriteData sprTitle[];
 
-
+//プレイヤー
 extern  GameLib::AnimeData*animePlayer[2][4];
 
 //煙エフェクト
