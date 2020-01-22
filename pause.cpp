@@ -76,22 +76,22 @@ void Pause::update()
             pause[2].scale = { 0.45f,0.45f };
             pause[3].scale = { 0.45f,0.45f };
         }
-
-<<<<<<< HEAD
-    if (PauseCount == 0)
-    {        
-        pause[0].scale = { 0.75f,0.75f };
-        pause[1].scale = { 0.45f,0.45f };
-        pause[2].scale = { 0.45f,0.45f };
-    }
-=======
+//
+//<<<<<<< HEAD
+//    if (PauseCount == 0)
+//    {        
+//        pause[0].scale = { 0.75f,0.75f };
+//        pause[1].scale = { 0.45f,0.45f };
+//        pause[2].scale = { 0.45f,0.45f };
+//    }
+//=======
         if (PauseCount == 1)//アイテム一覧
         {
             pause[1].scale = { 0.45f,0.45f };
             pause[2].scale = { 0.75f,0.75f };
             pause[3].scale = { 0.45f,0.45f };
         }
->>>>>>> cdbd4dbf8d9a727bcaa944d248d7886330721de7
+//>>>>>>> cdbd4dbf8d9a727bcaa944d248d7886330721de7
 
         if (PauseCount == 2)//タイトルへ向かう　
         {
@@ -104,6 +104,7 @@ void Pause::update()
         if (PauseCount == 0)//ゲームを続ける
         {
             pauseFlg = false;
+            pause_state = 0;
             pause[1].scale = { 0.75f,0.75f };
             pause[2].scale = { 0.45f,0.45f };
             pause[3].scale = { 0.45f,0.45f };
