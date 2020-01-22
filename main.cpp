@@ -343,6 +343,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             case SCENE_OVER:
                 over_end();
                 break;
+            case SCENE_RANKING:
+                ranking.end();
+                break;
             }
             switch (nextScene)      // 次シーンの初期設定を行う
             {
@@ -355,6 +358,11 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             case SCENE_OVER:
                 over_init();
                 break;
+            case SCENE_RANKING:
+                RankingNumManager_.init();
+                ranking.init();
+                break;
+
             }
             curScene = nextScene;   // 現シーンに次シーンを代入する
         }
@@ -372,6 +380,11 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         case SCENE_OVER:
             over_update();
             break;
+        case SCENE_RANKING:
+            ranking.update();
+            RankingNumManager_.update();
+            
+            break;
         }
 
         // 現在のシーンに応じた描画処理
@@ -385,6 +398,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             break;
         case SCENE_OVER:
             over_draw();
+            break;
+        case SCENE_RANKING:            
+            ranking.draw();
+            RankingNumManager_.draw();
             break;
         }
 
@@ -415,6 +432,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         break;
     case SCENE_OVER:
         over_end();
+        break;
+    case SCENE_RANKING:
+        ranking.end();
         break;
     }
 

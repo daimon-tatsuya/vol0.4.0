@@ -45,8 +45,7 @@ void Pause::update()
     }
 
     if (PauseCount == 0)
-    {
-        
+    {        
         pause[0].scale = { 0.75f,0.75f };
         pause[1].scale = { 0.45f,0.45f };
         pause[2].scale = { 0.45f,0.45f };

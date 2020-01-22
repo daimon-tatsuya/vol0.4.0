@@ -14,6 +14,7 @@
 int game_state;     // 状態
 int game_timer;     // タイマー
 bool pauseFlg = false;
+//int result
 Player player[2];
 
 //std::list<Garbage> garbageList;
@@ -218,18 +219,35 @@ void game_update()
         }
         if (timerNum < 0 && !tutorialMode)
         {
+            //if (twoPlayMode) { game_state = 4; }
+            //else { game_state++; }         
+
             game_state++;
         }
-
+        game_state++;
         break;
 
-    case 2:
-        combNum[0] = 0;
-        combNum[1] = 0;
-        combKeta[0] = 0;
-        combKeta[1] = 0;
-        timerNum = 10800;
-        timerKeta = 0;
+    //case 2://ランキングの初期化(ソートもここで行っている)
+    //
+    //    RankingNumManager_.init();
+    //    ranking.init();
+    //    game_state++;
+    //    break;
+    //
+    //case 3://ランキングのアップデート
+    //
+    //    ranking.update();
+    //    RankingNumManager_.update();        
+    //    break;
+
+    case 2://初期化とシーン移行
+        
+        //combNum[0] = 0;
+        //combNum[1] = 0;
+        //combKeta[0] = 0;
+        //combKeta[1] = 0;
+        //timerNum = 10800;
+        //timerKeta = 0;
         nextScene = SCENE_OVER;
 
         break;
@@ -245,63 +263,71 @@ void game_draw()
     // 画面を白で塗りつぶす
     GameLib::clear(1, 1, 1);
 
-    bg.draw();
-
-    PlateManager_.draw();
+    bg.draw();    
 
     conveyor.draw();
 
     ber.draw();        
 
-    if (!tutorialMode)
+    if (game_state == 3)
     {
-        TimerManager_.draw();
-        
-        if (timerNum > 0) //タイマーのコンマ
-        {
-            texture::begin(TEXNO::NUMBER);
-            texture::draw(TEXNO::NUMBER,
-                550, 350, 1.0f, 1.0f,
-                64 * 12, 64, 64, 64,
-                32, 32, 0,
-                1.0f, 1.0f, 1.0f, 1.0f);
-            texture::end(TEXNO::NUMBER);
-        }
-    }
-
-    CombManager_.draw();
-
-    player[0].draw();
-    if (twoPlayMode)
-    {
-        player[1].draw();
-    }
-   
-    //player[1].draw();
-
-    GarbageManager_.draw(); 
-
-    EffectManager_.draw();
-
-    DustBoxManager_.draw();
-
-    if (!tutorialMode) { RandoManager_.draw(); }
-
-    press_machine.draw();       
-
-    if (!tutorialMode)
-    {
-        ItemManager_.draw();
+        RankingNumManager_.draw();
+        ranking.draw();
     }
     else
     {
-        tutorial.draw(); 
-        FukidasiManager_.draw();
-    }
+        PlateManager_.draw();
 
-    pause[0].draw();
-    pause[1].draw();
-    pause[2].draw();
+        if (!tutorialMode)
+        {
+            TimerManager_.draw();
+
+            if (timerNum > 0) //タイマーのコンマ
+            {
+                texture::begin(TEXNO::NUMBER);
+                texture::draw(TEXNO::NUMBER,
+                    550, 350, 1.0f, 1.0f,
+                    64 * 12, 64, 64, 64,
+                    32, 32, 0,
+                    1.0f, 1.0f, 1.0f, 1.0f);
+                texture::end(TEXNO::NUMBER);
+            }
+        }
+
+        CombManager_.draw();
+
+        player[0].draw();
+        if (twoPlayMode)
+        {
+            player[1].draw();
+        }
+
+        //player[1].draw();
+
+        GarbageManager_.draw();
+
+        EffectManager_.draw();
+
+        DustBoxManager_.draw();
+
+        if (!tutorialMode) { RandoManager_.draw(); }
+
+        press_machine.draw();
+
+        if (!tutorialMode)
+        {
+            ItemManager_.draw();
+        }
+        else
+        {
+            tutorial.draw();
+            FukidasiManager_.draw();
+        }
+
+        pause[0].draw();
+        pause[1].draw();
+        pause[2].draw();
+    }
 }
 
 //--------------------------------

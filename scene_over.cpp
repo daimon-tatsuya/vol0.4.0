@@ -1,4 +1,7 @@
 #include "all.h"
+
+extern int nextScene;
+
 static int a = 0;
 
 void over_init()
@@ -8,6 +11,19 @@ void over_init()
 void over_update()
 {
     a = 10;
+
+    if (TRG(0) & PAD_TRG2) 
+    {
+        if (twoPlayMode)
+        {
+            nextScene = SCENE_TITLE;
+        }
+        else
+        {
+            nextScene = SCENE_RANKING;
+        }        
+    }
+
 }
 void over_draw()
 {
