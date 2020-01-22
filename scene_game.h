@@ -24,4 +24,5 @@ void game_draw();
 void game_end();
 
 extern bool pauseFlg ;
+extern bool pause_ItiranFlg ;
 #endif // !INCLUDED_SCENE_GAME

@@ -131,14 +131,19 @@ SpriteData sprGarbage[] = {
     sprGarbage_Small0,
 };
 //ゲームモード
-SpriteData sprTitle_single  = SPRITE_CENTER(TEXNO::SINGLE, 0, 0, 1188, 648);
-SpriteData sprTitle_doubles = SPRITE_CENTER(TEXNO::DOUDLE, 0, 0, 1188, 648);
+SpriteData sprTitle_single   = SPRITE_CENTER(TEXNO::SINGLE,   0, 0, 1188, 648);
+SpriteData sprTitle_doubles  = SPRITE_CENTER(TEXNO::DOUDLE,   0, 0, 1188, 648);
+SpriteData sprTitle_tutorial = SPRITE_CENTER(TEXNO::TUTORIAL, 0, 0, 1188, 648);
 
-SpriteData sprPause          = SPRITE_CENTER(TEXNO::PAUSE,     0, 0, 1188, 648);
-SpriteData sprPause_continue = SPRITE_CENTER(TEXNO::CONTINUE,  0, 0, 1188, 648);
-SpriteData sprPause_goTitle  = SPRITE_CENTER(TEXNO::GO_TITLE,  0, 0, 1188, 648);
-SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 1188, 648);
-
+//ポーズ中
+SpriteData sprPause          = SPRITE_CENTER(TEXNO::PAUSE,     0, 0, 744,  212);
+SpriteData sprPause_continue = SPRITE_CENTER(TEXNO::CONTINUE,  0, 0, 800,  144);
+SpriteData sprPause_goTitle  = SPRITE_CENTER(TEXNO::GO_TITLE,  0, 0, 538,  117);
+SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 393,  125);
+SpriteData sprPause_bg       = SPRITE_CENTER(TEXNO::PAUSE_BG,  0, 0,1188,  648);
+//ゲームオーバー
+SpriteData sprwin  = SPRITE_CENTER(TEXNO::WIN,  0, 0, 1188, 648);
+SpriteData sprlose = SPRITE_CENTER(TEXNO::LOSE, 0, 0, 1188, 648);
 //タイトル
 //SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
 //SpriteData sprTitle[] =
@@ -169,6 +174,7 @@ SpriteData sprFukidasi3 = SPRITE_BOTTOM(TEXNO::FUKIDASI, 600 * 2, 0, 600, 277);
 
 //アイテム一覧
 SpriteData sprItiran = SPRITE_LEFT(TEXNO::ITIRAN, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+SpriteData sprpause_itiran = SPRITE_CENTER(TEXNO::ITIRAN, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
 //煙エフェクト
 SpriteData sprKemuri1 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 0, 0, 64, 64);
@@ -205,13 +211,15 @@ LoadTexture loadTexture[] = {
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
     { TEXNO::PLATE1,        L"./Data/Images/plate.png",           1U },
     { TEXNO::EFFECT,        L"./Data/Images/buff_ef.png",         1U },
+    { TEXNO::PAUSE,         L"./Data/Images/pause_pause.png",     1U },
     { TEXNO::GO_TITLE,      L"./Data/Images/pause_title.png",     1U },
-    { TEXNO::CONTINUE,      L"./Data/Images/pause_continue.png",      1U },
+    { TEXNO::CONTINUE,      L"./Data/Images/pause_continue.png",  1U },
     { TEXNO::TUTORIAL,      L"./Data/Images/tutorial.png",        1U },
     { TEXNO::GO_ITIRAN,     L"./Data/Images/pause_item.png",      1U },
     { TEXNO::WIN,           L"./Data/Images/win.png",             1U },
     { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト    
+    { TEXNO::PAUSE_BG,      L"./Data/Images/pause_bg.png",        1U },
     { -1, nullptr }	// 終了フラグ
 };
 

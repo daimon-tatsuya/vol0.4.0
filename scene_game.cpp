@@ -16,7 +16,7 @@ int game_timer;     // タイマー
 bool pauseFlg = false;
 //int result
 Player player[2];
-
+bool pause_ItiranFlg = false;
 //std::list<Garbage> garbageList;
 //
 //GarbageManager GarbageManager_;
@@ -119,6 +119,11 @@ void game_common()
 void game_pause()
 {
     pause[0].update();
+    if (pause_ItiranFlg&& (TRG(0)&PAD_TRG2))
+    {
+        pause_ItiranFlg = false;
+        pause_state = 0;
+    }
 }
 //--------------------------------
 // 更新処理
@@ -129,7 +134,7 @@ void game_update()
     {
     case 0:
         //////// 初期設定 ////////
-
+        PauseCount = 0;
         // スプライトのロード
         //sprite_load(&sprPlayer, L"./Data/Images/player.png");       // プレイヤースプライト
 
@@ -173,6 +178,12 @@ void game_update()
 
         TimerManager_.init();
 
+        pause[0].init();
+        pause[1].init();
+        pause[2].init();
+        pause[3].init();
+        pause[4].init();
+        pause[5].init();
         if (!tutorialMode)//チュートリアルに入ってないとき。
         {
             TimerManager_.add(&timer, VECTOR2(640, 350));
@@ -262,13 +273,21 @@ void game_draw()
 {
     // 画面を白で塗りつぶす
     GameLib::clear(1, 1, 1);
+   
 
+<<<<<<< HEAD
     bg.draw();    
+=======
+        bg.draw();
 
-    conveyor.draw();
+        PlateManager_.draw();
+>>>>>>> cdbd4dbf8d9a727bcaa944d248d7886330721de7
 
-    ber.draw();        
+        conveyor.draw();
 
+        ber.draw();
+
+<<<<<<< HEAD
     if (game_state == 3)
     {
         RankingNumManager_.draw();
@@ -278,6 +297,8 @@ void game_draw()
     {
         PlateManager_.draw();
 
+=======
+>>>>>>> cdbd4dbf8d9a727bcaa944d248d7886330721de7
         if (!tutorialMode)
         {
             TimerManager_.draw();
@@ -323,11 +344,29 @@ void game_draw()
             tutorial.draw();
             FukidasiManager_.draw();
         }
+<<<<<<< HEAD
 
         pause[0].draw();
         pause[1].draw();
         pause[2].draw();
     }
+=======
+    
+    if (pauseFlg)
+    {
+        pause[5].draw();//黒の背景
+        pause[0].draw();//pause
+        pause[1].draw();//continue
+        pause[2].draw();//item
+        pause[3].draw();//title
+        
+        if (pause_ItiranFlg)
+        {
+            pause[4].draw();
+        }
+    }
+
+>>>>>>> cdbd4dbf8d9a727bcaa944d248d7886330721de7
 }
 
 //--------------------------------

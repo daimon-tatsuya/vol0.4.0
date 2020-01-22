@@ -155,24 +155,24 @@ void Player::update()
 
             if (STATE(type) & PAD_LEFT)//ç∂à⁄ìÆ
             {
-                animeData = animePlayer[type][2];
+                player[type].animeData = animePlayer[type][2];
                 speed.x += -4 - itemSpeed;
-                xFlip = -1.0f;
+                player[type].xFlip = -1.0f;
             }
             if (STATE(type) & PAD_RIGHT)//âEà⁄ìÆ
             {
-                animeData = animePlayer[type][3];
+                player[type].animeData = animePlayer[type][3];
                 speed.x += 3 + itemSpeed;
-                xFlip = 1.0f;
+                player[type].xFlip = 1.0f;
             }
             if (STATE(type) & PAD_UP) //è„à⁄ìÆ
             {
-                animeData = animePlayer[type][1];
+                player[type].animeData = animePlayer[type][1];
                 speed.y += -1 - itemSpeed;
             }
             if (STATE(type) & PAD_DOWN) //â∫à⁄ìÆ
             {
-                animeData = animePlayer[type][0];
+                player[type].animeData = animePlayer[type][0];
                 speed.y = 1 + itemSpeed;
             }
        
