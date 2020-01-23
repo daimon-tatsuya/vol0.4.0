@@ -203,17 +203,22 @@ void UI::rankingMove(OBJ2D* obj)
             obj->position.x -= obj->size.x * obj->type;            
         }        
         
+        if (over.mode)
+        {
+            obj->position.x -= obj->size.x * obj->type * 2;
+            obj->scale = VECTOR2(3, 3);
+        }
+
         obj->iWork[RankingNumManager::COPY] = ranking.result[obj->no];
         for (int i = 0; i < obj->type; i++)
         {            
             obj->iWork[RankingNumManager::COPY] = obj->iWork[RankingNumManager::COPY] / 10;
         }
+        obj->iWork[RankingNumManager::COPY] %= 10;
         obj->state++;
         break;
 
     case 1:
-
-        obj->iWork[RankingNumManager::COPY] %= 10;
 
         obj->data = &sprComb[obj->iWork[RankingNumManager::COPY]];
 

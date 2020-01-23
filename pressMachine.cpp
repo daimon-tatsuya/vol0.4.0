@@ -16,19 +16,27 @@ void PressMachine::init()
     timer = 0;
 
     size = VECTOR2(105, 94);
+    atari = 0;
+    atariSize = SCREEN_HEIGHT - 60;
 }
 
 void PressMachine::update()
 {
-    if (position.y >= 610) { speed.y = -5; }
+    if (position.y >= 610)
+    {
+        speed.y = -5;         
+    }
 
-    else if (position.y <= 370) { speed.y = 5; }
+    else if (position.y <= 370) 
+    {        
+        speed.y = 5; 
+    }
 
-    position.y += speed.y;
+    position.y += speed.y;        
 
     for (auto& it : *GarbageManager_.getList()) //ここでのイテレータの中身はポインタなのでアローを使う
     {
-        if (rectHitCheck(VECTOR2(position.x - size.x, position.y - (size.y * 2)), size.x, size.y / 2, VECTOR2(it.position.x - it.size.x, it.position.y - (it.size.y * 2)), it.size.x, it.size.y) && it.exist)
+        if (rectHitCheck(VECTOR2(position.x - size.x, 0), size.x, atariSize / 2, VECTOR2(it.position.x - it.size.x, it.position.y - (it.size.y * 2)), it.size.x, it.size.y) && it.exist)
         {
             it.eraseAlg = &garbageErase;
 
@@ -86,6 +94,8 @@ void PressMachine::update()
             timer = 0;
         }
     }
+
+    
 }
 
 void PressMachine::draw()

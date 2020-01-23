@@ -399,9 +399,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         case SCENE_OVER:
             over_draw();
             break;
-        case SCENE_RANKING:            
+        case SCENE_RANKING:                                    
             ranking.draw();
-            RankingNumManager_.draw();
             break;
         }
 
