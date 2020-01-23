@@ -49,4 +49,5 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "fukidasi.h"
 #include "tutorial.h"
 #include "pause.h"
+#include "pressShutter.h"
 #endif // !INCLUDED_ALL

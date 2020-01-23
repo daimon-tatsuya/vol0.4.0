@@ -3,7 +3,7 @@
 
 int combNum[2] = { 0, 0 };
 int combKeta[2] = { 0, 0 };
-int timerNum = 10800;
+int timerNum = 7200;
 int timerKeta = 0;
 
 //int UI::resultKeta[] = { 0 };

@@ -1,3 +1,4 @@
+//#include "pressShutter.h"
 #include "all.h"
 
 using namespace system;
@@ -24,6 +25,7 @@ void GameMode::update()
 
     if (TRG(0) & PAD_TRG2)//ƒQ[ƒ€‚ğŠJn
     {
+        shutter.init();
         title_state = 2;
     }
 

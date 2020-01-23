@@ -121,6 +121,7 @@ void Pause::update()
 
         if (PauseCount == 2)//タイトルへ向かう　
         {
+            pauseFlg = false;
             nextScene = SCENE_TITLE;
             pause[1].scale = { 0.45f,0.45f };
             pause[2].scale = { 0.45f,0.45f };

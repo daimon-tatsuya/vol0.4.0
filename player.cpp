@@ -18,8 +18,8 @@ void Player::init()
     color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
     GROUND_POS_Y = 570.0f;
     speed = VECTOR2(0, 0);
-    player[0].position = { SCREEN_WIDTH / 2 , 410.0f };
-    player[1].position = { SCREEN_WIDTH / 2 , 570.0f };
+    player[0].position = { SCREEN_WIDTH / 2 , 460.0f };
+    player[1].position = { SCREEN_WIDTH / 2 , 610.0f };
     iWork[PLAYER::CONVETIMER] = 0;
     iWork[PLAYER::ITEMADDTIMER] = 0;
     iWork[PLAYER::POWERTIMER] = 0;
@@ -55,8 +55,8 @@ void Player::update()
         color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
         GROUND_POS_Y = 570.0f;
         speed = VECTOR2(0, 0);
-        player[0].position = { SCREEN_WIDTH / 2 , 410.0f };
-        player[1].position = { SCREEN_WIDTH / 2 , 570.0f };
+        player[0].position = { SCREEN_WIDTH / 2 , 460.0f };
+        player[1].position = { SCREEN_WIDTH / 2 , 610.0f };
         iWork[PLAYER::CONVETIMER]   = 0;
         iWork[PLAYER::ITEMADDTIMER] = 0;
         iWork[PLAYER::POWERTIMER]   = 0;

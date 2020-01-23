@@ -3,7 +3,8 @@
 class Tutorial : public OBJ2D
 {
 public:
-    int mode = 0;   
+    int mode = 0;
+    bool tutoriaFlag = false;
     bool nextFlag = false;
 
     void init();

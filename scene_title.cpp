@@ -7,7 +7,9 @@
 //******************************************************************************
 
 //------< インクルード >---------------------------------------------------------
+//#include "pressShutter.h"
 #include "all.h"
+
 
 //------< 変数 >----------------------------------------------------------------
 int title_state;    // 状態
@@ -33,6 +35,9 @@ void title_init()
 
     // フェードアウト用変数の初期設定
     fadeOut = 0.0f;
+
+    //shutter.type = 0;
+    shutter.init();
 
     texture::load(loadTexture);
 
@@ -79,7 +84,8 @@ void title_update()
         //////// 初期設定 ////////
 
         twoPlayMode = false;
-        title_state++;
+        if (shutter.scrollUp()) { title_state++; }        
+        
         break;
 
     case 1: //ゲームモードを決める
@@ -89,11 +95,14 @@ void title_update()
   
     case 2:
         //////// フェードアウト ////////
-        fadeOut += 0.0167f;
-        if (fadeOut >= 1.0f)
-        {
-            nextScene = SCENE_GAME;
-        }
+        if (shutter.scrollDown()) { nextScene = SCENE_GAME; }
+        
+        //fadeOut += 0.0167f;
+
+        //if (fadeOut >= 1.0f)
+        //{
+        //    nextScene = SCENE_GAME;
+        //}
 
         //if (game_mode == 0) { twoPlayMode = false; tutorialMode = true;}
         //if (game_mode == 1) { twoPlayMode = false; }
@@ -145,6 +154,8 @@ void title_draw()
     {
         gamemode[i].draw();
     }
+
+    shutter.draw();
 
 }
 

@@ -17,6 +17,8 @@
 //extern Sprite* sprNumber;
 //extern OBJ2DC player;
 
+
+
 //------< プロトタイプ宣言 >-----------------------------------------------------
 void game_init();
 void game_update();

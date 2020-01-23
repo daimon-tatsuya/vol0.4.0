@@ -210,12 +210,12 @@ extern GameLib::SpriteData sprTitle_tutorial;
 //タイトル
 //extern GameLib::SpriteData SpriteData sprTitle;
 //ポーズ中
-extern SpriteData sprPause;
-extern SpriteData sprPause_continue;
-extern SpriteData sprPause_goTitle ;
-extern SpriteData sprPause_goItiran;
-extern SpriteData sprPause_bg;
-//ゲームオーバー
+extern GameLib::SpriteData sprPause;
+extern GameLib::SpriteData sprPause_continue;
+extern GameLib::SpriteData sprPause_goTitle ;
+extern GameLib::SpriteData sprPause_goItiran;
+extern GameLib::SpriteData sprPause_bg;
+//ゲームGameLib::オーバー
 extern GameLib::SpriteData sprwin;
 extern GameLib::SpriteData sprlose;
 //吹き出し

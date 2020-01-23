@@ -9,6 +9,7 @@
 //------< インクルード >---------------------------------------------------------
 #include <list>
 #include "all.h"
+#include "pressShutter.h"
 
 //------< 変数 >----------------------------------------------------------------
 int game_state;     // 状態
@@ -17,6 +18,12 @@ bool pauseFlg = false;
 //int result
 Player player[2];
 bool pause_ItiranFlg = false;
+
+const int GAME_INIT = 0;
+const int GAME_ISEN = 1;
+const int GAME_UPDATE = 2;
+const int GAME_DRAW = 3;
+
 //std::list<Garbage> garbageList;
 //
 //GarbageManager GarbageManager_;
@@ -31,7 +38,6 @@ void game_init()
 {
     game_state = 0;
     game_timer = 0;
-
     combNum[0] = 0;
     combNum[1] = 0;
     combKeta[0] = 0;
@@ -91,7 +97,7 @@ void game_common()
     //{
     //    GarbageManager_.add(&garbage, VECTOR2(0, 0), 0);
     //}
-
+    //
     //if (TRG(0) & PAD_L1)//アイテム生成
     //{
     //    ItemManager_.add(&item, VECTOR2(0, 0), 0);
@@ -212,11 +218,18 @@ void game_update()
         }
 
         ItemManager_.init();
+        
+        shutter.init();
 
         game_state++;
         break;
 
     case 1:
+
+        if (shutter.scrollUp()) { game_state++; }
+        break;
+
+    case 2:
         //////// 通常時 ////////
 
         if (!pauseFlg)
@@ -232,9 +245,13 @@ void game_update()
         {
             //if (twoPlayMode) { game_state = 4; }
             //else { game_state++; }         
-
             game_state++;
         }
+        if (TRG(0) & PAD_L1)//ランキングに飛ぶ。
+        {
+            game_state++;
+        }
+
         //game_state++;
         break;
 
@@ -251,7 +268,9 @@ void game_update()
         //    RankingNumManager_.update();        
         //    break;
 
-    case 2://初期化とシーン移行
+    case 3://初期化とシーン移行
+        if (shutter.scrollDown()) { nextScene = SCENE_OVER; }
+
 
         //combNum[0] = 0;
         //combNum[1] = 0;
@@ -259,8 +278,7 @@ void game_update()
         //combKeta[1] = 0;
         //timerNum = 10800;
         //timerKeta = 0;
-        nextScene = SCENE_OVER;
-
+                
         break;
     }
     game_timer++;
@@ -281,12 +299,12 @@ void game_draw()
     ber.draw();
 
     PlateManager_.draw();
-
+    
     if (!tutorialMode)
     {
         TimerManager_.draw();
 
-        if (timerNum > 0) //タイマーのコンマ
+        if (timerNum > 0 && game_state == 2) //タイマーのコンマ
         {
             texture::begin(TEXNO::NUMBER);
             texture::draw(TEXNO::NUMBER,
@@ -340,6 +358,8 @@ void game_draw()
             pause[4].draw();
         }
     }
+
+    shutter.draw();
 }
 
 //--------------------------------

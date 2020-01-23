@@ -323,8 +323,7 @@ AnimeData animeTimer10[] =
 
 AnimeData animeTimer100[] =
 {    
-    { &sprNumber3,60 }, //Å‰‚¾‚¯1•bŠÔ
-    { &sprNumber2,3600 },
+    { &sprNumber2,60 }, //Å‰‚¾‚¯1•bŠÔ    
     { &sprNumber1,3600 },
     { &sprNumber0,3600 },
     { nullptr, -1 },// I—¹ƒtƒ‰ƒO

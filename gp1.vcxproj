@@ -184,6 +184,7 @@
     <ClCompile Include="plate.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="pressMachine.cpp" />
+    <ClCompile Include="pressShutter.cpp" />
     <ClCompile Include="randomMark.cpp" />
     <ClCompile Include="ranking.cpp" />
     <ClCompile Include="RankingNum.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="plate.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="pressMachine.h" />
+    <ClInclude Include="pressShutter.h" />
     <ClInclude Include="randomMark.h" />
     <ClInclude Include="ranking.h" />
     <ClInclude Include="scene_game.h" />

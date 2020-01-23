@@ -5,6 +5,7 @@ extern int nextScene;
 void Tutorial::init()
 {
     mode = 0;
+    tutoriaFlag = false;
     state = 0;
     timer = 0;
     nextFlag = false;
@@ -88,7 +89,7 @@ void Tutorial::update()
         //チュートリアル内容
         for (auto& it : *GarbageManager_.getList())
         {
-            if (it.throwFlg) { nextFlag = true; }
+            if (it.throwFlg && tutoriaFlag) { nextFlag = true; }
         }
 
         if (nextFlag)
