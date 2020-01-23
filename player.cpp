@@ -178,7 +178,7 @@ void Player::update()
                 {
                     player[type].animeData = animePlayer[type][3];
                 }
-                player[type].animeData = animePlayer[type][3];
+                //player[type].animeData = animePlayer[type][3];
                 speed.x += 3 + itemSpeed;
                 player[type].xFlip = 1.0f;
             }
@@ -192,7 +192,7 @@ void Player::update()
                 {
                     player[type].animeData = animePlayer[type][1];
                 }
-                player[type].animeData = animePlayer[type][1];
+                //player[type].animeData = animePlayer[type][1];
                 speed.y += -1 - itemSpeed;
             }
             if (STATE(type) & PAD_DOWN) //‰ºˆÚ“®
@@ -205,7 +205,7 @@ void Player::update()
                 {
                     player[type].animeData = animePlayer[type][0];
                 }
-                player[type].animeData = animePlayer[type][0];
+                //player[type].animeData = animePlayer[type][0];
                 speed.y = 1 + itemSpeed;
             }
        
