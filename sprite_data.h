@@ -82,6 +82,10 @@ extern GameLib::AnimeData animeKemuri[];
 extern GameLib::AnimeData* animeEffect[];
 
 //player(kuma)
+//やられ
+
+extern SpriteData sprPlayer1_Damaged;
+
 //上歩き
 extern GameLib::SpriteData sprPlayer1_Up0;
 extern GameLib::SpriteData sprPlayer1_Up1;
@@ -101,7 +105,30 @@ extern GameLib::SpriteData sprPlayer1_Down2;
 extern GameLib::SpriteData sprPlayer1_Left0;
 extern GameLib::SpriteData sprPlayer1_Left1;
 extern GameLib::SpriteData sprPlayer1_Left2;
+
+//持ち上げ時
+//上歩き
+extern GameLib::SpriteData sprPlayer1_Lift_Up0;
+extern GameLib::SpriteData sprPlayer1_Lift_Up1;
+extern GameLib::SpriteData sprPlayer1_Lift_Up2;
+
+//右歩き
+extern GameLib::SpriteData sprPlayer1_Lift_Right0;
+extern GameLib::SpriteData sprPlayer1_Lift_Right1;
+extern GameLib::SpriteData sprPlayer1_Lift_Right2;
+
+//下歩き
+extern GameLib::SpriteData sprPlayer1_Lift_Down0;
+extern GameLib::SpriteData sprPlayer1_Lift_Down1;
+extern GameLib::SpriteData sprPlayer1_Lift_Down2;
+
+//左歩き
+extern GameLib::SpriteData sprPlayer1_Lift_Left0;
+extern GameLib::SpriteData sprPlayer1_Lift_Left1;
+extern GameLib::SpriteData sprPlayer1_Lift_Left2;
 //player(buriki)
+//やられ
+extern SpriteData sprPlayer2_Damaged;
 //上歩き
 extern GameLib::SpriteData sprPlayer2_Up0;
 extern GameLib::SpriteData sprPlayer2_Up1;
@@ -122,6 +149,26 @@ extern GameLib::SpriteData sprPlayer2_Left0;
 extern GameLib::SpriteData sprPlayer2_Left1;
 extern GameLib::SpriteData sprPlayer2_Left2;
 
+//持ち上げ時
+//上歩き
+extern GameLib::SpriteData sprPlayer2_Lift_Up0;
+extern GameLib::SpriteData sprPlayer2_Lift_Up1;
+extern GameLib::SpriteData sprPlayer2_Lift_Up2;
+                                    
+//右歩き                             
+extern GameLib::SpriteData sprPlayer2_Lift_Right0;
+extern GameLib::SpriteData sprPlayer2_Lift_Right1;
+extern GameLib::SpriteData sprPlayer2_Lift_Right2;
+                                    
+//下歩き                             
+extern GameLib::SpriteData sprPlayer2_Lift_Down0;
+extern GameLib::SpriteData sprPlayer2_Lift_Down1;
+extern GameLib::SpriteData sprPlayer2_Lift_Down2;
+                                    
+//左歩き                             
+extern GameLib::SpriteData sprPlayer2_Lift_Left0;
+extern GameLib::SpriteData sprPlayer2_Lift_Left1;
+extern GameLib::SpriteData sprPlayer2_Lift_Left2;
 //ゴミ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //アニメーション\\AnimeData animeGarbage_Large[]
 
@@ -232,7 +279,7 @@ extern GameLib::SpriteData sprpause_itiran;
 //extern GameLib::SpriteData  SpriteData sprTitle[];
 
 //プレイヤー
-extern  GameLib::AnimeData*animePlayer[2][4];
+extern  GameLib::AnimeData*animePlayer[2][8];
 
 //煙エフェクト
 extern GameLib::SpriteData sprKemuri1;

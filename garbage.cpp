@@ -163,6 +163,7 @@ void Garbage::lifted(OBJ2D* obj, int playerType)//Ž‚¿ã‚°‚é‚½Žž‚ÌƒSƒ~‚Ì“®‚«
     // obj->position = { player.position.x+(98*player.xFlip),player.position.y - player.size.y/*- */};
     obj->caughtFlg = true;
     player[playerType].liftedCount++;
+    player[playerType].liftFlg = true;
 
 };
 
@@ -181,6 +182,7 @@ void Garbage::thrown(OBJ2D* obj, int playerType) //“Š‚°‚½Žž‚ÌƒSƒ~‚Ì“®‚«
         switch (state_throw)
         {
         case 0:
+
             obj->initVelocity = { 12 * player[playerType].xFlip,2 };
             obj->speed = obj->initVelocity;
             obj->throwFlg = true;
@@ -190,6 +192,7 @@ void Garbage::thrown(OBJ2D* obj, int playerType) //“Š‚°‚½Žž‚ÌƒSƒ~‚Ì“®‚«
         }
     }
     player[playerType].liftedCount = 0;
+    player[playerType].liftFlg = false;
 };
 
 void GarbageErase::erase(OBJ2D* obj)

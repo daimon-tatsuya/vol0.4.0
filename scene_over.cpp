@@ -3,15 +3,27 @@ static int a = 0;
 
 void over_init()
 {
-
+    for (int i = 0; i < 2; i++)
+    {
+        over[i].init();
+    }
+    
 }
 void over_update()
 {
-    a = 10;
+    for (int i = 0; i < 2; i++)
+    {
+        over[i].update();
+    }
+
 }
 void over_draw()
 {
-    a += 1;
+    for (int i = 0; i < 2; i++)
+    {
+        over[i].draw();
+    }
+
 }
 void over_end()
 {
@@ -26,4 +38,22 @@ void over_end()
         music::stop(i);
     }
 }
+//win,lose
+void OVER::init()
+{
+    position = { 0, 0};
+    scale    = { 1.0f,1.0f };
+    data = nullptr;
+}
+void OVER::update()
+{
+
+}
+
+void OVER::draw()
+{
+
+}
+
+
 

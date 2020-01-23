@@ -7,32 +7,32 @@ extern int nextScene;
 
 void Pause::init()
 {
-    pause[0].data = &sprPause;
+    pause[0].data = &sprPause;//pause
     pause[0].position.x = (SCREEN_WIDTH / 2.0f);
     pause[0].position.y = 90.0f;
     pause[0].scale = { 0.8f, 0.8f };
 
-    pause[1].data = &sprPause_continue;
+    pause[1].data = &sprPause_continue;//ゲームを続ける
     pause[1].position.x = (SCREEN_WIDTH / 2.0f);
     pause[1].position.y = 220.0f;
     pause[1].scale = { 0.75f,0.75f };
 
-    pause[2].data = &sprPause_goItiran;
+    pause[2].data = &sprPause_goItiran;//アイテムの一覧を見る
     pause[2].position.x = (SCREEN_WIDTH / 2.0f);
     pause[2].position.y = 350.0f;
     pause[2].scale = { 0.45f,0.45f };
 
-    pause[3].data = &sprPause_goTitle;
+    pause[3].data = &sprPause_goTitle;//タイトルへ戻る
     pause[3].position.x = (SCREEN_WIDTH / 2.0f);
     pause[3].position.y = 480.0f; 
     pause[3].scale = { 0.45f,0.45f };
 
-    pause[4].data = &sprpause_itiran;
+    pause[4].data = &sprpause_itiran;//アイテムの一覧
     pause[4].position.x = (SCREEN_WIDTH  / 2.0f);
     pause[4].position.y = (SCREEN_HEIGHT / 2.0f);
     pause[4].scale = { 1.0f,1.0f };
 
-    pause[5].data = &sprPause_bg;
+    pause[5].data = &sprPause_bg;//ポーズ中の黒い背景
     pause[5].position.x = (SCREEN_WIDTH / 2.0f);
     pause[5].position.y = (SCREEN_HEIGHT / 2.0f);
     pause[5].scale = { 1.0f,1.0f };
@@ -116,6 +116,7 @@ void Pause::update()
             pause[2].scale = { 0.45f,0.45f };
             pause[3].scale = { 0.75f,0.75f };
         }
+      
         break;
    //case 1:
 
