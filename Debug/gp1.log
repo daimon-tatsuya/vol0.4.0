@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  work.cpp
   ui.cpp
   tutorial.cpp
@@ -63,3 +64,7 @@ c:\users\2190297\desktop\チーム制作まとめ\チーム制作(7週間)\vol0.
   コードを生成中...
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.pdb (Full PDB)
+=======
+﻿  player.cpp
+  gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Debug\gp1.exe
+>>>>>>> 3b4095ae601ed41f4fde0c63643b572aa2a89ae5
