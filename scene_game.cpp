@@ -234,6 +234,7 @@ void game_update()
 
         if (!pauseFlg)
         {
+            pause_state = 0;//ƒ|[ƒY‚Å‚Í‚È‚¢‚Æ‚«í‚É‚O‚É‚µ‚Ä‚¢‚é
             game_common();
         }
 

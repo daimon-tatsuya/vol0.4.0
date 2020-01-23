@@ -16,6 +16,7 @@
 using namespace GameLib;
 
 //------< データ >---------------------------------------------------------------
+//player熊
 //下歩き
 SpriteData sprPlayer1_Down0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 1, 96, 128);
 SpriteData sprPlayer1_Down1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 1, 96, 128);
@@ -35,7 +36,31 @@ SpriteData sprPlayer1_Left2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 3, 96,
 SpriteData sprPlayer1_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 4, 96, 128);
 SpriteData sprPlayer1_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 4, 96, 128);
 SpriteData sprPlayer1_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 4, 96, 128);
-//playerブリキ
+//持ち上げているとき(熊)
+//下歩き
+SpriteData sprPlayer1_Lift_Down0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 5, 96, 128);
+SpriteData sprPlayer1_Lift_Down1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 5, 96, 128);
+SpriteData sprPlayer1_Lift_Down2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 5, 96, 128);
+                     
+//上歩き              
+SpriteData sprPlayer1_Lift_Up0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 6, 96, 128);
+SpriteData sprPlayer1_Lift_Up1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 6, 96, 128);
+SpriteData sprPlayer1_Lift_Up2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 6, 96, 128);
+                     
+//左歩き              
+SpriteData sprPlayer1_Lift_Left0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 7, 96, 128);
+SpriteData sprPlayer1_Lift_Left1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 7, 96, 128);
+SpriteData sprPlayer1_Lift_Left2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 7, 96, 128);
+                     
+//右歩き              
+SpriteData sprPlayer1_Lift_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 8, 96, 128);
+SpriteData sprPlayer1_Lift_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 1, 128 * 8, 96, 128);
+SpriteData sprPlayer1_Lift_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 2, 128 * 8, 96, 128);
+
+//やられ
+SpriteData sprPlayer1_Damaged= SPRITE_BOTTOM(TEXNO::PLAYER1, 96 * 0, 128 * 10, 96, 128);
+
+//player人形
 //下歩き
 SpriteData sprPlayer2_Down0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 1, 96, 128);
 SpriteData sprPlayer2_Down1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 1, 96, 128);
@@ -55,11 +80,36 @@ SpriteData sprPlayer2_Left2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 3, 96,
 SpriteData sprPlayer2_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 4, 96, 128);
 SpriteData sprPlayer2_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 4, 96, 128);
 SpriteData sprPlayer2_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 4, 96, 128);
-//大型
+//持ち上げているとき(人形)
+//下歩き
+SpriteData sprPlayer2_Lift_Down0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 5, 96, 128);
+SpriteData sprPlayer2_Lift_Down1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 5, 96, 128);
+SpriteData sprPlayer2_Lift_Down2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 5, 96, 128);
+                    
+//上歩き             
+SpriteData sprPlayer2_Lift_Up0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 6, 96, 128);
+SpriteData sprPlayer2_Lift_Up1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 6, 96, 128);
+SpriteData sprPlayer2_Lift_Up2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 6, 96, 128);
+                    
+//左歩き             
+SpriteData sprPlayer2_Lift_Left0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 7, 96, 128);
+SpriteData sprPlayer2_Lift_Left1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 7, 96, 128);
+SpriteData sprPlayer2_Lift_Left2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 7, 96, 128);
+                    
+//右歩き             
+SpriteData sprPlayer2_Lift_Right0 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 8, 96, 128);
+SpriteData sprPlayer2_Lift_Right1 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 1, 128 * 8, 96, 128);
+SpriteData sprPlayer2_Lift_Right2 = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 2, 128 * 8, 96, 128);
+
+//やられ
+SpriteData sprPlayer2_Damaged = SPRITE_BOTTOM(TEXNO::PLAYER2, 96 * 0, 128 * 9, 96, 128);
+
+//ゴミ
+// 大型
 SpriteData sprGarbage_Large0  = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 2, 0, 64, 64);
-//中型
+// 中型
 SpriteData sprGarbage_Medium0 = SPRITE_BOTTOM(TEXNO::GARBAGE, 64 * 1, 0, 64, 64);
-//小型
+// 小型
 SpriteData sprGarbage_Small0  = SPRITE_BOTTOM(TEXNO::GARBAGE,  64 * 0, 0, 64, 64);
 
 SpriteData sprGarbage_Gold = SPRITE_BOTTOM(TEXNO::GOLD, 64 * 0, 0, 64, 64);
@@ -226,6 +276,7 @@ LoadTexture loadTexture[] = {
 
 
 //------< プレイヤー >----------------------------------------------------------
+//熊のアニメ
 //上方向
 AnimeData animePlayer1_Up[] = {
     { &sprPlayer1_Up0, 10 },
@@ -258,7 +309,40 @@ AnimeData animePlayer1_Left[] = {
     { &sprPlayer1_Left1, 10 },
     { nullptr, -1 },// 終了フラグ
 };
-//
+//持ち上げているとき(熊)
+//上方向
+AnimeData animePlayer1_Lift_Up[] = {
+    { &sprPlayer1_Lift_Up0, 10 },
+    { &sprPlayer1_Lift_Up1, 10 },
+    { &sprPlayer1_Lift_Up2, 10 },
+    { &sprPlayer1_Lift_Up1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//右方向
+AnimeData animePlayer1_Lift_Right[] = {
+    { &sprPlayer1_Lift_Right0, 10 },
+    { &sprPlayer1_Lift_Right1, 10 },
+    { &sprPlayer1_Lift_Right2, 10 },
+    { &sprPlayer1_Lift_Right1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//下方向
+AnimeData animePlayer1_Lift_Down[] = {
+    { &sprPlayer1_Lift_Down0, 10 },
+    { &sprPlayer1_Lift_Down1, 10 },
+    { &sprPlayer1_Lift_Down2, 10 },
+    { &sprPlayer1_Lift_Down1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//左方向
+AnimeData animePlayer1_Lift_Left[] = {
+    { &sprPlayer1_Lift_Left0, 10 },
+    { &sprPlayer1_Lift_Left1, 10 },
+    { &sprPlayer1_Lift_Left2, 10 },
+    { &sprPlayer1_Lift_Left1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//人形のアニメ
 //上方向
 AnimeData animePlayer2_Up[] = {
     { &sprPlayer2_Up0, 10 },
@@ -289,6 +373,39 @@ AnimeData animePlayer2_Left[] = {
     { &sprPlayer2_Left1, 10 },
     { &sprPlayer2_Left2, 10 },
     { &sprPlayer2_Left1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//持ち上げているとき(熊)
+//上方向
+AnimeData animePlayer2_Lift_Up[] = {
+    { &sprPlayer2_Lift_Up0, 10 },
+    { &sprPlayer2_Lift_Up1, 10 },
+    { &sprPlayer2_Lift_Up2, 10 },
+    { &sprPlayer2_Lift_Up1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//右方向
+AnimeData animePlayer2_Lift_Right[] = {
+    { &sprPlayer2_Lift_Right0, 10 },
+    { &sprPlayer2_Lift_Right1, 10 },
+    { &sprPlayer2_Lift_Right2, 10 },
+    { &sprPlayer2_Lift_Right1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//下方向
+AnimeData animePlayer2_Lift_Down[] = {
+    { &sprPlayer2_Lift_Down0, 10 },
+    { &sprPlayer2_Lift_Down1, 10 },
+    { &sprPlayer2_Lift_Down2, 10 },
+    { &sprPlayer2_Lift_Down1, 10 },
+    { nullptr, -1 },// 終了フラグ
+};
+//左方向
+AnimeData animePlayer2_Lift_Left[] = {
+    { &sprPlayer2_Lift_Left0, 10 },
+    { &sprPlayer2_Lift_Left1, 10 },
+    { &sprPlayer2_Lift_Left2, 10 },
+    { &sprPlayer2_Lift_Left1, 10 },
     { nullptr, -1 },// 終了フラグ
 };
 //数字
@@ -398,9 +515,9 @@ AnimeData* animeEffect[] = {
     animeKemuri,
 };
 //
-AnimeData*animePlayer[2][4]=
-{
-    {animePlayer1_Down,animePlayer1_Up,animePlayer1_Left,animePlayer1_Right },
-    { animePlayer2_Down,animePlayer2_Up,animePlayer2_Left,animePlayer2_Right },
+AnimeData*animePlayer[2][8]=
+{     //通常     0             1               2                 3                  //ゴミ持った時      4               5                      6                7
+    { animePlayer1_Down,animePlayer1_Up,animePlayer1_Left,animePlayer1_Right,       animePlayer1_Lift_Down,animePlayer1_Lift_Up,animePlayer1_Lift_Left,animePlayer1_Lift_Right},
+    { animePlayer2_Down,animePlayer2_Up,animePlayer2_Left,animePlayer2_Right,       animePlayer2_Lift_Down,animePlayer2_Lift_Up,animePlayer2_Lift_Left,animePlayer2_Lift_Right},
 };
 
