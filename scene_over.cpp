@@ -2,7 +2,7 @@
 
 extern int nextScene;
 
-static int a = 0;
+static int over_timer = 0;//scene_over.cpp‚ÅŽg‚¤
 
 void over_init()
 {
@@ -14,14 +14,13 @@ void over_init()
 }
 void over_update()
 {
-<<<<<<< HEAD
+    over_timer++;
     for (int i = 0; i < 2; i++)
     {
         over[i].update();
-=======
-    a = 10;
-
-    if (TRG(0) & PAD_TRG2) 
+    }
+  
+    if ((TRG(0) & PAD_TRG2 ) || over_timer >= 1200)
     {
         if (twoPlayMode)
         {
@@ -31,7 +30,7 @@ void over_update()
         {
             nextScene = SCENE_RANKING;
         }        
->>>>>>> 8866147c1d8a8bcefd66c4e5b08f0f55f62e53de
+
     }
 
 }
