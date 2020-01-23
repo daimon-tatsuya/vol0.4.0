@@ -6,9 +6,21 @@ extern int combKeta[2];
 extern int timerNum;
 extern int timerKeta;
 
+typedef struct
+{
+    char name[100];
+
+    int score;
+}RANK_UI;
+
 class UI : public MoveAlg //moveŠÖ”‚ğéŒ¾‚µ‚Ä‚¢‚È‚¢‚Ì‚Å’ŠÛƒNƒ‰ƒX
 {
 public:        
+
+    static int resultKeta[];
+    static int resultScore[];
+
+    
 
     void timerMove(OBJ2D*);
 

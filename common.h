@@ -22,5 +22,6 @@
 #define SCENE_TITLE     (0)
 #define SCENE_GAME      (1)
 #define SCENE_OVER      (2)
+#define SCENE_RANKING   (3)
 
 #endif// ! INCLUDED_COMMON

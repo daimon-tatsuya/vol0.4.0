@@ -6,7 +6,8 @@ int combKeta[2] = { 0, 0 };
 int timerNum = 10800;
 int timerKeta = 0;
 
-
+//int UI::resultKeta[] = { 0 };
+//int UI::resultScore[] = { 0 };
 
 void UI::combMove(OBJ2D* obj)//プレイヤーのコンボ処理
 {
@@ -184,5 +185,55 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
 
 void UI::rankingMove(OBJ2D* obj)
 {
+    switch (obj->state)
+    {
+    case 0:
+        if (obj->no < 3)
+        {
+            obj->color = VECTOR4(1.0f, 1.0f, 0.0f, 1.0f);
+            obj->scale = VECTOR2(1.2f, 1.2f);
+            obj->size = VECTOR2(48, 38.4f);
+            obj->position.x -= obj->size.x * obj->type;
+        }
+        else
+        {
+            obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+            obj->scale = VECTOR2(1, 1);
+            obj->size = VECTOR2(40, 32);
+            obj->position.x -= obj->size.x * obj->type;            
+        }        
+        
+        obj->iWork[RankingNumManager::COPY] = ranking.result[obj->no];
+        for (int i = 0; i < obj->type; i++)
+        {            
+            obj->iWork[RankingNumManager::COPY] = obj->iWork[RankingNumManager::COPY] / 10;
+        }
+        obj->state++;
+        break;
 
+    case 1:
+
+        obj->iWork[RankingNumManager::COPY] %= 10;
+
+        obj->data = &sprComb[obj->iWork[RankingNumManager::COPY]];
+
+        //if (obj->no == 0)
+        //{
+        //    obj->data = &sprComb[resultScore[obj->type] % 10];
+        //
+        //}
+        //else if (obj->no == 1)
+        //{
+        //    int num = resultScore[obj->type] / 10;
+        //    obj->data = &sprComb[num % 10];
+        //}
+        //else if (obj->no == 2)
+        //{
+        //    int num = resultScore[obj->type] / 100;
+        //    num = num % 10;
+        //    obj->data = &sprComb[num % 10];
+        //}
+        break;
+    }
 }
+

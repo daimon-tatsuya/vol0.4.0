@@ -1,24 +1,56 @@
 #pragma once
+#define RESULT_MAX (6)
 
-class Ranking : public UI
+
+class Ranking
 {
-public:
+
+public:    
+    GameLib::SpriteData*    data = nullptr;         // スプライトデータ
+
+    int result[6] = { 1, 2, 4, 7, 2, 0 };
+    int copy = 0;
+
+    int KetaCount[6];
+
+    VECTOR2 pos;
+
+    void readData();
+    void writeData();
+    void KetaCountMove();   
+    void init();
+    void update();
+    void draw();
+    void end();
+};
+
+EXTERN Ranking ranking;
+
+class RankingNum : public UI
+{
+public:       
     void  move(OBJ2D*);
 };
 
-//EXTERN Ranking ranking;
+EXTERN RankingNum rankingNum;
 
-class RankingErase : public EraseAlg
+class RankingNumErase : public EraseAlg
 {
 public:
     void erase(OBJ2D* obj);
 };
 
-//EXTERN RankingErase rankingErase;
+EXTERN RankingNumErase rankingNumErase;
 
-class RankingManager : public OBJ2DManager
-{
-
+class RankingNumManager : public OBJ2DManager
+{    
+public:
+    enum RANKNUM
+    {
+        COPY,
+        KETA,
+    };
+    OBJ2D* add(MoveAlg* mvAlg, const VECTOR2& pos, int type, int no); // objListに新たなOBJ2Dを追加する
 };
 
-//EXTERN RankingManager RankingManager_;
+EXTERN RankingNumManager RankingNumManager_;

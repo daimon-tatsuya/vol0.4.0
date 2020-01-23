@@ -186,6 +186,7 @@
     <ClCompile Include="pressMachine.cpp" />
     <ClCompile Include="randomMark.cpp" />
     <ClCompile Include="ranking.cpp" />
+    <ClCompile Include="RankingNum.cpp" />
     <ClCompile Include="scene_game.cpp" />
     <ClCompile Include="scene_over.cpp" />
     <ClCompile Include="scene_title.cpp" />

@@ -1,0 +1,23 @@
+#include "all.h"
+
+void RankingNum::move(OBJ2D* obj)
+{
+    rankingMove(obj);
+}
+
+void RankingNumErase::erase(OBJ2D* obj)
+{
+    obj->mvAlg = nullptr;
+}
+
+OBJ2D* RankingNumManager::add(MoveAlg* mvAlg, const VECTOR2& pos, int type, int no)// objListに新たなOBJ2Dを追加する
+{
+    OBJ2D obj;                          // OBJ2Dを宣言する
+    obj.mvAlg = mvAlg;                  // mvAlgに引数のmvalgを代入
+    obj.position = pos;                 // positionに引数のposを代入
+    obj.type = type;                    //スコアの桁の種類設定
+    obj.no = no;                        //スコアの種類設定
+
+    objList.push_back(obj);             // リストにobjを追加する
+    return &(*objList.rbegin());        // 今追加したobjのアドレスを返す（何かで使えるように）
+}
