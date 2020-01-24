@@ -124,8 +124,7 @@ void itemMove1(OBJ2D* obj) //コンベアースピードアップ
         obj->speed.x = 1;
         if (obj->position.y < (-obj->size.y*2.0f))
         {
-            garbageErase.erase(obj);
-
+            obj->eraseAlg = &itemErase;
         }
         obj->position += obj->speed;
         break;
@@ -209,8 +208,7 @@ void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
         obj->speed.x = 1;
         if (obj->position.y < (-obj->size.y*2.0f))
         {
-            garbageErase.erase(obj);
-
+            obj->eraseAlg = &itemErase;
         }
         obj->position += obj->speed;
         break;
@@ -295,8 +293,7 @@ void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
         obj->speed.x = 1;
         if (obj->position.y < (-obj->size.y*2.0f))
         {
-            garbageErase.erase(obj);
-
+            obj->eraseAlg = &itemErase;
         }
         obj->position += obj->speed;
         break;
@@ -372,8 +369,7 @@ void itemMove4(OBJ2D* obj)//アイテム出現時間短縮
         obj->speed.x = 1;
         if (obj->position.y < (-obj->size.y*2.0f))
         {
-            garbageErase.erase(obj);
-
+            obj->eraseAlg = &itemErase;
         }
         obj->position += obj->speed;
         break;

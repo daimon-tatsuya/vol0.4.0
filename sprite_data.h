@@ -49,6 +49,8 @@ enum TEXNO
     SHUTTER,
     PLAYERUI1,
     PLAYERUI2,
+    FUKIDASI2,
+    FUKIDASI3,
     /*MAP_BACK,
     MAP_TERRAIN,
     MAP_ITEM,
@@ -310,12 +312,17 @@ extern GameLib::SpriteData sprRanking;
 //シャッター
 extern GameLib::SpriteData sprShutter;
 
-<<<<<<< HEAD
 //プレイヤーマーク１
 extern GameLib::SpriteData sprP1;
 
 //プレイヤーマーク2
 extern GameLib::SpriteData sprP2;
-=======
->>>>>>> 8957983ab897d3a1c6e4aa4b83f99fd68c869bea
+
+//吹き出し2
+
+extern GameLib::SpriteData sprFukidasiPause;
+
+//吹き出し3
+extern GameLib::SpriteData sprFukidasiLimit;
+
 #endif // !INCLUDED_SPRITE_DATA

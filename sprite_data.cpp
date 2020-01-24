@@ -253,10 +253,18 @@ SpriteData sprP1 = SPRITE_CENTER(TEXNO::PLAYERUI1, 0, 0, 96, 50);
 //プレイヤーマーク2
 SpriteData sprP2 = SPRITE_CENTER(TEXNO::PLAYERUI2, 0, 0, 96, 50);
 
+//吹き出し2
+SpriteData sprFukidasiPause = SPRITE_CENTER(TEXNO::FUKIDASI3, 0, 0, 600, 400);
+
+//吹き出し3
+SpriteData sprFukidasiLimit = SPRITE_CENTER(TEXNO::FUKIDASI2, 0, 0, 600, 283);
+
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
     sprFukidasi2,
+    sprFukidasiLimit,
     sprFukidasi3,
+    sprFukidasiPause,
 };
 
 //******************************************************************************
@@ -298,6 +306,8 @@ LoadTexture loadTexture[] = {
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
     { TEXNO::PLAYERUI1,     L"./Data/Images/1p.png",              1U },//プレイヤーマーク１
     { TEXNO::PLAYERUI2,     L"./Data/Images/2p.png",              1U },//プレイヤーマーク２
+    { TEXNO::FUKIDASI2,     L"./Data/Images/a.png",               1U },//吹き出し2
+    { TEXNO::FUKIDASI3,     L"./Data/Images/b.png",               1U },//吹き出し3
     { -1, nullptr }	// 終了フラグ
 };
 

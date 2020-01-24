@@ -40,7 +40,7 @@ void PressMachine::update()
         {
             it.eraseAlg = &garbageErase;
 
-            if (tutorialMode && tutorial.mode == 2) { tutorial.tutoriaFlag = true; }//チュートリアルで得点が取られたらtrue。
+            if (tutorialMode && tutorial.mode == 3) { tutorial.tutoriaFlag = true; }//チュートリアルで得点が取られたらtrue。
 
             //ここにプレイヤー1か2が投げたかを分けて処理する方法を記述する。
             if (it.type == 0) { combNum[it.no] += 3; } //large

@@ -35,6 +35,7 @@ void Title::init()
    // caughtFlg = false;
     exist = true;
    // throwFlg = false;
+    state = 0;
     no = 0;
     position.y = SCREEN_HEIGHT ;
     position.x = SCREEN_WIDTH / 2.0f;

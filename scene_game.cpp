@@ -367,14 +367,14 @@ void game_draw()
     {
         ItemManager_.draw();
     }
-    else
+
+    PlayerUIManager_.draw();
+
+    if (tutorialMode)
     {
         tutorial.draw();
         FukidasiManager_.draw();
-    }
-
-
-    PlayerUIManager_.draw();
+    }    
 
     if (pauseFlg)
     {

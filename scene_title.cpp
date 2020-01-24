@@ -86,18 +86,15 @@ void title_update()
         //////// ‰Šúİ’è ////////
       
         twoPlayMode = false;
-        shutter.scrollUp(); 
-      
-        if (titleDropFlg)
-        { title_state++; }
         
-       
+      
+        if (shutter.scrollUp() && titleDropFlg)
+        { title_state++; }
         
         break;
 
     case 1: //ƒQ[ƒ€ƒ‚[ƒh‚ğŒˆ‚ß‚é
       
-        
         gamemode[0].update();
         break;
   
@@ -158,6 +155,9 @@ void title_draw()
     press_machine.draw();
 
     DustBoxManager_.draw();    
+
+    title.draw();
+
     if (titleDropFlg)
     {
         for (int i = 0; i < 3; i++)
@@ -165,7 +165,6 @@ void title_draw()
             gamemode[i].draw();
         }
     }
-    title.draw();
 
     shutter.draw();
 

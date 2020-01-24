@@ -6,6 +6,7 @@ public:
     int mode = 0;
     bool tutoriaFlag = false;
     bool nextFlag = false;
+    bool success = false;
 
     void init();
     void update();

@@ -62,8 +62,7 @@ void Fukidasi::move(OBJ2D* obj)
         obj->speed.x = 1;
         if (obj->position.y < (-obj->size.y*2.0f))
         {
-            garbageErase.erase(obj);
-
+            obj->eraseAlg = &fukidasiErase;
         }
         obj->position += obj->speed;
         break;
@@ -76,7 +75,7 @@ void Fukidasi::move(OBJ2D* obj)
         if (!tutorial.nextFlag)
         {
             FukidasiManager_.add(&fukidasi, VECTOR2(400, 84), obj->type);
-            GarbageManager_.add(&garbage, VECTOR2(653, 105), 0);
+            if (tutorial.mode > 0) { GarbageManager_.add(&garbage, VECTOR2(653, 105), 0); }
         }
     }
 
