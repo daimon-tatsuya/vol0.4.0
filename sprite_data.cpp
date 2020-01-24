@@ -282,6 +282,8 @@ LoadTexture loadTexture[] = {
     { TEXNO::SCORE,         L"./Data/Images/score.png",           1U },//スコア文字
     { TEXNO::RANKING,       L"./Data/Images/ranking.png",         1U },//ランキング文字
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
     { -1, nullptr }	// 終了フラグ
 };
 

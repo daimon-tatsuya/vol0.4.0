@@ -7,6 +7,8 @@ static int over_timer = 0;//scene_over.cpp‚ÅŽg‚¤
 //win,lose
 void OVER::init()
 {
+    ranking.result[5] = combNum[0];
+    ranking.result[6] = combNum[1];
     position = { 0, 0};
     scale    = { 1.0f,1.0f }; 
     state = 0;
@@ -27,8 +29,8 @@ void OVER::init()
     posComp[OVER_STATE::OVER_PLAYER1] = VECTOR2(1000, 450);
     posComp[OVER_STATE::OVER_PLAYER2] = VECTOR2(300, 450);    
 
-    ranking.result[5] = 20;
-    ranking.result[6] = 0;
+    //ranking.result[5] = 20;
+    //ranking.result[6] = 0;
 
     ranking.KetaCountMove();
 
@@ -114,9 +116,7 @@ void over_init()
     shutter.init();
 }
 void over_update()
-{
-    over_timer++;
-    
+{        
     switch (over.state)
     {
     case 0:
@@ -125,11 +125,12 @@ void over_update()
         break;
 
     case 1:
+        over_timer++;
 
         over.update();
         RankingNumManager_.update();
 
-        if ((TRG(0) & PAD_TRG2)/* || over_timer >= 1200*/)
+        if ((TRG(0) & PAD_TRG2) || over_timer >= 1200)
         {
             if (twoPlayMode) { over.state++; }
             else { nextScene = SCENE_RANKING; }            

@@ -45,6 +45,8 @@ enum TEXNO
     SCORE,
     RANKING,
     SHUTTER,
+    PLAYERUI1,
+    PLAYERUI2,
 
     /*MAP_BACK,
     MAP_TERRAIN,

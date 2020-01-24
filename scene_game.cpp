@@ -42,7 +42,7 @@ void game_init()
     combNum[1] = 0;
     combKeta[0] = 0;
     combKeta[1] = 0;
-    timerNum = 7200;
+    timerNum = 1200;////
     timerKeta = 0;
 }
 
