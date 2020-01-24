@@ -42,6 +42,9 @@ enum TEXNO
     WIN,
     LOSE,
     PAUSE_BG,
+    PLAYERNUM,
+    PUSH_B,
+
 
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -286,4 +289,11 @@ extern GameLib::SpriteData sprKemuri1;
 extern GameLib::SpriteData sprKemuri2;
 extern GameLib::SpriteData sprKemuri3;
 
+//ƒ^ƒCƒgƒ‹
+extern SpriteData sprTitle;
+
+//1p2p
+extern SpriteData sprPlayerNum;
+//Push_B
+extern SpriteData sprPush_B;
 #endif // !INCLUDED_SPRITE_DATA

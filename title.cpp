@@ -3,114 +3,122 @@
 using namespace GameLib;
 using namespace system;
 extern float belt;//ベルトコンベアーの強制移動
-
-void Title::move(OBJ2D* obj)
+bool titleDropFlg=false;
+bool titleScaleDownFlg=false;
+void Title::init()
 {
-    switch (obj->state)
-    {
-    case TITLE_INIT://初期設定  
-        
-                      //ここでtitleの文字の流れる地面を決める
-    {
-        int groundPosY = rand() % 3;//乱数用
-        while (groundPosYKeep_Title == groundPosY)
-        {
-            groundPosY = rand() % 3;
-        }
+    //{
+    //    int groundPosY = rand() % 2;//乱数用
+    //    while (groundPosYKeep_Title == groundPosY)
+    //    {
+    //        groundPosY = rand() % 2;
+    //    }
 
-        switch (groundPosY)
-        {
-        case 0:
-            obj->GROUND_POS_Y = 482.0f;//上
-            break;
-        case 1:
-            obj->GROUND_POS_Y = 546.0f;//中
-            break;
-        case 2:
-            obj->GROUND_POS_Y = 610.0f;//下
-            break;
-        }
-        groundPosYKeep_Title = groundPosY;
-    }
-   
-    obj->size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
-    obj->color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
-    obj->caughtFlg = false;
-    obj->exist = true;
-    obj->throwFlg = false;
-    obj->no = 0;
-    obj->position.y = SCREEN_HEIGHT / 2.0f;
+    //    switch (groundPosY)
+    //    {
+    //    //case 0:
+    //    //    GROUND_POS_Y = 482.0f;//上
+    //    //    break;
+    //    case 0:
+    //        GROUND_POS_Y = 546.0f;//中
+    //        break;
+    //    case 1:
+    //        GROUND_POS_Y = 610.0f;//下
+    //        break;
+    //    }
+    //    groundPosYKeep_Title = groundPosY;
+    //}
+    GROUND_POS_Y = 610.0f;//下
+    data = &sprTitle;
+    size = VECTOR2(27, 32 - 2); //スケールは当たり判定の値なので実際の大きさの半分を入れる
+    color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+   // caughtFlg = false;
+    exist = true;
+   // throwFlg = false;
+    no = 0;
+    position.y = SCREEN_HEIGHT ;
+    position.x = SCREEN_WIDTH / 2.0f;
+    scale = { 0.8f,0.8f };
     srand((unsigned int)time(NULL));//乱数を更新する
-    if ((TRG(0)&PAD_TRG1) | (TRG(0)&PAD_TRG2))
+
+
+}
+void Title::update()
+{
+    switch (state)
     {
-        obj->state++;
-        obj->speed.y = 4;
-    }
-   
-    break;
-
     case TITLE_DROP:
-
-        obj->position.y += obj->speed.y;
-
-        if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        if (TRG(0)&PAD_TRG2)
         {
-            obj->position.y = obj->GROUND_POS_Y;
-            obj->state++;
+            //titleDropFlg = true;//タイトルが落とす
+            titleScaleDownFlg = true;
+            // speed.y = 4;
+        }
+        if (titleScaleDownFlg)
+        {
+
+            if (scale.x > 0.3f && scale.y > 0.3f)
+            {
+                scale -= {0.1f, 0.1f};
+            }
+            // speed.y = 4;
+            if (scale.x <= 0.3f && scale.y <= 0.3f)
+            {
+                titleDropFlg = true;//タイトルが落とす
+                state++;
+            }
+        }
+        position.y += speed.y;
+
+        if (rectHitCheck(position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
+        {
+            position.y = GROUND_POS_Y;
+
         }
 
         break;
 
     case TITLE_MOVE:
-  
-       
-            if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
-            {
-                obj->position.y = obj->GROUND_POS_Y;
-            }
-        //ベルトコンベアーの強制移動
-            obj->speed.x = belt;
-        
-      
-       
-            obj->position += obj->speed;
-       
 
-        if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端
+
+        if (rectHitCheck(position - VECTOR2(32, 64), 64, 64, VECTOR2(0, GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
         {
-            obj->state++;
+            position.y = GROUND_POS_Y;
+        }
+        //ベルトコンベアーの強制移動
+        speed.x = belt;
+
+        position += speed;
+
+
+        if (position.x > 1092.0f)//ｘ1092はコンベアーの右端
+        {
+            state++;
         }
 
         break;
-    case TITLE_DELETE:
+    case TITLE_DELETE://右端で落ちていく
 
-        obj->speed.y = 3;
-        obj->speed.x = 1;
-      
-        obj->position += obj->speed;
+        speed.y = 3;
+        speed.x = 1;
+
+        position += speed;
         break;
     }
-
-    if (obj->position.y > SCREEN_HEIGHT+64.0f)
-    {
-        obj->eraseAlg = &titleErase;
+        //消えるとき
+        if (position.y > SCREEN_HEIGHT + 64.0f)
+        {
+            position = { 0,-200 };
+            state = 0;
+        }
     }
-}
 
-void TitleErase::erase(OBJ2D* obj)
+void Title::draw()
 {
-    obj->mvAlg = nullptr;
-}
+    if (data)
+    {
+        data->draw(position, scale, angle, color);
+    }
 
-
-OBJ2D* TitleManager::add(MoveAlg* mvAlg, const VECTOR2& pos, int type)
-{
-    OBJ2D obj;                          // OBJ2Dを宣言する
-    obj.mvAlg = mvAlg;                  // mvAlgに引数のmvalgを代入
-    obj.position = pos;                 // positionに引数のposを代入
-    obj.type = type;                    //type設定
-
-    objList.push_back(obj);             // リストにobjを追加する
-    return &(*objList.rbegin());        // 今追加したobjのアドレスを返す（何かで使えるように）
 }
 
