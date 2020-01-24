@@ -5,6 +5,9 @@
 class PressMachine : public OBJ2D
 {
 public:
+    float atariSize = 0;
+
+    float atari = 0;
 
     bool shakeFlag = false;
 

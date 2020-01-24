@@ -136,16 +136,16 @@ SpriteData sprBer = SPRITE_LEFT(TEXNO::BER, 0, 0, system::SCREEN_WIDTH, system::
 SpriteData sprDustBox = SPRITE_CENTER(TEXNO::DUSTBOX, 387, 0, 173, 171);
 
 //数字
-SpriteData sprNumber0 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 0, 64, 64, 64);
-SpriteData sprNumber1 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 1, 64, 64, 64);
-SpriteData sprNumber2 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 2, 64, 64, 64);
-SpriteData sprNumber3 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 3, 64, 64, 64);
-SpriteData sprNumber4 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 4, 64, 64, 64);
-SpriteData sprNumber5 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 5, 64, 64, 64);
-SpriteData sprNumber6 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 6, 64, 64, 64);
-SpriteData sprNumber7 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 7, 64, 64, 64);
-SpriteData sprNumber8 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 8, 64, 64, 64);
-SpriteData sprNumber9 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 9, 64, 64, 64);
+SpriteData sprNumber0 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 0, 0, 64, 64);
+SpriteData sprNumber1 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 1, 0, 64, 64);
+SpriteData sprNumber2 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 2, 0, 64, 64);
+SpriteData sprNumber3 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 3, 0, 64, 64);
+SpriteData sprNumber4 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 4, 0, 64, 64);
+SpriteData sprNumber5 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 5, 0, 64, 64);
+SpriteData sprNumber6 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 6, 0, 64, 64);
+SpriteData sprNumber7 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 7, 0, 64, 64);
+SpriteData sprNumber8 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 8, 0, 64, 64);
+SpriteData sprNumber9 = SPRITE_CENTER(TEXNO::NUMBER, 64 * 9, 0, 64, 64);
 
 //コンボ
 SpriteData sprComb[] = {
@@ -193,9 +193,14 @@ SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 393,  125);
 SpriteData sprPause_bg       = SPRITE_CENTER(TEXNO::PAUSE_BG,  0, 0,1188,  648);
 
 //ゲームオーバー
+<<<<<<< HEAD
 SpriteData sprwin  = SPRITE_CENTER(TEXNO::WIN,  0, 0, 1188, 648);
 SpriteData sprlose = SPRITE_CENTER(TEXNO::LOSE, 0, 0, 1188, 648);
 
+=======
+SpriteData sprwin  = SPRITE_LEFT(TEXNO::WIN,  0, 0, 1188, 648);
+SpriteData sprlose = SPRITE_LEFT(TEXNO::LOSE, 0, 0, 1188, 648);
+>>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
 //タイトル
 SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,0,0,1188,648);
 
@@ -237,7 +242,18 @@ SpriteData sprKemuri1 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 0, 0, 64, 64);
 SpriteData sprKemuri2 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 1, 0, 64, 64);
 SpriteData sprKemuri3 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 2, 0, 64, 64);
 
+<<<<<<< HEAD
 
+=======
+//スコア文字
+SpriteData sprScore  = SPRITE_LEFT(TEXNO::SCORE, 250, 0, 630, 200);
+
+//ランキング文字
+SpriteData sprRanking = SPRITE_LEFT(TEXNO::RANKING, 183, 210, 760, 140);
+
+//シャッター
+SpriteData sprShutter = SPRITE_BOTTOM(TEXNO::SHUTTER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
+>>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
 
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
@@ -258,7 +274,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::CONVEYOR2,     L"./Data/Images/berutokonbea2.png",   1U },//コンベアー
     { TEXNO::BER,           L"./Data/Images/obj_saku.png",        1U },//柵
     { TEXNO::DUSTBOX,       L"./Data/Images/obj_dakuto.png",      1U },//ダストボックス
-    { TEXNO::NUMBER,        L"./Data/Images/font.png",            1U },//数字
+    { TEXNO::NUMBER,        L"./Data/Images/moji.png",            1U },//数字
     { TEXNO::ITEM,          L"./Data/Images/item.png",            1U },//アイテム
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
     { TEXNO::FUKIDASI,      L"./Data/Images/hukidasi.png",        1U },//吹き出し
@@ -278,7 +294,15 @@ LoadTexture loadTexture[] = {
     { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト    
     { TEXNO::PAUSE_BG,      L"./Data/Images/pause_bg.png",        1U },
+<<<<<<< HEAD
     { TEXNO::PUSH_B,        L"./Data/Images/push.png",            1U },
+=======
+    { TEXNO::SCORE,         L"./Data/Images/score.png",           1U },//スコア文字
+    { TEXNO::RANKING,       L"./Data/Images/ranking.png",         1U },//ランキング文字
+    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+>>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
     { -1, nullptr }	// 終了フラグ
 };
 

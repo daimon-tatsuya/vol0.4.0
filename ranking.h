@@ -8,12 +8,14 @@ class Ranking
 public:    
     GameLib::SpriteData*    data = nullptr;         // スプライトデータ
 
-    int result[6] = { 1, 2, 4, 7, 2, 0 };
+    int result[7] = { 1, 2, 4, 7, 2, 0, 0 };
     int copy = 0;
 
-    int KetaCount[6];
+    int KetaCount[7];
 
     VECTOR2 pos;
+
+    int state = 0;
 
     void readData();
     void writeData();

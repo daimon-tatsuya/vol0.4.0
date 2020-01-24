@@ -11,7 +11,8 @@ extern int nextScene;
 //FILE* fp;
 
 void Ranking::init()
-{    
+{
+    state = 0;
     readData();
     result[5] = combNum[0];
     for (int i = 0; i < RESULT_MAX; i++)
@@ -51,25 +52,43 @@ void Ranking::init()
         }
         pos.y += 95;
     }    
+
+    shutter.init();
 }
 
 void Ranking::update()
 {
-    
-    if (TRG(0) & PAD_TRG2)
+    switch (state)
     {
-        nextScene = SCENE_TITLE;
-        writeData();        
+    case 0:
+
+        if (TRG(0) & PAD_TRG2)
+        {
+            state++;            
+            writeData();
+        }
+        break;
+
+    case 1:
+
+        if (shutter.scrollDown()) { nextScene = SCENE_TITLE; }
+
+        break;
     }
+    
 }
 
 void Ranking::draw()
 {
+    // 画面を白で塗りつぶす
+    GameLib::clear(1, 1, 1);
+
     bg.draw();
-
     conveyor.draw();
+    //ber.draw();
 
-    ber.draw();
+    data = &sprRanking;
+    data->draw(VECTOR2(330, 0), VECTOR2(0.8f, 0.8f));
 
     pos = VECTOR2(430, 215);
 
@@ -80,6 +99,10 @@ void Ranking::draw()
         pos.y += 95;
     }
     pos.y = 215;
+
+    RankingNumManager_.draw();
+
+    shutter.draw();
 }
 
 void Ranking::end()
@@ -129,7 +152,7 @@ void Ranking::writeData()
 
 void Ranking::KetaCountMove()//桁をカウントする。
 {    
-    for (int i = 0; i < RESULT_MAX; i++)
+    for (int i = 0; i < RESULT_MAX + 1; i++)
     {
         int kari = result[i] / 10;
         KetaCount[i]++;

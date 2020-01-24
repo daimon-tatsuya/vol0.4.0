@@ -7,11 +7,11 @@ using namespace system;
 
 void Shutter::init()
 {
-    data = &sprPressMachine;
-    if (type == 0) { position = VECTOR2(0, 0); }
-    else if (type == 1) { position = VECTOR2(0, SCREEN_HEIGHT); }
+    data = &sprShutter;
+    if (type == 0) { position = VECTOR2(SCREEN_WIDTH / 2, 0); }
+    else if (type == 1) { position = VECTOR2(SCREEN_WIDTH / 2, SCREEN_HEIGHT); }
     //position = VECTOR2(0, -SCREEN_HEIGHT);
-    scale = { 9.5f, 2 };
+    scale = { 1.0f, 1.0f };
     angle = 0;
     color = VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
 }
@@ -61,5 +61,5 @@ bool Shutter::scrollDown()//スクロールしきったらtrueを返す。
 
 void Shutter::draw()
 {
-    data->draw(position, scale);
+    data->draw(position, scale, angle, color);
 }

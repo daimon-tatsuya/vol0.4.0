@@ -42,7 +42,7 @@ void game_init()
     combNum[1] = 0;
     combKeta[0] = 0;
     combKeta[1] = 0;
-    timerNum = 10800;
+    timerNum = 1200;////
     timerKeta = 0;
 }
 
@@ -162,6 +162,8 @@ void game_update()
             player[1].init();
             player[1].type = 1;
         }
+
+        player[1].data = &sprPlayer2_Down0;
 
         //player[1].init();
         //player[1].type = 1;
@@ -310,7 +312,7 @@ void game_draw()
             texture::begin(TEXNO::NUMBER);
             texture::draw(TEXNO::NUMBER,
                 550, 350, 1.0f, 1.0f,
-                64 * 12, 64, 64, 64,
+                64 * 12, 0, 64, 64,
                 32, 32, 0,
                 1.0f, 1.0f, 1.0f, 1.0f);
             texture::end(TEXNO::NUMBER);
@@ -380,6 +382,8 @@ void game_draw()
     }
 
     shutter.draw();
+
+    //primitive::circle(press_machine.position.x + press_machine.size.x, press_machine.atariSize, 20, 1.0f, 0, 0, 1.0f);
 }
 
 

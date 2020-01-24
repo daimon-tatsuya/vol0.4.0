@@ -399,15 +399,15 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         case SCENE_OVER:
             over_draw();
             break;
-        case SCENE_RANKING:            
+        case SCENE_RANKING:                                    
             ranking.draw();
-            RankingNumManager_.draw();
             break;
         }
 
         // デバッグ文字列の描画
         //debug::display(1, 0, 0, 1, 1);
         debug::setString("GP1_PROTO_TYPE");
+        debug::setString("SCORE:%d", ranking.result[5]);
 
         // バックバッファの内容を表示
         GameLib::present(1, 0);
