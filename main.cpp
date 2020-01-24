@@ -142,80 +142,80 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
     // ブレンドモードの設定
     GameLib::setBlendMode(Blender::BS_ALPHA);
 
-    //WNDCLASSEX wc;
-    //ZeroMemory(&wc, sizeof(WNDCLASSEX));
-    //wc.cbSize = sizeof(WNDCLASSEX);
-    //wc.style = CS_HREDRAW | CS_VREDRAW;
-    //wc.lpfnWndProc = MyImGui::WndProc;
-    //wc.hInstance = GetModuleHandle(0);
-    //wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-    //wc.lpszClassName = L"MyImGui";
-    //RegisterClassEx(&wc);
-    //
-    //MyImGui::hWindow = CreateWindow(wc.lpszClassName, L"MyImGui", WS_OVERLAPPEDWINDOW, 100, 100, 800, 800, NULL, NULL, wc.hInstance, NULL);
-    //
-    //if (MyImGui::hWindow == NULL)
-    //{
-    //    std::cout << "ウィンドウの作成に失敗\n";
-    //    UnregisterClass(wc.lpszClassName, wc.hInstance);
-    //    std::exit(1);
-    //}
-    //
-    //if (!MyImGui::CreateDevice(MyImGui::hWindow))
-    //{
-    //    std::cout << "デバイスの作成に失敗\n";
-    //    MyImGui::CleanupDevice();
-    //    UnregisterClass(wc.lpszClassName, wc.hInstance);
-    //    std::exit(1);
-    //}
-    //
-    //ShowWindow(MyImGui::hWindow, SW_SHOW);
-    //UpdateWindow(MyImGui::hWindow);
-    //
-    //IMGUI_CHECKVERSION();
-    //ImGui::CreateContext();
-    //ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //ImGui::StyleColorsLight();
-    //
-    //if (!ImGui_ImplWin32_Init(MyImGui::hWindow))
-    //{
-    //    std::cout << "ImGui_ImplWin32_Init failed\n";
-    //    ImGui::DestroyContext();
-    //    UnregisterClass(wc.lpszClassName, wc.hInstance);
-    //    std::exit(1);
-    //}
-    //
-    // Setup Dear ImGui context
-    //IMGUI_CHECKVERSION();
-    //ImGui::CreateContext();
-    //ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
-    //
-    //// Setup Platform/Renderer bindings
-    //ImGui_ImplDX11_Init(MyImGui::pDevice, MyImGui::pDeviceContext);
-    ////ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
-    //
-    //// Setup Style
-    //ImGui::StyleColorsDark();
-    //
-    //if (!ImGui_ImplDX11_Init(MyImGui::pDevice, MyImGui::pDeviceContext))
-    //{
-    //    std::cout << "ImGui_ImplDX11_Init failed\n";
-    //    ImGui::DestroyContext();
-    //    //UnregisterClass(wc.lpszClassName, wc.hInstance);
-    //    std::exit(1);
-    //}
-    //
-    //iniを生成しないように
-    //io.IniFilename = NULL;
-    //日本語フォントに対応
-    //io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\meiryo.ttc", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
-    //
-    //
-    //float clear_color[4] = { 0.45f, 0.55f, 0.60f, 1.00f };
-    //float color_picker[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    //
-    //float conveyor_color[4] = { conveyor.color.w, conveyor.color.x, conveyor.color.y, conveyor.color.z };    
+   // WNDCLASSEX wc;
+   // ZeroMemory(&wc, sizeof(WNDCLASSEX));
+   // wc.cbSize = sizeof(WNDCLASSEX);
+   // wc.style = CS_HREDRAW | CS_VREDRAW;
+   // wc.lpfnWndProc = MyImGui::WndProc;
+   // wc.hInstance = GetModuleHandle(0);
+   // wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+   // wc.lpszClassName = L"MyImGui";
+   // RegisterClassEx(&wc);
+   // 
+   // MyImGui::hWindow = CreateWindow(wc.lpszClassName, L"MyImGui", WS_OVERLAPPEDWINDOW, 100, 100, 800, 800, NULL, NULL, wc.hInstance, NULL);
+   // 
+   // if (MyImGui::hWindow == NULL)
+   // {
+   //     std::cout << "ウィンドウの作成に失敗\n";
+   //     UnregisterClass(wc.lpszClassName, wc.hInstance);
+   //     std::exit(1);
+   // }
+   // 
+   // if (!MyImGui::CreateDevice(MyImGui::hWindow))
+   // {
+   //     std::cout << "デバイスの作成に失敗\n";
+   //     MyImGui::CleanupDevice();
+   //     UnregisterClass(wc.lpszClassName, wc.hInstance);
+   //     std::exit(1);
+   // }
+   // 
+   // ShowWindow(MyImGui::hWindow, SW_SHOW);
+   // UpdateWindow(MyImGui::hWindow);
+   // 
+   // IMGUI_CHECKVERSION();
+   // ImGui::CreateContext();
+   // ImGuiIO& io = ImGui::GetIO(); (void)io;
+   // ImGui::StyleColorsLight();
+   // 
+   // if (!ImGui_ImplWin32_Init(MyImGui::hWindow))
+   // {
+   //     std::cout << "ImGui_ImplWin32_Init failed\n";
+   //     ImGui::DestroyContext();
+   //     UnregisterClass(wc.lpszClassName, wc.hInstance);
+   //     std::exit(1);
+   // }
+   // 
+   // // Setup Dear ImGui context
+   // IMGUI_CHECKVERSION();
+   // ImGui::CreateContext();
+   //// ImGuiIO& io = ImGui::GetIO(); (void)io;
+   // //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
+   // 
+   // // Setup Platform/Renderer bindings
+   // ImGui_ImplDX11_Init(MyImGui::pDevice, MyImGui::pDeviceContext);
+   // //ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
+   // 
+   // // Setup Style
+   // ImGui::StyleColorsDark();
+   // 
+   // if (!ImGui_ImplDX11_Init(MyImGui::pDevice, MyImGui::pDeviceContext))
+   // {
+   //     std::cout << "ImGui_ImplDX11_Init failed\n";
+   //     ImGui::DestroyContext();
+   //     //UnregisterClass(wc.lpszClassName, wc.hInstance);
+   //     std::exit(1);
+   // }
+   // 
+   // //iniを生成しないように
+   // io.IniFilename = NULL;
+   // //日本語フォントに対応
+   // //io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\meiryo.ttc", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
+   // 
+   // 
+   // float clear_color[4] = { 0.45f, 0.55f, 0.60f, 1.00f };
+   // float color_picker[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+   // 
+   // float conveyor_color[4] = { conveyor.color.w, conveyor.color.x, conveyor.color.y, conveyor.color.z };    
     // ゲームシーンの設定
     curScene  = SCENE_TITLE;
     nextScene = SCENE_TITLE;
@@ -237,19 +237,19 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         //ImGui_ImplDX11_NewFrame();
         //ImGui_ImplWin32_NewFrame();
         //ImGui::NewFrame();
-
-        /*
-        ウィンドウサイズを設定します。
-        ImGuiCond_Once により、初回のみ設定されます。
-        ImGuiCond_Always で、常に設定することもできます。
-        */
+        //
+        ////*
+        //ウィンドウサイズを設定します。
+        //ImGuiCond_Once により、初回のみ設定されます。
+        //ImGuiCond_Always で、常に設定することもできます。
+        //*/
         //ImGui::SetNextWindowSize(ImVec2(500, 600), ImGuiCond_Once);
-
-        // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
+        //
+        // //1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         //if (show_demo_window)
         //    ImGui::ShowDemoWindow(&show_demo_window);
-
-        // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
+        //
+        //// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
         //{
         //    static float f = 0.0f;
         //    static int counter = 0;
@@ -412,7 +412,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         // バックバッファの内容を表示
         GameLib::present(1, 0);
 
-        //Rendering
+        ////Rendering
         //ImGui::Render();
         //MyImGui::pDeviceContext->ClearRenderTargetView(MyImGui::pRenderTargetView, (float*)&clear_color);
         //MyImGui::pDeviceContext->OMSetRenderTargets(1, &MyImGui::pRenderTargetView, NULL);

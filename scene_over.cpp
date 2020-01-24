@@ -113,6 +113,9 @@ void over_init()
 {    
     RankingNumManager_.init();
     over.init();
+    PlayerUIManager_.init();
+    PlayerUIManager_.add(&playerUI, VECTOR2(over.posComp[OVER_STATE::OVER_PLAYER1].x, over.posComp[OVER_STATE::OVER_PLAYER1].y - 160), 0);
+    if (twoPlayMode) { PlayerUIManager_.add(&playerUI, VECTOR2(over.posComp[OVER_STATE::OVER_PLAYER2].x, over.posComp[OVER_STATE::OVER_PLAYER2].y - 160), 1); }
     shutter.init();
 }
 void over_update()
@@ -129,6 +132,7 @@ void over_update()
 
         over.update();
         RankingNumManager_.update();
+        PlayerUIManager_.update();
 
         if ((TRG(0) & PAD_TRG2) || over_timer >= 1200)
         {
@@ -153,6 +157,8 @@ void over_draw()
 
     over.draw();
     RankingNumManager_.draw();
+    PlayerUIManager_.draw();
+
     shutter.draw();
 }
 void over_end()

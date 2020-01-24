@@ -240,6 +240,12 @@ SpriteData sprRanking = SPRITE_LEFT(TEXNO::RANKING, 183, 210, 760, 140);
 //シャッター
 SpriteData sprShutter = SPRITE_BOTTOM(TEXNO::SHUTTER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
 
+//プレイヤーマーク１
+SpriteData sprP1 = SPRITE_CENTER(TEXNO::PLAYERUI1, 0, 0, 96, 50);
+
+//プレイヤーマーク2
+SpriteData sprP2 = SPRITE_CENTER(TEXNO::PLAYERUI2, 0, 0, 96, 50);
+
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
     sprFukidasi2,
@@ -282,8 +288,8 @@ LoadTexture loadTexture[] = {
     { TEXNO::SCORE,         L"./Data/Images/score.png",           1U },//スコア文字
     { TEXNO::RANKING,       L"./Data/Images/ranking.png",         1U },//ランキング文字
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
-    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
-    { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
+    { TEXNO::PLAYERUI1,     L"./Data/Images/1p.png",              1U },//プレイヤーマーク１
+    { TEXNO::PLAYERUI2,     L"./Data/Images/2p.png",              1U },//プレイヤーマーク２
     { -1, nullptr }	// 終了フラグ
 };
 

@@ -103,6 +103,8 @@ void game_common()
     //    ItemManager_.add(&item, VECTOR2(0, 0), 0);
     //}
 
+    PlayerUIManager_.update();
+
     //コンボ桁生成
     for (int i = 0; i < 2; i++)
     {
@@ -220,6 +222,10 @@ void game_update()
         }
 
         ItemManager_.init();
+
+        PlayerUIManager_.init();
+        PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 0);
+        if (twoPlayMode) { PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 1); }
         
         shutter.init();
 
@@ -273,7 +279,6 @@ void game_update()
 
     case 3://初期化とシーン移行
         if (shutter.scrollDown()) { nextScene = SCENE_OVER; }
-
 
         //combNum[0] = 0;
         //combNum[1] = 0;
@@ -348,6 +353,10 @@ void game_draw()
         tutorial.draw();
         FukidasiManager_.draw();
     }
+
+
+    PlayerUIManager_.draw();
+
     if (pauseFlg)
     {
         pause[5].draw();//黒の背景

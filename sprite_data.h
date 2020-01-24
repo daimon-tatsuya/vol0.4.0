@@ -299,4 +299,10 @@ extern GameLib::SpriteData sprRanking;
 
 //シャッター
 extern GameLib::SpriteData sprShutter;
+
+//プレイヤーマーク１
+extern GameLib::SpriteData sprP1;
+
+//プレイヤーマーク2
+extern GameLib::SpriteData sprP2;
 #endif // !INCLUDED_SPRITE_DATA

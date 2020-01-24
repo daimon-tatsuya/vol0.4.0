@@ -183,6 +183,7 @@
     <ClCompile Include="pause.cpp" />
     <ClCompile Include="plate.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="playerUI.cpp" />
     <ClCompile Include="pressMachine.cpp" />
     <ClCompile Include="pressShutter.cpp" />
     <ClCompile Include="randomMark.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="pause.h" />
     <ClInclude Include="plate.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="playerUI.h" />
     <ClInclude Include="pressMachine.h" />
     <ClInclude Include="pressShutter.h" />
     <ClInclude Include="randomMark.h" />
