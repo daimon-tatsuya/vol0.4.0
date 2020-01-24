@@ -307,7 +307,7 @@ void game_draw()
     ber.draw();
 
     PlateManager_.draw();
-    
+
     if (!tutorialMode)
     {
         TimerManager_.draw();
@@ -325,17 +325,36 @@ void game_draw()
     }
 
     CombManager_.draw();
-
-    player[0].draw();
-    if (twoPlayMode)
+    if (twoPlayMode)//2人プレイ
     {
-        player[1].draw();
+
+        if (!player[0].moveUpFlg)
+        {
+            player[0].draw();
+            player[1].draw();
+            GarbageManager_.draw();
+        }
+        else
+        {
+
+            GarbageManager_.draw();
+            player[0].draw();
+            player[1].draw();
+        }
     }
-
-    //player[1].draw();
-
-    GarbageManager_.draw();
-
+    else//１人プレイ
+    {
+        if (!player[0].moveUpFlg)
+        {
+            player[0].draw();
+            GarbageManager_.draw();
+        }
+        else
+        {
+            GarbageManager_.draw();
+            player[0].draw();
+        }
+    }
     EffectManager_.draw();
 
     DustBoxManager_.draw();
@@ -375,6 +394,7 @@ void game_draw()
 
     //primitive::circle(press_machine.position.x + press_machine.size.x, press_machine.atariSize, 20, 1.0f, 0, 0, 1.0f);
 }
+
 
 //--------------------------------
 // 終了処理

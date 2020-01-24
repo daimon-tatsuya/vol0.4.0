@@ -42,12 +42,13 @@ enum TEXNO
     WIN,
     LOSE,
     PAUSE_BG,
+    PLAYERNUM,
+    PUSH_B,
     SCORE,
     RANKING,
     SHUTTER,
     PLAYERUI1,
     PLAYERUI2,
-
     /*MAP_BACK,
     MAP_TERRAIN,
     MAP_ITEM,
@@ -291,6 +292,15 @@ extern GameLib::SpriteData sprKemuri1;
 extern GameLib::SpriteData sprKemuri2;
 extern GameLib::SpriteData sprKemuri3;
 
+
+//タイトル
+extern  GameLib::SpriteData sprTitle;
+
+//1p2p
+extern  GameLib::SpriteData sprPlayerNum;
+//Push_B
+extern  GameLib::SpriteData sprPush_B;
+
 //スコア文字
 extern GameLib::SpriteData sprScore;
 
@@ -300,9 +310,12 @@ extern GameLib::SpriteData sprRanking;
 //シャッター
 extern GameLib::SpriteData sprShutter;
 
+<<<<<<< HEAD
 //プレイヤーマーク１
 extern GameLib::SpriteData sprP1;
 
 //プレイヤーマーク2
 extern GameLib::SpriteData sprP2;
+=======
+>>>>>>> 8957983ab897d3a1c6e4aa4b83f99fd68c869bea
 #endif // !INCLUDED_SPRITE_DATA

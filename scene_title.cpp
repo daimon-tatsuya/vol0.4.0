@@ -60,6 +60,8 @@ void title_init()
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 
+    title.init();
+  
 
     for ( int i = 0; i < 3; i++ )
     {
@@ -77,19 +79,25 @@ void title_update()
     GarbageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
-
+  
     switch (title_state)
     {
     case 0:
         //////// 初期設定 ////////
-
+      
         twoPlayMode = false;
-        if (shutter.scrollUp()) { title_state++; }        
+        shutter.scrollUp(); 
+      
+        if (titleDropFlg)
+        { title_state++; }
+        
+       
         
         break;
 
     case 1: //ゲームモードを決める
       
+        
         gamemode[0].update();
         break;
   
@@ -110,8 +118,9 @@ void title_update()
 
         break;
     }
-    title_timer++;
+   title_timer++;
 
+   title.update();
     // デバッグ用文字列の設定
     debug::setString("TITLE_STATE:%d", game_mode);
     //debug::setString("title_state:%d", title_state);
@@ -149,13 +158,17 @@ void title_draw()
     press_machine.draw();
 
     DustBoxManager_.draw();    
-
-    for (int i = 0; i < 3; i++)
+    if (titleDropFlg)
     {
-        gamemode[i].draw();
+        for (int i = 0; i < 3; i++)
+        {
+            gamemode[i].draw();
+        }
     }
+    title.draw();
 
     shutter.draw();
+
 
 }
 

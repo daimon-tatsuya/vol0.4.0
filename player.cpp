@@ -186,6 +186,7 @@ void Player::update()
             {
                 if (player[type].liftFlg)
                 {
+                    player[type].moveUpFlg;
                     player[type].animeData = animePlayer[type][5];
                 }
                 else

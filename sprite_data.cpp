@@ -191,13 +191,19 @@ SpriteData sprPause_continue = SPRITE_CENTER(TEXNO::CONTINUE,  0, 0, 800,  144);
 SpriteData sprPause_goTitle  = SPRITE_CENTER(TEXNO::GO_TITLE,  0, 0, 538,  117);
 SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 393,  125);
 SpriteData sprPause_bg       = SPRITE_CENTER(TEXNO::PAUSE_BG,  0, 0,1188,  648);
+
 //ゲームオーバー
-SpriteData sprwin  = SPRITE_LEFT(TEXNO::WIN,  0, 0, 1188, 648);
-SpriteData sprlose = SPRITE_LEFT(TEXNO::LOSE, 0, 0, 1188, 648);
+SpriteData sprwin  = SPRITE_CENTER(TEXNO::WIN,  0, 0, 1188, 648);
+SpriteData sprlose = SPRITE_CENTER(TEXNO::LOSE, 0, 0, 1188, 648);
+
 //タイトル
-//SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,,,,);
-//SpriteData sprTitle[] =
-//{ };
+SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,0,0,1188,648);
+
+//1p2p
+SpriteData sprPlayerNum = SPRITE_CENTER(TEXNO::PLAYERNUM, 0, 0, 96, 128);
+
+//Push_B
+SpriteData sprPush_B = SPRITE_CENTER(TEXNO::PUSH_B,0,0,1188,648);
 
 //アイテム
 SpriteData sprItem0 = SPRITE_BOTTOM(TEXNO::ITEM,  64 * 0, 128, 64, 64);
@@ -230,6 +236,7 @@ SpriteData sprpause_itiran = SPRITE_CENTER(TEXNO::ITIRAN, 0, 0, system::SCREEN_W
 SpriteData sprKemuri1 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 0, 0, 64, 64);
 SpriteData sprKemuri2 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 1, 0, 64, 64);
 SpriteData sprKemuri3 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 2, 0, 64, 64);
+
 
 //スコア文字
 SpriteData sprScore  = SPRITE_LEFT(TEXNO::SCORE, 250, 0, 630, 200);
@@ -270,7 +277,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },//アイテム
     { TEXNO::FUKIDASI,      L"./Data/Images/hukidasi.png",        1U },//吹き出し
     { TEXNO::ITIRAN ,       L"./Data/Images/item_itiran.png",     1U },//一覧
-    //{ TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
+    { TEXNO::TITLE,         L"./Data/Images/title.png",           1U },//タイトル
     { TEXNO::SINGLE ,       L"./Data/Images/single.png",          1U },//１人モード
     { TEXNO::DOUDLE,        L"./Data/Images/doubles.png",         1U },//2人モード
     { TEXNO::ITEM2,         L"./Data/Images/treasure box.png",    1U },
@@ -285,6 +292,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト    
     { TEXNO::PAUSE_BG,      L"./Data/Images/pause_bg.png",        1U },
+    { TEXNO::PUSH_B,        L"./Data/Images/push.png",            1U },
     { TEXNO::SCORE,         L"./Data/Images/score.png",           1U },//スコア文字
     { TEXNO::RANKING,       L"./Data/Images/ranking.png",         1U },//ランキング文字
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
