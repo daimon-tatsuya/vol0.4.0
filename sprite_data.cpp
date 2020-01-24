@@ -193,14 +193,9 @@ SpriteData sprPause_goItiran = SPRITE_CENTER(TEXNO::GO_ITIRAN, 0, 0, 393,  125);
 SpriteData sprPause_bg       = SPRITE_CENTER(TEXNO::PAUSE_BG,  0, 0,1188,  648);
 
 //ゲームオーバー
-<<<<<<< HEAD
 SpriteData sprwin  = SPRITE_CENTER(TEXNO::WIN,  0, 0, 1188, 648);
 SpriteData sprlose = SPRITE_CENTER(TEXNO::LOSE, 0, 0, 1188, 648);
 
-=======
-SpriteData sprwin  = SPRITE_LEFT(TEXNO::WIN,  0, 0, 1188, 648);
-SpriteData sprlose = SPRITE_LEFT(TEXNO::LOSE, 0, 0, 1188, 648);
->>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
 //タイトル
 SpriteData sprTitle=SPRITE_BOTTOM(TEXNO::TITLE,0,0,1188,648);
 
@@ -242,9 +237,7 @@ SpriteData sprKemuri1 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 0, 0, 64, 64);
 SpriteData sprKemuri2 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 1, 0, 64, 64);
 SpriteData sprKemuri3 = SPRITE_BOTTOM(TEXNO::KEMURI, 64 * 2, 0, 64, 64);
 
-<<<<<<< HEAD
 
-=======
 //スコア文字
 SpriteData sprScore  = SPRITE_LEFT(TEXNO::SCORE, 250, 0, 630, 200);
 
@@ -253,7 +246,6 @@ SpriteData sprRanking = SPRITE_LEFT(TEXNO::RANKING, 183, 210, 760, 140);
 
 //シャッター
 SpriteData sprShutter = SPRITE_BOTTOM(TEXNO::SHUTTER, 0, 0, system::SCREEN_WIDTH, system::SCREEN_HEIGHT);
->>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
 
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
@@ -294,15 +286,12 @@ LoadTexture loadTexture[] = {
     { TEXNO::LOSE,          L"./Data/Images/lose.png",            1U },
     { TEXNO::KEMURI,        L"./Data/Images/efe_1.png",           1U },//煙エフェクト    
     { TEXNO::PAUSE_BG,      L"./Data/Images/pause_bg.png",        1U },
-<<<<<<< HEAD
     { TEXNO::PUSH_B,        L"./Data/Images/push.png",            1U },
-=======
     { TEXNO::SCORE,         L"./Data/Images/score.png",           1U },//スコア文字
     { TEXNO::RANKING,       L"./Data/Images/ranking.png",         1U },//ランキング文字
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
     { TEXNO::SHUTTER,       L"./Data/Images/syatta.png",          1U },//シャッター
->>>>>>> ea86b5a315d84771747d05b270e825fc0a45aedd
     { -1, nullptr }	// 終了フラグ
 };
 
