@@ -1,3 +1,6 @@
-﻿  scene_title.cpp
+﻿  ui.cpp
+  scene_game.cpp
+  playerUI.cpp
+  コードを生成中...
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.exe
   gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Debug\gp1.pdb (Full PDB)

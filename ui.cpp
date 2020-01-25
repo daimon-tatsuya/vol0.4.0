@@ -152,7 +152,7 @@ void UI::randoMark(OBJ2D* obj)//ランダムに表示が切り替わる処理
                 //GarbageManager_.add(&garbage, obj->position, no);
                 //no += 2;
                 obj->data = &sprRandoMark[no];
-                if (timerNum < 5400)//時間が残り1分半になるとはてなマークが3分の1の確率で出る。
+                if (timerNum < 3600)//時間が残り1分半になるとはてなマークが3分の1の確率で出る。
                 {
                     int hatenaRandom = rand() % 3;
                     if (hatenaRandom == 1)

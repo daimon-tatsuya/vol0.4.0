@@ -42,7 +42,7 @@ void game_init()
     combNum[1] = 0;
     combKeta[0] = 0;
     combKeta[1] = 0;
-    timerNum = 1200;////
+    timerNum = 7200;////
     timerKeta = 0;
 }
 
@@ -256,10 +256,10 @@ void game_update()
             //else { game_state++; }         
             game_state++;
         }
-        if (TRG(0) & PAD_L1)//ランキングに飛ぶ。
-        {
-            game_state++;
-        }
+        //if (TRG(0) & PAD_L1)//ランキングに飛ぶ。
+        //{
+        //    game_state++;
+        //}
 
         //game_state++;
         break;
