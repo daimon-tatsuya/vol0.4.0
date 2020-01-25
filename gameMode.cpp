@@ -23,13 +23,13 @@ void GameMode::init()
 void GameMode::update() 
 {
 
-    if (TRG(0) & PAD_TRG2)//ゲームを開始
+    if (TRG(0) & PAD_TRG2 || TRG(1) & PAD_TRG2)//ゲームを開始
     {
         shutter.init();
         title_state = 2;
     }
 
-    if (TRG(0) &  PAD_UP)
+    if (TRG(0) &  PAD_UP || TRG(1) &  PAD_UP)
     {
         /* twoPlayMode = true
          gamemode[0].scale = { 0.45f,0.
@@ -38,7 +38,7 @@ void GameMode::update()
 
     }
 
-    if (TRG(0) &PAD_DOWN)
+    if (TRG(0) &PAD_DOWN || TRG(1) &PAD_DOWN)
     {
         //twoPlayMode = false;
         //gamemode[0].scale = { 0.5f,0.5f };

@@ -48,12 +48,12 @@ void Pause::update()
 
     case 0:
       
-        if (TRG(0) &  PAD_UP)
+        if (TRG(0) &  PAD_UP || TRG(1) &  PAD_UP)
         {
             PauseCount--;
         }
 
-        if (TRG(0) &PAD_DOWN)
+        if (TRG(0) &PAD_DOWN || TRG(1) &PAD_DOWN)
         {
             PauseCount++;
         }
@@ -66,7 +66,7 @@ void Pause::update()
         {
             PauseCount = 2;
         }
-        if (TRG(0)& PAD_TRG2)//Œˆ’è
+        if (TRG(0)& PAD_TRG2 || TRG(1)& PAD_TRG2)//Œˆ’è
         {
             pause_state++;
         }

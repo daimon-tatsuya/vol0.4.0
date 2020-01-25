@@ -111,6 +111,7 @@ void OVER::draw()
 
 void over_init()
 {    
+    over_timer = 0;
     RankingNumManager_.init();
     over.init();
     PlayerUIManager_.init();

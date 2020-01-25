@@ -41,7 +41,8 @@ void Title::init()
     position.x = SCREEN_WIDTH / 2.0f;
     scale = { 0.8f,0.8f };
     srand((unsigned int)time(NULL));//乱数を更新する
-
+    titleScaleDownFlg = false;
+    titleDropFlg = false;
 
 }
 void Title::update()
@@ -49,7 +50,7 @@ void Title::update()
     switch (state)
     {
     case TITLE_DROP:
-        if (TRG(0)&PAD_TRG2)
+        if (TRG(0)&PAD_TRG2 || TRG(1)&PAD_TRG2)
         {
             //titleDropFlg = true;//タイトルが落とす
             titleScaleDownFlg = true;

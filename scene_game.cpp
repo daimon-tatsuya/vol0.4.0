@@ -52,7 +52,7 @@ void game_init()
 void game_common()
 {
 
-    if (TRG(0) & PAD_START)
+    if (TRG(0) & PAD_START || TRG(1) & PAD_START)
     {
         /* combNum[0] = 0;
          combNum[1] = 0;
