@@ -44,7 +44,7 @@ void game_init()
     combKeta[1] = 0;
     timerNum = 7200;////
     timerKeta = 0;
-    music::play(6);
+    music::play(6, true);
 }
 
 //--------------------------------
@@ -396,11 +396,13 @@ void game_end()
         player[i].mvAlg = nullptr;
     }
 
-    int i;
-    for (i = 0; i < MUSIC_FILE_MAX; i++)
-    {
-        music::stop(i);
-    }
+    //int i;
+    //for (i = 0; i < MUSIC_FILE_MAX; i++)
+    //{
+    //    music::stop(i);
+    //}
+
+    music::stop(6);
 
     // スプライトの破棄 
     //SAFE_DELETE(sprPlayer); // プレイヤースプライトの破棄

@@ -69,7 +69,7 @@ void title_init()
         gamemode[i].init();
     }
 
-    music::play(5);
+    music::play(5, true);
 }
 
 //--------------------------------
@@ -189,4 +189,5 @@ void title_draw()
 //--------------------------------
 void title_end()
 {
+    music::stop(5);
 }
