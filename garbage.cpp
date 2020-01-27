@@ -127,11 +127,35 @@ void Garbage::move(OBJ2D* obj)
             obj->position += obj->speed;
         }
         else if (obj->caughtFlg)
-        {
-            obj->position += player[obj->no].speed;
+        {                   
             obj->scale = player[obj->no].scale;
+            if (STATE(obj->no) & PAD_UP) //後ろに描画
+            {
+                obj->position.x = player[obj->no].position.x;                
+                obj->bWork[GarbageManager::BACK] = true;
+            }           
+
+            if (STATE(obj->no) & PAD_RIGHT) //右
+            {                
+                obj->position.x = player[obj->no].position.x + 48;                
+                obj->bWork[GarbageManager::BACK] = false;
+            }
+
+            if (STATE(obj->no) & PAD_DOWN) //下
+            {
+                obj->position.x = player[obj->no].position.x;
+                obj->bWork[GarbageManager::BACK] = false;
+            }
+
+            if (STATE(obj->no) & PAD_LEFT) //左
+            {
+                obj->position.x = player[obj->no].position.x - 64;
+                obj->bWork[GarbageManager::BACK] = false;
+            }
+
+            obj->position += player[obj->no].speed;
         }        
-        if (obj->position.x > 1092.0f)//ｘ1092はコンベアーの右端
+        if (obj->position.x > 1100.0f )//ｘ1092はコンベアーの右端
         {
             obj->state++;
         }
@@ -143,6 +167,7 @@ void Garbage::move(OBJ2D* obj)
     
         obj->position += obj->speed;
         break;
+
     }
 
 
@@ -200,6 +225,27 @@ void GarbageErase::erase(OBJ2D* obj)
     obj->mvAlg = nullptr;
 }
 
+void GarbageManager::frontDraw()
+{
+    for (auto& it : objList)            // objListの全ての要素をループし、itという名前で各要素にアクセス 
+    {
+        if (it.mvAlg && !it.bWork[GarbageManager::BACK])
+        {
+            it.draw();                      // itのdrawメソッドを呼ぶ
+        }
+    }
+}
+
+void GarbageManager::backDraw()
+{
+    for (auto& it : objList)            // objListの全ての要素をループし、itという名前で各要素にアクセス 
+    {
+        if (it.mvAlg && it.bWork[GarbageManager::BACK])
+        {
+            it.draw();                      // itのdrawメソッドを呼ぶ
+        }
+    }
+}
 
 OBJ2D* GarbageManager::add(MoveAlg* mvAlg, const VECTOR2& pos, int type)
 {

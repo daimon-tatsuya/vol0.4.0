@@ -264,9 +264,9 @@ void Player::update()
             speed.x = 0;
         }
 
-        if (position.x > system::SCREEN_WIDTH - (size.x*8.0f)/* / 2*/)
+        if (position.x > 1040/* / 2*/)
         {
-            position.x = system::SCREEN_WIDTH - (size.x*8.0f) /*/ 2*/;
+            position.x = 1040;
             speed.x = 0;
         }
 

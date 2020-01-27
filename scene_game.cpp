@@ -326,34 +326,17 @@ void game_draw()
 
     CombManager_.draw();
     if (twoPlayMode)//2人プレイ
-    {
-
-        if (!player[0].moveUpFlg)
-        {
-            player[0].draw();
-            player[1].draw();
-            GarbageManager_.draw();
-        }
-        else
-        {
-
-            GarbageManager_.draw();
-            player[0].draw();
-            player[1].draw();
-        }
+    {        
+        GarbageManager_.backDraw();
+        player[0].draw();
+        player[1].draw(); 
+        GarbageManager_.frontDraw();
     }
     else//１人プレイ
     {
-        if (!player[0].moveUpFlg)
-        {
-            player[0].draw();
-            GarbageManager_.draw();
-        }
-        else
-        {
-            GarbageManager_.draw();
-            player[0].draw();
-        }
+        GarbageManager_.backDraw();
+        player[0].draw();
+        GarbageManager_.frontDraw();
     }
     EffectManager_.draw();
 

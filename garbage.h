@@ -27,7 +27,14 @@ EXTERN GarbageErase garbageErase;
 class GarbageManager : public OBJ2DManager
 {
 public:
+
+    enum bWork
+    {
+        BACK,
+    };
     
+    void frontDraw();
+    void backDraw();
     OBJ2D* add(MoveAlg* mvAlg, const VECTOR2& pos, int type); // objList‚ÉV‚½‚ÈOBJ2D‚ğ’Ç‰Á‚·‚é
 
 };
