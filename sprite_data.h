@@ -51,6 +51,7 @@ enum TEXNO
     PLAYERUI2,
     FUKIDASI2,
     FUKIDASI3,
+    KAGE,
     /*MAP_BACK,
     MAP_TERRAIN,
     MAP_ITEM,
@@ -324,5 +325,8 @@ extern GameLib::SpriteData sprFukidasiPause;
 
 //êÅÇ´èoÇµ3
 extern GameLib::SpriteData sprFukidasiLimit;
+
+//âe
+extern GameLib::SpriteData sprKage;
 
 #endif // !INCLUDED_SPRITE_DATA

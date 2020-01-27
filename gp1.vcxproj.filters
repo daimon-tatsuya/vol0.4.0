@@ -180,6 +180,9 @@
     <ClCompile Include="pushBotton_B.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="kage.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="all.h">
@@ -357,6 +360,9 @@
       <Filter>GameLib\ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="pushBotton_B.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="kage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

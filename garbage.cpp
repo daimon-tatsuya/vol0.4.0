@@ -25,13 +25,16 @@ void Garbage::move(OBJ2D* obj)
         case 0:
             obj->GROUND_POS_Y = 448.0f;//ã
             obj->scale = VECTOR2(0.9f, 0.9f);
+            KageManager_.add(&kage, VECTOR2(obj->position.x, obj->GROUND_POS_Y));
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//’†
             obj->scale = VECTOR2(0.95f, 0.95f);
+            KageManager_.add(&kage, VECTOR2(obj->position.x, obj->GROUND_POS_Y));
             break;
         case 2:
             obj->GROUND_POS_Y = 610.0f;//‰º
+            KageManager_.add(&kage, VECTOR2(obj->position.x, obj->GROUND_POS_Y));
             break;
         }
         groundPosYKeep_Garbage = groundPosY;
@@ -84,7 +87,6 @@ void Garbage::move(OBJ2D* obj)
                 {
                     lifted(obj, i);
                 }
-
 
                 break;
             case PAD_TRG2://“Š‚°‚é

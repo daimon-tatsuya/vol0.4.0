@@ -91,6 +91,8 @@ void game_common()
         FukidasiManager_.update();
     }
 
+    KageManager_.update();
+
     CombManager_.update();
     //    
     //if (TRG(0) & PAD_R1) //ÉSÉ~ê∂ê¨
@@ -222,6 +224,8 @@ void game_update()
         }
 
         ItemManager_.init();
+
+        KageManager_.init();
 
         PlayerUIManager_.init();
         PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 0);
@@ -358,6 +362,8 @@ void game_draw()
         tutorial.draw();
         FukidasiManager_.draw();
     }    
+
+    KageManager_.draw();
 
     if (pauseFlg)
     {
