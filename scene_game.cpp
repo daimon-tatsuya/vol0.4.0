@@ -44,6 +44,7 @@ void game_init()
     combKeta[1] = 0;
     timerNum = 7200;////
     timerKeta = 0;
+    music::play(6);
 }
 
 //--------------------------------

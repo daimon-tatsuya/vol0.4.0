@@ -25,12 +25,14 @@ void GameMode::update()
 
     if (TRG(0) & PAD_TRG2 || TRG(1) & PAD_TRG2)//ÉQÅ[ÉÄÇäJén
     {
+        music::play(0);
         shutter.init();
         title_state = 2;
     }
 
     if (TRG(0) &  PAD_UP || TRG(1) &  PAD_UP)
     {
+        music::play(0);
         /* twoPlayMode = true
          gamemode[0].scale = { 0.45f,0.
          gamemode[1].scale = { 0.5f,0.5f };*/
@@ -43,7 +45,7 @@ void GameMode::update()
         //twoPlayMode = false;
         //gamemode[0].scale = { 0.5f,0.5f };
         //gamemode[1].scale = { 0.45f,0.45f };
-
+        music::play(0);
         GameModeCount++;
     }
 

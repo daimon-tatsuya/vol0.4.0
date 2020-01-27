@@ -136,7 +136,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 {
     // ゲームライブラリの初期設定
     srand((unsigned int)time(NULL));
-    GameLib::init(L"ゲームプログラミングⅠ　制作用ひな型", 
+    GameLib::init(L"PRESS PRESSUER", 
         (int)system::SCREEN_WIDTH, (int)system::SCREEN_HEIGHT, true);
 
     // ブレンドモードの設定

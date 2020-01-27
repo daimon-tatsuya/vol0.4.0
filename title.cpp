@@ -52,6 +52,7 @@ void Title::update()
     case TITLE_DROP:
         if (TRG(0)&PAD_TRG2 || TRG(1)&PAD_TRG2)
         {
+            music::play(0);
             //titleDropFlg = true;//ƒ^ƒCƒgƒ‹‚ª—Ž‚Æ‚·
             titleScaleDownFlg = true;
             // speed.y = 4;

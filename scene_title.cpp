@@ -68,6 +68,8 @@ void title_init()
     {
         gamemode[i].init();
     }
+
+    music::play(5);
 }
 
 //--------------------------------
@@ -101,7 +103,11 @@ void title_update()
   
     case 2:
         //////// フェードアウト ////////
-        if (shutter.scrollDown()) { nextScene = SCENE_GAME; }
+        if (shutter.scrollDown()) 
+        { 
+          
+            nextScene = SCENE_GAME; 
+        }
         
         //fadeOut += 0.0167f;
 

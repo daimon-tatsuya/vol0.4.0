@@ -51,16 +51,7 @@ enum TEXNO
     PLAYERUI2,
     FUKIDASI2,
     FUKIDASI3,
-    /*MAP_BACK,
-    MAP_TERRAIN,
-    MAP_ITEM,
-    //TODO_11
-    ENEMY0,
-    ENEMY1,
-    ENEMY2,
-    ENEMY3,
-    ENEMY4,
-    ENEMY5,*/
+
 };
 
 extern GameLib::LoadTexture loadTexture[];
@@ -88,6 +79,8 @@ extern GameLib::AnimeData animeEffect1[];
 extern GameLib::AnimeData animeEffect2[];
 extern GameLib::AnimeData animeKemuri[];
 extern GameLib::AnimeData* animeEffect[];
+extern GameLib::AnimeData anime321[];
+
 
 //player(kuma)
 //‚â‚ç‚ê

@@ -1,5 +1,4 @@
 #pragma once
-#include "all.h"
 
 class PushBotton_B : public OBJ2D
 {
