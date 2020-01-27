@@ -92,6 +92,8 @@ void game_common()
         FukidasiManager_.update();
     }
 
+    KageManager_.update();
+
     CombManager_.update();
     //    
     //if (TRG(0) & PAD_R1) //ゴミ生成
@@ -224,6 +226,8 @@ void game_update()
 
         ItemManager_.init();
 
+        KageManager_.init();
+
         PlayerUIManager_.init();
         PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 0);
         if (twoPlayMode) { PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 1); }
@@ -327,34 +331,17 @@ void game_draw()
 
     CombManager_.draw();
     if (twoPlayMode)//2人プレイ
-    {
-
-        if (!player[0].moveUpFlg)
-        {
-            player[0].draw();
-            player[1].draw();
-            GarbageManager_.draw();
-        }
-        else
-        {
-
-            GarbageManager_.draw();
-            player[0].draw();
-            player[1].draw();
-        }
+    {        
+        GarbageManager_.backDraw();
+        player[0].draw();
+        player[1].draw(); 
+        GarbageManager_.frontDraw();
     }
     else//１人プレイ
     {
-        if (!player[0].moveUpFlg)
-        {
-            player[0].draw();
-            GarbageManager_.draw();
-        }
-        else
-        {
-            GarbageManager_.draw();
-            player[0].draw();
-        }
+        GarbageManager_.backDraw();
+        player[0].draw();
+        GarbageManager_.frontDraw();
     }
     EffectManager_.draw();
 
@@ -376,6 +363,8 @@ void game_draw()
         tutorial.draw();
         FukidasiManager_.draw();
     }    
+
+    KageManager_.draw();
 
     if (pauseFlg)
     {

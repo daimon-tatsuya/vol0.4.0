@@ -259,6 +259,9 @@ SpriteData sprFukidasiPause = SPRITE_CENTER(TEXNO::FUKIDASI3, 0, 0, 600, 400);
 //吹き出し3
 SpriteData sprFukidasiLimit = SPRITE_CENTER(TEXNO::FUKIDASI2, 0, 0, 600, 283);
 
+//影
+SpriteData sprKage = SPRITE_BOTTOM(TEXNO::KAGE, 0, 0, 64, 64);
+
 SpriteData sprFukidasi[] = {
     sprFukidasi1,
     sprFukidasi2,
@@ -308,6 +311,7 @@ LoadTexture loadTexture[] = {
     { TEXNO::PLAYERUI2,     L"./Data/Images/2p.png",              1U },//プレイヤーマーク２
     { TEXNO::FUKIDASI2,     L"./Data/Images/a.png",               1U },//吹き出し2
     { TEXNO::FUKIDASI3,     L"./Data/Images/b.png",               1U },//吹き出し3
+    { TEXNO::KAGE,          L"./Data/Images/kage.png",            1U },//影
     { -1, nullptr }	// 終了フラグ
 };
 

@@ -178,6 +178,7 @@
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="judge.cpp" />
+    <ClCompile Include="kage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="obj2d.cpp" />
     <ClCompile Include="pause.cpp" />
@@ -239,6 +240,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="judge.h" />
+    <ClInclude Include="kage.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="obj2d.h" />
     <ClInclude Include="pause.h" />

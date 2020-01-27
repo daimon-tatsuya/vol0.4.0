@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 ﻿  コード生成しています。
   0 of 1006 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
+=======
+﻿  garbage.cpp
+  コード生成しています。
+  2 of 1017 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    14 functions had inline decision re-evaluated but remain unchanged
+>>>>>>> c3bce0d466204c26ef541f5243945dae84a4af62
   コード生成が終了しました。
   gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Release\gp1.exe

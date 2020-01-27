@@ -51,7 +51,21 @@ enum TEXNO
     PLAYERUI2,
     FUKIDASI2,
     FUKIDASI3,
+<<<<<<< HEAD
 
+=======
+    KAGE,
+    /*MAP_BACK,
+    MAP_TERRAIN,
+    MAP_ITEM,
+    //TODO_11
+    ENEMY0,
+    ENEMY1,
+    ENEMY2,
+    ENEMY3,
+    ENEMY4,
+    ENEMY5,*/
+>>>>>>> c3bce0d466204c26ef541f5243945dae84a4af62
 };
 
 extern GameLib::LoadTexture loadTexture[];
@@ -317,5 +331,8 @@ extern GameLib::SpriteData sprFukidasiPause;
 
 //êÅÇ´èoÇµ3
 extern GameLib::SpriteData sprFukidasiLimit;
+
+//âe
+extern GameLib::SpriteData sprKage;
 
 #endif // !INCLUDED_SPRITE_DATA
