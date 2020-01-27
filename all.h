@@ -51,4 +51,5 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "pause.h"
 #include "pressShutter.h"
 #include "playerUI.h"
+#include "pushBotton_B.h"
 #endif // !INCLUDED_ALL

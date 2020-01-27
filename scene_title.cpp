@@ -62,6 +62,7 @@ void title_init()
 
     title.init();
   
+    pushbotton_B.init();
 
     for ( int i = 0; i < 3; i++ )
     {
@@ -165,10 +166,16 @@ void title_draw()
             gamemode[i].draw();
         }
     }
-
+    else
+    {
+        if (title_timer&0x20)
+        {
+            pushbotton_B.draw();
+        }
+    }
     shutter.draw();
 
-
+     
 }
 
 //--------------------------------
