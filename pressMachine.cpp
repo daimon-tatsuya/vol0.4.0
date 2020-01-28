@@ -11,6 +11,7 @@ void PressMachine::init()
     count = 0;
     shakeFlag = false;
     scale = VECTOR2(1, 1);
+    no = 0;
     //scale = VECTOR2(9.5f, 3.5f);
 
     timer = 0;
@@ -55,7 +56,7 @@ void PressMachine::update()
                     comb_.bWork[COMB::COMB_ANIME] = true;
                 }
             }
-            music::play(2);
+            
             count++;
             shakeFlag = true;
         }
@@ -81,19 +82,44 @@ void PressMachine::update()
     //    shakeFlag = true;
     //}
 
-    if (shakeFlag && count != 0) //”j‰ó‚µ‚½‚Æ‚«‚Ì‹““®
+    if (shakeFlag) //”j‰ó‚µ‚½‚Æ‚«‚Ì‹““®
     {
-        speed.y = 32.8f;
+    //    speed.y = 32.8f;
+    //
+    //    count--;
+    //    if ((count * 50) % 2 == 0)
+    //    {
+    //        music::play(2);
+    //    }
 
         timer++;
 
-        if (timer >= 5)
-        {
-            count--;
-            shakeFlag = false;
-            timer = 0;
+        if (timer > 30 * no)
+        {            
+            if (no < count) 
+            { 
+                speed.y = 32.8f;
+                music::play(2);
+                no++;
+            }
+            else if(no >= count) 
+            {
+                timer = 0;
+                count = 0;
+                no = 0;
+                shakeFlag = false; 
+            }
+
+
         }
-    }
+
+    //    if (count == 0)
+    //    {
+    //        count = 0;
+    //        shakeFlag = false;
+    //        timer = 0;
+    //    }
+     }
 
     
 }
