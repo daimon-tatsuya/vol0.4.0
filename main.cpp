@@ -438,14 +438,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         break;
     }
 
-    //ImGui_ImplDX11_Shutdown();
-    //ImGui_ImplWin32_Shutdown();
-    //ImGui::DestroyContext();
-    //
-    //MyImGui::CleanupDevice();
-    //DestroyWindow(MyImGui::hWindow);
-    //UnregisterClass(wc.lpszClassName, wc.hInstance);
-
+   
     // ‰¹ŠyEŒø‰Ê‰¹‚ÌI—¹ˆ—‚ğŒÄ‚ñ‚Å‚¨‚­
     audio_uninit();
 

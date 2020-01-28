@@ -27,6 +27,7 @@ extern int nextScene;
 //--------------------------------
 void title_init()
 {
+  
     title_state = 0;
     title_timer = 0;
     game_mode = 0;
@@ -80,6 +81,7 @@ void title_init()
     }
 
     music::play(5, true);
+
 }
 
 //--------------------------------
@@ -116,10 +118,13 @@ void title_update()
   
     case 2:
         //////// フェードアウト ////////
+
+        music::stop(5);
         if (shutter.scrollDown()) 
-        { 
-          
-            nextScene = SCENE_GAME; 
+        {
+            
+            nextScene = SCENE_GAME;    
+            music::play(3);
         }
         
         //fadeOut += 0.0167f;

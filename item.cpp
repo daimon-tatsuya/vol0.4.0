@@ -101,14 +101,17 @@ void itemMove1(OBJ2D* obj) //コンベアースピードアップ
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
+                music::play(4);
                 if (player[i].exist)
                 {
+                    
                     //ここにアイテム効果の処理のフラグを立てる。
                     player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
                     conveyor.animeData = animeConveyor[1];
                     belt = 3.5f;
                     obj->eraseAlg = &itemErase;
                 }
+               
             }
         }
 
@@ -175,6 +178,7 @@ void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
                           
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
+                music::play(4);
                 //ここにアイテム効果の処理のフラグを立てる。
                 if (player[i].exist)
                 {
@@ -258,6 +262,7 @@ void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
+                music::play(4);
                 if (player[i].exist)
                 {
                     //ここにアイテム効果の処理のフラグを立てる。
@@ -331,6 +336,7 @@ void itemMove4(OBJ2D* obj)//アイテム出現時間短縮
     case ITEM_MOVE:
         for (int i = 0; i < 2; i++)
         {
+
             if (rectHitCheck(obj->position - VECTOR2(32, 64), 64, 64, VECTOR2(0, obj->GROUND_POS_Y), SCREEN_WIDTH, SCREEN_HEIGHT))
             {
                 obj->position.y = obj->GROUND_POS_Y;
@@ -343,6 +349,7 @@ void itemMove4(OBJ2D* obj)//アイテム出現時間短縮
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
+                music::play(4);
                 if (player[i].exist)
                 {
                     //ここにアイテム効果の処理のフラグを立てる。

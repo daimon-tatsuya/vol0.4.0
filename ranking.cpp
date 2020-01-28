@@ -71,7 +71,10 @@ void Ranking::update()
 
     case 1:
 
-        if (shutter.scrollDown()) { nextScene = SCENE_TITLE; }
+        if (shutter.scrollDown()) 
+        { 
+            music::play(3);
+            nextScene = SCENE_TITLE; }
 
         break;
     }

@@ -53,4 +53,5 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "playerUI.h"
 #include "pushBotton_B.h"
 #include "kage.h"
+
 #endif // !INCLUDED_ALL

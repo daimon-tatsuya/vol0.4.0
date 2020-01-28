@@ -36,6 +36,7 @@ extern int nextScene;
 //--------------------------------
 void game_init()
 {
+
     game_state = 0;
     game_timer = 0;
     combNum[0] = 0;
@@ -44,6 +45,7 @@ void game_init()
     combKeta[1] = 0;
     timerNum = 7200;////
     timerKeta = 0;
+
     music::play(6, true);
 }
 
@@ -62,6 +64,7 @@ void game_common()
          timerNum = 10800;
          timerKeta = 0;
          nextScene = SCENE_TITLE;*/
+        music::pause(6);
         pauseFlg = true;
     }
 
@@ -239,7 +242,12 @@ void game_update()
 
     case 1:
 
-        if (shutter.scrollUp()) { game_state++; }
+        if (shutter.scrollUp()) 
+        { 
+         
+            game_state++;
+        }
+
         break;
 
     case 2:
@@ -257,33 +265,22 @@ void game_update()
         }
         if (timerNum < 0 && !tutorialMode)
         {
-            //if (twoPlayMode) { game_state = 4; }
-            //else { game_state++; }         
-            game_state++;
+            game_state++; 
+            music::play(3);
         }
-        //if (TRG(0) & PAD_L1)//ランキングに飛ぶ。
-        //{
-        //    game_state++;
-        //}
-
-        //game_state++;
+       
         break;
 
-        //case 2://ランキングの初期化(ソートもここで行っている)
-        //
-        //    RankingNumManager_.init();
-        //    ranking.init();
-        //    game_state++;
-        //    break;
-        //
-        //case 3://ランキングのアップデート
-        //
-        //    ranking.update();
-        //    RankingNumManager_.update();        
-        //    break;
+  
 
-    case 3://初期化とシーン移行
-        if (shutter.scrollDown()) { nextScene = SCENE_OVER; }
+    case 3://初期化とシーン移行 
+     
+        if (shutter.scrollDown())
+        {
+            
+            nextScene = SCENE_OVER; 
+           
+        }
 
         //combNum[0] = 0;
         //combNum[1] = 0;
