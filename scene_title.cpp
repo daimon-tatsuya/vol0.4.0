@@ -60,6 +60,16 @@ void title_init()
 
     DustBoxManager_.add(&dustBox, VECTOR2(926, 84));
 
+    GarbageManager_.init();
+    RandoManager_.init();
+    RandoManager_.add(&randomMark, VECTOR2(390, 105));
+    RandoManager_.add(&randomMark, VECTOR2(653, 105));
+    RandoManager_.add(&randomMark, VECTOR2(916, 105));
+
+    ItemManager_.init();
+
+    KageManager_.init();
+
     title.init();
   
     pushbotton_B.init();
@@ -80,6 +90,9 @@ void title_update()
     bg.update();
     conveyor.update();
     GarbageManager_.update();
+    RandoManager_.update();
+    ItemManager_.update();
+    KageManager_.update();
     press_machine.update();
     DustBoxManager_.update();
   
@@ -161,7 +174,15 @@ void title_draw()
 
     press_machine.draw();
 
-    DustBoxManager_.draw();    
+    GarbageManager_.draw();
+
+    ItemManager_.draw();
+
+    DustBoxManager_.draw();
+
+    RandoManager_.draw();    
+
+    KageManager_.draw();
 
     title.draw();
 
