@@ -431,9 +431,11 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         game_end();
         break;
     case SCENE_OVER:
+        //if (over.state == 2) { music::play(3); }
         over_end();
         break;
     case SCENE_RANKING:
+        //music::play(3);
         ranking.end();
         break;
     }

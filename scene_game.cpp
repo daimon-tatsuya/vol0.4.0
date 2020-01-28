@@ -236,6 +236,7 @@ void game_update()
         if (twoPlayMode) { PlayerUIManager_.add(&playerUI, VECTOR2(0, 0), 1); }
         
         shutter.init();
+        music::play(3);
 
         game_state++;
         break;
@@ -243,8 +244,7 @@ void game_update()
     case 1:
 
         if (shutter.scrollUp()) 
-        { 
-         
+        {             
             game_state++;
         }
 
@@ -269,6 +269,8 @@ void game_update()
             music::play(3);
         }
        
+        //game_state++;
+        
         break;
 
   
@@ -276,10 +278,8 @@ void game_update()
     case 3://初期化とシーン移行 
      
         if (shutter.scrollDown())
-        {
-            
-            nextScene = SCENE_OVER; 
-           
+        {            
+            nextScene = SCENE_OVER;                        
         }
 
         //combNum[0] = 0;
@@ -393,13 +393,14 @@ void game_end()
         player[i].mvAlg = nullptr;
     }
 
-    //int i;
-    //for (i = 0; i < MUSIC_FILE_MAX; i++)
-    //{
-    //    music::stop(i);
-    //}
+    int i;
+    for (i = 0; i < MUSIC_FILE_MAX; i++)
+    {
+        music::stop(i);
+    }
 
-    music::stop(6);
+    //music::stop(6);
+    //music::stop(3);
 
     // スプライトの破棄 
     //SAFE_DELETE(sprPlayer); // プレイヤースプライトの破棄

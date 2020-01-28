@@ -94,7 +94,7 @@ void PressMachine::update()
 
         timer++;
 
-        if (timer > 30 * no)
+        if (timer > 20 * no)
         {            
             if (no < count) 
             { 

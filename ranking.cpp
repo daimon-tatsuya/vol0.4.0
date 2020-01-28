@@ -54,6 +54,8 @@ void Ranking::init()
     }    
 
     shutter.init();
+
+    music::play(5, true);
 }
 
 void Ranking::update()
@@ -65,16 +67,18 @@ void Ranking::update()
         if (TRG(0) & PAD_TRG2)
         {
             state++;            
+            music::play(3);
             writeData();
         }
         break;
 
     case 1:
 
+        music::stop(5);
         if (shutter.scrollDown()) 
-        { 
-            music::play(3);
-            nextScene = SCENE_TITLE; }
+        {             
+            nextScene = SCENE_TITLE;             
+        }
 
         break;
     }
@@ -110,7 +114,11 @@ void Ranking::draw()
 
 void Ranking::end()
 {
-
+    int i;
+    for (i = 0; i < MUSIC_FILE_MAX; i++)
+    {
+        music::stop(i);
+    }
 }
 
 void Ranking::readData()

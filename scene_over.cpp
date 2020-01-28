@@ -12,8 +12,8 @@ void OVER::init()
     position = { 0, 0};
     scale    = { 1.0f,1.0f }; 
     state = 0;
-    mode = true;
-    player1Win = false;
+    mode = true; //二人プレイかどうか確認する
+    player1Win = false;//プレイヤー1が買ってるかどうかのフラグ
     data = nullptr;
 
     for (int i = 0; i < RESULT_MAX + 1; i++)
@@ -36,24 +36,24 @@ void OVER::init()
 
     if (twoPlayMode)
     {
-        if (ranking.result[5] > ranking.result[6])
+        if (ranking.result[5] >= ranking.result[6])
         {
             player1Win = true;
             posComp[OVER_STATE::OVER_PLAYER1] = VECTOR2(300, 450);
             posComp[OVER_STATE::OVER_PLAYER2] = VECTOR2(1000, 450);
-            posComp[OVER_STATE::OVER_NUMBER1] = VECTOR2(300, 250);//スコア数字座標設定
-            posComp[OVER_STATE::OVER_NUMBER2] = VECTOR2(1100, 250);//スコア数字座標設定
+            posComp[OVER_STATE::OVER_NUMBER1] = VECTOR2(350, 200);//スコア数字座標設定
+            posComp[OVER_STATE::OVER_NUMBER2] = VECTOR2(1050, 200);//スコア数字座標設定
         }
 
-        else if (ranking.result[5] < ranking.result[6])
+        else if (ranking.result[5] <= ranking.result[6])
         {
             posComp[OVER_STATE::OVER_PLAYER1] = VECTOR2(1000, 450);
             posComp[OVER_STATE::OVER_PLAYER2] = VECTOR2(300, 450);
-            posComp[OVER_STATE::OVER_NUMBER1] = VECTOR2(1100, 250);//スコア数字座標設定
-            posComp[OVER_STATE::OVER_NUMBER2] = VECTOR2(300, 250);//スコア数字座標設定
+            posComp[OVER_STATE::OVER_NUMBER1] = VECTOR2(1050, 200);//スコア数字座標設定
+            posComp[OVER_STATE::OVER_NUMBER2] = VECTOR2(350, 200);//スコア数字座標設定
         }
 
-        posComp[OVER_STATE::OVER_SCORE] = VECTOR2(465, 150);//スコア座標設定
+        posComp[OVER_STATE::OVER_SCORE] = VECTOR2(485, 150);//スコア座標設定
         mode = false;        
         scale = VECTOR2(0.5f, 0.5f);
 
@@ -79,7 +79,6 @@ void OVER::init()
     //{
     //    posComp[i] = VECTOR2(0, 0);
     //}
-    music::play(3);
 }
 void OVER::update()
 {
@@ -103,10 +102,10 @@ void OVER::draw()
         data->draw(posComp[OVER_STATE::OVER_PLAYER2], VECTOR2(1, 1), 0, VECTOR4(1, 1, 1, 1));
 
         data = &sprwin;
-        data->draw(VECTOR2(150, 300), VECTOR2(0.5f, 0.5f));
+        data->draw(VECTOR2(450, 400), VECTOR2(0.5f, 0.5f));
 
         data = &sprlose;
-        data->draw(VECTOR2(500, 300), VECTOR2(0.5f, 0.5f));
+        data->draw(VECTOR2(800, 400), VECTOR2(0.5f, 0.5f));
     }
 }
 
@@ -119,6 +118,8 @@ void over_init()
     PlayerUIManager_.add(&playerUI, VECTOR2(over.posComp[OVER_STATE::OVER_PLAYER1].x, over.posComp[OVER_STATE::OVER_PLAYER1].y - 160), 0);
     if (twoPlayMode) { PlayerUIManager_.add(&playerUI, VECTOR2(over.posComp[OVER_STATE::OVER_PLAYER2].x, over.posComp[OVER_STATE::OVER_PLAYER2].y - 160), 1); }
     shutter.init();
+    music::play(5, true);
+    music::play(3);
 }
 void over_update()
 {        
@@ -127,7 +128,7 @@ void over_update()
     case 0:
 
         if (shutter.scrollUp()) 
-        { // music::play(3);
+        {   
             over.state++; 
         }
         break;
@@ -141,7 +142,11 @@ void over_update()
 
         if ((TRG(0) & PAD_TRG2) || over_timer >= 1200)
         {
-            if (twoPlayMode) { over.state++; }
+            if (twoPlayMode) 
+            {
+                music::play(3);
+                over.state++; 
+            }
             else 
             { 
                 nextScene = SCENE_RANKING;
@@ -153,7 +158,6 @@ void over_update()
         if (shutter.scrollDown())
         {
             nextScene = SCENE_TITLE;
-            music::play(3);
         }
         break;
     }

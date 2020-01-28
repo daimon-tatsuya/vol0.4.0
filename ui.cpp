@@ -203,7 +203,7 @@ void UI::rankingMove(OBJ2D* obj)
             obj->position.x -= obj->size.x * obj->type;            
         }        
         
-        if (over.mode)
+        if (obj->no > 4 && !twoPlayMode)
         {
             obj->position.x -= obj->size.x * obj->type * 2;
             obj->scale = VECTOR2(3, 3);

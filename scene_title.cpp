@@ -14,6 +14,7 @@
 //------< 変数 >----------------------------------------------------------------
 int title_state;    // 状態
 int title_timer;    // タイマー
+int title_count = 0;
 int game_mode = 0;
 // フェードアウト用変数の宣言
 float fadeOut;
@@ -26,8 +27,7 @@ extern int nextScene;
 // 初期設定
 //--------------------------------
 void title_init()
-{
-  
+{    
     title_state = 0;
     title_timer = 0;
     game_mode = 0;
@@ -82,6 +82,12 @@ void title_init()
 
     music::play(5, true);
 
+    if (title_count > 0)
+    {
+        music::play(3);
+    }
+
+    title_count++;
 }
 
 //--------------------------------
@@ -107,7 +113,9 @@ void title_update()
         
       
         if (shutter.scrollUp() && titleDropFlg)
-        { title_state++; }
+        {
+            title_state++;             
+        }
         
         break;
 
@@ -121,8 +129,7 @@ void title_update()
 
         music::stop(5);
         if (shutter.scrollDown()) 
-        {
-            
+        {            
             nextScene = SCENE_GAME;    
             music::play(3);
         }
@@ -215,5 +222,14 @@ void title_draw()
 //--------------------------------
 void title_end()
 {
-    music::stop(5);
+    for (int i = 0; i < 2; i++)
+    {
+        player[i].mvAlg = nullptr;
+    }
+
+    int i;
+    for (i = 0; i < MUSIC_FILE_MAX; i++)
+    {
+        music::stop(i);
+    }
 }
