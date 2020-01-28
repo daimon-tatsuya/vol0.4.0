@@ -51,9 +51,6 @@ enum TEXNO
     PLAYERUI2,
     FUKIDASI2,
     FUKIDASI3,
-<<<<<<< HEAD
-
-=======
     KAGE,
     /*MAP_BACK,
     MAP_TERRAIN,
@@ -65,7 +62,7 @@ enum TEXNO
     ENEMY3,
     ENEMY4,
     ENEMY5,*/
->>>>>>> c3bce0d466204c26ef541f5243945dae84a4af62
+
 };
 
 extern GameLib::LoadTexture loadTexture[];

@@ -79,6 +79,7 @@ void OVER::init()
     //{
     //    posComp[i] = VECTOR2(0, 0);
     //}
+    music::play(3);
 }
 void OVER::update()
 {
@@ -125,7 +126,10 @@ void over_update()
     {
     case 0:
 
-        if (shutter.scrollUp()) { over.state++; }
+        if (shutter.scrollUp()) 
+        { // music::play(3);
+            over.state++; 
+        }
         break;
 
     case 1:
@@ -138,12 +142,19 @@ void over_update()
         if ((TRG(0) & PAD_TRG2) || over_timer >= 1200)
         {
             if (twoPlayMode) { over.state++; }
-            else { nextScene = SCENE_RANKING; }            
+            else 
+            { 
+                nextScene = SCENE_RANKING;
+            }            
         }
         break;
     case 2:
 
-        if (shutter.scrollDown()) { nextScene = SCENE_TITLE; }
+        if (shutter.scrollDown())
+        {
+            nextScene = SCENE_TITLE;
+            music::play(3);
+        }
         break;
     }
 

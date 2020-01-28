@@ -55,7 +55,7 @@ void PressMachine::update()
                     comb_.bWork[COMB::COMB_ANIME] = true;
                 }
             }
-            
+            music::play(2);
             count++;
             shakeFlag = true;
         }

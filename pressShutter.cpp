@@ -35,7 +35,7 @@ void Shutter::init()
 bool Shutter::scrollUp()//スクロールしきったらtrueを返す。
 {
     position.y -= 10;
-
+   
     if (position.y < 0)
     {
         position.y = 0;

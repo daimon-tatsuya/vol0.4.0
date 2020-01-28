@@ -187,7 +187,11 @@ void Tutorial::update()
 
         if (success)
         {
-            if (shutter.scrollDown()) { nextFlag = true; }
+            if (shutter.scrollDown())
+            {
+                music::play(3);
+                nextFlag = true;
+            }
         }
 
         if (nextFlag)

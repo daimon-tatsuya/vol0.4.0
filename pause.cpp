@@ -98,6 +98,7 @@ void Pause::update()
             pause[1].scale = { 0.45f,0.45f };
             pause[2].scale = { 0.45f,0.45f };
             pause[3].scale = { 0.75f,0.75f };
+
         }
         break;
     case 1:
@@ -108,7 +109,7 @@ void Pause::update()
             pause[1].scale = { 0.75f,0.75f };
             pause[2].scale = { 0.45f,0.45f };
             pause[3].scale = { 0.45f,0.45f };
-           
+            music::resume(6);
         }
 
         if (PauseCount == 1)//ƒAƒCƒeƒ€ˆê——
