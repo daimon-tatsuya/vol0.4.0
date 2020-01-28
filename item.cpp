@@ -101,10 +101,10 @@ void itemMove1(OBJ2D* obj) //コンベアースピードアップ
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                music::play(4);
+              
                 if (player[i].exist)
                 {
-                    
+                      music::play(4);
                     //ここにアイテム効果の処理のフラグを立てる。
                     player[i].bWork[PLAYER_STATUS::CONVEYORUP] = true;
                     conveyor.animeData = animeConveyor[1];
@@ -178,12 +178,14 @@ void itemMove2(OBJ2D* obj)//足の速さが上がるアイテム処理。
                           
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                music::play(4);
+              
                 //ここにアイテム効果の処理のフラグを立てる。
                 if (player[i].exist)
-                {
+                { 
+                   
                     if (player[i].bWork[PLAYER_STATUS::SPEEDUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
-                    {
+                    { 
+                        music::play(4);
                         for (auto& efe : *EffectManager_.getList())
                         {
                             if (efe.exist && efe.type == 1)
@@ -262,9 +264,10 @@ void itemMove3(OBJ2D* obj)//持てる量増えるアイテム処理。
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                music::play(4);
+              
                 if (player[i].exist)
-                {
+                { 
+                    music::play(4);
                     //ここにアイテム効果の処理のフラグを立てる。
                     if (player[i].bWork[PLAYER_STATUS::POWERUP] == true) //同じ効果のエフェクトが出てる場合はいったん消す。
                     {
@@ -349,9 +352,10 @@ void itemMove4(OBJ2D* obj)//アイテム出現時間短縮
 
             if (rectHitCheck(VECTOR2(obj->position.x - obj->size.x, obj->position.y - obj->size.y), obj->size.x, obj->size.y, VECTOR2(player[i].position.x - player[i].size.x, player[i].position.y - player[i].size.y), player[i].size.x, player[i].size.y))
             {
-                music::play(4);
+              
                 if (player[i].exist)
-                {
+                {  
+                    music::play(4);
                     //ここにアイテム効果の処理のフラグを立てる。
                     for (auto& it : *RandoManager_.getList())
                     {

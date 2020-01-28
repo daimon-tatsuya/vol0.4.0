@@ -51,11 +51,13 @@ void Pause::update()
         if (TRG(0) &  PAD_UP || TRG(1) &  PAD_UP)
         {
             PauseCount--;
+            music::play(0);
         }
 
         if (TRG(0) &PAD_DOWN || TRG(1) &PAD_DOWN)
         {
             PauseCount++;
+            music::play(0);
         }
 
         if (PauseCount < 0)
@@ -68,6 +70,7 @@ void Pause::update()
         }
         if (TRG(0)& PAD_TRG2 || TRG(1)& PAD_TRG2)//Œˆ’è
         {
+            music::play(0);
             pause_state++;
         }
         if (PauseCount == 0)//ƒQ[ƒ€‚ð‘±‚¯‚é
