@@ -62,7 +62,10 @@ enum TEXNO
     ENEMY3,
     ENEMY4,
     ENEMY5,*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53df2037096848fddef3a20852c25506411158da
 };
 
 extern GameLib::LoadTexture loadTexture[];

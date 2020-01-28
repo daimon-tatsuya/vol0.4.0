@@ -22,7 +22,7 @@ void Item::move(OBJ2D* obj)
         case 0:
             obj->GROUND_POS_Y = 448.0f;//ã
             obj->scale = VECTOR2(0.9f, 0.9f);
-            KageManager_.add(&kage, VECTOR2(obj->position.x, obj->GROUND_POS_Y));
+            KageManager_.add(&kage, VECTOR2(obj->position.x, obj->GROUND_POS_Y + 32));
             break;
         case 1:
             obj->GROUND_POS_Y = 546.0f;//’†
