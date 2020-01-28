@@ -69,13 +69,9 @@ void title_init()
     {
         gamemode[i].init();
     }
-<<<<<<< HEAD
-    
-    music::play(5,true);
-=======
 
     music::play(5, true);
->>>>>>> 53df2037096848fddef3a20852c25506411158da
+
 }
 
 //--------------------------------

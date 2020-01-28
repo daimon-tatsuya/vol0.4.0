@@ -52,11 +52,6 @@ using namespace input;      // –{—ˆƒwƒbƒ_‚É‘‚­‚×‚«‚Å‚Í‚È‚¢iŠwK‚µ‚â‚·‚³‚ğ—Dæ
 #include "pressShutter.h"
 #include "playerUI.h"
 #include "pushBotton_B.h"
-<<<<<<< HEAD
-
 #include "kage.h"
 
-=======
-#include "kage.h"
->>>>>>> 53df2037096848fddef3a20852c25506411158da
 #endif // !INCLUDED_ALL

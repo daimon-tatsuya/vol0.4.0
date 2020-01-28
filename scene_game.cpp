@@ -36,7 +36,7 @@ extern int nextScene;
 //--------------------------------
 void game_init()
 {
-    
+
     game_state = 0;
     game_timer = 0;
     combNum[0] = 0;
@@ -45,11 +45,8 @@ void game_init()
     combKeta[1] = 0;
     timerNum = 7200;////
     timerKeta = 0;
-<<<<<<< HEAD
-    music::play(6,true);
-=======
+
     music::play(6, true);
->>>>>>> 53df2037096848fddef3a20852c25506411158da
 }
 
 //--------------------------------
