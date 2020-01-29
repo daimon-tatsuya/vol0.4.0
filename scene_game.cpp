@@ -266,7 +266,7 @@ void game_update()
         if (timerNum < 0 && !tutorialMode)
         {
             game_state++; 
-            music::play(3);
+            music::play(3);//シャッター音はここで鳴らす。
         }
        
         //game_state++;
@@ -277,7 +277,7 @@ void game_update()
 
     case 3://初期化とシーン移行 
      
-        if (shutter.scrollDown())
+        if (shutter.scrollDown())//ここで音を鳴らすとシャッターが下りた後になってしまう。
         {            
             nextScene = SCENE_OVER;                        
         }
