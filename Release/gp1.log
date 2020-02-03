@@ -1,7 +1,7 @@
-﻿  scene_game.cpp
+﻿  audio.cpp
   コード生成しています。
-  0 of 1045 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  1 of 1037 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    38 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  gp1.vcxproj -> C:\Users\2190297\Desktop\チーム制作まとめ\チーム制作(7週間)\vol0.4.0-develop2\Release\gp1.exe
+  gp1.vcxproj -> D:\チーム制作\124_GR1GB大門_GR1GA高尾_GI1A井上 3回目\gameName\vol0.4.0\Release\gp1.exe
