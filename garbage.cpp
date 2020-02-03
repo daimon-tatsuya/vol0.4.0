@@ -57,6 +57,7 @@ void Garbage::move(OBJ2D* obj)
     obj->exist = true;
     obj->throwFlg = false;
     obj->no = 0;
+    obj->bWork[GarbageManager::BACK] = false;
 
     srand((unsigned int)time(NULL));//—”‚ðXV‚·‚é
 
@@ -85,17 +86,19 @@ void Garbage::move(OBJ2D* obj)
 
                 if (rectHitCheck(obj->position - VECTOR2(32, 64), obj->size.x * 2, obj->size.y * 2, player[i].position, player[i].size.x * 2, player[i].size.y * 2) && !obj->caughtFlg && player[i].liftedCount < player[i].iWork[PLAYER::LIFTED_MAX])
                 {
-                    lifted(obj, i);
+                    if (player[i].exist)
+                    {
+                        lifted(obj, i);
+                    }                    
                 }
 
                 break;
             case PAD_TRG2://“Š‚°‚é
-                if (i==obj->no)
+                if (i == obj->no && player[i].exist)
                 {
                     thrown(obj, i);
                 }
                
-
                 break;
             }
         }

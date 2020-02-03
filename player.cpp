@@ -11,7 +11,7 @@ void Player::init()
 {
     animeData = animePlayer[type][0];
 
-    exist = true;
+    //exist = true;
 
     // サイズ設定（足元が中心であるため、幅はあたりとして使用する半分・縦はそのままが扱いやすい）
     size = VECTOR2(24 / 2, 32 - 2);
@@ -29,6 +29,7 @@ void Player::init()
     bWork[PLAYER_STATUS::ITEMADD] = false;
     bWork[PLAYER_STATUS::POWERUP] = false;
     bWork[PLAYER_STATUS::SPEEDUP] = false;
+    liftedCount = 0;
     itemSpeed = 0;
     belt = 2.0f;
 
@@ -67,6 +68,7 @@ void Player::update()
         bWork[PLAYER_STATUS::POWERUP]    = false;
         bWork[PLAYER_STATUS::SPEEDUP]    = false;
         itemSpeed = 0;
+        liftFlg = false;
         belt = 2.0f;
 
         if (animeData)
@@ -186,7 +188,6 @@ void Player::update()
             {
                 if (player[type].liftFlg)
                 {
-                    player[type].moveUpFlg;
                     player[type].animeData = animePlayer[type][5];
                 }
                 else

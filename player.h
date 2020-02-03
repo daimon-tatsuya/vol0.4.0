@@ -30,7 +30,7 @@ public:
     int liftedCount = 0;//‚¿ã‚°‚½”
     float itemSpeed = 0;
     bool liftFlg;//garbage.cpp‚Åg‚¤
-    bool moveUpFlg;//ã‚É•à‚¢‚Ä‚¢‚é‚Æ‚«true
+    //bool moveUpFlg;//ã‚É•à‚¢‚Ä‚¢‚é‚Æ‚«true
     //int type;//1p,2p‚Ì
     void init();
     void update();

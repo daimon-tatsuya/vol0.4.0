@@ -23,8 +23,8 @@ void audio_init()
     music::load(3, L"./Data/Musics/shutter.wav",  1.0f);//シャッター
     music::load(4, L"./Data/Musics/item.wav",     0.5f);//アイテム入手
   //BGM
-    music::load(5, L"./Data/Musics/tittle.wav",   0.3f);//タイトル
-    music::load(6, L"./Data/Musics/battle.wav",   0.3f);//バトル
+    music::load(5, L"./Data/Musics/tittle.wav",   1.0f);//タイトル
+    music::load(6, L"./Data/Musics/battle.wav",   1.0f);//バトル
 }
 
 //--------------------------------B

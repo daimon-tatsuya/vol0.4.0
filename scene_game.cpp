@@ -164,12 +164,12 @@ void game_update()
 
         player[0].init();
         player[0].type = 0;
+        player[0].exist = true;
 
-        if (twoPlayMode)
-        {
-            player[1].init();
-            player[1].type = 1;
-        }
+        player[1].init();
+        player[1].type = 1;
+        player[1].exist = false;
+        if (twoPlayMode) { player[1].exist = true; }
 
         player[1].data = &sprPlayer2_Down0;
 

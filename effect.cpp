@@ -17,7 +17,7 @@ void Effect::move(OBJ2D* obj)
 
         obj->state++;
 
-        if (obj->type == 2) { obj->state = 2; }//煙のフラグはstateで行う。
+        if (obj->type == 2) { obj->state = 2; }//煙のフラグはstate2で行う。
         break;
 
     case 1:        
